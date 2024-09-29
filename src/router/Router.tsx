@@ -40,11 +40,6 @@ import Guard from '../guards/Guard';
 // Layout
 import DefaultLayout from '../layouts/DefaultLayout';
 import AuthLayout from '../layouts/AuthLayout';
-// Projects
-import Farmers from '../pages/users/Farmers';
-import Workers from '../pages/users/Workers';
-import Merchants from '../pages/users/Merchants';
-import Products from '../pages/product/Products';
 
 const allRoutes = prepareAllRoutes();
 
@@ -357,57 +352,6 @@ const otherRouter = [
       </AuthLayout>
     ),
   },
-  // {
-  //   path: allRoutes.GUEST_PAGE.path,
-  //   element: (
-  //     <Guard routeKey={allRoutes.GUEST_PAGE.key}>
-  //       <div>Guest Page</div>
-  //     </Guard>
-  //   ),
-  // },
-];
-
-const projectRoute = [
-  {
-    path: allRoutes.FARMERS_PAGE.path,
-    element: (
-      <Guard routeKey={allRoutes.FARMERS_PAGE.key}>
-        <DefaultLayout>
-          <Farmers />
-        </DefaultLayout>
-      </Guard>
-    ),
-  },
-  {
-    path: allRoutes.WORKERS_PAGE.path,
-    element: (
-      <Guard routeKey={allRoutes.WORKERS_PAGE.key}>
-        <DefaultLayout>
-          <Workers />
-        </DefaultLayout>
-      </Guard>
-    ),
-  },
-  {
-    path: allRoutes.MERCHANTS_PAGE.path,
-    element: (
-      <Guard routeKey={allRoutes.MERCHANTS_PAGE.key}>
-        <DefaultLayout>
-          <Merchants />
-        </DefaultLayout>
-      </Guard>
-    ),
-  },
-  {
-    path: allRoutes.PRODUCTS_PAGE.path,
-    element: (
-      <Guard routeKey={allRoutes.PRODUCTS_PAGE.key}>
-        <DefaultLayout>
-          <Products />
-        </DefaultLayout>
-      </Guard>
-    ),
-  },
 ];
 
 export const router = createBrowserRouter([
@@ -419,5 +363,4 @@ export const router = createBrowserRouter([
   ...authRouter,
   ...accessErrorRouter,
   ...routerByUserType,
-  ...projectRoute,
 ]);

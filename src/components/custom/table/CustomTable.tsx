@@ -27,10 +27,6 @@ const StyledTableRow = styled(TableRowComp)(({ theme }) => ({
   '&:nth-of-type(odd)': {
     backgroundColor: theme.palette.action.hover,
   },
-  // hide last border
-  // '&:last-child td, &:last-child th': {
-  //   borderBottom: 0,
-  // },
 }));
 
 const StickyTableColumn = styled(TableCellComp, {

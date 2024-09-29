@@ -1,20 +1,7 @@
 import { BaseQueryApi, FetchArgs, createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { RootState } from '../../store';
 import { setAuthFields } from '../authSlice';
-import {
-  ApiResponseDto,
-  SignInResponseDto,
-  VerifySignInResponseDto,
-  GetFarmersResponseDto,
-  GetWorkersResponseDto,
-  GetMerchantsResponseDto,
-  GetProductsResponseDto,
-  CreateProductResponseDto,
-  CreateProductRequestDto,
-  GetProductByIdResponseDto,
-  UpdateProductResponseDto,
-  UpdateProductRequestDto,
-} from './defaultApiDto';
+import { ApiResponseDto, SignInResponseDto, VerifySignInResponseDto } from './defaultApiDto';
 import { Toastify } from '../../../components/custom/toastify/Toastify';
 import { ToastCompProps } from '../../../components/custom/toastify/toastifyHelper';
 
@@ -127,10 +114,12 @@ export const defaultApi = createApi({
 
           if (data.token) {
             const authField = {
+              userType: data.useType,
               token: data.token,
               name: data.authendicatedUserResponseDto.username,
               surname: data.authendicatedUserResponseDto.surname,
               phone: data.authendicatedUserResponseDto.phone,
+              email: data.authendicatedUserResponseDto.email,
             };
 
             dispatch(setAuthFields(authField));
@@ -141,128 +130,10 @@ export const defaultApi = createApi({
         }
       },
     }),
-    //! Farmer endpoints
-    getFarmers: builder.query<GetFarmersResponseDto[], void>({
-      query: () => ({
-        url: '/farmers',
-        method: 'GET',
-      }),
-      async onQueryStarted(args, { queryFulfilled }) {
-        try {
-          console.log('Fetching farmers...');
-          const { data } = await queryFulfilled;
-          console.log('Fetched farmers:', data);
-        } catch (error) {
-          console.error('Fetching farmers failed:', error);
-        }
-      },
-    }),
-    //! Worker endpoints
-    getWorkers: builder.query<GetWorkersResponseDto[], void>({
-      query: () => ({
-        url: '/workers',
-        method: 'GET',
-      }),
-      async onQueryStarted(args, { queryFulfilled }) {
-        try {
-          console.log('Fetching workers...');
-          const { data } = await queryFulfilled;
-          console.log('Fetched workers:', data);
-        } catch (error) {
-          console.error('Fetching workers failed:', error);
-        }
-      },
-    }),
-    //! Merchant endpoints
-    getMerchants: builder.query<GetMerchantsResponseDto[], void>({
-      query: () => ({
-        url: '/merchants',
-        method: 'GET',
-      }),
-      async onQueryStarted(args, { queryFulfilled }) {
-        try {
-          console.log('Fetching merchants...');
-          const { data } = await queryFulfilled;
-          console.log('Fetched merchants:', data);
-        } catch (error) {
-          console.error('Fetching merchants failed:', error);
-        }
-      },
-    }),
-    //! Product endpoint
-    createProduct: builder.mutation<CreateProductResponseDto, CreateProductRequestDto>({
-      query: (newProduct) => ({
-        url: '/createProduct',
-        method: 'POST',
-        body: newProduct,
-      }),
-      async onQueryStarted(args, { queryFulfilled }) {
-        try {
-          const { data } = await queryFulfilled;
-          console.log('Product created:', data);
-        } catch (error) {
-          console.error('Product creation failed:', error);
-        }
-      },
-    }),
-    getProducts: builder.query<GetProductsResponseDto[], void>({
-      query: () => ({
-        url: '/products',
-        method: 'GET',
-      }),
-      async onQueryStarted(args, { queryFulfilled }) {
-        try {
-          console.log('Fetching products...');
-          const { data } = await queryFulfilled;
-          console.log('Fetched products:', data);
-        } catch (error) {
-          console.error('Fetching products failed:', error);
-        }
-      },
-    }),
-    getProductById: builder.query<GetProductByIdResponseDto, number>({
-      query: (id) => ({
-        url: `/products/${id}`,
-        method: 'GET',
-      }),
-      async onQueryStarted(args, { queryFulfilled }) {
-        try {
-          const { data } = await queryFulfilled;
-          console.log('Fetched product by ID:', data);
-        } catch (error) {
-          console.error('Fetching product by ID failed:', error);
-        }
-      },
-    }),
-    updateProductById: builder.mutation<UpdateProductResponseDto, { id: number; data: UpdateProductRequestDto }>({
-      query: ({ id, data }) => ({
-        url: `/products/${id}`,
-        method: 'PUT',
-        body: data,
-      }),
-      async onQueryStarted(args, { queryFulfilled }) {
-        try {
-          const { data } = await queryFulfilled;
-          console.log('Updated product:', data);
-        } catch (error) {
-          console.error('Updating product failed:', error);
-        }
-      },
-    }),
   }),
 });
 
-export const {
-  useSignInMutation,
-  useVerifySignInMutation,
-  useGetFarmersQuery,
-  useGetWorkersQuery,
-  useGetMerchantsQuery,
-  useCreateProductMutation,
-  useGetProductsQuery,
-  useGetProductByIdQuery,
-  useUpdateProductByIdMutation,
-} = defaultApi;
+export const { useSignInMutation, useVerifySignInMutation } = defaultApi;
 
 //* => GET işleminde => builder.query
 //* => POST, PUT, DELETE işlemlerinde => builder.mutation

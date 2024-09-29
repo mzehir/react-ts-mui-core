@@ -2,7 +2,6 @@ interface TableCellSettings {
   minWidth?: number;
   width?: number;
   align?: 'inherit' | 'left' | 'center' | 'right' | 'justify';
-  //
   prepareCellTextMethod?: (cellText: string) => string;
 }
 
