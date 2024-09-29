@@ -1,0 +1,29 @@
+[
+  {
+    "userType": "admin",
+    "token": "1234567890abcdef1234567890abcdef",
+    "name": "Ahmet",
+    "surname": "Yılmaz",
+    "phone": "5551234567",
+    "email": "ahmet.yilmaz@domain.com",
+    "desc": "introduction.adminTypeDesc"
+  },
+  {
+    "userType": "teacher",
+    "token": "abcdef1234567890abcdef1234567890",
+    "name": "Emine",
+    "surname": "Kaya",
+    "phone": "5559876543",
+    "email": "emine.kaya@domain.com",
+    "desc": "introduction.teacherTypeDesc"
+  },
+  {
+    "userType": "student",
+    "token": "7890abcdef1234567890abcdef123456",
+    "name": "Mehmet",
+    "surname": "Çetin",
+    "phone": "5557654321",
+    "email": "mehmet.cetin@domain.com",
+    "desc": "introduction.studentTypeDesc"
+  }
+]

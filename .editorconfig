@@ -1,0 +1,11 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+root = true # Bu satır, bu .editorconfig dosyasının en üst düzeydeki (root) dosya olduğunu belirtir. Eğer bu satır ayarlanmışsa, EditorConfig diğer .editorconfig dosyalarını bu dosyanın üst dizinlerinde aramayacaktır. Bu, bu dosyanın projenin kök dizininde olduğunu belirtir.
+
+[*] # Bu satır, tüm dosya türlerini hedefler. [*] ifadesi, bu dosya içindeki kuralların tüm dosya uzantıları için geçerli olacağını belirtir. Belirli dosya türleri için kurallar tanımlamak istersen, örneğin *.js veya *.css gibi belirtebilirsin.
+insert_final_newline = true # Bu kural, her dosyanın sonunda bir yeni satır karakteri (newline) olmasını sağlar. Dosya sonlarına otomatik olarak yeni satır ekler. Bu, birçok kodlama standardı tarafından önerilen bir pratiktir çünkü bazı araçlar ve sürüm kontrol sistemleri son satırdaki değişiklikleri daha iyi takip eder.
+trim_trailing_whitespace = true # Bu kural, her satırın sonunda bulunan gereksiz boşlukların (whitespace) otomatik olarak temizlenmesini sağlar. Bu, özellikle kodun okunabilirliğini artırır ve sürüm kontrol sisteminde gereksiz farkların oluşmasını önler.
+indent_style = space # Bu kural, girintileme (indentation) için boşluk (space) kullanılması gerektiğini belirtir. Alternatif olarak tab da kullanılabilir, ancak boşluk kullanımı genellikle daha tutarlı ve yaygın bir pratiktir.
+indent_size = 2 # Bu kural, girintileme için kullanılacak boşluk sayısını belirtir. Bu örnekte, her girinti seviyesinin 2 boşluk ile yapılması gerektiği belirtilmiştir. Bu, kodun okunabilirliğini ve tutarlılığını artırır.
+# Unix-style newlines with a newline ending every file
+end_of_line = lf # Bu kural, satır sonu karakteri olarak Unix tarzı satır sonu (LF - Line Feed) kullanılacağını belirtir. Alternatif olarak CRLF (Carriage Return Line Feed, Windows tarzı) veya CR (Carriage Return, Mac OS tarzı) kullanılabilir. LF kullanımı, çoğu Unix tabanlı sistemde ve git gibi sürüm kontrol sistemlerinde tercih edilir.

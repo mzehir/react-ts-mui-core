@@ -1,0 +1,10 @@
+{
+  "common": {
+    "english": "Englisch",
+    "turkish": "Türkisch",
+    "german": "Deutsch"
+  },
+  "_interpolations": {
+    "interpolations_1": "Hallo {{name}} {{surname}}, willkommen in der Anwendung"
+  }
+}
