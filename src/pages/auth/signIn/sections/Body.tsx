@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setAuthFields, setAuthFieldsPayload } from '../../../../redux/slices/authSlice';
+import { AuthState, setAuthFields } from '../../../../redux/slices/authSlice';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { prepareAllRoutes } from '../../../../router/routerConstant';
@@ -23,7 +23,7 @@ const BodySection: React.FC = () => {
   });
 
   const formHandleSubmit: SubmitHandler<FormValues> = async (data) => {
-    const users = fakeUsersData as setAuthFieldsPayload[];
+    const users = fakeUsersData as AuthState[];
     const authUser = users.find((user) => user.email === data.emailAddress);
 
     if (authUser) {

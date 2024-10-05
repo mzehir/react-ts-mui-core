@@ -7,7 +7,7 @@ import FooterSection from './sections/Footer';
 import PaperComp from '../../../components/base/paper/Paper';
 import AlertComp from '../../../components/base/alert/Alert';
 import fakeUsersData from '../../../db/users.json';
-import { setAuthFieldsPayload } from '../../../redux/slices/authSlice';
+import { AuthState } from '../../../redux/slices/authSlice';
 import GridComp from '../../../components/base/grid/Grid';
 import TypographyComp from '../../../components/base/typography/Typography';
 import BoxComp from '../../../components/base/box/Box';
@@ -55,10 +55,10 @@ const FakeUsersSection: React.FC = () => {
   const navigate = useNavigate();
   const allRoutes = prepareAllRoutes();
 
-  const [fakeUsers, setFakeUsers] = React.useState<setAuthFieldsPayload[]>([]);
+  const [fakeUsers, setFakeUsers] = React.useState<AuthState[]>([]);
 
   useEffect(() => {
-    setFakeUsers(fakeUsersData as setAuthFieldsPayload[]);
+    setFakeUsers(fakeUsersData as AuthState[]);
   }, []);
 
   return (

@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { localStorageRemoveItem, localStorageSetItem } from '../../utils/methods/localStorage';
 import { UserType } from '../../utils/enums/userTypes';
 
-interface AuthState {
+export interface AuthState {
   userType: UserType;
   token: string | null;
   name: string | null;
@@ -20,21 +20,12 @@ const initialState: AuthState = {
   email: '',
 };
 
-export interface setAuthFieldsPayload {
-  userType: UserType;
-  token: string;
-  name: string;
-  surname: string;
-  phone: string;
-  email: string;
-}
-
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    setAuthFields: (state, action: PayloadAction<setAuthFieldsPayload>) => {
-      state.userType = action.payload.userType || 'guest';
+    setAuthFields: (state, action: PayloadAction<AuthState>) => {
+      state.userType = action.payload.userType ?? 'guest';
       state.token = action.payload.token;
       state.name = action.payload.name;
       state.surname = action.payload.surname;

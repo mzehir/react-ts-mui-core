@@ -23,7 +23,6 @@ const Guard: React.FC<GuardProps> = ({ children, routeKey }) => {
         return <Navigate to={allRoutes.SIGN_IN.path} />;
       }
     } else {
-      // Tokensiz gidilebilen auth sayfalarına gidilmek istenirse ve tip admin değilse burada engellenmeli...
       if (allRoutes[routeKey].whoCanSeeForPage.includes(userType)) {
         return children;
       } else {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { setAuthFields, setAuthFieldsPayload } from './redux/slices/authSlice';
+import { AuthState, setAuthFields } from './redux/slices/authSlice';
 import { localStorageGetItem } from './utils/methods/localStorage';
 
 import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
@@ -21,28 +21,24 @@ import '@fontsource/roboto/700.css';
 
 function App() {
   const dispatch = useDispatch();
-  const userFields: setAuthFieldsPayload | null = localStorageGetItem('userFields');
+  const userFields: AuthState | null = localStorageGetItem('userFields');
   const { theme } = useThemeContext();
 
   const [sessionControlCompleted, setSessionControlCompleted] = React.useState(false);
 
   React.useEffect(() => {
-    if (userFields?.token) {
-      dispatch(
-        setAuthFields({
-          userType: userFields?.userType,
-          token: userFields?.token,
-          name: userFields?.name,
-          surname: userFields?.surname,
-          phone: userFields?.phone,
-          email: userFields?.email,
-        }),
-      );
+    dispatch(
+      setAuthFields({
+        userType: userFields?.userType ?? 'guest',
+        token: userFields?.token ?? null,
+        name: userFields?.name ?? null,
+        surname: userFields?.surname ?? null,
+        phone: userFields?.phone ?? null,
+        email: userFields?.email ?? null,
+      }),
+    );
 
-      setSessionControlCompleted(true);
-    } else {
-      setSessionControlCompleted(true);
-    }
+    setSessionControlCompleted(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userFields]);
 
