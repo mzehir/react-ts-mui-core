@@ -15,6 +15,7 @@ import DialogPage from '../pages/introduction/components/dialog/DialogPage';
 // Custom Components Introduction
 import CustomFilterPage from '../pages/introduction/customComponents/customFilter/CustomFilterPage';
 import CustomTablePage from '../pages/introduction/customComponents/table/CustomTablePage';
+import TextEditorPage from '../pages/introduction/customComponents/textEditor/TextEditorPage';
 // Redux Introduction
 import ReduxStandardExamp from '../pages/introduction/redux/ReduxStandardExamp';
 import RTKApiExamp from '../pages/introduction/redux/RTKApiExamp';
@@ -174,6 +175,16 @@ const customComponentsIntroductionRouter = [
       <Guard routeKey={allRoutes.INTRODUCTION_CUSTOM_TABLE_PAGE.key}>
         <DefaultLayout>
           <CustomTablePage />
+        </DefaultLayout>
+      </Guard>
+    ),
+  },
+  {
+    path: allRoutes.INTRODUCTION_TEXT_EDITOR_PAGE.path,
+    element: (
+      <Guard routeKey={allRoutes.INTRODUCTION_TEXT_EDITOR_PAGE.key}>
+        <DefaultLayout>
+          <TextEditorPage />
         </DefaultLayout>
       </Guard>
     ),

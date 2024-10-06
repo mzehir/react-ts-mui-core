@@ -2,10 +2,12 @@ import { RouterItem, RouterWrapper } from '../../routerConstant';
 import StarPurple500Icon from '@mui/icons-material/StarPurple500';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import TableChartIcon from '@mui/icons-material/TableChart';
+import NotesIcon from '@mui/icons-material/Notes';
 
 type CustomComponentRouterItems = {
   INTRODUCTION_CUSTOM_FILTER_PAGE: RouterItem;
   INTRODUCTION_CUSTOM_TABLE_PAGE: RouterItem;
+  INTRODUCTION_TEXT_EDITOR_PAGE: RouterItem;
   [key: string]: RouterItem;
 };
 
@@ -32,6 +34,14 @@ export const CUSTOM_COMPONENT_ROUTER_ITEMS: CustomComponentRouterItems = {
     label: 'routes.customTable',
     path: '/introduction-custom-table-component',
     icon: TableChartIcon,
+  },
+  INTRODUCTION_TEXT_EDITOR_PAGE: {
+    whoCanSeeForPage: ['admin'],
+    parentKey: 'CUSTOM_COMPONENT_ROUTER_ITEMS',
+    key: 'INTRODUCTION_TEXT_EDITOR_PAGE',
+    label: 'routes.textEditor',
+    path: '/introduction-text-editor-component',
+    icon: NotesIcon,
   },
 };
 
