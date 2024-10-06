@@ -5,6 +5,7 @@ import { openSoucePlugins } from './helpers/plugins';
 export const editorHeight = 500;
 export const contentStyle = 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }';
 export const editorInitialValue = '<p>This is the initial content of the editor.</p>';
+export const resize = true;
 
 export function getActiveMenubarItems(): string {
   const activeMenuItems = Object.entries(menubar)

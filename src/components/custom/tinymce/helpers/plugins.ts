@@ -23,7 +23,7 @@ export const openSoucePlugins: { [key: string]: Plugin } = {
   // Desc en: Automatically resize TinyMCE to fit content.
   // Desc tr: İçeriğe uygun şekilde TinyMCE'nin otomatik boyutlandırılması.
   // Detail Link: https://www.tiny.cloud/docs/tinymce/latest/autoresize/
-  Autoresize: { key: 'autoresize', active: true },
+  Autoresize: { key: 'autoresize', active: false },
 
   // Desc en: Automatically save content in your local browser.
   // Desc tr: İçeriği yerel tarayıcınızda otomatik olarak kaydedin.
@@ -144,4 +144,6 @@ export const openSoucePlugins: { [key: string]: Plugin } = {
   // Desc tr: Bölünmeyen boşluklar gibi görünmez karakterleri görüntüleyin.
   // Detail Link: https://www.tiny.cloud/docs/tinymce/latest/visualchars/
   VisualCharacters: { key: 'visualchars', active: true },
+
+  WordCount: { key: 'wordcount', active: true },
 };

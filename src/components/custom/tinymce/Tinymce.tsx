@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import useThemeContext from '../../../hooks/useThemeContext';
 import { Editor } from '@tinymce/tinymce-react';
 import { Editor as TinyMCEEditor } from 'tinymce';
+import { TINYMCE_API_KEY } from '../../../appSettings';
 import {
   contentStyle,
   editorHeight,
@@ -9,8 +10,8 @@ import {
   getActiveMenubarItems,
   getActiveOpenSourcePlugins,
   getActiveToolbarItems,
+  resize,
 } from './helper';
-import { TINYMCE_API_KEY } from '../../../appSettings';
 
 const menubar = getActiveMenubarItems();
 const toolbar = getActiveToolbarItems();
@@ -20,12 +21,6 @@ const apiKey = TINYMCE_API_KEY;
 const TinymceComp: React.FC = () => {
   const { theme } = useThemeContext();
   const editorRef = useRef<TinyMCEEditor | null>(null);
-
-  // const log = () => {
-  //   if (editorRef.current) {
-  //     console.log(editorRef.current.getContent());
-  //   }
-  // };
 
   return (
     <>
@@ -38,12 +33,12 @@ const TinymceComp: React.FC = () => {
           content_css: theme === 'dark' ? 'dark' : 'default',
           content_style: contentStyle,
           height: editorHeight,
+          resize: resize,
           menubar: menubar,
           plugins: plugins,
           toolbar: toolbar,
         }}
       />
-      {/* <button onClick={log}>Log editor content</button> */}
     </>
   );
 };

@@ -1,10 +1,11 @@
 import React from 'react';
-import { styled, useTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
+import BoxComp from '../components/base/box/Box';
 import CustomAppBar from '../components/custom/navbar/Navbar';
 import Sidebar from '../components/custom/sidebar/Sidebar';
-import BoxComp from '../components/base/box/Box';
+import GlobalStyles from '../GlobalStyle';
+import CssBaseline from '@mui/material/CssBaseline';
 import { useMediaQuery } from '@mui/material';
+import { styled, useTheme } from '@mui/material/styles';
 
 const drawerWidth = 240;
 
@@ -63,6 +64,7 @@ export default function DefaultLayout({ children }: { children: React.ReactNode 
   return (
     <BoxComp display={'flex'} minHeight={'100%'}>
       <CssBaseline />
+      <GlobalStyles />
       <CustomAppBar
         open={open}
         handleDrawerOpen={handleDrawerOpen}
