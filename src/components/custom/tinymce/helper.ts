@@ -2,7 +2,7 @@ import { menubar } from './helpers/menubar';
 import { toolbar } from './helpers/toolbar';
 import { openSoucePlugins } from './helpers/plugins';
 
-export const editorHeight = 500;
+export const editorHeight = '50vh';
 export const contentStyle = 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }';
 export const editorInitialValue = '<p>This is the initial content of the editor.</p>';
 export const resize = true;
