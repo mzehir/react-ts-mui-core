@@ -1,4 +1,4 @@
-export const appName = 'React-Ts-Mui-Core';
+export const appName = 'DevStarter';
 
 export const isTheAppInPromotion = true; // Uygulama tanıtımda mı
 

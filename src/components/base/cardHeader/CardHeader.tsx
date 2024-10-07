@@ -3,9 +3,9 @@ import { CardHeaderCompProps, cardHeaderCompDefaultProps } from './cardHeaderHel
 import CardHeader from '@mui/material/CardHeader';
 
 const CardHeaderComp: React.FC<CardHeaderCompProps> = (props) => {
-  const { children, ...cardHeaderProps } = { ...cardHeaderCompDefaultProps, ...props };
+  const { ...cardHeaderProps } = { ...cardHeaderCompDefaultProps, ...props };
 
-  return <CardHeader {...cardHeaderProps}>{children}</CardHeader>;
+  return <CardHeader {...cardHeaderProps} />;
 };
 
 export default CardHeaderComp;

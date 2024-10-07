@@ -1,5 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { prepareAllRoutes } from './routerConstant';
+// Pages Introduction
+import IntroDashboardPage from '../pages/introduction/pages/dashboard/IntroDashboard';
 // Components Introduction
 import TypographyPage from '../pages/introduction/components/typography/TypographyPage';
 import ButtonPage from '../pages/introduction/components/button/ButtonPage';
@@ -352,7 +354,8 @@ const otherRouter = [
     element: (
       <Guard routeKey={allRoutes.DASHBOARD_PAGE.key}>
         <DefaultLayout>
-          <div>Hello world!</div>
+          {/* <div>Hello world!</div> */}
+          <IntroDashboardPage />
         </DefaultLayout>
       </Guard>
     ),
