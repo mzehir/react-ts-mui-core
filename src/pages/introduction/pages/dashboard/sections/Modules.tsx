@@ -11,7 +11,7 @@ import { ReactComponent as TypescriptIcon } from '../../../../../assets/other/ty
 import { ReactComponent as MaterialUiIcon } from '../../../../../assets/other/material-ui-icon.svg';
 import { ReactComponent as VitejsIcon } from '../../../../../assets/other/vitejs-icon.svg';
 import { ReactComponent as ReduxIcon } from '../../../../../assets/other/redux-icon.svg';
-import { ReactComponent as TinymceIcon } from '../../../../../assets/other/tinymce-icon.svg';
+// import { ReactComponent as TinymceIcon } from '../../../../../assets/other/tinymce-icon.svg';
 import { ReactComponent as EslintIcon } from '../../../../../assets/other/eslint-icon.svg';
 import { ReactComponent as PrettierIcon } from '../../../../../assets/other/prettier-icon.svg';
 import { ReactComponent as I18nextIcon } from '../../../../../assets/other/i18next-icon.svg';
@@ -38,7 +38,7 @@ const CustomI18nextIcon = iconPrepare(I18nextIcon);
 const CustomFormIcon = iconPrepare(FormIcon);
 // @ts-expect-error: ...
 const CustomSecurityIcon = iconPrepare(SecurityIcon);
-const CustomTinymceIcon = iconPrepare(TinymceIcon);
+// const CustomTinymceIcon = iconPrepare(TinymceIcon);
 const CustomEslintIcon = iconPrepare(EslintIcon);
 const CustomPrettierIcon = iconPrepare(PrettierIcon);
 
@@ -94,11 +94,11 @@ const ModulesSection: React.FC = () => {
       title: 'Yup',
       subheader: 'Version: ^1.4.0',
     },
-    {
-      avatar: CustomTinymceIcon,
-      title: 'TinyMCE',
-      subheader: 'Version: ^5.1.1',
-    },
+    // {
+    //   avatar: CustomTinymceIcon,
+    //   title: 'TinyMCE',
+    //   subheader: 'Version: ^5.1.1',
+    // },
     {
       avatar: CustomEslintIcon,
       title: 'ESLint',
