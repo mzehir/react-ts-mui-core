@@ -52,62 +52,62 @@ const ModulesSection: React.FC = () => {
     {
       avatar: CustomReactIcon,
       title: 'React',
-      subheader: 'Version: ^5.2.0',
+      subheader: 'Version: ^18.2.0',
     },
     {
       avatar: CustomReactRouterIcon,
       title: 'React Router',
-      subheader: 'Version: ^5.2.0',
+      subheader: 'Version: ^6.23.1',
     },
     {
       avatar: CustomTypescriptIcon,
       title: 'TypeScript',
-      subheader: 'Version: ^5.2.0',
+      subheader: 'Version: ^5.2.2',
     },
     {
       avatar: CustomReduxIcon,
       title: 'Redux Toolkit',
-      subheader: 'Version: ^5.2.0',
+      subheader: 'Version: ^2.2.5',
     },
     {
       avatar: CustomMaterialUiIcon,
       title: 'Material UI',
-      subheader: 'Version: ^5.2.0',
+      subheader: 'Version: ^5.15.20',
     },
     {
       avatar: CustomPaletteIcon,
       title: 'Emotion CSS',
-      subheader: 'Version: ^5.2.0',
+      subheader: 'Version: ^11.11.5',
     },
     {
       avatar: CustomI18nextIcon,
       title: 'i18next',
-      subheader: 'Version: ^5.2.0',
+      subheader: 'Version: ^23.11.5',
     },
     {
       avatar: CustomFormIcon,
       title: 'React Hook Form',
-      subheader: 'Version: ^5.2.0',
+      subheader: 'Version: ^7.52.1',
     },
     {
       avatar: CustomSecurityIcon,
       title: 'Yup',
-      subheader: 'Version: ^5.2.0',
+      subheader: 'Version: ^1.4.0',
     },
     {
       avatar: CustomTinymceIcon,
       title: 'TinyMCE',
-      subheader: 'Version: ^5.2.0',
+      subheader: 'Version: ^5.1.1',
     },
     {
       avatar: CustomEslintIcon,
       title: 'ESLint',
-      subheader: 'Version: ^5.2.0',
+      subheader: 'Version: ^8.57.0',
     },
     {
       avatar: CustomPrettierIcon,
       title: 'Prettier',
-      subheader: 'Version: ^5.2.0',
+      subheader: 'Version: ^3.3.2',
     },
   ]);
 
