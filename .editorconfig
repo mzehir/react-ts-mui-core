@@ -1,11 +1,15 @@
 # EditorConfig is awesome: https://EditorConfig.org
 
-root = true # Bu satır, bu .editorconfig dosyasının en üst düzeydeki (root) dosya olduğunu belirtir. Eğer bu satır ayarlanmışsa, EditorConfig diğer .editorconfig dosyalarını bu dosyanın üst dizinlerinde aramayacaktır. Bu, bu dosyanın projenin kök dizininde olduğunu belirtir.
+root = true # This line indicates that this is the root .editorconfig file. If this is set to true, EditorConfig will stop searching for other .editorconfig files in parent directories. This ensures that this file serves as the top-level configuration for the project.
 
-[*] # Bu satır, tüm dosya türlerini hedefler. [*] ifadesi, bu dosya içindeki kuralların tüm dosya uzantıları için geçerli olacağını belirtir. Belirli dosya türleri için kurallar tanımlamak istersen, örneğin *.js veya *.css gibi belirtebilirsin.
-insert_final_newline = true # Bu kural, her dosyanın sonunda bir yeni satır karakteri (newline) olmasını sağlar. Dosya sonlarına otomatik olarak yeni satır ekler. Bu, birçok kodlama standardı tarafından önerilen bir pratiktir çünkü bazı araçlar ve sürüm kontrol sistemleri son satırdaki değişiklikleri daha iyi takip eder.
-trim_trailing_whitespace = true # Bu kural, her satırın sonunda bulunan gereksiz boşlukların (whitespace) otomatik olarak temizlenmesini sağlar. Bu, özellikle kodun okunabilirliğini artırır ve sürüm kontrol sisteminde gereksiz farkların oluşmasını önler.
-indent_style = space # Bu kural, girintileme (indentation) için boşluk (space) kullanılması gerektiğini belirtir. Alternatif olarak tab da kullanılabilir, ancak boşluk kullanımı genellikle daha tutarlı ve yaygın bir pratiktir.
-indent_size = 2 # Bu kural, girintileme için kullanılacak boşluk sayısını belirtir. Bu örnekte, her girinti seviyesinin 2 boşluk ile yapılması gerektiği belirtilmiştir. Bu, kodun okunabilirliğini ve tutarlılığını artırır.
-# Unix-style newlines with a newline ending every file
-end_of_line = lf # Bu kural, satır sonu karakteri olarak Unix tarzı satır sonu (LF - Line Feed) kullanılacağını belirtir. Alternatif olarak CRLF (Carriage Return Line Feed, Windows tarzı) veya CR (Carriage Return, Mac OS tarzı) kullanılabilir. LF kullanımı, çoğu Unix tabanlı sistemde ve git gibi sürüm kontrol sistemlerinde tercih edilir.
+[*] # This line targets all file types. The [*] pattern means that the rules defined in this file will apply to all file extensions. If you want to specify rules for certain file types, you can use patterns like *.js or *.css.
+
+insert_final_newline = true # This rule ensures that every file ends with a newline character. It automatically adds a new line at the end of each file. This is recommended by many coding standards because some tools and version control systems track changes more effectively when files end with a newline.
+
+trim_trailing_whitespace = true # This rule removes any unnecessary whitespace at the end of each line. It improves code readability and prevents unwanted differences (diffs) in version control systems caused by trailing spaces.
+
+indent_style = space # This rule enforces the use of spaces for indentation. Although tabs can also be used, spaces are generally more consistent and widely adopted across different editors and projects.
+
+indent_size = 2 # This rule specifies the number of spaces to be used per indentation level. In this case, each indentation level will consist of 2 spaces, improving code readability and consistency.
+
+end_of_line = lf # This rule sets the line ending style to Unix-style LF (Line Feed). Alternatively, CRLF (Carriage Return + Line Feed, used on Windows) or CR (Carriage Return, used in older Mac systems) can be used. LF is preferred in most Unix-based systems and version control systems like Git to ensure consistency.

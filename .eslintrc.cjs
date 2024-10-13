@@ -1,22 +1,22 @@
 /** @type {import('eslint').Linter.Config} */
 // eslint-disable-next-line no-undef
 module.exports = {
-  parser: '@typescript-eslint/parser', // ESLint'e, TypeScript dosyalarını analiz etmek için @typescript-eslint/parser kullanmasını söyler. Bu, TypeScript kodunu anlamasına ve analiz etmesine olanak tanır.
+  parser: '@typescript-eslint/parser', // Instructs ESLint to use @typescript-eslint/parser to analyze TypeScript files, enabling it to understand and lint TypeScript code.
   plugins: ['simple-import-sort', 'react-refresh'],
-  // simple-import-sort: İçe aktarılan ve ihraç edilen modülleri sıralamak için kullanılan bir eklenti.
-  // react-refresh: React bileşenlerinin sıcak yeniden yüklenmesi (Hot Module Replacement - HMR) için kullanılan bir eklenti.
+  // simple-import-sort: A plugin used to sort imported and exported modules.
+  // react-refresh: A plugin used for Hot Module Replacement (HMR) for React components.
   extends: [
-    'eslint:recommended', // ESLint'in önerdiği temel kuralları içerir
-    'plugin:@typescript-eslint/recommended', // TypeScript için önerilen kuralları içerir.
-    'prettier', // Prettier'ın kod biçimlendirme kurallarını devre dışı bırakır. Bu, kod biçimlendirme ile ilgili kuralların Prettier tarafından yönetilmesini sağlar
-    'plugin:prettier/recommended', // Prettier için önerilen kuralları içerir ve Prettier'ı ESLint ile entegre eder.
-    'plugin:react-hooks/recommended', // React Hooks için önerilen kuralları içerir
+    'eslint:recommended', // Includes the recommended core rules from ESLint.
+    'plugin:@typescript-eslint/recommended', // Includes the recommended rules for TypeScript.
+    'prettier', // Disables ESLint rules that might conflict with Prettier's formatting rules, delegating code formatting to Prettier.
+    'plugin:prettier/recommended', // Includes recommended rules for Prettier and integrates it with ESLint.
+    'plugin:react-hooks/recommended', // Includes recommended rules for React Hooks.
   ],
   rules: {
-    '@typescript-eslint/no-unused-vars': ['error', { varsIgnorePattern: '^_', argsIgnorePattern: '^_' }], // Kullanılmayan değişkenler için hata verir. Ancak, değişken adı _ ile başlıyorsa bu hatayı yoksayar. Bu, bazı parametrelerin kullanılmadığını belirtmek için yaygın bir yöntemdir.
-    // "simple-import-sort/imports": "error", // İçe aktarılan modüllerin belirli bir sıralamada olmasını zorunlu kılar. Bu kural, içe aktarılan modüllerin sıralanması ile ilgili hataları raporlar.
-    // "simple-import-sort/exports": "error", // İhraç edilen modüllerin belirli bir sıralamada olmasını zorunlu kılar. Bu kural, ihraç edilen modüllerin sıralanması ile ilgili hataları raporlar.
-    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }], // Sadece React bileşenlerinin ihraç edilmesine izin verir ve diğer ihraç edilenlerin uyarı olarak raporlanmasını sağlar.
-    'prettier/prettier': ['error', { singleQuote: true }], // Çift tırnak kullanımına hata verir
+    '@typescript-eslint/no-unused-vars': ['error', { varsIgnorePattern: '^_', argsIgnorePattern: '^_' }], // Throws an error for unused variables, except when their names start with an underscore (_). This is a common way to mark unused parameters.
+    // "simple-import-sort/imports": "error", // Enforces a specific order for imported modules and reports errors if the order is incorrect.
+    // "simple-import-sort/exports": "error", // Enforces a specific order for exported modules and reports errors if the order is incorrect.
+    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }], // Allows only React components to be exported, issuing a warning for other exports.
+    'prettier/prettier': ['error', { singleQuote: true }], // Throws an error for using double quotes instead of single quotes.
   },
 };
