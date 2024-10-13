@@ -14,6 +14,7 @@ import {
   resize,
 } from './helper';
 import './tinymce.css';
+import CircularProgressComp from '../../base/circularProgress/CircularProgress';
 import ButtonComp from '../../base/button/Button';
 
 const menubar = getActiveMenubarItems();
@@ -26,42 +27,46 @@ const TinymceComp: React.FC = () => {
   const { language } = useLanguageContext();
   const editorRef = useRef<TinyMCEEditor | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [editorKey, setEditorKey] = useState(0);
 
   useEffect(() => {
-    if (!isLoading) {
-      setIsLoading(true);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    setEditorKey((prevKey) => prevKey + 1);
   }, [theme, language]);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 100);
-  }, [isLoading]);
-
   return (
-    <div>
-      {!isLoading && (
-        <Editor
-          apiKey={apiKey}
-          onInit={(_evt, editor) => {
-            editorRef.current = editor;
+    <div style={{ position: 'relative' }}>
+      {isLoading && (
+        <div
+          style={{
+            position: 'absolute',
+            left: '50%',
+            top: '50px',
+            zIndex: '5',
           }}
-          initialValue={editorInitialValue}
-          init={{
-            language: language,
-            skin: theme === 'dark' ? 'oxide-dark' : 'oxide',
-            content_css: theme === 'dark' ? 'dark' : 'default',
-            content_style: contentStyle,
-            height: editorHeight,
-            resize: resize,
-            menubar: menubar,
-            plugins: plugins,
-            toolbar: toolbar,
-          }}
-        />
+        >
+          <CircularProgressComp />
+        </div>
       )}
+      <Editor
+        key={editorKey}
+        apiKey={apiKey}
+        onInit={(_evt, editor) => {
+          editorRef.current = editor;
+          setIsLoading(false);
+        }}
+        initialValue={editorInitialValue}
+        init={{
+          language: language,
+          skin: theme === 'dark' ? 'oxide-dark' : 'oxide',
+          content_css: theme === 'dark' ? 'dark' : 'default',
+          content_style: contentStyle,
+          height: editorHeight,
+          resize: resize,
+          menubar: menubar,
+          plugins: plugins,
+          toolbar: toolbar,
+        }}
+      />
 
       <br />
 
