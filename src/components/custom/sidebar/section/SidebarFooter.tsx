@@ -11,12 +11,12 @@ const FooterWrapper = styled(BoxComp)`
 `;
 
 const SidebarFooter = () => {
-  const { name, surname, email, image } = useSelector((state: RootState) => state.auth);
+  const { name, surname, email } = useSelector((state: RootState) => state.auth);
 
   return (
     <FooterWrapper>
       <BoxComp display={'flex'} flexDirection={'column'} alignItems="center" justifyContent="center" gap={'5px'}>
-        <AvatarComp alt="User Photo" src={image ? image : ''} />
+        <AvatarComp alt="User Photo" src={''} />
 
         <TypographyComp isTranslation={false} variant="body2">
           {name} {surname}

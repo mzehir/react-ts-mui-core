@@ -45,8 +45,8 @@ const DatePickerPage: React.FC = () => {
   const [value, setValue] = useState<Dayjs | null>(dayjs('2022-04-17'));
   const [maxValue] = useState<Dayjs>(dayjs('2022-04-27'));
   const [minValue] = useState<Dayjs>(dayjs('2022-04-10'));
-  const [label, setLabel] = useState('Bir tarih seç');
-  const [helperText, setHelperText] = useState('Bu alana bileşen için yardımcı metin girilebilir.');
+  const [label, setLabel] = useState('Select a date');
+  const [helperText, setHelperText] = useState('Auxiliary text for the component can be entered in this field.');
   const [error, setError] = useState(false);
   const [required, setRequired] = useState(false);
   const [disabled, setDisabled] = useState(false);

@@ -1,9 +1,5 @@
 import { TableContainerProps } from '@mui/material/TableContainer';
 
-export interface TableContainerCompProps extends TableContainerProps {
-  // isTranslation?: boolean;
-}
+export interface TableContainerCompProps extends TableContainerProps {}
 
-export const tableContainerCompDefaultProps: TableContainerCompProps = {
-  // isTranslation: true,
-};
+export const tableContainerCompDefaultProps: TableContainerCompProps = {};

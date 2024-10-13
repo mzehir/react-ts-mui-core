@@ -1,9 +1,5 @@
 import { TableProps } from '@mui/material/Table';
 
-export interface TableCompProps extends TableProps {
-  // isTranslation?: boolean;
-}
+export interface TableCompProps extends TableProps {}
 
-export const tableCompDefaultProps: TableCompProps = {
-  // isTranslation: true,
-};
+export const tableCompDefaultProps: TableCompProps = {};

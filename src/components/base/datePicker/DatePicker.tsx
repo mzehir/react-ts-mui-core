@@ -19,13 +19,13 @@ const DatePickerComp: React.FC<DatePickerCompProps> = (props) => {
         slotProps={{
           textField: {
             ...slotProps?.textField,
-            // @ts-expect-error: helperText hatası görmezden gelinebilir.
+            // @ts-expect-error: The helperText error can be ignored.
             ...(slotProps?.textField?.helperText
               ? {
                   helperText: isHelperTextTranslation
-                    ? // @ts-expect-error: helperText hatası görmezden gelinebilir.
+                    ? // @ts-expect-error: The helperText error can be ignored.
                       childrenTranslate(slotProps?.textField?.helperText, translate)
-                    : // @ts-expect-error: helperText hatası görmezden gelinebilir.
+                    : // @ts-expect-error: The helperText error can be ignored.
                       slotProps?.textField?.helperText,
                 }
               : {}),
