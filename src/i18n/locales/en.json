@@ -242,7 +242,6 @@
     "prettierEslintContent": "In our DevStarter project, we integrated Prettier and ESLint to maintain the highest code quality. Prettier keeps your code neat and readable, saving developers time by eliminating the need for manual formatting. By ensuring full compliance with formatting rules, it maintains standards within the team and creates a consistent writing style throughout the project. ESLint analyzes your code, detects potential errors in advance, and ensures adherence to best practices. Together, these two tools provide an error-free development experience and keep your code at its best, facilitating project maintenance and ensuring code quality.",
     "guardSystemTitle": "Guard System: Flexibility in Security",
     "guardSystemContent": "In DevStarter, a Guard structure controls each user's access to authorized pages during session management. This structure supports unlimited user types, allowing you to define access levels specific to each type. For example, a 'teacher' user can access a special page that a 'student' user cannot see, while 'guest' users can only view general access pages. This flexibility enables you to equip your application with a multi-layered access control mechanism. DevStarter provides the best way to ensure secure and customizable session management for your projects.",
-
     "projectKeyTechnologies": "Key Technologies Used in the Project",
     "folderFileHierarchy": "Folder and File Hierarchy",
     "folderFileDescription": "The folders and files in this directory are related to icons.",
