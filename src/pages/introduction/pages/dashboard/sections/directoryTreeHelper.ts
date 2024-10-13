@@ -39,6 +39,7 @@ import { ReactComponent as FolderLib } from '../../../../../assets/other/icons/f
 import { ReactComponent as FolderApp } from '../../../../../assets/other/icons/folder-app.svg';
 import { ReactComponent as FolderOther } from '../../../../../assets/other/icons/folder-other.svg';
 import { ReactComponent as FolderDatabase } from '../../../../../assets/other/icons/folder-database.svg';
+import { ReactComponent as FolderVscode } from '../../../../../assets/other/icons/folder-vscode.svg';
 
 export interface TreeItemType {
   type: 'folder' | 'file' | 'text';
@@ -96,8 +97,25 @@ const FolderLibIcon = iconPrepare(FolderLib);
 const FolderAppIcon = iconPrepare(FolderApp);
 const FolderOtherIcon = iconPrepare(FolderOther);
 const FolderDatabaseIcon = iconPrepare(FolderDatabase);
+const FolderVscodeIcon = iconPrepare(FolderVscode);
 
 export const directoryTreeItems: TreeItemType[] = [
+  {
+    type: 'folder',
+    openIcon: FolderVscodeIcon,
+    closeIcon: FolderVscodeIcon,
+    itemId: '.vscode',
+    label: '.vscode',
+    children: [
+      {
+        type: 'file',
+        openIcon: JsonIcon,
+        closeIcon: JsonIcon,
+        itemId: 'settingsjson',
+        label: 'settings.json',
+      },
+    ],
+  },
   {
     type: 'folder',
     openIcon: FolderSrcIcon,
