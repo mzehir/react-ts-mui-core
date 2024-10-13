@@ -16,8 +16,8 @@ const ThemeSettings: React.FC = () => {
 
       <BoxComp px={4} my={3}>
         <GridComp container spacing={3}>
-          <ThemeItem title="Dark" themeVariant={ThemeType.dark} />
           <ThemeItem title="Default" themeVariant={ThemeType.light} />
+          <ThemeItem title="Dark" themeVariant={ThemeType.dark} />
         </GridComp>
       </BoxComp>
     </React.Fragment>
