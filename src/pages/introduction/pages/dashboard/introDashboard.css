@@ -1,3 +1,13 @@
 .slick-list {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
+
+.slick-dots li button::before {
+  color: #8080F2 !important;
+  opacity: 1 !important;
+}
+
+.slick-dots .slick-active button::before {
+  color: #4B32C3 !important;
+  opacity: 1 !important;
+}
