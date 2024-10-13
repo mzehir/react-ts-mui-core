@@ -1,0 +1,17 @@
+{
+  "editor.formatOnSave": false, // If true, it formats the file automatically upon saving.
+  "eslint.format.enable": false, // If true, ESLint takes over the responsibility of file formatting.
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // Ensures that VS Code uses Prettier as the default formatter for JavaScript files (.js).
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // Ensures that VS Code uses Prettier as the default formatter for TypeScript files (.ts).
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // Ensures that VS Code uses Prettier as the default formatter for TypeScript JSX files (.tsx).
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // Ensures that VS Code uses Prettier as the default formatter for JavaScript JSX files (.jsx).
+  },
+  "files.eol": "\n" // Use Unix-style line endings (LF) for better compatibility across different environments and version control systems.
+}
