@@ -7,7 +7,7 @@ export interface FormValues {
 }
 
 export const defaultValues: FormValues = {
-  emailAddress: '',
+  emailAddress: 'nuri.pasa@domain.com',
   password: '123456Aa.@',
 };
 
