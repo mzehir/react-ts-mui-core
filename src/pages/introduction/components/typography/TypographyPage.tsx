@@ -90,9 +90,9 @@ const TypographyPage: React.FC = () => {
           <GridComp container spacing={3}>
             <GridComp item xs={12}>
               <TypographyComp
-                // @ts-expect-error: props hataları görmezden gelinebilir.
+                // @ts-expect-error: Prop errors can be ignored.
                 align={selectedAlign}
-                // @ts-expect-error: props hataları görmezden gelinebilir.
+                // @ts-expect-error: Prop errors can be ignored.
                 variant={selectedVariant}
                 noWrap={noWrap}
                 gutterBottom={gutterBottom}

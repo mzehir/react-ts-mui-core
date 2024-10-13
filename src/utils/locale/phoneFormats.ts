@@ -11,7 +11,7 @@ const COUNTRY_PHONE_FORMATS: { [key in Countries]: CountryPhoneFormat } = {
   tr: {
     mask: '_',
     format: '(###) ### ## ##',
-    areaCode: '+90', // Lazım olabilir.
+    areaCode: '+90', // Needed at country level
     numberOfDigits: 10,
   },
   en: {

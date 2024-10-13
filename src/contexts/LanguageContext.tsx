@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-//* sections
 import i18n from '../i18n/i18n';
 import {
   LanguageContextProps,
@@ -8,7 +7,6 @@ import {
   isTheStartKeyInterpolation,
   prepareInterpolationTranslation,
 } from './languageContextHelper';
-//* utils
 import { Language } from '../utils/enums/languages';
 import { localStorageGetItem, localStorageSetItem } from '../utils/methods/localStorage';
 
@@ -23,9 +21,9 @@ function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguage] = React.useState<Language>(Language.EN);
 
   const changeLanguage = (newLanguage: Language) => {
-    localStorageSetItem('activeLanguage', newLanguage); // DB'ye kayıt
-    setLanguage(newLanguage); // Context'e kayıt
-    i18n.changeLanguage(newLanguage); // i18n'ye kayıt
+    localStorageSetItem('activeLanguage', newLanguage); // Save to DB
+    setLanguage(newLanguage); // Save to Context
+    i18n.changeLanguage(newLanguage); // Save to i18n
   };
 
   const translate = (key: string): string => {
@@ -39,14 +37,14 @@ function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   React.useEffect(() => {
     const languageInitialSetting = async () => {
-      const defaultLanguage = initialLanguage; // Varsayılan değer
-      const storedLanguage = localStorageGetItem<Language>('activeLanguage'); // Kullanıcının kaydettiği değer
+      const defaultLanguage = initialLanguage; // Default value
+      const storedLanguage = localStorageGetItem<Language>('activeLanguage'); // Value saved by the user
 
       if (storedLanguage) {
-        // Kullanıcının kayıtlı bir değeri varsa kayıtlı değeri kullan
+        // If the user has a saved value, use the saved value
         changeLanguage(storedLanguage);
       } else {
-        // Kullanıcının kayıtlı bir değeri yoksa varsayılan değeri kullan
+        // If the user does not have a saved value, use the default value
         changeLanguage(defaultLanguage);
       }
     };

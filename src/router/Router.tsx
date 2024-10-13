@@ -354,7 +354,6 @@ const otherRouter = [
     element: (
       <Guard routeKey={allRoutes.DASHBOARD_PAGE.key}>
         <DefaultLayout>
-          {/* <div>Hello world!</div> */}
           <IntroDashboardPage />
         </DefaultLayout>
       </Guard>

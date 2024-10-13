@@ -1,19 +1,18 @@
-/* WebKit tarayıcılar (Chrome, Safari, Edge) için */
+/* For WebKit browsers (Chrome, Safari, Edge) */
 .custom-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #747981 transparent; /* Renkler: thumb (kayan kısım) ve track (arka plan) */
+  scrollbar-color: #747981 transparent; /* Colors: thumb (scrolling part) and track (background) */
 }
 
 .custom-scrollbar::-webkit-scrollbar {
-  height: 8px; /* Yatay kaydırma çubuğu yüksekliği */
-
+  height: 8px; /* Horizontal scrollbar height */
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #747981; /* Kayan kısmın rengi */
-  border-radius: 10px; /* Köşe yumuşatma */
+  background-color: #747981; /* Thumb color */
+  border-radius: 10px; /* Corner smoothing */
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent; /* Arka plan rengi */
+  background: transparent; /* Background color */
 }

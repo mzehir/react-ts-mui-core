@@ -45,9 +45,9 @@ export const CustomizableDialog: React.FC<CustomizableDialogProps> = ({ open, se
 
   return (
     <BootstrapDialog
-      // @ts-expect-error: props hataları görmezden gelinebilir.
+      // @ts-expect-error: Prop errors can be ignored.
       maxWidth={selectedMaxWidth}
-      // @ts-expect-error: props hataları görmezden gelinebilir.
+      // @ts-expect-error: Prop errors can be ignored.
       scroll={selectedScroll}
       fullWidth={fullWidth}
       fullScreen={fullScreen}

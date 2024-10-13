@@ -78,7 +78,7 @@ const SelectPage: React.FC = () => {
                 <InputLabelComp>introduction.selectItem</InputLabelComp>
                 <SelectComp
                   label="introduction.selectItem"
-                  // @ts-expect-error: props hataları görmezden gelinebilir.
+                  // @ts-expect-error: Prop errors can be ignored.
                   variant={selectedVariant}
                   items={items}
                   value={value}

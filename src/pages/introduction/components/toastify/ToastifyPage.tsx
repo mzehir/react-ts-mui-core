@@ -69,11 +69,11 @@ const ToastifyPage: React.FC = () => {
   React.useEffect(() => {
     if (toastifyVisible) {
       runToast({
-        // @ts-expect-error: props hataları görmezden gelinebilir.
+        // @ts-expect-error: Prop errors can be ignored.
         theme: selectedTheme,
-        // @ts-expect-error: props hataları görmezden gelinebilir.
+        // @ts-expect-error: Prop errors can be ignored.
         type: selectedType,
-        // @ts-expect-error: props hataları görmezden gelinebilir.
+        // @ts-expect-error: Prop errors can be ignored.
         position: selectedPosition,
         message: text,
         autoClose: autoClose,

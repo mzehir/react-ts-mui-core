@@ -88,11 +88,11 @@ const AlertPage: React.FC = () => {
           <GridComp container spacing={3}>
             <GridComp item xs={12}>
               <AlertComp
-                // @ts-expect-error: props hataları görmezden gelinebilir.
+                // @ts-expect-error: Prop errors can be ignored.
                 severity={selectedSeverity}
-                // @ts-expect-error: props hataları görmezden gelinebilir.
+                // @ts-expect-error: Prop errors can be ignored.
                 variant={selectedVariant}
-                // @ts-expect-error: props hataları görmezden gelinebilir.
+                // @ts-expect-error: Prop errors can be ignored.
                 color={selectedColor}
                 {...(iconVisible ? { ...(isCustomIcon ? { icon: <NewReleasesIcon /> } : {}) } : { icon: false })}
               >

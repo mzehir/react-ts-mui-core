@@ -82,11 +82,11 @@ const IconButtonPage: React.FC = () => {
           <GridComp container spacing={3}>
             <GridComp item xs={12} display={'flex'} justifyContent={'center'}>
               <IconButtonComp
-                // @ts-expect-error: props hataları görmezden gelinebilir.
+                // @ts-expect-error: Prop errors can be ignored.
                 color={selectedColor}
-                // @ts-expect-error: props hataları görmezden gelinebilir.
+                // @ts-expect-error: Prop errors can be ignored.
                 size={selectedSize}
-                // @ts-expect-error: props hataları görmezden gelinebilir.
+                // @ts-expect-error: Prop errors can be ignored.
                 edge={selectedEdge}
                 disabled={disabled}
                 onClick={(e) => {

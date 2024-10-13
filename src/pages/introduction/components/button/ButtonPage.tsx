@@ -105,11 +105,11 @@ const ButtonPage: React.FC = () => {
             <GridComp item xs={12}>
               <ButtonComp
                 isTranslation={false}
-                // @ts-expect-error: props hataları görmezden gelinebilir.
+                // @ts-expect-error: Prop errors can be ignored.
                 variant={selectedVariant}
-                // @ts-expect-error: props hataları görmezden gelinebilir.
+                // @ts-expect-error: Prop errors can be ignored.
                 size={selectedSize}
-                // @ts-expect-error: props hataları görmezden gelinebilir.
+                // @ts-expect-error: Prop errors can be ignored.
                 color={selectedColor}
                 disabled={disabled}
                 fullWidth={fullWidth}

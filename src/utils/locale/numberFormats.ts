@@ -1,19 +1,19 @@
 import { Countries } from './locale';
 
 interface CountryNumberFormat {
-  decimalSeparator: string; //* Ondalık ayracı simgesini belirler. Türkiye için bu değer , (virgül) olarak kullanılır.
+  decimalSeparator: string; // Specifies the symbol for the decimal separator. For Turkey, this value is used as "," (comma).
 
-  thousandSeparator: string; //* Binlik ayracı simgesini belirler. Türkiye için bu değer . (nokta) olarak kullanılır.
+  thousandSeparator: string; // Specifies the symbol for the thousand separator. For Turkey, this value is used as "." (dot).
 
-  prefix: string; //* Para birimi simgesini veya ön ekini belirler. Türkiye için bu değer ₺ (Türk Lirası sembolü) olarak kullanılır.
+  prefix: string; // Specifies the currency symbol or prefix. For Turkey, this value is used as "₺" (Turkish Lira symbol).
 
-  decimalScale: number; //* Ondalık basamak sayısını belirler. Türkiye'de genellikle iki ondalık basamak kullanılır, bu nedenle değer 2 olarak belirlenmiştir.
+  decimalScale: number; // Specifies the number of decimal places. In Turkey, two decimal places are generally used, so this value is set to 2.
 
-  fixedDecimalScale: boolean; //* Ondalık basamak sayısının sabit olup olmadığını belirler. true değeri, her zaman belirlenen sayıda ondalık basamak olacağını ifade eder.
+  fixedDecimalScale: boolean; // Determines whether the number of decimal places is fixed. A value of true ensures that the number of decimal places remains constant.
 
-  locale: string; //* Dil ve bölgeyi belirten yerel ayar kodunu ifade eder. Türkiye için bu değer tr-TR (Türkçe, Türkiye) olarak kullanılır.
+  locale: string; // Represents the local language and region code. For Turkey, this value is "tr-TR" (Turkish, Turkey).
 
-  currency: string; //* Kullanılan para birimini belirler. Türkiye için bu değer TRY (Türk Lirası) olarak kullanılır.
+  currency: string; // Specifies the currency used. For Turkey, this value is set to "TRY" (Turkish Lira).
 }
 
 const COUNTRY_NUMBER_FORMATS: { [key in Countries]: CountryNumberFormat } = {

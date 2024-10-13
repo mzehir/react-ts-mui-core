@@ -8,8 +8,8 @@ import SidebarScrollbar from './sidebarSections/SidebarScrollbar';
 import ListComp from '../../../base/list/List';
 import SidebarRoutes from './sidebarSections/SidebarRoutes';
 
-const _closeOtherCollapsesWhenItemIsClicked = false; // Öğeye tıklandığında diğer daraltmaları kapat
-const _closeOtherCollapsesWhenCollapseIsClicked = false; // Daralta tıklandığında diğer daraltmaları kapat
+const _closeOtherCollapsesWhenItemIsClicked = false; // Close other collapsibles when the item is clicked
+const _closeOtherCollapsesWhenCollapseIsClicked = false; // Close other collapsibles when the collapse is clicked
 
 const StyledListComp = styled(ListComp)`
   background-color: ${(props) => props.theme.sidebar.background};

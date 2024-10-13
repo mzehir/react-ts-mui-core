@@ -106,7 +106,7 @@ const DatePickerPage: React.FC = () => {
                   textField: {
                     helperText: helperText,
                     fullWidth: fullWidth,
-                    // @ts-expect-error: props hataları görmezden gelinebilir.
+                    // @ts-expect-error: Prop errors can be ignored.
                     variant: selectedVariant,
                     error: error,
                     required: required,
@@ -132,7 +132,7 @@ const DatePickerPage: React.FC = () => {
                     setValue(newValue);
                   }
                 }}
-                // @ts-expect-error: props hataları görmezden gelinebilir.
+                // @ts-expect-error: Prop errors can be ignored.
                 openTo={selectedOpenTo}
               />
             </GridComp>

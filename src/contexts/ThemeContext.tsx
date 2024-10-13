@@ -12,20 +12,20 @@ function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, _setTheme] = React.useState<ThemeType>(initialTheme);
 
   const setTheme = (newTheme: ThemeType) => {
-    localStorageSetItem('activeTheme', newTheme); // DB'ye kayıt
-    _setTheme(newTheme); // Context'e kayıt
+    localStorageSetItem('activeTheme', newTheme); // Save to DB
+    _setTheme(newTheme); // Save to Context
   };
 
   React.useEffect(() => {
     const themeInitialSetting = async () => {
-      const defaultTheme = initialTheme; // Varsayılan değer
-      const storedTheme = localStorageGetItem<ThemeType>('activeTheme'); // Kullanıcının kaydettiği değer
+      const defaultTheme = initialTheme; // Default value
+      const storedTheme = localStorageGetItem<ThemeType>('activeTheme'); // Value saved by the user
 
       if (storedTheme) {
-        // Kullanıcının kayıtlı bir değeri varsa kayıtlı değeri kullan
+        // If the user has a saved value, use the saved value
         setTheme(storedTheme);
       } else {
-        // Kullanıcının kayıtlı bir değeri yoksa varsayılan değeri kullan
+        // If the user does not have a saved value, use the default value
         setTheme(defaultTheme);
       }
     };

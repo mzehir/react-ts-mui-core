@@ -155,7 +155,7 @@ const FakeUsersSection: React.FC = () => {
 
             <>
               <GridComp item xs={12}>
-                {/* @ts-expect-error: props hataları görmezden gelinebilir. */}
+                {/* @ts-expect-error: Prop errors can be ignored. */}
                 <TypographyComp>{user?.desc}</TypographyComp>
               </GridComp>
             </>

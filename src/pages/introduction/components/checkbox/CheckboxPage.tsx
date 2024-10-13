@@ -93,13 +93,13 @@ const CheckboxPage: React.FC = () => {
               <FormControlComp>
                 <FormControlLabelComp
                   label={text}
-                  // @ts-expect-error: props hataları görmezden gelinebilir.
+                  // @ts-expect-error: Prop errors can be ignored.
                   labelPlacement={selectedLabelPlacement}
                   control={
                     <CheckboxComp
-                      // @ts-expect-error: props hataları görmezden gelinebilir.
+                      // @ts-expect-error: Prop errors can be ignored.
                       color={selectedColor}
-                      // @ts-expect-error: props hataları görmezden gelinebilir.
+                      // @ts-expect-error: Prop errors can be ignored.
                       size={selectedSize}
                       onChange={(e) => setChecked(e.target.checked)}
                       checked={!!checked}

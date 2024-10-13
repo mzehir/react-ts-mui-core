@@ -96,21 +96,21 @@ const RadioPage: React.FC = () => {
                 >
                   <FormControlLabelComp
                     label="Erkek"
-                    // @ts-expect-error: props hataları görmezden gelinebilir.
+                    // @ts-expect-error: Prop errors can be ignored.
                     labelPlacement={selectedLabelPlacement}
                     value="male"
                     control={
-                      // @ts-expect-error: props hataları görmezden gelinebilir.
+                      // @ts-expect-error: Prop errors can be ignored.
                       <RadioComp color={selectedColor} size={selectedSize} disabled={disabled} required={required} />
                     }
                   />
                   <FormControlLabelComp
                     label="Kadın"
-                    // @ts-expect-error: props hataları görmezden gelinebilir.
+                    // @ts-expect-error: Prop errors can be ignored.
                     labelPlacement={selectedLabelPlacement}
                     value="female"
                     control={
-                      // @ts-expect-error: props hataları görmezden gelinebilir.
+                      // @ts-expect-error: Prop errors can be ignored.
                       <RadioComp color={selectedColor} size={selectedSize} disabled={disabled} required={required} />
                     }
                   />

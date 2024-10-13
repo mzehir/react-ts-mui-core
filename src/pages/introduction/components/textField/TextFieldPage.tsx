@@ -95,11 +95,11 @@ const TextFieldPage: React.FC = () => {
           <GridComp container spacing={3}>
             <GridComp item xs={12}>
               <TextFieldComp
-                // @ts-expect-error: props hataları görmezden gelinebilir.
+                // @ts-expect-error: Prop errors can be ignored.
                 variant={selectedVariant}
-                // @ts-expect-error: props hataları görmezden gelinebilir.
+                // @ts-expect-error: Prop errors can be ignored.
                 size={selectedSize}
-                // @ts-expect-error: props hataları görmezden gelinebilir.
+                // @ts-expect-error: Prop errors can be ignored.
                 color={selectedColor}
                 value={value}
                 label={label}

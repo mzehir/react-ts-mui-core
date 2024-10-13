@@ -30,15 +30,12 @@ const baseQuery = async (args: string | FetchArgs, api: BaseQueryApi, extraOptio
     const baseQueryConfig = fetchBaseQuery({
       baseUrl,
       prepareHeaders: (headers, { getState }) => {
-        //* Durumdan token'ı al
         const token = (getState() as RootState).auth.token;
 
-        //* Token varsa, Authorization başlığına ekle
         if (token) {
           headers.set('Authorization', `Bearer ${token}`);
         }
 
-        //* Varsayılan içerik türünü belirt, aksi takdirde belirtilmediyse
         if (extraOptions.headersContentType !== 'none') {
           headers.set('Content-Type', defaultContentType);
         }
@@ -76,7 +73,6 @@ const baseQuery = async (args: string | FetchArgs, api: BaseQueryApi, extraOptio
   }
 };
 
-//* Endpoint'lerle API yapılandırması
 export const defaultApi = createApi({
   reducerPath: 'defaultApi',
   baseQuery: baseQuery,
@@ -135,11 +131,8 @@ export const defaultApi = createApi({
 
 export const { useSignInMutation, useVerifySignInMutation } = defaultApi;
 
-//* => GET işleminde => builder.query
-//* => POST, PUT, DELETE işlemlerinde => builder.mutation
-//* => credentials => API isteğine gönderilen verileri temsil eder
-//* => args, mutation'a geçirilen parametreleri temsil eder
-//* => queryFulfilled => query veya mutation isteğinin tamamlanmasını bekleyen bir promise'dir. Bu promise, isteğin başarılı olup olmadığını belirlemek ve sonucunu almak için kullanılabilir.
-
-//* => Query endpoints için: use[EndpointName]Query => Ekranda Kullanımı: const { data, error, isLoading } = use[EndpointName]Query()
-//* => Mutation endpoints için: use[EndpointName]Mutation => Ekranda Kullanımı: const [createPost, { isLoading }] = use[EndpointName]Mutation()
+//* => In GET operations => builder.query
+//* => In POST, PUT, DELETE operations => builder.mutation
+//* => credentials => Represents the data sent with the API request
+//* => args => Represents the parameters passed to the mutation
+//* => queryFulfilled => A promise that waits for the completion of a query or mutation request. This promise can be used to determine if the request was successful and to retrieve the result.
