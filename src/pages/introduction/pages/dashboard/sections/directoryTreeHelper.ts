@@ -35,11 +35,11 @@ import { ReactComponent as Routing } from '../../../../../assets/other/icons/rou
 import { ReactComponent as FolderEnum } from '../../../../../assets/other/icons/folder-enum.svg';
 import { ReactComponent as FolderRules } from '../../../../../assets/other/icons/folder-rules.svg';
 import { ReactComponent as FolderLib } from '../../../../../assets/other/icons/folder-lib.svg';
-
 import { ReactComponent as FolderApp } from '../../../../../assets/other/icons/folder-app.svg';
 import { ReactComponent as FolderOther } from '../../../../../assets/other/icons/folder-other.svg';
 import { ReactComponent as FolderDatabase } from '../../../../../assets/other/icons/folder-database.svg';
 import { ReactComponent as FolderVscode } from '../../../../../assets/other/icons/folder-vscode.svg';
+import { ReactComponent as Tune } from '../../../../../assets/other/icons/tune.svg';
 
 export interface TreeItemType {
   type: 'folder' | 'file' | 'text';
@@ -98,6 +98,7 @@ const FolderAppIcon = iconPrepare(FolderApp);
 const FolderOtherIcon = iconPrepare(FolderOther);
 const FolderDatabaseIcon = iconPrepare(FolderDatabase);
 const FolderVscodeIcon = iconPrepare(FolderVscode);
+const TuneIcon = iconPrepare(Tune);
 
 export const directoryTreeItems: TreeItemType[] = [
   {
@@ -2946,6 +2947,13 @@ export const directoryTreeItems: TreeItemType[] = [
     closeIcon: EditorConfigIcon,
     itemId: 'editorconfig',
     label: '.editorconfig',
+  },
+  {
+    type: 'file',
+    openIcon: TuneIcon,
+    closeIcon: TuneIcon,
+    itemId: 'env',
+    label: '.env',
   },
   {
     type: 'file',

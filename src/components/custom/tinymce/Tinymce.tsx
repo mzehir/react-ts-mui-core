@@ -3,7 +3,7 @@ import useThemeContext from '../../../hooks/useThemeContext';
 import useLanguageContext from '../../../hooks/useLanguageContext';
 import { Editor } from '@tinymce/tinymce-react';
 import { Editor as TinyMCEEditor } from 'tinymce';
-import { TINYMCE_API_KEY } from '../../../appSettings';
+import { tinymceApiKey } from '../../../appSettings';
 import {
   contentStyle,
   editorHeight,
@@ -20,7 +20,7 @@ import ButtonComp from '../../base/button/Button';
 const menubar = getActiveMenubarItems();
 const toolbar = getActiveToolbarItems();
 const plugins = getActiveOpenSourcePlugins();
-const apiKey = TINYMCE_API_KEY;
+const apiKey = tinymceApiKey;
 
 const TinymceComp: React.FC = () => {
   const { theme } = useThemeContext();
