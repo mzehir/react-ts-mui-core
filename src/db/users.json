@@ -2,28 +2,28 @@
   {
     "userType": "admin",
     "token": "1234567890abcdef1234567890abcdef",
-    "name": "Ahmet",
-    "surname": "Yılmaz",
+    "name": "Paşa",
+    "surname": "Nuri",
     "phone": "5551234567",
-    "email": "ahmet.yilmaz@domain.com",
+    "email": "nuri.pasa@domain.com",
     "desc": "introduction.adminTypeDesc"
   },
   {
     "userType": "teacher",
     "token": "abcdef1234567890abcdef1234567890",
-    "name": "Emine",
-    "surname": "Kaya",
+    "name": "Mahmut",
+    "surname": "Güleç",
     "phone": "5559876543",
-    "email": "emine.kaya@domain.com",
+    "email": "gulec.mahmut@domain.com",
     "desc": "introduction.teacherTypeDesc"
   },
   {
     "userType": "student",
     "token": "7890abcdef1234567890abcdef123456",
-    "name": "Mehmet",
-    "surname": "Çetin",
+    "name": "Şaban",
+    "surname": "İnek",
     "phone": "5557654321",
-    "email": "mehmet.cetin@domain.com",
+    "email": "inek.saban@domain.com",
     "desc": "introduction.studentTypeDesc"
   }
 ]

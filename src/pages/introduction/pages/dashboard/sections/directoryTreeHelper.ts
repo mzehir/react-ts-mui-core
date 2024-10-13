@@ -557,7 +557,7 @@ export const directoryTreeItems: TreeItemType[] = [
                 type: 'folder',
                 openIcon: null,
                 closeIcon: null,
-                itemId: 'dialog',
+                itemId: 'dialogbasecomponents',
                 label: 'dialog',
                 children: [
                   {
@@ -1194,7 +1194,7 @@ export const directoryTreeItems: TreeItemType[] = [
                 type: 'folder',
                 openIcon: null,
                 closeIcon: null,
-                itemId: 'table',
+                itemId: 'tablebasecomponents',
                 label: 'table',
                 children: [
                   {
@@ -1440,7 +1440,7 @@ export const directoryTreeItems: TreeItemType[] = [
                 type: 'folder',
                 openIcon: null,
                 closeIcon: null,
-                itemId: 'dialog',
+                itemId: 'dialogcustomcomponents',
                 label: 'dialog',
                 children: [
                   {
@@ -1558,7 +1558,7 @@ export const directoryTreeItems: TreeItemType[] = [
                     type: 'file',
                     openIcon: TypescriptIcon,
                     closeIcon: TypescriptIcon,
-                    itemId: 'helperts',
+                    itemId: 'helpertsfilter',
                     label: 'helper.ts',
                   },
                 ],
@@ -1737,7 +1737,7 @@ export const directoryTreeItems: TreeItemType[] = [
                     type: 'folder',
                     openIcon: null,
                     closeIcon: null,
-                    itemId: 'section',
+                    itemId: 'sectionsidebar',
                     label: 'section',
                     children: [
                       {
@@ -1806,7 +1806,7 @@ export const directoryTreeItems: TreeItemType[] = [
                 type: 'folder',
                 openIcon: null,
                 closeIcon: null,
-                itemId: 'table',
+                itemId: 'tablecustomcomponents',
                 label: 'table',
                 children: [
                   {
@@ -2630,7 +2630,7 @@ export const directoryTreeItems: TreeItemType[] = [
                     type: 'text',
                     openIcon: null,
                     closeIcon: null,
-                    itemId: 'usersdb',
+                    itemId: 'usersdb22',
                     label: 'introduction.folderFileAppDescription',
                     isTranslation: true,
                   },
