@@ -2,6 +2,8 @@ import { createBrowserRouter } from 'react-router-dom';
 import { prepareAllRoutes } from './routerConstant';
 // Pages Introduction
 import IntroDashboardPage from '../pages/introduction/pages/dashboard/IntroDashboard';
+import IntroPricingPage from '../pages/introduction/pages/pricing/IntroPricing';
+import IntroContactPage from '../pages/introduction/pages/contact/IntroContact';
 // Components Introduction
 import TypographyPage from '../pages/introduction/components/typography/TypographyPage';
 import ButtonPage from '../pages/introduction/components/button/ButtonPage';
@@ -363,6 +365,26 @@ const otherRouter = [
       <AuthLayout>
         <NotFoundPage />
       </AuthLayout>
+    ),
+  },
+  {
+    path: allRoutes.PRICING_PAGE.path,
+    element: (
+      <Guard routeKey={allRoutes.PRICING_PAGE.key}>
+        <DefaultLayout>
+          <IntroPricingPage />
+        </DefaultLayout>
+      </Guard>
+    ),
+  },
+  {
+    path: allRoutes.CONTACT_PAGE.path,
+    element: (
+      <Guard routeKey={allRoutes.CONTACT_PAGE.key}>
+        <DefaultLayout>
+          <IntroContactPage />
+        </DefaultLayout>
+      </Guard>
     ),
   },
 ];

@@ -91,7 +91,11 @@
     "xxxxx": "xxxxx",
     "teacherType": "Teacher Type",
     "studentType": "Student Type",
-    "guestType": "Guest Type"
+    "guestType": "Guest Type",
+    "xxxxx": "xxxxx",
+    "xxxxx": "xxxxx",
+    "contact": "Contact",
+    "pricing": "Pricing"
   },
   "validationWarnings": {
     "required": "This field is required.",
@@ -336,7 +340,25 @@
     "deletePostByIdSuccess": "Post with a specific ID was deleted successfully.",
     "deletePostByIdFailure": "Failed to delete post with a specific ID!",
     "fetchPostsByUserSuccess": "Posts belonging to a specific user were fetched successfully.",
-    "fetchPostsByUserFailure": "Failed to fetch posts belonging to a specific user!"
+    "fetchPostsByUserFailure": "Failed to fetch posts belonging to a specific user!",
+    "&&&&&&": "&&&&&&",
+    "&&&&&&": "&&&&&&",
+    "economicPackage": "Economic Package",
+    "economicPackageDesc": "Make a one-time payment and speed up your workflow with 12 hours of support for 1 year.",
+    "economicPackageFeature1": "12 hours of live support per year",
+    "economicPackageFeature2": "30% discount on new versions",
+    "economicPackagePrice": "$19",
+    "economicPackagePriceDescription": "No monthly subscription, you only pay once.",
+    "advantagePackage": "Advantage Package",
+    "advantagePackageDesc": "Purchase the app once and instantly access all updates with full repository access. Also, get instant responses to all your issues with unlimited messaging and communication support.",
+    "advantagePackageFeature1": "96 hours of live support per year",
+    "advantagePackageFeature2": "Unlimited messaging and communication support",
+    "advantagePackageFeature3": "Free access to new versions",
+    "advantagePackageFeature4": "Access to project repository",
+    "advantagePackagePrice": "$49",
+    "advantagePackagePriceDescription": "No monthly subscription, you only pay once.",
+    "contactUs": "Contact Us",
+    "packageFeatures": "Package Features"
   },
   "_interpolations": {
     "interpolations_1": "Hello {{name}} {{surname}}, welcome to the application"
