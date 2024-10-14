@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import CardComp from '../../../../components/base/card/Card';
-// import backgroundImage from '../../../../assets/app/1111.jpg'; // Resmi import ediyoruz
 
 export const hexToRgba = (hex: string, alpha: number) => {
   const r = parseInt(hex.slice(1, 3), 16);
@@ -10,22 +9,6 @@ export const hexToRgba = (hex: string, alpha: number) => {
 
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 };
-
-// export const DashboardCard = styled(CardComp)`
-//   padding: ${(props) => props.theme.spacing(6)};
-//   background-image: url(${backgroundImage});
-//   background-size: cover; /* Kartı tam kaplasın */
-//   background-position: center; /* Ortaya hizala */
-//   background-repeat: no-repeat; /* Tekrarlama olmasın */
-//   border-radius: ${(props) => props.theme.shape.borderRadius}px;
-//   box-shadow: ${(props) => props.theme.shadows[2]};
-//   height: 300px; /* Yükseklik ayarla */
-//   width: 100%; /* Kart genişliğini ayarla */
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   color: white; /* İçerik rengi */
-// `;
 
 export const DashboardCard = styled(CardComp)`
   padding: ${(props) => props.theme.spacing(6)};
