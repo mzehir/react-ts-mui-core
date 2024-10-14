@@ -9,9 +9,9 @@ import CardContentComp from '../../../../../components/base/cardContent/CardCont
 import TypographyComp from '../../../../../components/base/typography/Typography';
 import SliderComp from '../../../../../components/custom/reactSlick/Slider';
 import CampaignIcon from '@mui/icons-material/Campaign';
-import WavingHandIcon from '@mui/icons-material/WavingHand';
+import { ReactComponent as DefaultLogo } from '../../../../../assets/app/defaultLogo.svg';
 
-export const CustomDashboardCard = styled(CardComp)`
+const CustomDashboardCard = styled(CardComp)`
   padding: ${(props) => props.theme.spacing(6)};
   border-radius: 10px;
 
@@ -19,8 +19,13 @@ export const CustomDashboardCard = styled(CardComp)`
     props.theme.palette.mode !== 'dark' &&
     css`
       background: ${hexToRgba(props.theme.palette.primary.main, 0.125)};
-      color: ${props.theme.palette.primary.main};
     `}
+`;
+
+const BrandIcon = styled(DefaultLogo)`
+  fill: ${(props) => props.theme.sidebar.header.brand.color};
+  width: 64px;
+  height: 64px;
 `;
 
 const HeaderSection: React.FC = () => {
@@ -77,7 +82,7 @@ const HeaderSection: React.FC = () => {
       <GridComp item xs={12}>
         <CustomDashboardCard sx={{ height: '100%' }}>
           <CardHeaderComp
-            avatar={<WavingHandIcon />}
+            avatar={<BrandIcon />}
             title={<TypographyComp variant="button">introduction.devStarterWelcome</TypographyComp>}
             subheader={<TypographyComp variant="button">introduction.devStarterTagline</TypographyComp>}
           />
