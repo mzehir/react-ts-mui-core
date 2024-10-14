@@ -1,12 +1,27 @@
 import React from 'react';
-import { DashboardCard } from '../helper';
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
+import { DashboardCard, hexToRgba } from '../helper';
 import GridComp from '../../../../../components/base/grid/Grid';
+import CardComp from '../../../../../components/base/card/Card';
 import CardHeaderComp from '../../../../../components/base/cardHeader/CardHeader';
 import CardContentComp from '../../../../../components/base/cardContent/CardContent';
 import TypographyComp from '../../../../../components/base/typography/Typography';
 import SliderComp from '../../../../../components/custom/reactSlick/Slider';
 import CampaignIcon from '@mui/icons-material/Campaign';
 import WavingHandIcon from '@mui/icons-material/WavingHand';
+
+export const CustomDashboardCard = styled(CardComp)`
+  padding: ${(props) => props.theme.spacing(6)};
+  border-radius: 10px;
+
+  ${(props) =>
+    props.theme.palette.mode !== 'dark' &&
+    css`
+      background: ${hexToRgba(props.theme.palette.primary.main, 0.125)};
+      color: ${props.theme.palette.primary.main};
+    `}
+`;
 
 const HeaderSection: React.FC = () => {
   const [sliderItems] = React.useState([
@@ -60,7 +75,7 @@ const HeaderSection: React.FC = () => {
   return (
     <GridComp container spacing={5}>
       <GridComp item xs={12}>
-        <DashboardCard sx={{ height: '100%' }}>
+        <CustomDashboardCard sx={{ height: '100%' }}>
           <CardHeaderComp
             avatar={<WavingHandIcon />}
             title={<TypographyComp variant="button">introduction.devStarterWelcome</TypographyComp>}
@@ -69,7 +84,7 @@ const HeaderSection: React.FC = () => {
           <CardContentComp>
             <TypographyComp variant="button">introduction.devStarterDescription</TypographyComp>
           </CardContentComp>
-        </DashboardCard>
+        </CustomDashboardCard>
       </GridComp>
 
       <GridComp item xs={12}>
