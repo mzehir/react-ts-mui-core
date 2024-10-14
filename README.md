@@ -1,8 +1,8 @@
 # Hello, welcome to Dev Starter!
 
-DevStarter: A Starter Project Offering Speed, Flexibility, and Power to Developers
+Dev Starter: A Starter Project Offering Speed, Flexibility, and Power to Developers
 
-DevStarter is a starter project designed for developers who want to build modern web applications, focused on speed and efficiency. The project is equipped with the most popular and high-performance libraries: React, Vite, TypeScript, Redux Toolkit, Material UI, and many more powerful tools. This infrastructure is designed to solve the most common challenges encountered when starting a project from scratch. Now, you can focus on your development process without worrying about critical aspects such as performance, scalability, and modularity.
+Dev Starter is a starter project designed for developers who want to build modern web applications, focused on speed and efficiency. The project is equipped with the most popular and high-performance libraries: React, Vite, TypeScript, Redux Toolkit, Material UI, and many more powerful tools. This infrastructure is designed to solve the most common challenges encountered when starting a project from scratch. Now, you can focus on your development process without worrying about critical aspects such as performance, scalability, and modularity.
 
 ## Features
 
@@ -12,15 +12,15 @@ DevStarter is a starter project designed for developers who want to build modern
 
 2- Material UI: Aesthetics and Usability
 
-    In the DevStarter project, we chose the Material UI (MUI) library for our user interface. MUI offers excellent components in terms of both aesthetics and functionality, helping us deliver a user-friendly experience. With its extensive component library, UI elements like forms, buttons, and tables can be easily integrated into the project, supporting the modular structure. MUI maintains design consistency and flexibility in rapidly evolving applications, making DevStarter a powerful tool for users. Additionally, the theme support provided by MUI allows you to customize your project as you wish.
+    In the Dev Starter project, we chose the Material UI (MUI) library for our user interface. MUI offers excellent components in terms of both aesthetics and functionality, helping us deliver a user-friendly experience. With its extensive component library, UI elements like forms, buttons, and tables can be easily integrated into the project, supporting the modular structure. MUI maintains design consistency and flexibility in rapidly evolving applications, making Dev Starter a powerful tool for users. Additionally, the theme support provided by MUI allows you to customize your project as you wish.
 
 3- Flexibility with Modular Structure
 
-    DevStarter stands out with its modular structure. All the components used in the application are categorized as 'base,' 'custom,' and 'advanced.' This allows you to customize and extend the project at any level you need. The advantage of the modular structure is that it helps you build a lighter and more efficient application by including only the components you need. Moreover, this structure provides developers with the ability to scale their projects quickly.
+    Dev Starter stands out with its modular structure. All the components used in the application are categorized as 'base,' 'custom,' and 'advanced.' This allows you to customize and extend the project at any level you need. The advantage of the modular structure is that it helps you build a lighter and more efficient application by including only the components you need. Moreover, this structure provides developers with the ability to scale their projects quickly.
 
 4- Powerful Form Management with React Hook Form and Yup
 
-    React Hook Form and Yup were used for form validation and management in the project. With these two libraries, it's possible to manage form operations in a simple, flexible, and performant way. Yup allows you to add strong validation rules, while React Hook Form makes it easy to handle form data. Especially in large projects, the combination of these two libraries added flexibility and efficiency to DevStarter. Users can manage their forms with minimal code while also achieving high performance.
+    React Hook Form and Yup were used for form validation and management in the project. With these two libraries, it's possible to manage form operations in a simple, flexible, and performant way. Yup allows you to add strong validation rules, while React Hook Form makes it easy to handle form data. Especially in large projects, the combination of these two libraries added flexibility and efficiency to Dev Starter. Users can manage their forms with minimal code while also achieving high performance.
 
 5- Redux Toolkit & RTK Query: Reliability in Data Management
 
@@ -28,19 +28,19 @@ DevStarter is a starter project designed for developers who want to build modern
 
 6- Multilingual Support with i18n
 
-    DevStarter is designed to provide services in multiple languages. Currently, the project supports Turkish, English, and German, with multilingual support built in a modular way. This allows your application to work seamlessly in any language and enables you to expand into global markets. Each language is managed through separate language files, and all the texts presented to users are fetched from these files. Adding a new language is straightforward, making the project usable at any scale.
+    Dev Starter is designed to provide services in multiple languages. Currently, the project supports Turkish, English, and German, with multilingual support built in a modular way. This allows your application to work seamlessly in any language and enables you to expand into global markets. Each language is managed through separate language files, and all the texts presented to users are fetched from these files. Adding a new language is straightforward, making the project usable at any scale.
 
 7- TinyMCE: Advanced Text Editor Support
 
-    DevStarter is equipped with the TinyMCE text editor to professionally meet users' text input needs. TinyMCE offers rich text editing options, addressing both simple and advanced editing needs. Whether it's a basic text field or rich content creation, TinyMCE provides an intuitive and powerful tool. Additionally, its modular structure allows for customization and expansion according to your needs. With TinyMCE integration in DevStarter, you can easily leverage advanced text editing features in your projects.
+    Dev Starter is equipped with the TinyMCE text editor to professionally meet users' text input needs. TinyMCE offers rich text editing options, addressing both simple and advanced editing needs. Whether it's a basic text field or rich content creation, TinyMCE provides an intuitive and powerful tool. Additionally, its modular structure allows for customization and expansion according to your needs. With TinyMCE integration in Dev Starter, you can easily leverage advanced text editing features in your projects.
 
 8- Prettier and ESLint: Perfection in Code Formatting and Quality Control
 
-    In our DevStarter project, we integrated Prettier and ESLint to maintain the highest code quality. Prettier keeps your code neat and readable, saving developers time by eliminating the need for manual formatting. By ensuring full compliance with formatting rules, it maintains standards within the team and creates a consistent writing style throughout the project. ESLint analyzes your code, detects potential errors in advance, and ensures adherence to best practices. Together, these two tools provide an error-free development experience and keep your code at its best, facilitating project maintenance and ensuring code quality.
+    In our Dev Starter project, we integrated Prettier and ESLint to maintain the highest code quality. Prettier keeps your code neat and readable, saving developers time by eliminating the need for manual formatting. By ensuring full compliance with formatting rules, it maintains standards within the team and creates a consistent writing style throughout the project. ESLint analyzes your code, detects potential errors in advance, and ensures adherence to best practices. Together, these two tools provide an error-free development experience and keep your code at its best, facilitating project maintenance and ensuring code quality.
 
 9- Guard System: Flexibility in Security
 
-    In DevStarter, a Guard structure controls each user's access to authorized pages during session management. This structure supports unlimited user types, allowing you to define access levels specific to each type. For example, a 'teacher' user can access a special page that a 'student' user cannot see, while 'guest' users can only view general access pages. This flexibility enables you to equip your application with a multi-layered access control mechanism. DevStarter provides the best way to ensure secure and customizable session management for your projects.
+    In Dev Starter, a Guard structure controls each user's access to authorized pages during session management. This structure supports unlimited user types, allowing you to define access levels specific to each type. For example, a 'teacher' user can access a special page that a 'student' user cannot see, while 'guest' users can only view general access pages. This flexibility enables you to equip your application with a multi-layered access control mechanism. Dev Starter provides the best way to ensure secure and customizable session management for your projects.
 
 ### Installation
 
@@ -74,4 +74,4 @@ npm run dev
 
 # PORT: http://localhost:3013/
 ```
-**[Demo page of the repository](https://asdasd/)**
+**[Demo page of the repository](https://react-ts-mui-core.vercel.app/)**

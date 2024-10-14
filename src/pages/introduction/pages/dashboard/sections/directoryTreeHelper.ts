@@ -40,6 +40,7 @@ import { ReactComponent as FolderOther } from '../../../../../assets/other/icons
 import { ReactComponent as FolderDatabase } from '../../../../../assets/other/icons/folder-database.svg';
 import { ReactComponent as FolderVscode } from '../../../../../assets/other/icons/folder-vscode.svg';
 import { ReactComponent as Tune } from '../../../../../assets/other/icons/tune.svg';
+import { ReactComponent as Vercel } from '../../../../../assets/other/icons/vercel.svg';
 
 export interface TreeItemType {
   type: 'folder' | 'file' | 'text';
@@ -99,6 +100,7 @@ const FolderOtherIcon = iconPrepare(FolderOther);
 const FolderDatabaseIcon = iconPrepare(FolderDatabase);
 const FolderVscodeIcon = iconPrepare(FolderVscode);
 const TuneIcon = iconPrepare(Tune);
+const VercelIcon = iconPrepare(Vercel);
 
 export const directoryTreeItems: TreeItemType[] = [
   {
@@ -645,8 +647,8 @@ export const directoryTreeItems: TreeItemType[] = [
                 type: 'folder',
                 openIcon: null,
                 closeIcon: null,
-                itemId: 'DialogContentText',
-                label: 'DialogContentText',
+                itemId: 'dialogContentText',
+                label: 'dialogContentText',
                 children: [
                   {
                     type: 'file',
@@ -3017,6 +3019,13 @@ export const directoryTreeItems: TreeItemType[] = [
     closeIcon: TsconfigIcon,
     itemId: 'tsconfignode',
     label: 'tsconfig.node.json',
+  },
+  {
+    type: 'file',
+    openIcon: VercelIcon,
+    closeIcon: VercelIcon,
+    itemId: 'vercel',
+    label: 'vercel.json',
   },
   {
     type: 'file',
