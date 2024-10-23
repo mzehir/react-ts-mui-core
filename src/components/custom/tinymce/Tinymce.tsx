@@ -3,7 +3,7 @@ import useThemeContext from '../../../hooks/useThemeContext';
 import useLanguageContext from '../../../hooks/useLanguageContext';
 import { Editor } from '@tinymce/tinymce-react';
 import { Editor as TinyMCEEditor } from 'tinymce';
-import { tinymceApiKey } from '../../../appSettings';
+// import { tinymceApiKey } from '../../../appSettings';
 import {
   contentStyle,
   editorHeight,
@@ -20,7 +20,7 @@ import ButtonComp from '../../base/button/Button';
 const menubar = getActiveMenubarItems();
 const toolbar = getActiveToolbarItems();
 const plugins = getActiveOpenSourcePlugins();
-const apiKey = tinymceApiKey;
+// const apiKey = tinymceApiKey; //TODO: Commented out because it doesn't work on the Vercel platform. It can be retrieved from the .env file in the production environment.
 
 const TinymceComp: React.FC = () => {
   const { theme } = useThemeContext();
@@ -49,7 +49,7 @@ const TinymceComp: React.FC = () => {
       )}
       <Editor
         key={editorKey}
-        apiKey={apiKey}
+        apiKey="d5mo62uz4on15xuow4qssjl6wao2zsgxmhf79xycj4cp0ssw"
         onInit={(_evt, editor) => {
           editorRef.current = editor;
           setIsLoading(false);
