@@ -32,6 +32,24 @@ const GlobalStyles = () => {
           -webkit-transition: 'color 9999s ease-out, background-color 9999s ease-out';
           -webkit-transition-delay: 9999s;
         }
+
+        ::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+          background: ${theme.palette.background.default};
+          border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          background: #aaa;
+          border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+          background: #555;
+        }
       `}
     />
   );
