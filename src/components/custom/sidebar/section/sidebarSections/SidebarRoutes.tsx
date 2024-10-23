@@ -64,7 +64,9 @@ const SidebarRoutes: React.FC<SidebarRoutesProps> = ({
               <ListItemButtonComp onClick={() => handleTitleClick(route.key)} sx={{ pl: 4 * level }}>
                 <ListItemIconComp>{route.icon ? <route.icon /> : <TocIcon />}</ListItemIconComp>
                 <ListItemTextComp primary={route.label} isPrimaryTranslation={true} />
-                {openTitles[route.key] ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                <ListItemIconComp sx={{ minWidth: '0px' }}>
+                  {openTitles[route.key] ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                </ListItemIconComp>
               </ListItemButtonComp>
               <StyledCollapseComp in={openTitles[route.key]} timeout="auto" unmountOnExit>
                 <ListComp component="div" disablePadding>
