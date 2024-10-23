@@ -21,7 +21,6 @@ const menubar = getActiveMenubarItems();
 const toolbar = getActiveToolbarItems();
 const plugins = getActiveOpenSourcePlugins();
 const apiKey = tinymceApiKey;
-//TODO: Commented out because it doesn't work on the Vercel platform. It can be retrieved from the .env file in the production environment.
 
 const TinymceComp: React.FC = () => {
   const { theme } = useThemeContext();
