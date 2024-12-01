@@ -33,6 +33,7 @@ interface FormValues {
   studentGender: studentGender;
   parentNameAndSurname: string;
   parentPhoneNumber: string;
+  monthsToBePaid: string[];
   amountDuesPayable: number;
   paymentType: string;
   approval: boolean;
@@ -45,6 +46,7 @@ const defaultValues: FormValues = {
   studentGender: 'maleStudent',
   parentNameAndSurname: 'Nurten Pembe',
   parentPhoneNumber: '5396751848',
+  monthsToBePaid: ['january'],
   amountDuesPayable: 500.99,
   paymentType: '3',
   approval: false,
@@ -60,6 +62,11 @@ const schema = yup.object().shape({
     .required('validationWarnings.required'),
   parentNameAndSurname: yup.string().required('validationWarnings.required'),
   parentPhoneNumber: yup.string().required('validationWarnings.required'),
+  monthsToBePaid: yup
+    .array()
+    .of(yup.string().required('validationWarnings.required'))
+    .min(1, 'validationWarnings.required')
+    .required('validationWarnings.required'),
   amountDuesPayable: yup.number().min(500.99, 'validationWarnings.required').required('validationWarnings.required'),
   paymentType: yup.string().required('validationWarnings.required'),
   approval: yup.boolean().required('validationWarnings.required'),
@@ -88,6 +95,21 @@ const RhfStandardExamp: React.FC = () => {
     { value: '1', label: 'introduction.partialInstallmentPayment' },
     { value: '2', label: 'introduction.fullInstallmentPayment' },
     { value: '3', label: 'introduction.payAllInstallments' },
+  ]);
+
+  const [monthsToBePaidItems] = React.useState<SelectItem[]>([
+    { value: 'january', label: 'introduction.january' },
+    { value: 'february', label: 'introduction.february' },
+    { value: 'march', label: 'introduction.march' },
+    { value: 'april', label: 'introduction.april' },
+    { value: 'may', label: 'introduction.may' },
+    { value: 'june', label: 'introduction.june' },
+    { value: 'july', label: 'introduction.july' },
+    { value: 'august', label: 'introduction.august' },
+    { value: 'september', label: 'introduction.september' },
+    { value: 'october', label: 'introduction.october' },
+    { value: 'november', label: 'introduction.november' },
+    { value: 'december', label: 'introduction.december' },
   ]);
 
   return (
@@ -187,6 +209,24 @@ const RhfStandardExamp: React.FC = () => {
                     error: !!formState.errors.parentPhoneNumber,
                     disabled: false,
                     required: false,
+                  }}
+                />
+
+                <CustomController<FormValues>
+                  name="monthsToBePaid"
+                  control={control}
+                  componentFields={{
+                    componentType: 'select',
+                    multiple: true,
+                    label: 'introduction.monthsToBePaid',
+                    helperText: formState.errors.monthsToBePaid?.message,
+                    isLabelTranslation: true,
+                    isHelperTextTranslation: true,
+                    isItemTextTranslation: true,
+                    error: !!formState.errors.monthsToBePaid,
+                    disabled: false,
+                    required: false,
+                    items: monthsToBePaidItems,
                   }}
                 />
 
@@ -342,6 +382,21 @@ const RhfStandardExamp: React.FC = () => {
               <GridComp item xs={8}>
                 <TypographyComp variant="h5">
                   {watchAllFields.parentPhoneNumber ? watchAllFields.parentPhoneNumber : '-'}
+                </TypographyComp>
+              </GridComp>
+            </>
+
+            <>
+              <GridComp item xs={4}>
+                <TypographyComp variant="h5">introduction.monthsToBePaid</TypographyComp>
+              </GridComp>
+              <GridComp item xs={8}>
+                <TypographyComp variant="h5">
+                  {watchAllFields.monthsToBePaid
+                    ? Array.isArray(watchAllFields.monthsToBePaid) && watchAllFields.monthsToBePaid.length > 0
+                      ? watchAllFields.monthsToBePaid.join(', ')
+                      : watchAllFields.monthsToBePaid
+                    : '-'}{' '}
                 </TypographyComp>
               </GridComp>
             </>

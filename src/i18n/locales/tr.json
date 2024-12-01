@@ -359,7 +359,22 @@
     "advantagePackagePrice": "49$",
     "advantagePackagePriceDescription": "Aylık abonelik yok, sadece bir kez ödeme yapıyorsunuz.",
     "contactUs": "İletişime Geç",
-    "packageFeatures": "Paket Özellikleri"
+    "packageFeatures": "Paket Özellikleri",
+    "&&&&&&": "&&&&&&",
+    "&&&&&&": "&&&&&&",
+    "monthsToBePaid": "Ödeme Yapılacak Aylar",
+    "january": "Ocak",
+    "february": "Şubat",
+    "march": "Mart",
+    "april": "Nisan",
+    "may": "Mayıs",
+    "june": "Haziran",
+    "july": "Temmuz",
+    "august": "Ağustos",
+    "september": "Eylül",
+    "october": "Ekim",
+    "november": "Kasım",
+    "december": "Aralık"
   },
   "_interpolations": {
     "interpolations_1": "Merhaba {{name}} {{surname}}, uygulamaya hoşgeldin"

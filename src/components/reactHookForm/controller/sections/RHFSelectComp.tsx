@@ -11,6 +11,7 @@ interface RHFSelectCompProps {
   onChange: (event: SelectChangeEvent<unknown>, child: React.ReactNode) => void;
   value: string | number;
   label?: string;
+  multiple?: boolean;
   helperText?: string;
   isLabelTranslation?: boolean;
   isHelperTextTranslation?: boolean;
@@ -26,6 +27,7 @@ const RHFSelectComp: React.FC<RHFSelectCompProps> = ({
   onChange,
   value,
   label,
+  multiple,
   helperText,
   isLabelTranslation,
   isHelperTextTranslation,
@@ -40,6 +42,7 @@ const RHFSelectComp: React.FC<RHFSelectCompProps> = ({
       <InputLabelComp isTranslation={isLabelTranslation}>{label}</InputLabelComp>
       <SelectComp
         label={label}
+        multiple={multiple}
         items={items}
         value={value}
         onChange={onChange}

@@ -359,7 +359,22 @@
     "advantagePackagePrice": "$49",
     "advantagePackagePriceDescription": "No monthly subscription, you only pay once.",
     "contactUs": "Contact Us",
-    "packageFeatures": "Package Features"
+    "packageFeatures": "Package Features",
+    "&&&&&&": "&&&&&&",
+    "&&&&&&": "&&&&&&",
+    "monthsToBePaid": "Months To Be Paid",
+    "january": "January",
+    "february": "February",
+    "march": "March",
+    "april": "April",
+    "may": "May",
+    "june": "June",
+    "july": "July",
+    "august": "August",
+    "september": "September",
+    "october": "October",
+    "november": "November",
+    "december": "December"
   },
   "_interpolations": {
     "interpolations_1": "Hello {{name}} {{surname}}, welcome to the application"

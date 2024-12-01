@@ -210,6 +210,7 @@ const CustomController = <T extends FieldValues>({ name, control, componentField
               value={value}
               //
               label={componentFields.label}
+              multiple={componentFields.multiple}
               helperText={componentFields.helperText}
               //
               isLabelTranslation={

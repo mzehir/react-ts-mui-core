@@ -78,6 +78,7 @@ export type componentFields =
   | {
       componentType: 'select';
       label: string;
+      multiple?: boolean;
       helperText?: string;
       //
       isLabelTranslation?: boolean;
