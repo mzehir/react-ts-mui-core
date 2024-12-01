@@ -243,6 +243,7 @@
     "markComponentAsReadOnly": "Mark the component as read-only",
     "makeComponentSingleLine": "Make the component occupy a single line",
     "makeComponentFullWidth": "Make the component full width",
+    "enableComponentMultiSelect": "Enable the multi-select feature of the component",
     "makeComponentFullScreen": "Make the component full screen",
     "closeComponentPanelOnNewSelection": "Close the component's panel when a new value is selected",
     "closeComponentOnClickAnywhere": "Close the component when clicked anywhere",

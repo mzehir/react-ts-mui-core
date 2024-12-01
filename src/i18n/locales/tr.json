@@ -243,6 +243,7 @@
     "markComponentAsReadOnly": "Bileşen salt okunur bir alan olduğunu vurgulasın",
     "makeComponentSingleLine": "Bileşen tek satırı işgal etsin",
     "makeComponentFullWidth": "Bileşen maksimum genişlikte olsun",
+    "enableComponentMultiSelect": "Bileşenin çoklu seçim özelliği aktif olsun",
     "makeComponentFullScreen": "Bileşen tüm ekranı kaplasın",
     "closeComponentPanelOnNewSelection": "Bileşene ait pencere, yeni değer seçildiğinde kendiliğinden kapansın",
     "closeComponentOnClickAnywhere": "Bileşenin herhangi bir noktasına tıklandığında bileşen kapatılsın",

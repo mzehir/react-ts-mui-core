@@ -38,12 +38,14 @@ const SelectPage: React.FC = () => {
   ];
 
   const [value, setValue] = React.useState<string>('');
+  const [multipleValue, setMultipleValue] = React.useState<(string | number | unknown)[]>([1]);
   const [selectedVariant, setSelectedVariant] = useState<(typeof variantOptions)[number]['value']>('outlined');
   const [disabled, setDisabled] = useState(false);
   const [error, setError] = useState(false);
   const [required, setRequired] = useState(false);
   const [readOnly, setReadOnly] = useState(false);
   const [fullWidth, setFullWidth] = useState(true);
+  const [multiple, setMultiple] = useState(false);
 
   return (
     <>
@@ -81,9 +83,14 @@ const SelectPage: React.FC = () => {
                   // @ts-expect-error: Prop errors can be ignored.
                   variant={selectedVariant}
                   items={items}
-                  value={value}
+                  multiple={multiple}
+                  value={multiple ? multipleValue : value}
                   onChange={(event: SelectChangeEvent<unknown>) => {
-                    setValue(event.target.value as string);
+                    if (multiple && Array.isArray(event.target.value)) {
+                      setMultipleValue([...event.target.value]);
+                    } else {
+                      setValue(event.target.value as string);
+                    }
                   }}
                   inputProps={{ readOnly: readOnly }}
                 />
@@ -168,6 +175,15 @@ const SelectPage: React.FC = () => {
                 <FormControlLabelComp
                   label={'introduction.makeComponentFullWidth'}
                   control={<CheckboxComp checked={!!fullWidth} onChange={(e) => setFullWidth(e.target.checked)} />}
+                />
+              </FormControlComp>
+            </GridComp>
+
+            <GridComp item xs={12} md={6} lg={3}>
+              <FormControlComp>
+                <FormControlLabelComp
+                  label={'introduction.enableComponentMultiSelect'}
+                  control={<CheckboxComp checked={!!multiple} onChange={(e) => setMultiple(e.target.checked)} />}
                 />
               </FormControlComp>
             </GridComp>
