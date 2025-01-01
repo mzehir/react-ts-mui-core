@@ -16,7 +16,7 @@ const cellWidthDefinitions = {
   lvv: 400,
 } as const;
 
-export type AlignType = 'inherit' | 'left' | 'center' | 'right' | 'justify';
+type AlignType = 'inherit' | 'left' | 'center' | 'right' | 'justify';
 
 export type SummaryType = 'sum' | 'min' | 'max' | 'avg' | 'count' | 'custom';
 
