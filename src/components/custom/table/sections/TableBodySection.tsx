@@ -3,7 +3,7 @@ import TableBodyComp from '../../../base/tableBody/TableBody';
 import TableRowComp from '../../../base/tableRow/TableRow';
 import TableCellComp from '../../../base/tableCell/TableCell';
 import IconButtonComp from '../../../base/iconButton/IconButton';
-import { CustomTableProps } from '../customTableHelper';
+import { CustomTableProps } from '../customTableTypes';
 import EditIcon from '@mui/icons-material/Edit';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -98,16 +98,16 @@ const TableBodySection = <T extends object>({
           {cells.map((cell, cellIndex) => (
             <TableCellComp
               key={cellIndex.toString()}
-              align={cell.settings?.head?.tableCell?.align}
-              isTranslation={cell.settings?.body?.tableCell?.isTranslation}
+              align={cell.settings?.head?.cell?.align}
+              isTranslation={cell.settings?.body?.cell?.isTranslation}
               sx={{
                 ...(columnVerticalLinesVisible ? { boxShadow: (theme) => `1px 0 0 0 ${theme.palette.divider}` } : {}),
               }}
             >
-              {cell.settings?.body?.tableCell?.renderCustomComponent
-                ? cell.settings?.body?.tableCell?.renderCustomComponent(row[cell.key as keyof T] as string)
-                : cell.settings?.body?.tableCell?.prepareCellTextMethod
-                  ? cell.settings?.body?.tableCell?.prepareCellTextMethod(
+              {cell.settings?.body?.cell?.renderCustomComponent
+                ? cell.settings?.body?.cell?.renderCustomComponent(row[cell.key as keyof T] as string)
+                : cell.settings?.body?.cell?.prepareCellTextMethod
+                  ? cell.settings?.body?.cell?.prepareCellTextMethod(
                       row as Record<string, unknown>,
                       row[cell.key as keyof T] as string,
                     )

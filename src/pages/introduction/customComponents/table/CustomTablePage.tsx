@@ -10,7 +10,7 @@ import TypographyComp from '../../../../components/base/typography/Typography';
 import DividerComp from '../../../../components/base/divider/Divider';
 import IconButtonComp from '../../../../components/base/iconButton/IconButton';
 import CustomTable from '../../../../components/custom/table/CustomTable';
-import { TableCell } from '../../../../components/custom/table/customTableHelper';
+import { Cell } from '../../../../components/custom/table/customTableTypes';
 import { formatPhoneNumber } from '../../../../utils/locale/phoneFormats';
 import { styled } from '@mui/material/styles';
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
@@ -41,13 +41,13 @@ export interface rowType {
   homeAddress: string;
 }
 
-const cellsData: TableCell[] = [
+const cellsData: Cell[] = [
   {
     key: 'registrationDate',
     label: 'introduction.registrationDate',
     settings: {
       head: {
-        tableCell: {
+        cell: {
           minWidth: 200,
         },
       },
@@ -58,7 +58,7 @@ const cellsData: TableCell[] = [
     label: 'introduction.student',
     settings: {
       head: {
-        tableCell: {
+        cell: {
           minWidth: 200,
         },
       },
@@ -69,13 +69,13 @@ const cellsData: TableCell[] = [
     label: 'introduction.gradePointAverage',
     settings: {
       head: {
-        tableCell: {
+        cell: {
           minWidth: 200,
           align: 'right',
         },
       },
       footer: {
-        tableCell: {
+        cell: {
           summaryType: 'sum',
           open: true,
           defaultLabelOpen: true,
@@ -88,7 +88,7 @@ const cellsData: TableCell[] = [
     label: 'introduction.parent',
     settings: {
       head: {
-        tableCell: {
+        cell: {
           minWidth: 200,
         },
       },
@@ -99,12 +99,12 @@ const cellsData: TableCell[] = [
     label: 'introduction.parentPhoneNumber',
     settings: {
       head: {
-        tableCell: {
+        cell: {
           minWidth: 200,
         },
       },
       body: {
-        tableCell: {
+        cell: {
           prepareCellTextMethod: (_rowData, cellText) => {
             const _cellText = cellText as string;
             return formatPhoneNumber(_cellText);
@@ -118,7 +118,7 @@ const cellsData: TableCell[] = [
     label: 'introduction.homeAddress',
     settings: {
       head: {
-        tableCell: {
+        cell: {
           minWidth: 200,
         },
       },

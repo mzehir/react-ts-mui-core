@@ -1,12 +1,8 @@
 import TableHeadComp from '../../../base/tableHead/TableHead';
 import TableRowComp from '../../../base/tableRow/TableRow';
 import TableCellComp from '../../../base/tableCell/TableCell';
-import { CustomTableProps } from '../customTableHelper';
+import { CustomTableProps } from '../customTableTypes';
 import { styled } from '@mui/material/styles';
-
-const StyledTableHead = styled(TableHeadComp)(({ theme }) => ({
-  borderTop: `1px dotted ${theme.palette.divider}`,
-}));
 
 const StickyTableHeadColumn = styled(TableCellComp)(({ theme }) => ({
   background: theme.customTable?.stickyColumn?.backgroundSecondary,
@@ -36,7 +32,11 @@ const TableHeadSection = <T extends object>({
   stickyColumnWidth: CustomTableProps<T>['stickyColumnWidth'];
 }): JSX.Element => {
   return (
-    <StyledTableHead>
+    <TableHeadComp
+      sx={{
+        borderTop: (theme) => `1px dotted ${theme.palette.divider}`,
+      }}
+    >
       <TableRowComp>
         {stickyColumnVisible && (
           <StickyTableHeadColumn
@@ -44,7 +44,6 @@ const TableHeadSection = <T extends object>({
             style={{
               minWidth: stickyColumnWidth,
             }}
-            rowIndex={1}
           />
         )}
 
@@ -52,9 +51,9 @@ const TableHeadSection = <T extends object>({
           <TableCellComp
             key={index.toString()}
             isTranslation={true}
-            align={cell.settings?.head?.tableCell?.align}
+            align={cell.settings?.head?.cell?.align}
             style={{
-              minWidth: cell.settings?.head?.tableCell?.minWidth ? cell.settings.head.tableCell.minWidth : 200,
+              minWidth: cell.settings?.head?.cell?.minWidth ? cell.settings.head.cell.minWidth : 200,
             }}
             sx={{
               ...(columnVerticalLinesVisible ? { boxShadow: (theme) => `1px 0 0 0 ${theme.palette.divider}` } : {}),
@@ -64,7 +63,7 @@ const TableHeadSection = <T extends object>({
           </TableCellComp>
         ))}
       </TableRowComp>
-    </StyledTableHead>
+    </TableHeadComp>
   );
 };
 

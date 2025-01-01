@@ -2,7 +2,8 @@ import useLanguageContext from '../../../../hooks/useLanguageContext';
 import TableRowComp from '../../../base/tableRow/TableRow';
 import TableCellComp from '../../../base/tableCell/TableCell';
 import TableFooterComp from '../../../base/tableFooter/TableFooter';
-import { CustomTableProps, processSummary } from '../customTableHelper';
+import { processSummary } from '../customTableMethods';
+import { CustomTableProps } from '../customTableTypes';
 import { styled } from '@mui/material/styles';
 
 const StyledTableFooterRow = styled(TableRowComp)(({ theme }) => ({
@@ -52,10 +53,10 @@ const TableFooterSection = <T extends object>({
         )}
 
         {cells.map((cell, cellIndex) =>
-          cell.settings?.footer?.tableCell?.open ? (
+          cell.settings?.footer?.cell?.open ? (
             <TableCellComp
               key={cellIndex.toString()}
-              align={cell.settings?.head?.tableCell?.align}
+              align={cell.settings?.head?.cell?.align}
               isTranslation={false}
               sx={{
                 fontWeight: 700,
@@ -63,25 +64,22 @@ const TableFooterSection = <T extends object>({
                 ...(columnVerticalLinesVisible ? { boxShadow: (theme) => `1px 0 0 0 ${theme.palette.divider}` } : {}),
               }}
             >
-              {cell.settings?.footer?.tableCell?.defaultLabelOpen &&
-                translate(`component.${cell.settings?.footer?.tableCell?.summaryType ?? 'count'}`) + ': '}
+              {cell.settings?.footer?.cell?.defaultLabelOpen &&
+                translate(`component.${cell.settings?.footer?.cell?.summaryType ?? 'count'}`) + ': '}
 
-              {(cell.settings?.footer?.tableCell?.prepareCustomLabel || false) &&
-              cell.settings?.footer?.tableCell?.customLabelIsTranslation
-                ? translate(cell.settings?.footer?.tableCell?.prepareCustomLabel(cell.key))
-                : cell.settings?.footer?.tableCell?.prepareCustomLabel?.(cell.key)}
+              {(cell.settings?.footer?.cell?.prepareCustomLabel || false) &&
+              cell.settings?.footer?.cell?.customLabelIsTranslation
+                ? translate(cell.settings?.footer?.cell?.prepareCustomLabel(cell.key))
+                : cell.settings?.footer?.cell?.prepareCustomLabel?.(cell.key)}
 
-              {cell.settings?.footer?.tableCell?.summaryType !== 'custom'
+              {cell.settings?.footer?.cell?.summaryType !== 'custom'
                 ? processSummary(
-                    cell.settings?.footer?.tableCell?.summaryType ?? 'count',
+                    cell.settings?.footer?.cell?.summaryType ?? 'count',
                     cell.key,
                     rows as Record<string, unknown>[],
                   )
-                : cell.settings?.footer?.tableCell?.summaryCustomCalculate
-                  ? cell.settings?.footer?.tableCell?.summaryCustomCalculate(
-                      cell.key,
-                      rows as Record<string, unknown>[],
-                    )
+                : cell.settings?.footer?.cell?.summaryCustomCalculate
+                  ? cell.settings?.footer?.cell?.summaryCustomCalculate(cell.key, rows as Record<string, unknown>[])
                   : '-'}
             </TableCellComp>
           ) : (

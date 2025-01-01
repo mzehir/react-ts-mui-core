@@ -8,7 +8,7 @@ import TableBodySection from './sections/TableBodySection';
 import TableFooterSection from './sections/TableFooterSection';
 import TableNoDataSection from './sections/TableNoDataSection';
 import { TableAddButton } from './Components';
-import { CustomTableProps } from './customTableHelper';
+import { CustomTableProps } from './customTableTypes';
 import './customTable.css';
 
 const CustomTable = <T extends object>({
