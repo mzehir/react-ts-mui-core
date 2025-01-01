@@ -19,6 +19,7 @@ const cellWidthDefinitions = {
 export type AlignType = 'inherit' | 'left' | 'center' | 'right' | 'justify';
 
 export type SummaryType = 'sum' | 'min' | 'max' | 'avg' | 'count' | 'custom';
+
 interface CellSettingsHeadBody {
   minWidth?: keyof typeof cellWidthDefinitions | number;
   width?: keyof typeof cellWidthDefinitions | number;
