@@ -1,11 +1,9 @@
 import { SummaryType } from './customTableTypes';
 
 export function processSummary(summaryType: SummaryType, key: string, rows: Record<string, unknown>[]): number {
-  // Map through rows and extract the key values
   const values = rows
     .map((row) => {
       const value = row[key];
-      // Check if the value is a string or number
       if (typeof value === 'string') {
         const numericValue = Number(value);
         return isNaN(numericValue) ? null : numericValue;
@@ -14,9 +12,8 @@ export function processSummary(summaryType: SummaryType, key: string, rows: Reco
       }
       return null;
     })
-    .filter((value): value is number => value !== null); // Filter valid numeric values
+    .filter((value): value is number => value !== null);
 
-  // Perform the operation based on the summaryType
   switch (summaryType) {
     case 'sum':
       return values.reduce((acc, val) => acc + val, 0);

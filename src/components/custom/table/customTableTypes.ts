@@ -20,6 +20,8 @@ type AlignType = 'inherit' | 'left' | 'center' | 'right' | 'justify';
 
 export type SummaryType = 'sum' | 'min' | 'max' | 'avg' | 'count' | 'custom';
 
+type FormatType = 'decimalThousandSeparator' | 'currency';
+
 interface CellSettingsHeadBody {
   minWidth?: keyof typeof cellWidthDefinitions | number;
   width?: keyof typeof cellWidthDefinitions | number;
@@ -36,6 +38,8 @@ interface CellSettingsFooter {
   customLabelIsTranslation?: boolean;
   summaryType: SummaryType;
   summaryCustomCalculate?: (key: string, rows: unknown[]) => string;
+  formatType?: FormatType;
+  prepareCustomFormat?: (value: number | string) => number | string;
 }
 
 interface CellHeadBodySettings {

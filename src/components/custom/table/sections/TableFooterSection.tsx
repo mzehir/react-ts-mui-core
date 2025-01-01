@@ -5,6 +5,8 @@ import TableFooterComp from '../../../base/tableFooter/TableFooter';
 import { processSummary } from '../customTableMethods';
 import { CustomTableProps } from '../customTableTypes';
 import { styled } from '@mui/material/styles';
+import React from 'react';
+import { formatCurrency, formatNumber } from '../../../../utils/methods/format';
 
 const StyledTableFooterRow = styled(TableRowComp)(({ theme }) => ({
   backgroundColor: theme.palette.action.disabled,
@@ -40,6 +42,56 @@ const TableFooterSection = <T extends object>({
   stickyColumnWidth: CustomTableProps<T>['stickyColumnWidth'];
 }): JSX.Element => {
   const { translate } = useLanguageContext();
+
+  const renderCellContent = (
+    cell: CustomTableProps<object>['cells'][number],
+    rows: CustomTableProps<object>['rows'],
+  ): React.ReactNode => {
+    let _label: string = '';
+    let _value: string | number = '';
+
+    if (cell.settings?.footer?.cell?.defaultLabelOpen) {
+      _label = translate(`component.${cell.settings?.footer?.cell?.summaryType ?? 'count'}`) + ': ';
+    } else if (cell.settings?.footer?.cell?.prepareCustomLabel) {
+      const customLabel = cell.settings?.footer?.cell?.prepareCustomLabel?.(cell.key);
+      _label = cell.settings?.footer?.cell?.customLabelIsTranslation ? translate(customLabel) : customLabel;
+    }
+
+    if (cell.settings?.footer?.cell?.summaryType && cell.settings?.footer?.cell?.summaryType !== 'custom') {
+      const _processSummaryValue = processSummary(
+        cell.settings?.footer?.cell?.summaryType,
+        cell.key,
+        rows as Record<string, unknown>[],
+      );
+      _value = _processSummaryValue;
+    } else if (
+      cell.settings?.footer?.cell?.summaryType === 'custom' &&
+      cell.settings?.footer?.cell?.summaryCustomCalculate
+    ) {
+      const _summaryCustomCalculateValue = cell.settings?.footer?.cell?.summaryCustomCalculate(
+        cell.key,
+        rows as Record<string, unknown>[],
+      );
+      _value = _summaryCustomCalculateValue;
+    } else {
+      _value = '-';
+    }
+
+    if (typeof _value === 'number' && cell.settings?.footer?.cell?.summaryType !== 'count') {
+      const formattedValue =
+        cell.settings?.footer?.cell?.formatType === 'currency' ? formatCurrency(_value) : formatNumber(_value);
+
+      _value = formattedValue;
+    }
+
+    return (
+      <>
+        {_label}
+        {_value}
+      </>
+    );
+  };
+
   return (
     <TableFooterComp>
       <StyledTableFooterRow>
@@ -64,23 +116,7 @@ const TableFooterSection = <T extends object>({
                 ...(columnVerticalLinesVisible ? { boxShadow: (theme) => `1px 0 0 0 ${theme.palette.divider}` } : {}),
               }}
             >
-              {cell.settings?.footer?.cell?.defaultLabelOpen &&
-                translate(`component.${cell.settings?.footer?.cell?.summaryType ?? 'count'}`) + ': '}
-
-              {(cell.settings?.footer?.cell?.prepareCustomLabel || false) &&
-              cell.settings?.footer?.cell?.customLabelIsTranslation
-                ? translate(cell.settings?.footer?.cell?.prepareCustomLabel(cell.key))
-                : cell.settings?.footer?.cell?.prepareCustomLabel?.(cell.key)}
-
-              {cell.settings?.footer?.cell?.summaryType !== 'custom'
-                ? processSummary(
-                    cell.settings?.footer?.cell?.summaryType ?? 'count',
-                    cell.key,
-                    rows as Record<string, unknown>[],
-                  )
-                : cell.settings?.footer?.cell?.summaryCustomCalculate
-                  ? cell.settings?.footer?.cell?.summaryCustomCalculate(cell.key, rows as Record<string, unknown>[])
-                  : '-'}
+              {renderCellContent(cell, rows)}
             </TableCellComp>
           ) : (
             <TableCellComp
