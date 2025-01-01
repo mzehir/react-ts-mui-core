@@ -59,7 +59,13 @@
     "chooseLanguage": "Please choose a language",
     "chooseTheme": "Please choose a theme",
     "signOut": "Sign Out",
-    "search": "Search"
+    "search": "Search",
+    "sum": "Sum",
+    "min": "Min",
+    "max": "Max",
+    "avg": "Avg",
+    "count": "Count",
+    "custom": "Custom"
   },
   "routes": {
     "dashboard": "Dashboard",

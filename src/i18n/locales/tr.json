@@ -59,7 +59,13 @@
     "chooseLanguage": "Lütfen bir dil seçin",
     "chooseTheme": "Lütfen bir tema seçin",
     "signOut": "Çıkış Yap",
-    "search": "Arama"
+    "search": "Arama",
+    "sum": "Tpl",
+    "min": "Min",
+    "max": "Max",
+    "avg": "Ort",
+    "count": "Sayı",
+    "custom": "Özl"
   },
   "routes": {
     "dashboard": "Gösterge Paneli",
