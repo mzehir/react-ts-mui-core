@@ -20,6 +20,8 @@ import DialogPage from '../pages/introduction/components/dialog/DialogPage';
 import CustomFilterPage from '../pages/introduction/customComponents/customFilter/CustomFilterPage';
 import CustomTablePage from '../pages/introduction/customComponents/table/CustomTablePage';
 import TextEditorPage from '../pages/introduction/customComponents/textEditor/TextEditorPage';
+// Custom Components Introduction
+import OrderProjectPage from '../pages/introduction/simpleProjects/orderProject/OrderProjectPage';
 // Redux Introduction
 import ReduxStandardExamp from '../pages/introduction/redux/ReduxStandardExamp';
 import RTKApiExamp from '../pages/introduction/redux/RTKApiExamp';
@@ -189,6 +191,19 @@ const customComponentsIntroductionRouter = [
       <Guard routeKey={allRoutes.INTRODUCTION_TEXT_EDITOR_PAGE.key}>
         <DefaultLayout>
           <TextEditorPage />
+        </DefaultLayout>
+      </Guard>
+    ),
+  },
+];
+
+const simpleProjectsIntroductionRouter = [
+  {
+    path: allRoutes.INTRODUCTION_ORDER_PROJECT_PAGE.path,
+    element: (
+      <Guard routeKey={allRoutes.INTRODUCTION_ORDER_PROJECT_PAGE.key}>
+        <DefaultLayout>
+          <OrderProjectPage />
         </DefaultLayout>
       </Guard>
     ),
@@ -392,6 +407,7 @@ const otherRouter = [
 export const router = createBrowserRouter([
   ...componentsIntroductionRouter,
   ...customComponentsIntroductionRouter,
+  ...simpleProjectsIntroductionRouter,
   ...reduxIntroductionRouter,
   ...rhfIntroductionRouter,
   ...otherRouter,

@@ -1,4 +1,4 @@
-const cellWidthDefinitions = {
+export const cellWidthDefinitions = {
   vvs: 50,
   vs: 75,
   s: 100,

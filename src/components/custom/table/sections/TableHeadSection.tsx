@@ -1,7 +1,7 @@
 import TableHeadComp from '../../../base/tableHead/TableHead';
 import TableRowComp from '../../../base/tableRow/TableRow';
 import TableCellComp from '../../../base/tableCell/TableCell';
-import { CustomTableProps } from '../customTableTypes';
+import { cellWidthDefinitions, CustomTableProps } from '../customTableTypes';
 import { styled } from '@mui/material/styles';
 
 const StickyTableHeadColumn = styled(TableCellComp)(({ theme }) => ({
@@ -53,7 +53,12 @@ const TableHeadSection = <T extends object>({
             isTranslation={true}
             align={cell.settings?.head?.cell?.align}
             style={{
-              minWidth: cell.settings?.head?.cell?.minWidth ? cell.settings.head.cell.minWidth : 200,
+              minWidth:
+                cell.settings?.head?.cell?.minWidth && typeof cell.settings?.head?.cell?.minWidth === 'number'
+                  ? cell.settings.head.cell.minWidth
+                  : cell.settings?.head?.cell?.minWidth
+                    ? cellWidthDefinitions[cell.settings?.head?.cell?.minWidth as keyof typeof cellWidthDefinitions]
+                    : 200,
             }}
             sx={{
               ...(columnVerticalLinesVisible ? { boxShadow: (theme) => `1px 0 0 0 ${theme.palette.divider}` } : {}),

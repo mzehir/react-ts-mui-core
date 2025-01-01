@@ -71,6 +71,7 @@
     "dashboard": "Dashboard",
     "components": "Components",
     "customizedComponents": "Customized Components",
+    "simpleProjects": "Simple Projects",
     "sessionPages": "Session Pages",
     "errorAndPermissionManagementPages": "Error and Permission Management Pages",
     "pagesByUserType": "Pages By User Type",
@@ -101,7 +102,10 @@
     "xxxxx": "xxxxx",
     "xxxxx": "xxxxx",
     "contact": "Contact",
-    "pricing": "Pricing"
+    "pricing": "Pricing",
+    "xxxxx": "xxxxx",
+    "xxxxx": "xxxxx",
+    "orderProject": "Order Project"
   },
   "validationWarnings": {
     "required": "This field is required.",
@@ -380,7 +384,31 @@
     "september": "September",
     "october": "October",
     "november": "November",
-    "december": "December"
+    "december": "December",
+    "&&&&&&": "&&&&&&",
+    "&&&&&&": "&&&&&&",
+    "idTable": "ID",
+    "date": "Date",
+    "deliveryDate": "Delivery Date",
+    "brand": "Brand",
+    "model": "Model",
+    "kdvRate": "VAT Rate",
+    "otvRate": "SCT Rate",
+    "basePrice": "Base Price",
+    "finalPrice": "Final Price",
+    "customer": "Customer",
+    "quantity": "Quantity",
+    "paidAmount": "Paid Amount",
+    "remainingAmount": "Remaining Amount",
+    "paymentStatus": "Payment Status",
+    "orderStatus": "Order Status",
+    "received": "Order Received",
+    "preparing": "Preparing",
+    "readyForDelivery": "Ready for Delivery",
+    "delivered": "Delivered",
+    "notPaid": "Not Paid",
+    "partiallyPaid": "Partially Paid",
+    "paid": "Paid"
   },
   "_interpolations": {
     "interpolations_1": "Hello {{name}} {{surname}}, welcome to the application"

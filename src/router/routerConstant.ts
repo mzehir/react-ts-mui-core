@@ -10,6 +10,7 @@ import { AUTH_ROUTER, AUTH_ROUTER_ITEMS } from './helper/authRouter';
 import { ACCESS_ERRORS_ROUTER, ACCESS_ERRORS_ROUTER_ITEMS } from './helper/accessErrorsRouter';
 import { ROUTER_BY_USER_TYPE, ROUTER_BY_USER_TYPE_ITEMS } from './helper/introductionRouter/routerByUserType';
 import { OTHER_ROUTER_ITEMS } from './helper/otherRouter';
+import { SIMPLE_PROJECT_ROUTER, SIMPLE_PROJECT_ROUTER_ITEMS } from './helper/introductionRouter/simpleProjectsRouter';
 
 export interface RouterItem {
   whoCanSeeForSidebar?: UserType[];
@@ -34,6 +35,7 @@ export const prepareAllRoutes = () => {
   const obj = {
     ...COMPONENT_ROUTER_ITEMS,
     ...CUSTOM_COMPONENT_ROUTER_ITEMS,
+    ...SIMPLE_PROJECT_ROUTER_ITEMS,
     ...REDUX_ROUTER_ITEMS,
     ...RHF_ROUTER_ITEMS,
     ...AUTH_ROUTER_ITEMS,
@@ -55,6 +57,10 @@ export const prepareRoutesForSidebar = (userType: UserType): (RouterWrapper | Ro
 
   if (CUSTOM_COMPONENT_ROUTER.whoCanSeeForSidebar.includes(userType)) {
     arr.push(CUSTOM_COMPONENT_ROUTER);
+  }
+
+  if (SIMPLE_PROJECT_ROUTER.whoCanSeeForSidebar.includes(userType)) {
+    arr.push(SIMPLE_PROJECT_ROUTER);
   }
 
   if (REDUX_ROUTER.whoCanSeeForSidebar.includes(userType)) {

@@ -16,7 +16,7 @@ const CustomTable = <T extends object>({
   rows,
   stickyColumnWidth = 150,
   columnVerticalLinesVisible = true,
-  summaryOpen = true,
+  summaryOpen = false,
   onEditClick,
   onViewClick,
   onDeleteClick,

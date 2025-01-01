@@ -74,13 +74,6 @@ const cellsData: Cell[] = [
           align: 'right',
         },
       },
-      footer: {
-        cell: {
-          summaryType: 'sum',
-          open: true,
-          defaultLabelOpen: true,
-        },
-      },
     },
   },
   {
