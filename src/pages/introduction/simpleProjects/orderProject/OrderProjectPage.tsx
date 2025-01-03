@@ -1,6 +1,6 @@
 import React from 'react';
 import Orders from './orders.json';
-import { OrderStatuType, PaymentStatuType } from './orderProjectPageHelper';
+import { OperationType, OrderStatuType, PaymentStatuType } from './orderProjectPageHelper';
 import { formatCurrency } from '../../../../utils/methods/format';
 import { formatPhoneNumber } from '../../../../utils/locale/phoneFormats';
 import { Cell } from '../../../../components/custom/table/customTableTypes';
@@ -8,14 +8,15 @@ import CustomTable from '../../../../components/custom/table/CustomTable';
 import ChipComp from '../../../../components/base/chip/Chip';
 import DividerComp from '../../../../components/base/divider/Divider';
 import TypographyComp from '../../../../components/base/typography/Typography';
+import BoxComp from '../../../../components/base/box/Box';
 
 const orders = Orders;
 
 const OrderProjectPage: React.FC = () => {
   const cellsData: Cell[] = [
     {
-      key: 'id',
-      label: 'introduction.idTable',
+      key: 'orderId',
+      label: 'introduction.orderId',
       settings: {
         head: {
           cell: {
@@ -25,175 +26,45 @@ const OrderProjectPage: React.FC = () => {
       },
     },
     {
-      key: 'date',
-      label: 'introduction.date',
+      key: 'orderNo',
+      label: 'introduction.orderNo',
       settings: {
         head: {
           cell: {
-            minWidth: 'm',
+            minWidth: 's',
           },
         },
       },
     },
     {
-      key: 'deliveryDate',
-      label: 'introduction.deliveryDate',
+      key: 'customerName',
+      label: 'introduction.customerName',
       settings: {
         head: {
           cell: {
-            minWidth: 'm',
+            minWidth: 'vvm',
           },
         },
       },
     },
     {
-      key: 'brand',
-      label: 'introduction.brand',
+      key: 'customerSurname',
+      label: 'introduction.customerSurname',
       settings: {
         head: {
           cell: {
-            minWidth: 'm',
+            minWidth: 'vvm',
           },
         },
       },
     },
     {
-      key: 'model',
-      label: 'introduction.model',
+      key: 'customerPhone',
+      label: 'introduction.customerPhone',
       settings: {
         head: {
           cell: {
-            minWidth: 'm',
-          },
-        },
-      },
-    },
-    {
-      key: 'kdvRate',
-      label: 'introduction.kdvRate',
-      settings: {
-        head: {
-          cell: {
-            minWidth: 'sv',
-          },
-        },
-        body: {
-          cell: {
-            prepareCellTextMethod(_rowData, cellText) {
-              return `%${cellText}`;
-            },
-          },
-        },
-        footer: {
-          cell: {
-            open: true,
-            defaultLabelOpen: true,
-            summaryType: 'min',
-          },
-        },
-      },
-    },
-    {
-      key: 'otvRate',
-      label: 'introduction.otvRate',
-      settings: {
-        head: {
-          cell: {
-            minWidth: 'sv',
-          },
-        },
-        body: {
-          cell: {
-            prepareCellTextMethod(_rowData, cellText) {
-              return `%${cellText}`;
-            },
-          },
-        },
-        footer: {
-          cell: {
-            open: true,
-            defaultLabelOpen: true,
-            summaryType: 'max',
-          },
-        },
-      },
-    },
-    {
-      key: 'basePrice',
-      label: 'introduction.basePrice',
-      settings: {
-        head: {
-          cell: {
-            minWidth: 'm',
-            align: 'right',
-          },
-        },
-        body: {
-          cell: {
-            prepareCellTextMethod(_rowData, cellText) {
-              const _cellText = cellText as number;
-              const returnCellText = formatCurrency(_cellText);
-              return returnCellText;
-            },
-          },
-        },
-        footer: {
-          cell: {
-            open: true,
-            defaultLabelOpen: true,
-            summaryType: 'avg',
-            formatType: 'currency',
-          },
-        },
-      },
-    },
-    {
-      key: 'finalPrice',
-      label: 'introduction.finalPrice',
-      settings: {
-        head: {
-          cell: {
-            minWidth: 'm',
-            align: 'right',
-          },
-        },
-        body: {
-          cell: {
-            prepareCellTextMethod(_rowData, cellText) {
-              const _cellText = cellText as number;
-              const returnCellText = formatCurrency(_cellText);
-              return returnCellText;
-            },
-          },
-        },
-        footer: {
-          cell: {
-            open: true,
-            defaultLabelOpen: true,
-            summaryType: 'avg',
-            formatType: 'currency',
-          },
-        },
-      },
-    },
-    {
-      key: 'customer',
-      label: 'introduction.customer',
-      settings: {
-        head: {
-          cell: {
-            minWidth: 'm',
-          },
-        },
-      },
-    },
-    {
-      key: 'phone',
-      label: 'introduction.phone',
-      settings: {
-        head: {
-          cell: {
-            minWidth: 'm',
+            minWidth: 'vvm',
           },
         },
         body: {
@@ -206,20 +77,88 @@ const OrderProjectPage: React.FC = () => {
       },
     },
     {
-      key: 'quantity',
-      label: 'introduction.quantity',
+      key: 'orderDate',
+      label: 'introduction.orderDate',
       settings: {
         head: {
           cell: {
-            align: 'right',
-            minWidth: 'm',
+            minWidth: 'vvm',
           },
         },
-        footer: {
+      },
+    },
+    {
+      key: 'deliveryDate',
+      label: 'introduction.deliveryDate',
+      settings: {
+        head: {
           cell: {
-            open: true,
-            defaultLabelOpen: true,
-            summaryType: 'count',
+            minWidth: 'vvm',
+          },
+        },
+      },
+    },
+    {
+      key: 'amountDelivered',
+      label: 'introduction.amountDelivered',
+      settings: {
+        head: {
+          cell: {
+            minWidth: 'vvm',
+            align: 'right',
+          },
+        },
+        body: {
+          cell: {
+            prepareCellTextMethod(_rowData, cellText) {
+              return `${cellText} (kg)`;
+            },
+          },
+        },
+      },
+    },
+    {
+      key: 'unitAmount',
+      label: 'introduction.unitAmount',
+      settings: {
+        head: {
+          cell: {
+            minWidth: 's',
+            align: 'right',
+          },
+        },
+        body: {
+          cell: {
+            prepareCellTextMethod(_rowData, cellText) {
+              const _cellText = cellText as number;
+              const returnCellText = formatCurrency(_cellText);
+              return returnCellText;
+            },
+          },
+        },
+      },
+    },
+    {
+      key: 'operations',
+      label: 'introduction.operations',
+      settings: {
+        head: {
+          cell: {
+            minWidth: 'l',
+          },
+        },
+        body: {
+          cell: {
+            renderCustomComponent(cellText) {
+              const _cellText = cellText as OperationType[];
+              return (
+                <BoxComp display={'flex'} flexDirection={'row'} flexWrap={'wrap'} gap={'5px'}>
+                  {_cellText.map((operation, index) => (
+                    <ChipComp key={index.toString()} label={`introduction.${operation}`} color="info" />
+                  ))}
+                </BoxComp>
+              );
+            },
           },
         },
       },
@@ -230,7 +169,7 @@ const OrderProjectPage: React.FC = () => {
       settings: {
         head: {
           cell: {
-            minWidth: 'm',
+            minWidth: 'vvm',
             align: 'right',
           },
         },
@@ -241,14 +180,6 @@ const OrderProjectPage: React.FC = () => {
               const returnCellText = formatCurrency(_cellText);
               return returnCellText;
             },
-          },
-        },
-        footer: {
-          cell: {
-            open: true,
-            defaultLabelOpen: true,
-            summaryType: 'sum',
-            formatType: 'currency',
           },
         },
       },
@@ -259,7 +190,7 @@ const OrderProjectPage: React.FC = () => {
       settings: {
         head: {
           cell: {
-            minWidth: 'm',
+            minWidth: 'vvm',
             align: 'right',
           },
         },
@@ -272,12 +203,25 @@ const OrderProjectPage: React.FC = () => {
             },
           },
         },
-        footer: {
+      },
+    },
+    {
+      key: 'totalAmount',
+      label: 'introduction.totalAmount',
+      settings: {
+        head: {
           cell: {
-            open: true,
-            defaultLabelOpen: true,
-            summaryType: 'sum',
-            formatType: 'currency',
+            minWidth: 'vvm',
+            align: 'right',
+          },
+        },
+        body: {
+          cell: {
+            prepareCellTextMethod(_rowData, cellText) {
+              const _cellText = cellText as number;
+              const returnCellText = formatCurrency(_cellText);
+              return returnCellText;
+            },
           },
         },
       },
@@ -288,7 +232,7 @@ const OrderProjectPage: React.FC = () => {
       settings: {
         head: {
           cell: {
-            minWidth: 'm',
+            minWidth: 'svv',
           },
         },
         body: {
@@ -313,7 +257,7 @@ const OrderProjectPage: React.FC = () => {
       settings: {
         head: {
           cell: {
-            minWidth: 'm',
+            minWidth: 'svv',
           },
         },
         body: {
@@ -324,18 +268,21 @@ const OrderProjectPage: React.FC = () => {
               return (
                 <ChipComp
                   label={`introduction.${_cellText}`}
-                  color={
-                    _cellText === 'received'
-                      ? 'error'
-                      : _cellText === 'preparing'
-                        ? 'warning'
-                        : _cellText === 'readyForDelivery'
-                          ? 'success'
-                          : 'primary'
-                  }
+                  color={_cellText === 'delivered' ? 'success' : _cellText === 'readyForDelivery' ? 'warning' : 'error'}
                 />
               );
             },
+          },
+        },
+      },
+    },
+    {
+      key: 'notes',
+      label: 'introduction.notes',
+      settings: {
+        head: {
+          cell: {
+            minWidth: 'lvv',
           },
         },
       },
