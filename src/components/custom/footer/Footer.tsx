@@ -44,7 +44,7 @@ const Footer: React.FC<FooterProps> = ({ open, mobileScreenActive = false }) => 
           width={'100%'}
           {...(mobileScreenActive ? { paddingX: '15px' } : {})}
         >
-          <TypographyComp variant="caption">
+          <TypographyComp variant="button">
             © 2025 Dev Starter. Empowering developers, one project at a time.
           </TypographyComp>
         </BoxComp>
