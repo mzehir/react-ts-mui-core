@@ -39,7 +39,12 @@ const Navbar: React.FC<NavbarProps> = ({ open, handleDrawerOpen, mobileScreenAct
   return (
     <StyledAppBar position="fixed" open={open} mobileScreenActive={mobileScreenActive}>
       <StyledToolbar mobileScreenActive={mobileScreenActive}>
-        <BoxComp display={'flex'} flexDirection={'row'} width={'100%'}>
+        <BoxComp
+          display={'flex'}
+          flexDirection={'row'}
+          width={'100%'}
+          {...(mobileScreenActive ? { paddingX: '15px' } : {})}
+        >
           {!open && (
             <IconButtonComp aria-label="open drawer" onClick={handleDrawerOpen} edge="start" sx={{ mr: 2 }}>
               <MenuIcon />

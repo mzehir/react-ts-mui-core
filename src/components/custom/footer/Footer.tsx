@@ -38,7 +38,12 @@ const Footer: React.FC<FooterProps> = ({ open, mobileScreenActive = false }) => 
   return (
     <StyledAppBar position="fixed" open={open} mobileScreenActive={mobileScreenActive}>
       <StyledToolbar mobileScreenActive={mobileScreenActive}>
-        <BoxComp display={'flex'} justifyContent={'flex-end'} width={'100%'}>
+        <BoxComp
+          display={'flex'}
+          justifyContent={'flex-end'}
+          width={'100%'}
+          {...(mobileScreenActive ? { paddingX: '15px' } : {})}
+        >
           <TypographyComp variant="caption">
             © 2025 Dev Starter. Empowering developers, one project at a time.
           </TypographyComp>
