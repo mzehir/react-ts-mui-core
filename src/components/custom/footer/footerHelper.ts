@@ -1,8 +1,7 @@
 import { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 
-export interface NavbarProps extends MuiAppBarProps {
+export interface FooterProps extends MuiAppBarProps {
   open?: boolean;
-  handleDrawerOpen: () => void;
   mobileScreenActive?: boolean;
 }
 

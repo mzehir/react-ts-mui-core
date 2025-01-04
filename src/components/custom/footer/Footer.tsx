@@ -1,17 +1,16 @@
 import React from 'react';
-import { NavbarProps, StyledAppBarProps } from './navbarHelper';
+import { FooterProps, StyledAppBarProps } from './footerHelper';
 import { contentSpacing, drawerWidth } from '../../../layouts/defaultLayoutHelper';
-import SearchbarField from '../textFields/SearchbarField';
-import RightSection from './section/RightSection';
 import BoxComp from '../../base/box/Box';
-import IconButtonComp from '../../base/iconButton/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import TypographyComp from '../../base/typography/Typography';
 import { AppBar as MuiAppBar, Toolbar } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 const StyledAppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open' && prop !== 'mobileScreenActive',
 })<StyledAppBarProps>(({ theme, open, mobileScreenActive }) => ({
+  top: 'auto',
+  bottom: 0,
   background: theme.header.background,
   transition: theme.transitions.create(['margin', 'width'], {
     easing: theme.transitions.easing.sharp,
@@ -35,26 +34,18 @@ const StyledToolbar = styled(Toolbar, {
   paddingRight: `${theme.spacing(mobileScreenActive ? contentSpacing.mobile.right : contentSpacing.web.right)} !important`,
 }));
 
-const Navbar: React.FC<NavbarProps> = ({ open, handleDrawerOpen, mobileScreenActive = false }) => {
+const Footer: React.FC<FooterProps> = ({ open, mobileScreenActive = false }) => {
   return (
     <StyledAppBar position="fixed" open={open} mobileScreenActive={mobileScreenActive}>
       <StyledToolbar mobileScreenActive={mobileScreenActive}>
-        <BoxComp display={'flex'} flexDirection={'row'} width={'100%'}>
-          {!open && (
-            <IconButtonComp aria-label="open drawer" onClick={handleDrawerOpen} edge="start" sx={{ mr: 2 }}>
-              <MenuIcon />
-            </IconButtonComp>
-          )}
-
-          <SearchbarField />
-
-          <BoxComp sx={{ flexGrow: 1 }} />
-
-          <RightSection />
+        <BoxComp display={'flex'} justifyContent={'flex-end'} width={'100%'}>
+          <TypographyComp variant="caption">
+            © 2025 Dev Starter. Empowering developers, one project at a time.
+          </TypographyComp>
         </BoxComp>
       </StyledToolbar>
     </StyledAppBar>
   );
 };
 
-export default Navbar;
+export default Footer;

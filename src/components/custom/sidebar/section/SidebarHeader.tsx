@@ -9,11 +9,11 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 const StyledSidebarHeader = styled('div')(({ theme }) => ({
+  ...theme.mixins.toolbar,
   display: 'flex',
+  justifyContent: 'space-between',
   alignItems: 'center',
   padding: theme.spacing(0, 3),
-  ...theme.mixins.toolbar,
-  justifyContent: 'space-between',
   backgroundColor: theme.sidebar.footer.background,
 }));
 

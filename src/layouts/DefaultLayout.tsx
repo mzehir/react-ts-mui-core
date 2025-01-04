@@ -1,23 +1,23 @@
 import React from 'react';
+import { contentSpacing, drawerWidth } from './defaultLayoutHelper';
 import BoxComp from '../components/base/box/Box';
 import CustomAppBar from '../components/custom/navbar/Navbar';
 import Sidebar from '../components/custom/sidebar/Sidebar';
+import Footer from '../components/custom/footer/Footer';
 import GlobalStyles from '../GlobalStyle';
 import CssBaseline from '@mui/material/CssBaseline';
 import { useMediaQuery } from '@mui/material';
 import { styled, useTheme } from '@mui/material/styles';
-
-const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' && prop !== 'mobileScreenActive' })<{
   open: boolean;
   mobileScreenActive: boolean;
 }>(({ theme, open, mobileScreenActive }) => ({
   flexGrow: 1,
-  paddingTop: theme.spacing(mobileScreenActive ? 6 : 10),
-  paddingBottom: theme.spacing(mobileScreenActive ? 6 : 10),
-  paddingLeft: theme.spacing(mobileScreenActive ? 2 : 10),
-  paddingRight: theme.spacing(mobileScreenActive ? 2 : 10),
+  paddingTop: theme.spacing(mobileScreenActive ? contentSpacing.mobile.top : contentSpacing.web.top),
+  paddingBottom: theme.spacing(mobileScreenActive ? contentSpacing.mobile.bottom : contentSpacing.web.bottom),
+  paddingLeft: theme.spacing(mobileScreenActive ? contentSpacing.mobile.left : contentSpacing.web.left),
+  paddingRight: theme.spacing(mobileScreenActive ? contentSpacing.mobile.right : contentSpacing.web.right),
 
   overflowX: 'auto',
   transition: theme.transitions.create('margin', {
@@ -62,15 +62,10 @@ export default function DefaultLayout({ children }: { children: React.ReactNode 
   };
 
   return (
-    <BoxComp display={'flex'} minHeight={'100%'}>
+    <BoxComp display={'flex'} minHeight={'100vh'} height={'100vh'} maxHeight={'100vh'}>
       <CssBaseline />
       <GlobalStyles />
-      <CustomAppBar
-        open={open}
-        handleDrawerOpen={handleDrawerOpen}
-        drawerWidth={drawerWidth}
-        mobileScreenActive={mobileScreenActive}
-      />
+      <CustomAppBar open={open} handleDrawerOpen={handleDrawerOpen} mobileScreenActive={mobileScreenActive} />
       <Sidebar
         open={open}
         handleDrawerClose={handleDrawerClose}
@@ -80,7 +75,9 @@ export default function DefaultLayout({ children }: { children: React.ReactNode 
       <Main open={open} mobileScreenActive={mobileScreenActive}>
         <DrawerHeader />
         {children}
+        <DrawerHeader />
       </Main>
+      <Footer open={open} mobileScreenActive={mobileScreenActive} />
     </BoxComp>
   );
 }
