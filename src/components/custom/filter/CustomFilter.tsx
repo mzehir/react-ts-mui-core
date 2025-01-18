@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { CustomFilterProps, HandleValueChangeParams, ValuesValue } from './helper';
+import { CustomFilterProps, CustomFilterRef, HandleValueChangeParams, ValuesValue } from './helper';
 import AccordionComp from '../../base/accordion/Accordion';
 import SummarySection from './sections/Summary';
 import DetailSection from './sections/Detail';
@@ -19,7 +19,7 @@ const CustomAccordionComp = styled((props: React.ComponentProps<typeof Accordion
   }
 `;
 
-const CustomFilter: React.FC<CustomFilterProps> = ({ filterItems, onFilter }) => {
+const CustomFilter = React.forwardRef<CustomFilterRef, CustomFilterProps>(({ filterItems, onFilter }, ref) => {
   const [values, setValues] = React.useState<{ [key: string]: ValuesValue }>({});
   const [contentReady, setContentReady] = React.useState(false);
 
@@ -53,7 +53,11 @@ const CustomFilter: React.FC<CustomFilterProps> = ({ filterItems, onFilter }) =>
       for (let i = 0; i < filterItems.length; i++) {
         const element = filterItems[i];
 
-        if (element.componentProps.defaultValue !== undefined && element.componentProps.defaultValue !== null) {
+        if (
+          element.componentProps.defaultValue !== undefined &&
+          element.componentProps.defaultValue !== null &&
+          element.componentProps.defaultValue !== ''
+        ) {
           _values[element.name] = {
             value: element.componentProps.defaultValue,
           };
@@ -64,6 +68,12 @@ const CustomFilter: React.FC<CustomFilterProps> = ({ filterItems, onFilter }) =>
       setContentReady(true);
     }
   }, [filterItems]);
+
+  React.useImperativeHandle(ref, () => ({
+    getCurrentFilterValues: () => {
+      return values;
+    },
+  }));
 
   return (
     contentReady && (
@@ -80,6 +90,7 @@ const CustomFilter: React.FC<CustomFilterProps> = ({ filterItems, onFilter }) =>
       </CustomAccordionComp>
     )
   );
-};
+});
 
+CustomFilter.displayName = 'CustomFilter';
 export default CustomFilter;

@@ -35,3 +35,14 @@ export const getTodayDateAsString = () => {
   const stringToday = dayjsDateToString(today);
   return stringToday;
 };
+
+export const isDateInRange = (
+  selectedDay: Dayjs,
+  startDay: Dayjs | null | undefined,
+  endDay: Dayjs | null | undefined,
+): boolean => {
+  const isAfterOrSameStart = !startDay || selectedDay.isSame(startDay, 'day') || selectedDay.isAfter(startDay, 'day');
+  const isBeforeOrSameEnd = !endDay || selectedDay.isSame(endDay, 'day') || selectedDay.isBefore(endDay, 'day');
+
+  return isAfterOrSameStart && isBeforeOrSameEnd;
+};

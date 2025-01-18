@@ -7,876 +7,198 @@
     "customerSurname": "Zehir",
     "customerPhone": "5419525920",
 
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
+    "orderDate": "03-01-2025",
+    "deliveryDate": "10-01-2025",
 
     "amountDelivered": 93.8,
     "unitAmount": 30,
     "operations": ["cracking", "roasting", "vacuuming", "butter"],
     "paidAmount": 1550.5,
     "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
+    "totalAmount": 2814,
 
     "paymentStatus": "partiallyPaid",
     "orderStatus": "received",
     "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
   },
   {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
+    "orderId": "10000000002",
+    "orderNo": "2",
+    "customerName": "Carlos",
+    "customerSurname": "Young",
+    "customerPhone": "5446895980",
+    "orderDate": "22-12-2024",
+    "deliveryDate": "28-01-2025",
+    "amountDelivered": 68.79,
+    "unitAmount": 46.72,
+    "operations": ["vacuuming"],
+    "paidAmount": 1487.62,
+    "remainingAmount": 1726.25,
+    "totalAmount": 3213.87,
     "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
+    "orderStatus": "readyForDelivery",
+    "notes": "Strategy majority theory adult party admit job successful soldier see tell power."
   },
   {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
+    "orderId": "10000000003",
+    "orderNo": "3",
+    "customerName": "Michael",
+    "customerSurname": "Perry",
+    "customerPhone": "3679988248",
+    "orderDate": "06-01-2025",
+    "deliveryDate": "04-02-2025",
+    "amountDelivered": 95.65,
+    "unitAmount": 30.07,
+    "operations": ["roasting"],
+    "paidAmount": 1863.64,
+    "remainingAmount": 1012.56,
+    "totalAmount": 2876.2,
     "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
+    "orderStatus": "delivered",
+    "notes": "Dog over require every hear direction skin however impact any practice help him."
   },
   {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
+    "orderId": "10000000004",
+    "orderNo": "4",
+    "customerName": "Christina",
+    "customerSurname": "Raymond",
+    "customerPhone": "4332236169",
+    "orderDate": "20-12-2024",
+    "deliveryDate": "11-02-2025",
+    "amountDelivered": 53.16,
+    "unitAmount": 28.45,
+    "operations": ["roasting", "butter", "cracking", "vacuuming"],
+    "paidAmount": 452.67,
+    "remainingAmount": 1059.73,
+    "totalAmount": 1512.4,
     "paymentStatus": "partiallyPaid",
     "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
+    "notes": "Life behavior seat south cost wife."
   },
   {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
+    "orderId": "10000000005",
+    "orderNo": "5",
+    "customerName": "Anna",
+    "customerSurname": "Joseph",
+    "customerPhone": "3522040767",
+    "orderDate": "08-01-2025",
+    "deliveryDate": "13-02-2025",
+    "amountDelivered": 90.6,
+    "unitAmount": 29.62,
+    "operations": ["roasting", "butter", "cracking"],
+    "paidAmount": 2378.28,
+    "remainingAmount": 305.29,
+    "totalAmount": 2683.57,
     "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
+    "orderStatus": "delivered",
+    "notes": "Detail accept wide new figure baby here house stop already team."
   },
   {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
+    "orderId": "10000000006",
+    "orderNo": "6",
+    "customerName": "Maria",
+    "customerSurname": "Casey",
+    "customerPhone": "2236205727",
+    "orderDate": "10-01-2025",
+    "deliveryDate": "23-01-2025",
+    "amountDelivered": 65.48,
+    "unitAmount": 40.86,
+    "operations": ["roasting", "cracking"],
+    "paidAmount": 300.44,
+    "remainingAmount": 2375.07,
+    "totalAmount": 2675.51,
     "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
+    "orderStatus": "delivered",
+    "notes": "Next yeah especially everything mouth general old shoulder."
   },
   {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
+    "orderId": "10000000007",
+    "orderNo": "7",
+    "customerName": "Anne",
+    "customerSurname": "Johnson",
+    "customerPhone": "9166287024",
+    "orderDate": "02-01-2025",
+    "deliveryDate": "07-02-2025",
+    "amountDelivered": 99.15,
+    "unitAmount": 41.73,
+    "operations": ["roasting", "butter", "cracking"],
+    "paidAmount": 2199.13,
+    "remainingAmount": 1938.4,
+    "totalAmount": 4137.53,
     "paymentStatus": "partiallyPaid",
     "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
+    "notes": "Still hold mention truth policy allow."
   },
   {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
+    "orderId": "10000000008",
+    "orderNo": "8",
+    "customerName": "Helen",
+    "customerSurname": "Smith",
+    "customerPhone": "5364880518",
+    "orderDate": "04-01-2025",
+    "deliveryDate": "15-02-2025",
+    "amountDelivered": 61.22,
+    "unitAmount": 32.66,
+    "operations": ["cracking", "butter", "vacuuming"],
+    "paidAmount": 1363.14,
+    "remainingAmount": 636.31,
+    "totalAmount": 1999.45,
     "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
+    "orderStatus": "readyForDelivery",
+    "notes": "Blood these garden final as image until."
   },
   {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
+    "orderId": "10000000009",
+    "orderNo": "9",
+    "customerName": "Richard",
+    "customerSurname": "Vaughn",
+    "customerPhone": "3303920676",
+    "orderDate": "04-01-2025",
+    "deliveryDate": "25-01-2025",
+    "amountDelivered": 91.95,
+    "unitAmount": 32.78,
+    "operations": ["roasting", "cracking"],
+    "paidAmount": 1856.97,
+    "remainingAmount": 1157.15,
+    "totalAmount": 3014.12,
     "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
+    "orderStatus": "readyForDelivery",
+    "notes": "Various trouble about job it chance clear morning save anyone."
   },
   {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
+    "orderId": "10000000010",
+    "orderNo": "10",
+    "customerName": "Lauren",
+    "customerSurname": "Rosales",
+    "customerPhone": "4216537007",
+    "orderDate": "10-01-2025",
+    "deliveryDate": "25-01-2025",
+    "amountDelivered": 93.01,
+    "unitAmount": 25.46,
+    "operations": ["butter", "vacuuming"],
+    "paidAmount": 1520.41,
+    "remainingAmount": 847.62,
+    "totalAmount": 2368.03,
     "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
+    "orderStatus": "readyForDelivery",
+    "notes": "State week size realize prepare day rest line professional."
   },
   {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
+    "orderId": "10000000011",
+    "orderNo": "11",
+    "customerName": "Cheryl",
+    "customerSurname": "Petersen",
+    "customerPhone": "5038433208",
+    "orderDate": "10-01-2025",
+    "deliveryDate": "26-01-2025",
+    "amountDelivered": 93.41,
+    "unitAmount": 27.07,
+    "operations": ["roasting", "butter"],
+    "paidAmount": 1608.87,
+    "remainingAmount": 919.74,
+    "totalAmount": 2528.61,
     "paymentStatus": "partiallyPaid",
     "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
-  },
-  {
-    "orderId": "10000000001",
-    "orderNo": "1",
-
-    "customerName": "Mümin",
-    "customerSurname": "Zehir",
-    "customerPhone": "5419525920",
-
-    "orderDate": "2025-01-03",
-    "deliveryDate": "2025-01-10",
-
-    "amountDelivered": 93.8,
-    "unitAmount": 30,
-    "operations": ["cracking", "roasting", "vacuuming", "butter"],
-    "paidAmount": 1550.5,
-    "remainingAmount": 1263.5,
-    "totalAmount": 2.814,
-
-    "paymentStatus": "partiallyPaid",
-    "orderStatus": "received",
-    "notes": "En kısa sürede hazırlanmalı. Ve müşteri, ürün hazır olduğunda haberdar edilmeli."
+    "notes": "Capital of administration foot program too provide service receive wind."
   }
 ]
