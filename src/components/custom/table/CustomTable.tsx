@@ -15,6 +15,7 @@ const CustomTable = <T extends object>({
   cells,
   rows,
   stickyColumnWidth = 150,
+  stickyHeaderActive,
   columnVerticalLinesVisible = true,
   summaryOpen = false,
   onEditClick,
@@ -28,6 +29,8 @@ const CustomTable = <T extends object>({
     <BoxComp
       display={'flex'}
       flexDirection={'column'}
+      flexGrow={'1'}
+      overflow={'hidden'}
       gap={'5px'}
       style={{
         boxShadow: '0px -4px 10px rgba(0, 0, 0, 0.2)',
@@ -48,6 +51,7 @@ const CustomTable = <T extends object>({
         <TableComp>
           <TableHeadSection
             cells={cells}
+            stickyRowActive={stickyHeaderActive}
             columnVerticalLinesVisible={columnVerticalLinesVisible}
             stickyColumnVisible={stickyColumnVisible}
             stickyColumnWidth={stickyColumnWidth}

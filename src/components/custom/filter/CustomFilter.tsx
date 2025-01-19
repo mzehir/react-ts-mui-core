@@ -10,9 +10,9 @@ const CustomAccordionComp = styled((props: React.ComponentProps<typeof Accordion
 ))`
   border: 1px solid ${({ theme }) => theme.palette.divider};
 
-  &:not(:last-child) {
-    border-bottom: 0;
-  }
+  // &:not(:last-child) {
+  //   border-bottom: 0;
+  // }
 
   &::before {
     display: none;

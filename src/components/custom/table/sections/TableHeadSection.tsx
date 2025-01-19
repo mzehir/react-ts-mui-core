@@ -22,11 +22,13 @@ const StickyTableHeadColumn = styled(TableCellComp)(({ theme }) => ({
 
 const TableHeadSection = <T extends object>({
   cells,
+  stickyRowActive = false,
   columnVerticalLinesVisible,
   stickyColumnVisible,
   stickyColumnWidth,
 }: {
   cells: CustomTableProps<T>['cells'];
+  stickyRowActive?: boolean;
   columnVerticalLinesVisible: CustomTableProps<T>['columnVerticalLinesVisible'];
   stickyColumnVisible: boolean;
   stickyColumnWidth: CustomTableProps<T>['stickyColumnWidth'];
@@ -34,14 +36,25 @@ const TableHeadSection = <T extends object>({
   return (
     <TableHeadComp
       sx={{
-        borderTop: (theme) => `1px dotted ${theme.palette.divider}`,
+        ...(stickyRowActive
+          ? {
+              position: 'sticky',
+              top: 0,
+              zIndex: 2,
+              backgroundColor: (theme) => theme.customTable?.stickyColumn?.backgroundSecondary,
+              boxShadow:
+                'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset',
+            }
+          : {
+              borderTop: (theme) => `1px dotted ${theme.palette.divider}`,
+            }),
       }}
     >
       <TableRowComp>
         {stickyColumnVisible && (
           <StickyTableHeadColumn
             align="center"
-            style={{
+            sx={{
               minWidth: stickyColumnWidth,
             }}
           />

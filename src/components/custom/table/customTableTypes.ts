@@ -65,6 +65,7 @@ export interface Cell {
 export interface CustomTableProps<T extends object> {
   cells: Cell[];
   rows: T[];
+  stickyHeaderActive?: boolean;
   columnVerticalLinesVisible?: boolean;
   stickyColumnWidth?: number | string;
   summaryOpen?: boolean;

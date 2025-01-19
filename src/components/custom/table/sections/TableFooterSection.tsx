@@ -93,7 +93,14 @@ const TableFooterSection = <T extends object>({
   };
 
   return (
-    <TableFooterComp>
+    <TableFooterComp
+      sx={{
+        position: 'sticky',
+        bottom: 0,
+        zIndex: 2,
+        backgroundColor: (theme) => theme.customTable?.stickyColumn?.backgroundSecondary,
+      }}
+    >
       <StyledTableFooterRow>
         {stickyColumnVisible && (
           <StickyTableFooterColumn

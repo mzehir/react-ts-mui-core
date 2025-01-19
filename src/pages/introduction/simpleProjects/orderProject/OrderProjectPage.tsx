@@ -7,6 +7,7 @@ import ViewOrder from './sections/ViewOrder';
 import { formatCurrency } from '../../../../utils/methods/format';
 import { formatPhoneNumber } from '../../../../utils/locale/phoneFormats';
 import { isDateInRange, stringToDayjsDate } from '../../../../utils/locale/dateFormats';
+import DefaultPageLayout from '../../../../layouts/DefaultPageLayout';
 import CustomTable from '../../../../components/custom/table/CustomTable';
 import { Cell } from '../../../../components/custom/table/customTableTypes';
 import CustomFilter from '../../../../components/custom/filter/CustomFilter';
@@ -47,6 +48,13 @@ const OrderProjectPage: React.FC = () => {
         head: {
           cell: {
             minWidth: 's',
+          },
+        },
+        footer: {
+          cell: {
+            open: true,
+            summaryType: 'count',
+            defaultLabelOpen: true,
           },
         },
       },
@@ -130,6 +138,17 @@ const OrderProjectPage: React.FC = () => {
             },
           },
         },
+        footer: {
+          cell: {
+            open: true,
+            defaultLabelOpen: false,
+            summaryType: 'sum',
+            customLabelIsTranslation: true,
+            prepareCustomLabel() {
+              return 'introduction.sumKg';
+            },
+          },
+        },
       },
     },
     {
@@ -138,7 +157,7 @@ const OrderProjectPage: React.FC = () => {
       settings: {
         head: {
           cell: {
-            minWidth: 's',
+            minWidth: 'svv',
             align: 'right',
           },
         },
@@ -149,6 +168,14 @@ const OrderProjectPage: React.FC = () => {
               const returnCellText = formatCurrency(_cellText);
               return returnCellText;
             },
+          },
+        },
+        footer: {
+          cell: {
+            open: true,
+            defaultLabelOpen: true,
+            summaryType: 'avg',
+            formatType: 'currency',
           },
         },
       },
@@ -197,6 +224,14 @@ const OrderProjectPage: React.FC = () => {
             },
           },
         },
+        footer: {
+          cell: {
+            open: true,
+            defaultLabelOpen: true,
+            summaryType: 'min',
+            formatType: 'currency',
+          },
+        },
       },
     },
     {
@@ -218,6 +253,14 @@ const OrderProjectPage: React.FC = () => {
             },
           },
         },
+        footer: {
+          cell: {
+            open: true,
+            defaultLabelOpen: true,
+            summaryType: 'max',
+            formatType: 'currency',
+          },
+        },
       },
     },
     {
@@ -237,6 +280,14 @@ const OrderProjectPage: React.FC = () => {
               const returnCellText = formatCurrency(_cellText);
               return returnCellText;
             },
+          },
+        },
+        footer: {
+          cell: {
+            open: true,
+            defaultLabelOpen: true,
+            summaryType: 'sum',
+            formatType: 'currency',
           },
         },
       },
@@ -525,7 +576,7 @@ const OrderProjectPage: React.FC = () => {
   }, [orders]);
 
   return (
-    <>
+    <DefaultPageLayout>
       <DividerComp>
         <TypographyComp variant="h2" gutterBottom display="inline">
           routes.orderProject
@@ -542,7 +593,8 @@ const OrderProjectPage: React.FC = () => {
       <CustomTable
         cells={cellsData}
         rows={filteredRows ?? orders ?? []}
-        summaryOpen={false}
+        stickyHeaderActive={true}
+        summaryOpen={true}
         onAddClick={(event: React.MouseEvent<HTMLButtonElement>) => {
           event.preventDefault();
           setNewOrderOpen(true);
@@ -588,7 +640,7 @@ const OrderProjectPage: React.FC = () => {
       {viewOrderOpen && viewOrderData && (
         <ViewOrder data={viewOrderData} open={viewOrderOpen} setOpen={setViewOrderOpen} />
       )}
-    </>
+    </DefaultPageLayout>
   );
 };
 
