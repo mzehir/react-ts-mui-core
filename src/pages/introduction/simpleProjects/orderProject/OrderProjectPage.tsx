@@ -1,7 +1,9 @@
 import React from 'react';
-import NewOrder from './sections/NewOrder';
 import Orders from './orders.json';
 import { OperationType, OrderStatuType, OrderType, PaymentStatuType } from './orderProjectPageHelper';
+import NewOrder from './sections/NewOrder';
+import EditOrder from './sections/EditOrder';
+import ViewOrder from './sections/ViewOrder';
 import { formatCurrency } from '../../../../utils/methods/format';
 import { formatPhoneNumber } from '../../../../utils/locale/phoneFormats';
 import { isDateInRange, stringToDayjsDate } from '../../../../utils/locale/dateFormats';
@@ -14,8 +16,6 @@ import TypographyComp from '../../../../components/base/typography/Typography';
 import ChipComp from '../../../../components/base/chip/Chip';
 import DividerComp from '../../../../components/base/divider/Divider';
 import { Item as SelectItem } from '../../../../components/base/select/selectHelper';
-import EditOrder from './sections/EditOrder';
-import ViewOrder from './sections/ViewOrder';
 
 // @ts-expect-error //! error
 const ordersDb: OrderType[] = Orders;
