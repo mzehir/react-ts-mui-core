@@ -11,6 +11,7 @@ import CheckboxPage from '../pages/introduction/components/checkbox/CheckboxPage
 import RadioPage from '../pages/introduction/components/radio/RadioPage';
 import IconButtonPage from '../pages/introduction/components/iconButton/IconButtonPage';
 import SelectPage from '../pages/introduction/components/select/SelectPage';
+import AsyncSelectPage from '../pages/introduction/components/asyncSelect/AsyncSelectPage';
 import AlertPage from '../pages/introduction/components/alert/AlertPage';
 import ToastifyPage from '../pages/introduction/components/toastify/ToastifyPage';
 import TextFieldPage from '../pages/introduction/components/textField/TextFieldPage';
@@ -127,6 +128,16 @@ const componentsIntroductionRouter = [
       <Guard routeKey={allRoutes.INTRODUCTION_SELECT_PAGE.key}>
         <DefaultLayout>
           <SelectPage />
+        </DefaultLayout>
+      </Guard>
+    ),
+  },
+  {
+    path: allRoutes.INTRODUCTION_ASYNC_SELECT_PAGE.path,
+    element: (
+      <Guard routeKey={allRoutes.INTRODUCTION_ASYNC_SELECT_PAGE.key}>
+        <DefaultLayout>
+          <AsyncSelectPage />
         </DefaultLayout>
       </Guard>
     ),

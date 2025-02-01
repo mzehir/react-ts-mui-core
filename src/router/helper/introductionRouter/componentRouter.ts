@@ -5,6 +5,7 @@ import TextFieldsIcon from '@mui/icons-material/TextFields';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 import ListIcon from '@mui/icons-material/List';
+import GetAppIcon from '@mui/icons-material/GetApp';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import TitleIcon from '@mui/icons-material/Title';
 import AspectRatioIcon from '@mui/icons-material/AspectRatio';
@@ -21,6 +22,7 @@ type ComponentRouterItems = {
   INTRODUCTION_TEXTFIELD_PAGE: RouterItem;
   INTRODUCTION_DATEPICKER_PAGE: RouterItem;
   INTRODUCTION_SELECT_PAGE: RouterItem;
+  INTRODUCTION_ASYNC_SELECT_PAGE: RouterItem;
   INTRODUCTION_ALERT_PAGE: RouterItem;
   INTRODUCTION_TOASTIFY_PAGE: RouterItem;
   INTRODUCTION_DIALOG_PAGE: RouterItem;
@@ -105,6 +107,15 @@ export const COMPONENT_ROUTER_ITEMS: ComponentRouterItems = {
     label: 'Select',
     path: '/introduction-select-component',
     icon: ListIcon,
+  },
+
+  INTRODUCTION_ASYNC_SELECT_PAGE: {
+    whoCanSeeForPage: ['admin'],
+    parentKey: 'COMPONENT_ROUTER_ITEMS',
+    key: 'INTRODUCTION_ASYNC_SELECT_PAGE',
+    label: 'Async Select',
+    path: '/introduction-async-select-component',
+    icon: GetAppIcon,
   },
 
   INTRODUCTION_ALERT_PAGE: {
