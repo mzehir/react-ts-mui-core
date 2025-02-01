@@ -36,6 +36,8 @@ interface FormValues {
   monthsToBePaid: string[];
   amountDuesPayable: number;
   paymentType: string;
+  paymentBank: string;
+  paymentInstruments: string[];
   approval: boolean;
   code: string;
   paymentDate: string;
@@ -49,6 +51,8 @@ const defaultValues: FormValues = {
   monthsToBePaid: ['january'],
   amountDuesPayable: 500.99,
   paymentType: '3',
+  paymentBank: '0010',
+  paymentInstruments: [],
   approval: false,
   code: '123456Aa.',
   paymentDate: getTodayDateAsString(),
@@ -69,6 +73,12 @@ const schema = yup.object().shape({
     .required('validationWarnings.required'),
   amountDuesPayable: yup.number().min(500.99, 'validationWarnings.required').required('validationWarnings.required'),
   paymentType: yup.string().required('validationWarnings.required'),
+  paymentBank: yup.string().required('validationWarnings.required'),
+  paymentInstruments: yup
+    .array()
+    .of(yup.string().required('validationWarnings.required'))
+    .min(1, 'validationWarnings.required')
+    .required('validationWarnings.required'),
   approval: yup.boolean().required('validationWarnings.required'),
   code: yup.string().required('validationWarnings.required'),
   paymentDate: yup.string().required('validationWarnings.required'),
@@ -266,6 +276,96 @@ const RhfStandardExamp: React.FC = () => {
                 />
 
                 <CustomController<FormValues>
+                  name="paymentBank"
+                  control={control}
+                  componentFields={{
+                    componentType: 'asyncSelect',
+                    label: 'introduction.paymentBank',
+                    helperText: formState.errors.paymentBank?.message,
+                    isLabelTranslation: true,
+                    isHelperTextTranslation: true,
+                    error: !!formState.errors.paymentBank,
+                    disabled: false,
+                    required: false,
+                    shouldFetchOnEveryOpenMenu: true,
+                    fetchItemsData: async () => {
+                      await new Promise((resolve) => setTimeout(resolve, 500));
+                      const resultData = [
+                        { value: '0010', label: 'T.C. Ziraat Bankası A.Ş.' },
+                        { value: '0012', label: 'Türkiye Halk Bankası A.Ş.' },
+                        { value: '0015', label: 'Türkiye Vakıflar Bankası T.A.O.' },
+                        { value: '0032', label: 'Türkiye Ekonomi Bankası A.Ş.' },
+                        { value: '0046', label: 'Akbank T.A.Ş.' },
+                        { value: '0059', label: 'Şekerbank T.A.Ş.' },
+                        { value: '0062', label: 'Türkiye Garanti Bankası A.Ş.' },
+                        { value: '0064', label: 'Türkiye İş Bankası A.Ş.' },
+                        { value: '0067', label: 'Yapı ve Kredi Bankası A.Ş.' },
+                        { value: '0099', label: 'ING Bank A.Ş.' },
+                        { value: '0103', label: 'Fibabanka A.Ş.' },
+                        { value: '0111', label: 'QNB Finansbank A.Ş.' },
+                        { value: '0124', label: 'Alternatifbank A.Ş.' },
+                        { value: '0125', label: 'Burgan Bank A.Ş.' },
+                        { value: '0134', label: 'Denizbank A.Ş.' },
+                        { value: '0143', label: 'Aktif Yatırım Bankası A.Ş.' },
+                        { value: '0146', label: 'Odea Bank A.Ş.' },
+                        { value: '0203', label: 'Albaraka Türk Katılım Bankası A.Ş.' },
+                        { value: '0205', label: 'Kuveyt Türk Katılım Bankası A.Ş.' },
+                        { value: '0212', label: 'Hayat Finans Katılım Bankası A.Ş.' },
+                      ];
+                      return resultData;
+                    },
+
+                    fetchValueItemsData: async (_value, _multiple) => {
+                      const resultData = [{ value: '0010', label: 'T.C. Ziraat Bankası A.Ş.' }];
+                      return resultData;
+                    },
+                  }}
+                />
+
+                <CustomController<FormValues>
+                  name="paymentInstruments"
+                  control={control}
+                  componentFields={{
+                    componentType: 'asyncSelect',
+                    label: 'introduction.paymentInstruments',
+                    helperText: formState.errors.paymentInstruments?.message,
+                    isLabelTranslation: true,
+                    isHelperTextTranslation: true,
+                    multiple: true,
+                    error: !!formState.errors.paymentInstruments,
+                    disabled: false,
+                    required: false,
+                    shouldFetchOnEveryOpenMenu: true,
+                    fetchItemsData: async () => {
+                      await new Promise((resolve) => setTimeout(resolve, 500));
+                      const paymentMethods = [
+                        { value: 'pm001', label: 'Banka Kartı ile Ödeme' },
+                        { value: 'pm002', label: 'Kredi Kartı ile Ödeme' },
+                        { value: 'pm003', label: 'Sanal POS ile Ödeme' },
+                        { value: 'pm004', label: 'Kripto Para ile Ödeme' },
+                        { value: 'pm005', label: 'Dijital Cüzdan ile Ödeme (Apple Pay, Google Pay)' },
+                        { value: 'pm006', label: 'Havale / EFT ile Ödeme' },
+                        { value: 'pm007', label: 'Mobil Ödeme (Operatör Faturası Üzerinden)' },
+                        { value: 'pm008', label: 'QR Kod ile Ödeme' },
+                        { value: 'pm009', label: 'Link ile Ödeme (Mail, SMS veya WhatsApp üzerinden)' },
+                        { value: 'pm010', label: 'Kapıda Ödeme (Nakit veya Kart ile)' },
+                        { value: 'pm011', label: 'Taksitli Ödeme (Kredi Kartına Vade Seçeneği ile)' },
+                        { value: 'pm012', label: 'Ön Ödemeli Kart ile Ödeme (Papara, ininal vb.)' },
+                        { value: 'pm013', label: 'Kripto Cüzdan ile Ödeme (Metamask, Trust Wallet vb.)' },
+                        { value: 'pm014', label: 'Ticari Kredi ile Ödeme (İşyeri Kredisi, Mikro Kredi vb.)' },
+                        { value: 'pm015', label: 'Kripto ile Stablecoin Ödeme (USDT, USDC, DAI vb.)' },
+                      ];
+                      return paymentMethods;
+                    },
+
+                    fetchValueItemsData: async (_value, _multiple) => {
+                      const resultData = [{ value: 'pm002', label: 'Kredi Kartı ile Ödeme' }];
+                      return resultData;
+                    },
+                  }}
+                />
+
+                <CustomController<FormValues>
                   name="approval"
                   control={control}
                   componentFields={{
@@ -392,11 +492,11 @@ const RhfStandardExamp: React.FC = () => {
               </GridComp>
               <GridComp item xs={8}>
                 <TypographyComp variant="h5">
-                  {watchAllFields.monthsToBePaid
+                  {watchAllFields.monthsToBePaid && watchAllFields.monthsToBePaid.length > 0
                     ? Array.isArray(watchAllFields.monthsToBePaid) && watchAllFields.monthsToBePaid.length > 0
                       ? watchAllFields.monthsToBePaid.join(', ')
                       : watchAllFields.monthsToBePaid
-                    : '-'}{' '}
+                    : '-'}
                 </TypographyComp>
               </GridComp>
             </>
@@ -419,6 +519,32 @@ const RhfStandardExamp: React.FC = () => {
               <GridComp item xs={8}>
                 <TypographyComp variant="h5">
                   {watchAllFields.paymentType ? watchAllFields.paymentType : '-'}
+                </TypographyComp>
+              </GridComp>
+            </>
+
+            <>
+              <GridComp item xs={4}>
+                <TypographyComp variant="h5">introduction.paymentBank</TypographyComp>
+              </GridComp>
+              <GridComp item xs={8}>
+                <TypographyComp variant="h5">
+                  {watchAllFields.paymentBank ? watchAllFields.paymentBank : '-'}
+                </TypographyComp>
+              </GridComp>
+            </>
+
+            <>
+              <GridComp item xs={4}>
+                <TypographyComp variant="h5">introduction.paymentInstruments</TypographyComp>
+              </GridComp>
+              <GridComp item xs={8}>
+                <TypographyComp variant="h5">
+                  {watchAllFields.paymentInstruments && watchAllFields.paymentInstruments.length > 0
+                    ? Array.isArray(watchAllFields.paymentInstruments) && watchAllFields.paymentInstruments.length > 0
+                      ? watchAllFields.paymentInstruments.join(', ')
+                      : watchAllFields.paymentInstruments
+                    : '-'}
                 </TypographyComp>
               </GridComp>
             </>

@@ -302,6 +302,8 @@
     "amountDuesPayable": "Ödenecek Aidat Tutarı",
     "amountDuesPayablePlaceholder": "Ödenecek aidat tutarını giriniz.",
     "paymentType": "Ödeme Tipi",
+    "paymentBank": "Ödeme Yapılacak Banka",
+    "paymentInstruments": "Ödeme Araçları",
     "paymentTypePlaceholder": "Ödeme tipi seçiniz.",
     "partialInstallmentPayment": "Kısmi Taksit Ödemesi",
     "fullInstallmentPayment": "Tam Taksit Ödemesi",

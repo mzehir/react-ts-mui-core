@@ -302,6 +302,8 @@
     "amountDuesPayable": "Amount of Dues Payable",
     "amountDuesPayablePlaceholder": "Enter the amount of dues to be paid.",
     "paymentType": "Payment Type",
+    "paymentBank": "Payment Bank",
+    "paymentInstruments": "Payment Instruments",
     "paymentTypePlaceholder": "Select payment type.",
     "partialInstallmentPayment": "Partial Installment Payment",
     "fullInstallmentPayment": "Full Installment Payment",
