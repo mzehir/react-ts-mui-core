@@ -7,6 +7,7 @@ import PhoneTextFieldComp from '../../custom/textFields/PhoneTextField';
 import RHFCheckboxComp from './sections/RHFCheckboxComp';
 import RHFRadioGroupComp from './sections/RHFRadioGroupComp';
 import RHFSelectComp from './sections/RHFSelectComp';
+import RHFAsyncSelectComp from './sections/RHFAsyncSelectComp';
 import DatePickerComp from '../../base/datePicker/DatePicker';
 import { dayjsDateToString, stringToDayjsDate } from '../../../utils/locale/dateFormats';
 
@@ -232,6 +233,34 @@ const CustomController = <T extends FieldValues>({ name, control, componentField
               required={componentFields.required}
               //
               items={componentFields.items}
+            />
+          )}
+
+          {componentFields.componentType === 'asyncSelect' && (
+            <RHFAsyncSelectComp
+              // name={name}
+              shouldFetchOnEveryOpenMenu={componentFields.shouldFetchOnEveryOpenMenu}
+              fetchItemsData={componentFields.fetchItemsData}
+              fetchValueItemsData={componentFields.fetchValueItemsData}
+              onChange={onChange}
+              value={value}
+              //
+              label={componentFields.label}
+              multiple={componentFields.multiple}
+              helperText={componentFields.helperText}
+              //
+              isLabelTranslation={
+                typeof componentFields.isLabelTranslation === 'boolean' ? componentFields.isLabelTranslation : true
+              }
+              isHelperTextTranslation={
+                typeof componentFields.isHelperTextTranslation === 'boolean'
+                  ? componentFields.isHelperTextTranslation
+                  : true
+              }
+              //
+              error={componentFields.error}
+              disabled={componentFields.disabled}
+              required={componentFields.required}
             />
           )}
 

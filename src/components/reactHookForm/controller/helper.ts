@@ -1,6 +1,7 @@
 import { Control, FieldValues, Path } from 'react-hook-form';
 import { RHFRadioGroupCompItemProp } from './sections/RHFRadioGroupComp';
 import { Item as SelectItem } from '../../base/select/selectHelper';
+import { Item as AsyncSelectItem } from '../../custom/selects/asyncSelectHelper';
 
 export type componentFields =
   | {
@@ -90,6 +91,23 @@ export type componentFields =
       required?: boolean;
       //
       items: SelectItem[];
+    }
+  | {
+      componentType: 'asyncSelect';
+      label: string;
+      multiple?: boolean;
+      helperText?: string;
+      //
+      isLabelTranslation?: boolean;
+      isHelperTextTranslation?: boolean;
+      //
+      error?: boolean;
+      disabled?: boolean;
+      required?: boolean;
+      //
+      shouldFetchOnEveryOpenMenu?: boolean;
+      fetchItemsData: () => Promise<AsyncSelectItem[]>;
+      fetchValueItemsData: (value: unknown, multiple: boolean) => Promise<AsyncSelectItem[]>;
     }
   | {
       componentType: 'datePicker';
