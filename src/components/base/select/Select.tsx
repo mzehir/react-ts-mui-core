@@ -2,6 +2,7 @@ import React from 'react';
 import useLanguageContext from '../../../hooks/useLanguageContext';
 import { childrenTranslate } from '../../../contexts/languageContextHelper';
 import Select from '@mui/material/Select';
+import { MenuProps } from '@mui/material';
 import { SelectCompProps, selectCompDefaultProps } from './selectHelper';
 import MenuItemComp from '../menuItem/MenuItem';
 import CheckboxComp from '../checkbox/Checkbox';
@@ -30,8 +31,21 @@ const SelectComp: React.FC<SelectCompProps> = (props) => {
     }
   };
 
+  const customMenuProps: Partial<MenuProps> = {
+    PaperProps: {
+      sx: {
+        borderRight: (theme) => `2px solid ${theme.palette.primary.main}`,
+        borderLeft: (theme) => `2px solid ${theme.palette.primary.main}`,
+        borderBottom: (theme) => `2px solid ${theme.palette.primary.main}`,
+        borderTopLeftRadius: 0,
+        borderTopRightRadius: 0,
+      },
+    },
+  };
+
   return (
     <Select
+      MenuProps={customMenuProps}
       {...(label ? { label: isLabelTranslation ? childrenTranslate(label, translate) : label } : {})}
       multiple={multiple}
       renderValue={(selected) => {

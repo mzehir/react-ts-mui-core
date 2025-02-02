@@ -6,7 +6,7 @@ import svgr from 'vite-plugin-svgr';
 export default defineConfig({
   base: '/', // Specifies the root URL of the application
   server: {
-    port: 3013, // To run the app on port 3013
+    port: 3015, // To run the app on port 3013
     open: true, // If we want to open the app once its started
   },
   plugins: [
