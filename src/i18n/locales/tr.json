@@ -428,7 +428,10 @@
     "xxx": "xxx",
     "notPaid": "Ödenmedi",
     "partiallyPaid": "Kısmen Ödendi",
-    "paid": "Ödendi"
+    "paid": "Ödendi",
+    "xxx": "xxx",
+    "specialActionColumn": "Özel İşlem Kolonu",
+    "specialActionButton": "Özel İşlem Butonu"
   },
   "_interpolations": {
     "interpolations_1": "Merhaba {{name}} {{surname}}, uygulamaya hoşgeldin"

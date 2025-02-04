@@ -13,6 +13,7 @@ import { Cell } from '../../../../components/custom/table/customTableTypes';
 import CustomFilter from '../../../../components/custom/filter/CustomFilter';
 import { CustomFilterRef, FilterItemComponent, isSubsequence } from '../../../../components/custom/filter/helper';
 import BoxComp from '../../../../components/base/box/Box';
+import ButtonComp from '../../../../components/base/button/Button';
 import TypographyComp from '../../../../components/base/typography/Typography';
 import ChipComp from '../../../../components/base/chip/Chip';
 import DividerComp from '../../../../components/base/divider/Divider';
@@ -30,6 +31,35 @@ const OrderProjectPage: React.FC = () => {
   const [orders, setOrders] = React.useState<OrderType[]>([]);
 
   const cellsData: Cell[] = [
+    {
+      key: 'specialActionColumn',
+      label: 'introduction.specialActionColumn',
+      settings: {
+        head: {
+          cell: {
+            minWidth: 'vm',
+          },
+        },
+        body: {
+          cell: {
+            renderCustomComponent(rowData, cellText) {
+              return (
+                <ButtonComp
+                  color="primary"
+                  variant="outlined"
+                  onClick={() => {
+                    console.log(rowData);
+                    console.log(cellText);
+                  }}
+                >
+                  introduction.specialActionButton
+                </ButtonComp>
+              );
+            },
+          },
+        },
+      },
+    },
     {
       key: 'orderId',
       label: 'introduction.orderId',
@@ -191,7 +221,7 @@ const OrderProjectPage: React.FC = () => {
         },
         body: {
           cell: {
-            renderCustomComponent(cellText) {
+            renderCustomComponent(_rowData, cellText) {
               const _cellText = cellText as OperationType[];
               return (
                 <BoxComp display={'flex'} flexDirection={'row'} flexWrap={'wrap'} gap={'5px'}>
@@ -304,7 +334,7 @@ const OrderProjectPage: React.FC = () => {
         body: {
           cell: {
             isTranslation: true,
-            renderCustomComponent(cellText) {
+            renderCustomComponent(_rowData, cellText) {
               const _cellText = cellText as PaymentStatuType;
               return (
                 <ChipComp
@@ -329,7 +359,7 @@ const OrderProjectPage: React.FC = () => {
         body: {
           cell: {
             isTranslation: true,
-            renderCustomComponent(cellText) {
+            renderCustomComponent(_rowData, cellText) {
               const _cellText = cellText as OrderStatuType;
               return (
                 <ChipComp

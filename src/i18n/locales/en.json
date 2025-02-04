@@ -428,7 +428,10 @@
     "xxx": "xxx",
     "notPaid": "Not Paid",
     "partiallyPaid": "Partially Paid",
-    "paid": "Paid"
+    "paid": "Paid",
+    "xxx": "xxx",
+    "specialActionColumn": "Special Action Column",
+    "specialActionButton": "Special Action Button"
   },
   "_interpolations": {
     "interpolations_1": "Hello {{name}} {{surname}}, welcome to the application"
