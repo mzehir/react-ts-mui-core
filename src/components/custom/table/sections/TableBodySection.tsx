@@ -105,7 +105,10 @@ const TableBodySection = <T extends object>({
               }}
             >
               {cell.settings?.body?.cell?.renderCustomComponent
-                ? cell.settings?.body?.cell?.renderCustomComponent(row[cell.key as keyof T] as string)
+                ? cell.settings?.body?.cell?.renderCustomComponent(
+                    row as Record<string, unknown>,
+                    row[cell.key as keyof T] as string,
+                  )
                 : cell.settings?.body?.cell?.prepareCellTextMethod
                   ? cell.settings?.body?.cell?.prepareCellTextMethod(
                       row as Record<string, unknown>,

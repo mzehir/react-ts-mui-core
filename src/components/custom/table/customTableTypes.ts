@@ -27,8 +27,8 @@ interface CellSettingsHeadBody {
   width?: keyof typeof cellWidthDefinitions | number;
   align?: AlignType;
   isTranslation?: boolean;
-  prepareCellTextMethod?: (rowData: Record<string, unknown>, cellText?: string | number) => string;
-  renderCustomComponent?: (cellText: unknown) => React.ReactNode;
+  prepareCellTextMethod?: (rowData: Record<string, unknown>, cellText?: string | number | string[]) => string;
+  renderCustomComponent?: (rowData: Record<string, unknown>, cellText?: string | number | string[]) => React.ReactNode;
 }
 
 interface CellSettingsFooter {
