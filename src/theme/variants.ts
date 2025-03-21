@@ -74,9 +74,6 @@ const lightVariant = {
       backgroundPrimary: '#F5F5F5',
       backgroundSecondary: '#FFFFFF',
     },
-    footerStickyColumn: {
-      backgroundPrimary: '#BDBDBD',
-    },
   },
 } as ThemeOptions & { name: string };
 
@@ -134,9 +131,6 @@ const darkVariant = merge(lightVariant, {
     stickyColumn: {
       backgroundPrimary: '#344053',
       backgroundSecondary: '#233044',
-    },
-    footerStickyColumn: {
-      backgroundPrimary: '#656F7C',
     },
   },
 }) as ThemeOptions & { name: string };

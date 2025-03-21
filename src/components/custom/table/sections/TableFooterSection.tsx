@@ -1,19 +1,19 @@
+import React from 'react';
 import useLanguageContext from '../../../../hooks/useLanguageContext';
+import { formatCurrency, formatNumber } from '../../../../utils/methods/format';
 import TableRowComp from '../../../base/tableRow/TableRow';
 import TableCellComp from '../../../base/tableCell/TableCell';
 import TableFooterComp from '../../../base/tableFooter/TableFooter';
 import { processSummary } from '../customTableMethods';
 import { CustomTableProps } from '../customTableTypes';
 import { styled } from '@mui/material/styles';
-import React from 'react';
-import { formatCurrency, formatNumber } from '../../../../utils/methods/format';
 
 const StyledTableFooterRow = styled(TableRowComp)(({ theme }) => ({
-  backgroundColor: theme.palette.action.disabled,
+  background: theme.palette.background.default,
 }));
 
 const StickyTableFooterColumn = styled(TableCellComp)(({ theme }) => ({
-  background: theme.customTable?.footerStickyColumn?.backgroundPrimary,
+  background: theme.palette.background.default,
   position: 'sticky',
   left: 0,
   zIndex: 1,
@@ -26,6 +26,14 @@ const StickyTableFooterColumn = styled(TableCellComp)(({ theme }) => ({
     width: '1px',
     backgroundColor: theme.palette.divider,
   },
+}));
+
+const StyledTableCell = styled(TableCellComp, {
+  shouldForwardProp: (prop) => prop !== 'showVerticalLines',
+})<{ showVerticalLines?: boolean }>(({ theme, showVerticalLines }) => ({
+  ...(showVerticalLines && {
+    borderRight: `1px solid ${theme.palette.divider}`,
+  }),
 }));
 
 const TableFooterSection = <T extends object>({
@@ -98,7 +106,13 @@ const TableFooterSection = <T extends object>({
         position: 'sticky',
         bottom: 0,
         zIndex: 2,
-        backgroundColor: (theme) => theme.customTable?.stickyColumn?.backgroundSecondary,
+        backgroundColor: (theme) => theme.palette.background.default,
+        boxShadow: `
+          rgba(0, 0, 0, 0.4) 0px -2px 4px,
+          rgba(0, 0, 0, 0.3) 0px -7px 13px -3px,
+          rgba(0, 0, 0, 0.2) 0px 3px 0px inset,
+          rgba(0, 0, 0, 0.1) 0px 0px 5px
+        `,
       }}
     >
       <StyledTableFooterRow>
@@ -113,25 +127,24 @@ const TableFooterSection = <T extends object>({
 
         {cells.map((cell, cellIndex) =>
           cell.settings?.footer?.cell?.open ? (
-            <TableCellComp
+            <StyledTableCell
               key={cellIndex.toString()}
               align={cell.settings?.head?.cell?.align}
               isTranslation={false}
+              showVerticalLines={columnVerticalLinesVisible}
               sx={{
-                fontWeight: 700,
-                fontSize: '1rem',
-                ...(columnVerticalLinesVisible ? { boxShadow: (theme) => `1px 0 0 0 ${theme.palette.divider}` } : {}),
+                fontWeight: 500,
+                fontSize: '0.8125rem',
+                lineHeight: '1.3928571428571428rem',
               }}
             >
               {renderCellContent(cell, rows)}
-            </TableCellComp>
+            </StyledTableCell>
           ) : (
-            <TableCellComp
+            <StyledTableCell
               key={cellIndex.toString()}
               isTranslation={false}
-              sx={{
-                ...(columnVerticalLinesVisible ? { boxShadow: (theme) => `1px 0 0 0 ${theme.palette.divider}` } : {}),
-              }}
+              showVerticalLines={columnVerticalLinesVisible}
             />
           ),
         )}

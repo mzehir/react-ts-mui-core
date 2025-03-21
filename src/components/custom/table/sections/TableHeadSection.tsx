@@ -22,6 +22,28 @@ const StickyTableHeadColumn = styled(TableCellComp)(({ theme }) => ({
   },
 }));
 
+const StyledTableCell = styled(TableCellComp, {
+  shouldForwardProp: (prop) => prop !== 'isSticky' && prop !== 'showVerticalLines',
+})<{ isSticky?: boolean; showVerticalLines?: boolean }>(({ theme, isSticky, showVerticalLines }) => ({
+  position: isSticky ? 'sticky' : 'static',
+  backgroundColor: isSticky ? theme.customTable?.stickyColumn?.backgroundSecondary : 'inherit',
+  ...(showVerticalLines && {
+    borderRight: `1px solid ${theme.palette.divider}`,
+    '&::after': isSticky
+      ? {
+          content: '""',
+          position: 'absolute',
+          right: 0,
+          top: 0,
+          bottom: 0,
+          width: '1px',
+          backgroundColor: theme.palette.divider,
+          zIndex: 3,
+        }
+      : {},
+  }),
+}));
+
 const TableHeadSection = <T extends object>({
   cells,
   stickyRowActive = false,
@@ -78,10 +100,12 @@ const TableHeadSection = <T extends object>({
         )}
 
         {cells.map((cell, index) => (
-          <TableCellComp
+          <StyledTableCell
             key={index.toString()}
             isTranslation={true}
             align={cell.settings?.head?.cell?.align}
+            isSticky={stickyRowActive}
+            showVerticalLines={columnVerticalLinesVisible}
             style={{
               minWidth:
                 cell.settings?.head?.cell?.minWidth && typeof cell.settings?.head?.cell?.minWidth === 'number'
@@ -90,12 +114,9 @@ const TableHeadSection = <T extends object>({
                     ? cellWidthDefinitions[cell.settings?.head?.cell?.minWidth as keyof typeof cellWidthDefinitions]
                     : 200,
             }}
-            sx={{
-              ...(columnVerticalLinesVisible ? { boxShadow: (theme) => `1px 0 0 0 ${theme.palette.divider}` } : {}),
-            }}
           >
             {cell.label}
-          </TableCellComp>
+          </StyledTableCell>
         ))}
       </TableRowComp>
     </TableHeadComp>

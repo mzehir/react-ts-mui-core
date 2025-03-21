@@ -46,9 +46,6 @@ declare module '@mui/material/styles' {
         backgroundPrimary?: string;
         backgroundSecondary?: string;
       };
-      footerStickyColumn?: {
-        backgroundPrimary?: string;
-      };
     };
   }
 
@@ -96,9 +93,6 @@ declare module '@mui/material/styles' {
       stickyColumn?: {
         backgroundPrimary?: string;
         backgroundSecondary?: string;
-      };
-      footerStickyColumn?: {
-        backgroundPrimary?: string;
       };
     };
   }
