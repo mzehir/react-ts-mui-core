@@ -67,7 +67,7 @@ export interface CustomTableProps<T extends object> {
   rows: T[];
   stickyHeaderActive?: boolean;
   columnVerticalLinesVisible?: boolean;
-  stickyColumnWidth?: number | string;
+  stickyColumnWidth?: number | string; // 150 || "150px" vs...
   summaryOpen?: boolean;
   onEditClick?: (event: React.MouseEvent<HTMLButtonElement>, row: T) => void;
   onViewClick?: (event: React.MouseEvent<HTMLButtonElement>, row: T) => void;
