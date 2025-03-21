@@ -3,7 +3,7 @@ import TableBodyComp from '../../../base/tableBody/TableBody';
 import TableRowComp from '../../../base/tableRow/TableRow';
 import TableCellComp from '../../../base/tableCell/TableCell';
 import IconButtonComp from '../../../base/iconButton/IconButton';
-import { CustomTableProps } from '../customTableTypes';
+import { CustomTableProps, ProcessColumnItemFields } from '../customTableTypes';
 import EditIcon from '@mui/icons-material/Edit';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -43,6 +43,7 @@ const TableBodySection = <T extends object>({
   onEditClick,
   onViewClick,
   onDeleteClick,
+  processColumnItems,
 }: {
   cells: CustomTableProps<T>['cells'];
   rows: CustomTableProps<T>['rows'];
@@ -51,6 +52,7 @@ const TableBodySection = <T extends object>({
   onEditClick: CustomTableProps<T>['onEditClick'];
   onViewClick: CustomTableProps<T>['onViewClick'];
   onDeleteClick: CustomTableProps<T>['onDeleteClick'];
+  processColumnItems?: ProcessColumnItemFields[];
 }): JSX.Element => {
   return (
     <TableBodyComp>
@@ -93,6 +95,30 @@ const TableBodySection = <T extends object>({
                   <DeleteIcon />
                 </IconButtonComp>
               )}
+
+              {processColumnItems?.map((item, index) => {
+                if (
+                  item.type === 'iconButton' &&
+                  (item.visable ?? true) &&
+                  (item.visablePrepare ? item.visablePrepare(row) : true)
+                ) {
+                  return (
+                    <IconButtonComp
+                      key={index.toString()}
+                      size="small"
+                      color={item.color ?? 'default'}
+                      disabled={item.disabledPrepare?.(row) ?? item.disabled ?? false}
+                      onClick={(event) => {
+                        item.onClick(event, row);
+                      }}
+                    >
+                      {item.icon}
+                    </IconButtonComp>
+                  );
+                } else {
+                  return null;
+                }
+              })}
             </StickyTableBodyColumn>
           )}
           {cells.map((cell, cellIndex) => (

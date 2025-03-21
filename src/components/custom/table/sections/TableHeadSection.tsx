@@ -1,8 +1,10 @@
 import TableHeadComp from '../../../base/tableHead/TableHead';
 import TableRowComp from '../../../base/tableRow/TableRow';
 import TableCellComp from '../../../base/tableCell/TableCell';
+import IconButtonComp from '../../../base/iconButton/IconButton';
 import { cellWidthDefinitions, CustomTableProps } from '../customTableTypes';
 import { styled } from '@mui/material/styles';
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
 
 const StickyTableHeadColumn = styled(TableCellComp)(({ theme }) => ({
   background: theme.customTable?.stickyColumn?.backgroundSecondary,
@@ -26,12 +28,14 @@ const TableHeadSection = <T extends object>({
   columnVerticalLinesVisible,
   operationsColumnVisible,
   operationsColumnWidth,
+  onDownloadClick,
 }: {
   cells: CustomTableProps<T>['cells'];
   stickyRowActive?: boolean;
   columnVerticalLinesVisible: CustomTableProps<T>['columnVerticalLinesVisible'];
   operationsColumnVisible: boolean;
   operationsColumnWidth: CustomTableProps<T>['operationsColumnWidth'];
+  onDownloadClick?: CustomTableProps<T>['onDownloadClick'];
 }): JSX.Element => {
   return (
     <TableHeadComp
@@ -57,7 +61,20 @@ const TableHeadSection = <T extends object>({
             sx={{
               minWidth: operationsColumnWidth,
             }}
-          />
+          >
+            {onDownloadClick && (
+              <IconButtonComp
+                size="small"
+                color="success"
+                disabled={false}
+                onClick={(event) => {
+                  onDownloadClick(event);
+                }}
+              >
+                <FileDownloadIcon />
+              </IconButtonComp>
+            )}
+          </StickyTableHeadColumn>
         )}
 
         {cells.map((cell, index) => (

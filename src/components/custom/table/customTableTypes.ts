@@ -1,3 +1,6 @@
+import { ReactNode } from 'react';
+import { IconButtonColor } from '../../base/iconButton/iconButtonHelper';
+
 export const cellWidthDefinitions = {
   vvs: 50,
   vs: 75,
@@ -62,6 +65,23 @@ export interface Cell {
   settings?: CellSettings;
 }
 
+export type ProcessColumnItemFields =
+  | {
+      type: 'iconButton';
+      icon: ReactNode;
+      color?: IconButtonColor;
+      visable?: boolean;
+      visablePrepare?: (row: unknown) => boolean;
+      disabled?: boolean;
+      disabledPrepare?: (row: unknown) => boolean;
+      onClick: (event: React.MouseEvent<HTMLButtonElement>, row: unknown) => void;
+    }
+  | {
+      type: 'button';
+      label: string;
+      onClick: (event: React.MouseEvent<HTMLButtonElement>, row: unknown) => void;
+    };
+
 export interface CustomTableProps<T extends object> {
   cells: Cell[];
   rows: T[];
@@ -73,4 +93,8 @@ export interface CustomTableProps<T extends object> {
   onViewClick?: (event: React.MouseEvent<HTMLButtonElement>, row: T) => void;
   onDeleteClick?: (event: React.MouseEvent<HTMLButtonElement>, row: T) => void;
   onAddClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onDownloadClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  processColumnItems?: ProcessColumnItemFields[];
+  addClickButtonCustomText?: string;
+  addClickButtonCustomIcon?: ReactNode;
 }

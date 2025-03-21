@@ -22,8 +22,20 @@ const CustomTable = <T extends object>({
   onViewClick,
   onDeleteClick,
   onAddClick,
+  onDownloadClick,
+  processColumnItems,
+  addClickButtonCustomText,
+  addClickButtonCustomIcon,
 }: CustomTableProps<T>): JSX.Element => {
-  const [operationsColumnVisible] = React.useState(onEditClick || onViewClick || onDeleteClick ? true : false);
+  const [operationsColumnVisible] = React.useState(
+    onDownloadClick ||
+      onEditClick ||
+      onViewClick ||
+      onDeleteClick ||
+      (processColumnItems && processColumnItems.length > 0)
+      ? true
+      : false,
+  );
 
   return rows && rows.length > 0 ? (
     <BoxComp
@@ -40,6 +52,8 @@ const CustomTable = <T extends object>({
       {onAddClick && (
         <BoxComp display={'flex'} justifyContent={'end'}>
           <TableAddButton
+            text={addClickButtonCustomText}
+            icon={addClickButtonCustomIcon}
             onClick={(event) => {
               onAddClick(event);
             }}
@@ -55,6 +69,7 @@ const CustomTable = <T extends object>({
             columnVerticalLinesVisible={columnVerticalLinesVisible}
             operationsColumnVisible={operationsColumnVisible}
             operationsColumnWidth={operationsColumnWidth}
+            onDownloadClick={onDownloadClick}
           />
 
           <TableBodySection
@@ -65,6 +80,7 @@ const CustomTable = <T extends object>({
             onEditClick={onEditClick}
             onViewClick={onViewClick}
             onDeleteClick={onDeleteClick}
+            processColumnItems={processColumnItems}
           />
 
           {summaryOpen && (
