@@ -14,7 +14,7 @@ import './customTable.css';
 const CustomTable = <T extends object>({
   cells,
   rows,
-  stickyColumnWidth = 150,
+  operationsColumnWidth = 150,
   stickyHeaderActive,
   columnVerticalLinesVisible = true,
   summaryOpen = false,
@@ -54,7 +54,7 @@ const CustomTable = <T extends object>({
             stickyRowActive={stickyHeaderActive}
             columnVerticalLinesVisible={columnVerticalLinesVisible}
             stickyColumnVisible={stickyColumnVisible}
-            stickyColumnWidth={stickyColumnWidth}
+            operationsColumnWidth={operationsColumnWidth}
           />
 
           <TableBodySection
@@ -73,7 +73,7 @@ const CustomTable = <T extends object>({
               rows={rows}
               columnVerticalLinesVisible={columnVerticalLinesVisible}
               stickyColumnVisible={stickyColumnVisible}
-              stickyColumnWidth={stickyColumnWidth}
+              operationsColumnWidth={operationsColumnWidth}
             />
           )}
         </TableComp>

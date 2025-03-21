@@ -25,13 +25,13 @@ const TableHeadSection = <T extends object>({
   stickyRowActive = false,
   columnVerticalLinesVisible,
   stickyColumnVisible,
-  stickyColumnWidth,
+  operationsColumnWidth,
 }: {
   cells: CustomTableProps<T>['cells'];
   stickyRowActive?: boolean;
   columnVerticalLinesVisible: CustomTableProps<T>['columnVerticalLinesVisible'];
   stickyColumnVisible: boolean;
-  stickyColumnWidth: CustomTableProps<T>['stickyColumnWidth'];
+  operationsColumnWidth: CustomTableProps<T>['operationsColumnWidth'];
 }): JSX.Element => {
   return (
     <TableHeadComp
@@ -55,7 +55,7 @@ const TableHeadSection = <T extends object>({
           <StickyTableHeadColumn
             align="center"
             sx={{
-              minWidth: stickyColumnWidth,
+              minWidth: operationsColumnWidth,
             }}
           />
         )}

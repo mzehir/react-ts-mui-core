@@ -33,13 +33,13 @@ const TableFooterSection = <T extends object>({
   rows,
   columnVerticalLinesVisible,
   stickyColumnVisible,
-  stickyColumnWidth,
+  operationsColumnWidth,
 }: {
   cells: CustomTableProps<T>['cells'];
   rows: CustomTableProps<T>['rows'];
   columnVerticalLinesVisible: CustomTableProps<T>['columnVerticalLinesVisible'];
   stickyColumnVisible: boolean;
-  stickyColumnWidth: CustomTableProps<T>['stickyColumnWidth'];
+  operationsColumnWidth: CustomTableProps<T>['operationsColumnWidth'];
 }): JSX.Element => {
   const { translate } = useLanguageContext();
 
@@ -106,7 +106,7 @@ const TableFooterSection = <T extends object>({
           <StickyTableFooterColumn
             align="center"
             style={{
-              minWidth: stickyColumnWidth,
+              minWidth: operationsColumnWidth,
             }}
           />
         )}
