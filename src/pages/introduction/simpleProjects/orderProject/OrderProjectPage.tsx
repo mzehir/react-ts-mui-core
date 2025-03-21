@@ -644,6 +644,10 @@ const OrderProjectPage: React.FC = () => {
           const updatedRowData = orders.filter((order) => order.orderId !== row.orderId);
           setOrders(updatedRowData);
         }}
+        onDownloadClick={(event: React.MouseEvent<HTMLButtonElement>) => {
+          event.preventDefault();
+          console.log(event);
+        }}
       />
 
       {newOrderOpen && (
