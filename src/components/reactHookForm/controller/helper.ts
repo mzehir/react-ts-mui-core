@@ -108,6 +108,7 @@ export type componentFields =
       shouldFetchOnEveryOpenMenu?: boolean;
       fetchItemsData: () => Promise<AsyncSelectItem[]>;
       fetchValueItemsData: (value: unknown, multiple: boolean) => Promise<AsyncSelectItem[]>;
+      isSearhAndFilter?: boolean;
     }
   | {
       componentType: 'datePicker';

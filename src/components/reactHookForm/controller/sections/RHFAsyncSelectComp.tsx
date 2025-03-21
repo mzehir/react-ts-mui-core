@@ -21,6 +21,7 @@ interface RHFAsyncSelectCompProps {
   shouldFetchOnEveryOpenMenu?: boolean;
   fetchItemsData: () => Promise<SelectItem[]>;
   fetchValueItemsData: (value: unknown, multiple: boolean) => Promise<SelectItem[]>;
+  isSearhAndFilter?: boolean;
 }
 
 const RHFAsyncSelectComp: React.FC<RHFAsyncSelectCompProps> = ({
@@ -37,6 +38,7 @@ const RHFAsyncSelectComp: React.FC<RHFAsyncSelectCompProps> = ({
   shouldFetchOnEveryOpenMenu,
   fetchItemsData,
   fetchValueItemsData,
+  isSearhAndFilter,
 }) => {
   return (
     <FormControlComp error={error} disabled={disabled} required={required}>
@@ -48,6 +50,7 @@ const RHFAsyncSelectComp: React.FC<RHFAsyncSelectCompProps> = ({
         multiple={multiple}
         value={value}
         fetchValueItemsData={(value) => fetchValueItemsData(value, multiple ?? false)}
+        isSearhAndFilter={isSearhAndFilter}
         onChange={onChange}
         isLabelTranslation={isLabelTranslation}
       />

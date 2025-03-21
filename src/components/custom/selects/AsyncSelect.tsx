@@ -1,12 +1,15 @@
 import React from 'react';
 import useLanguageContext from '../../../hooks/useLanguageContext';
 import { childrenTranslate } from '../../../contexts/languageContextHelper';
-import Select from '@mui/material/Select';
-import { MenuProps } from '@mui/material';
 import { AsyncSelectCompProps, Item, asyncSelectCompDefaultProps } from './asyncSelectHelper';
 import MenuItemComp from '../../base/menuItem/MenuItem';
 import CheckboxComp from '../../base/checkbox/Checkbox';
 import SkeletonComp from '../../base/skeleton/Skeleton';
+import TextFieldComp from '../../base/textField/TextField';
+import { Select, InputAdornment, ListSubheader, MenuProps } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+
+const containsText = (text: string, searchText: string) => text.toLowerCase().indexOf(searchText.toLowerCase()) > -1;
 
 const AsyncSelectComp: React.FC<AsyncSelectCompProps> = (props) => {
   const {
@@ -16,6 +19,7 @@ const AsyncSelectComp: React.FC<AsyncSelectCompProps> = (props) => {
     shouldFetchOnEveryOpenMenu,
     fetchItemsData,
     fetchValueItemsData,
+    isSearhAndFilter,
     ...selectProps
   } = {
     ...asyncSelectCompDefaultProps,
@@ -23,8 +27,14 @@ const AsyncSelectComp: React.FC<AsyncSelectCompProps> = (props) => {
   };
 
   const { translate } = useLanguageContext();
-
+  const [searchText, setSearchText] = React.useState('');
   const [items, setItems] = React.useState<Item[]>([]);
+
+  const filteredItems: Item[] = React.useMemo(
+    () => items.filter((item) => containsText(item.label, searchText)),
+    [searchText, items],
+  );
+
   const [fistOnOpenedMenu, setFistOnOpenedMenu] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
 
@@ -79,6 +89,7 @@ const AsyncSelectComp: React.FC<AsyncSelectCompProps> = (props) => {
   }, [props.value]);
 
   const customMenuProps: Partial<MenuProps> = {
+    ...(isSearhAndFilter ? { autoFocus: false } : {}),
     PaperProps: {
       sx: {
         borderRight: (theme) => `2px solid ${theme.palette.primary.main}`,
@@ -96,6 +107,7 @@ const AsyncSelectComp: React.FC<AsyncSelectCompProps> = (props) => {
       {...(label ? { label: isLabelTranslation ? childrenTranslate(label, translate) : label } : {})}
       multiple={multiple}
       onOpen={getItemsData}
+      onClose={() => setSearchText('')}
       renderValue={(selected) => {
         if (multiple && selected && Array.isArray(selected)) {
           const selectedItemsDisplayValue = selected
@@ -112,13 +124,39 @@ const AsyncSelectComp: React.FC<AsyncSelectCompProps> = (props) => {
       }}
       {...selectProps}
     >
+      {!loading && isSearhAndFilter && (
+        <ListSubheader>
+          <TextFieldComp
+            color="info"
+            variant="outlined"
+            size="small"
+            autoFocus
+            placeholder="component.typeToSearch"
+            fullWidth
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+            }}
+            onChange={(e) => setSearchText(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key !== 'Escape') {
+                e.stopPropagation();
+              }
+            }}
+          />
+        </ListSubheader>
+      )}
+
       {loading
         ? Array.from(new Array(3)).map((_, index) => (
             <MenuItemComp key={index.toString()} disabled>
               <SkeletonComp variant="text" width="100%" height={32} />
             </MenuItemComp>
           ))
-        : items.map((item, index) => (
+        : filteredItems.map((item, index) => (
             <MenuItemComp key={index.toString()} value={item.value}>
               {isRenderCheckboxElement(selectProps.value) && (
                 <CheckboxComp checked={prepareCheckboxCompChecked(selectProps.value, item.value)} />

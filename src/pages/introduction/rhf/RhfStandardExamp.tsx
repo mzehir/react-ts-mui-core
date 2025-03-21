@@ -288,6 +288,7 @@ const RhfStandardExamp: React.FC = () => {
                     disabled: false,
                     required: false,
                     shouldFetchOnEveryOpenMenu: true,
+                    isSearhAndFilter: true,
                     fetchItemsData: async () => {
                       await new Promise((resolve) => setTimeout(resolve, 500));
                       const resultData = [
@@ -336,6 +337,7 @@ const RhfStandardExamp: React.FC = () => {
                     disabled: false,
                     required: false,
                     shouldFetchOnEveryOpenMenu: true,
+                    isSearhAndFilter: true,
                     fetchItemsData: async () => {
                       await new Promise((resolve) => setTimeout(resolve, 500));
                       const paymentMethods = [

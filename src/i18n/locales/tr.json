@@ -49,6 +49,7 @@
     "german": "Almanca"
   },
   "component": {
+    "typeToSearch": "Aramak için yazın...",
     "noDataNoShow": "Gösterecek veri yok.",
     "information": "Bilgilendirme",
     "save": "Kaydet",
@@ -206,6 +207,7 @@
     "enableBottomSpacingForComponent": "Bileşenin alttan boşluk özelliği aktif olsun",
     "enableParagraphForComponent": "Bileşenin paragraf özelliği aktif olsun",
     "enableFetchOnOpenForComponent": "Bileşenin her menü açılışında istek atma özelliği aktif olsun",
+    "enableSearchAndFilterForComponent": "Bileşendeki menü elemanlarını filtreleyebilme özelliği aktif olsun",
     "enableDisabledStateForComponent": "Bileşenin devre dışı özelliği aktif olsun",
     "enableFileUploadForComponent": "Bileşen ile dosya yükleme özelliği aktif olsun",
     "enableMultilineForComponent": "Bileşenin çoklu satır özelliği aktif olsun",

@@ -37,6 +37,7 @@ const AsyncSelectPage: React.FC = () => {
   const [fullWidth, setFullWidth] = useState(true);
   const [multiple, setMultiple] = useState(true);
   const [shouldFetchOnEveryOpenMenu, setShouldFetchOnEveryOpenMenu] = useState(true);
+  const [isSearhAndFilter, setIsSearhAndFilter] = useState(true);
 
   return (
     <>
@@ -74,6 +75,7 @@ const AsyncSelectPage: React.FC = () => {
                   // @ts-expect-error: Prop errors can be ignored.
                   variant={selectedVariant}
                   shouldFetchOnEveryOpenMenu={shouldFetchOnEveryOpenMenu}
+                  isSearhAndFilter={isSearhAndFilter}
                   fetchItemsData={fetchItemsData}
                   multiple={multiple}
                   value={multiple ? multipleValue : value}
@@ -136,6 +138,20 @@ const AsyncSelectPage: React.FC = () => {
                     <CheckboxComp
                       checked={!!shouldFetchOnEveryOpenMenu}
                       onChange={(e) => setShouldFetchOnEveryOpenMenu(e.target.checked)}
+                    />
+                  }
+                />
+              </FormControlComp>
+            </GridComp>
+
+            <GridComp item xs={12} md={6} lg={3}>
+              <FormControlComp>
+                <FormControlLabelComp
+                  label={'introduction.enableSearchAndFilterForComponent'}
+                  control={
+                    <CheckboxComp
+                      checked={!!isSearhAndFilter}
+                      onChange={(e) => setIsSearhAndFilter(e.target.checked)}
                     />
                   }
                 />

@@ -10,6 +10,7 @@ export interface AsyncSelectCompProps extends BaseSelectProps {
   shouldFetchOnEveryOpenMenu?: boolean;
   fetchItemsData: () => Promise<Item[]>;
   fetchValueItemsData: (value: unknown) => Promise<Item[]>;
+  isSearhAndFilter?: boolean;
 }
 
 export const asyncSelectCompDefaultProps: AsyncSelectCompProps = {
@@ -17,4 +18,5 @@ export const asyncSelectCompDefaultProps: AsyncSelectCompProps = {
   shouldFetchOnEveryOpenMenu: false,
   fetchItemsData: async () => Promise.resolve([]),
   fetchValueItemsData: async () => Promise.resolve([]),
+  isSearhAndFilter: false,
 };

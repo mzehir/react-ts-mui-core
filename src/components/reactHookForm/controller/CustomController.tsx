@@ -244,6 +244,7 @@ const CustomController = <T extends FieldValues>({ name, control, componentField
               fetchValueItemsData={componentFields.fetchValueItemsData}
               onChange={onChange}
               value={value}
+              isSearhAndFilter={componentFields.isSearhAndFilter}
               //
               label={componentFields.label}
               multiple={componentFields.multiple}

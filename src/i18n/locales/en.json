@@ -49,6 +49,7 @@
     "german": "German"
   },
   "component": {
+    "typeToSearch": "Type to search...",
     "noDataNoShow": "There are no data to show!",
     "information": "Information",
     "save": "Save",
@@ -206,6 +207,7 @@
     "enableBottomSpacingForComponent": "Enable bottom spacing property for the component",
     "enableParagraphForComponent": "Enable paragraph property for the component",
     "enableFetchOnOpenForComponent": "The component's request-fetching feature should be active on every menu open",
+    "enableSearchAndFilterForComponent": "Enable the ability to filter menu items in the component",
     "enableDisabledStateForComponent": "Enable disabled state for the component",
     "enableFileUploadForComponent": "Enable file upload for the component",
     "enableMultilineForComponent": "Enable multiline for the component",
