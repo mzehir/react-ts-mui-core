@@ -39,7 +39,7 @@ const TableBodySection = <T extends object>({
   cells,
   rows,
   columnVerticalLinesVisible,
-  stickyColumnVisible,
+  operationsColumnVisible,
   onEditClick,
   onViewClick,
   onDeleteClick,
@@ -47,7 +47,7 @@ const TableBodySection = <T extends object>({
   cells: CustomTableProps<T>['cells'];
   rows: CustomTableProps<T>['rows'];
   columnVerticalLinesVisible: CustomTableProps<T>['columnVerticalLinesVisible'];
-  stickyColumnVisible: boolean;
+  operationsColumnVisible: boolean;
   onEditClick: CustomTableProps<T>['onEditClick'];
   onViewClick: CustomTableProps<T>['onViewClick'];
   onDeleteClick: CustomTableProps<T>['onDeleteClick'];
@@ -56,7 +56,7 @@ const TableBodySection = <T extends object>({
     <TableBodyComp>
       {rows.map((row, rowIndex) => (
         <StyledTableBodyRow key={rowIndex.toString()}>
-          {stickyColumnVisible && (
+          {operationsColumnVisible && (
             <StickyTableBodyColumn align="center" rowIndex={rowIndex}>
               {onEditClick && (
                 <IconButtonComp

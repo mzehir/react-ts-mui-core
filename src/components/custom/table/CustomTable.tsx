@@ -23,7 +23,7 @@ const CustomTable = <T extends object>({
   onDeleteClick,
   onAddClick,
 }: CustomTableProps<T>): JSX.Element => {
-  const [stickyColumnVisible] = React.useState(onEditClick || onViewClick || onDeleteClick ? true : false);
+  const [operationsColumnVisible] = React.useState(onEditClick || onViewClick || onDeleteClick ? true : false);
 
   return rows && rows.length > 0 ? (
     <BoxComp
@@ -53,7 +53,7 @@ const CustomTable = <T extends object>({
             cells={cells}
             stickyRowActive={stickyHeaderActive}
             columnVerticalLinesVisible={columnVerticalLinesVisible}
-            stickyColumnVisible={stickyColumnVisible}
+            operationsColumnVisible={operationsColumnVisible}
             operationsColumnWidth={operationsColumnWidth}
           />
 
@@ -61,7 +61,7 @@ const CustomTable = <T extends object>({
             cells={cells}
             rows={rows}
             columnVerticalLinesVisible={columnVerticalLinesVisible}
-            stickyColumnVisible={stickyColumnVisible}
+            operationsColumnVisible={operationsColumnVisible}
             onEditClick={onEditClick}
             onViewClick={onViewClick}
             onDeleteClick={onDeleteClick}
@@ -72,7 +72,7 @@ const CustomTable = <T extends object>({
               cells={cells}
               rows={rows}
               columnVerticalLinesVisible={columnVerticalLinesVisible}
-              stickyColumnVisible={stickyColumnVisible}
+              operationsColumnVisible={operationsColumnVisible}
               operationsColumnWidth={operationsColumnWidth}
             />
           )}
