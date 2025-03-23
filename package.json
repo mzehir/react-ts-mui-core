@@ -16,6 +16,7 @@
     "@hookform/resolvers": "^3.9.0",
     "@mui/icons-material": "^5.15.20",
     "@mui/material": "^5.15.20",
+    "@mui/x-data-grid": "^7.28.1",
     "@mui/x-date-pickers": "^7.10.0",
     "@mui/x-tree-view": "^7.19.0",
     "@reduxjs/toolkit": "^2.2.5",

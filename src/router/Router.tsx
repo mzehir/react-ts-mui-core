@@ -20,6 +20,7 @@ import DialogPage from '../pages/introduction/components/dialog/DialogPage';
 // Custom Components Introduction
 import CustomFilterPage from '../pages/introduction/customComponents/customFilter/CustomFilterPage';
 import CustomTablePage from '../pages/introduction/customComponents/table/CustomTablePage';
+import CustomDataGridPage from '../pages/introduction/customComponents/dataGrid/CustomDataGridPage';
 import TextEditorPage from '../pages/introduction/customComponents/textEditor/TextEditorPage';
 // Custom Components Introduction
 import OrderProjectPage from '../pages/introduction/simpleProjects/orderProject/OrderProjectPage';
@@ -192,6 +193,16 @@ const customComponentsIntroductionRouter = [
       <Guard routeKey={allRoutes.INTRODUCTION_CUSTOM_TABLE_PAGE.key}>
         <DefaultLayout>
           <CustomTablePage />
+        </DefaultLayout>
+      </Guard>
+    ),
+  },
+  {
+    path: allRoutes.INTRODUCTION_CUSTOM_DATA_GRID_PAGE.path,
+    element: (
+      <Guard routeKey={allRoutes.INTRODUCTION_CUSTOM_DATA_GRID_PAGE.key}>
+        <DefaultLayout>
+          <CustomDataGridPage />
         </DefaultLayout>
       </Guard>
     ),
