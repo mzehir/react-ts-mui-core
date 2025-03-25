@@ -23,6 +23,7 @@ const FullFeatureDataGridPage: React.FC = () => {
   const onCellClick: FullFeatureDataGridProps['onCellClick'] = (_params, _event, _details) => {
     // Burası doldurulacak
   };
+
   return (
     <>
       <DividerComp>

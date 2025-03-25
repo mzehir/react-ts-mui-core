@@ -1,9 +1,9 @@
 import React, { forwardRef, useImperativeHandle, useMemo } from 'react';
+import useLanguageContext from '../../../../hooks/useLanguageContext';
 import { FullFeatureDataGridProps, FullFeatureDataGridRef } from './fullFeatureDataGridTypes';
 import { fullFeatureDataGridPropsprepareColumn } from './fullFeatureDataGridMethods';
 import DataGridComp from '../../../base/dataGrid/DataGrid';
 import { useGridApiRef } from '@mui/x-data-grid';
-import useLanguageContext from '../../../../hooks/useLanguageContext';
 
 const FullFeatureDataGrid = forwardRef<FullFeatureDataGridRef, FullFeatureDataGridProps>((props, ref) => {
   const { columns, rows, onCellClick } = props;
@@ -23,16 +23,7 @@ const FullFeatureDataGrid = forwardRef<FullFeatureDataGridRef, FullFeatureDataGr
     getDataGrid: () => apiRef.current,
   }));
 
-  return (
-    <DataGridComp
-      apiRef={apiRef}
-      columns={preparedColumns}
-      rows={rows}
-      //! DataGrid Events
-      onCellClick={onCellClick}
-      //! DataGrid Events
-    />
-  );
+  return <DataGridComp apiRef={apiRef} columns={preparedColumns} rows={rows} onCellClick={onCellClick} />;
 });
 
 FullFeatureDataGrid.displayName = 'FullFeatureDataGrid';
