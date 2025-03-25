@@ -8,7 +8,7 @@ import NotesIcon from '@mui/icons-material/Notes';
 type CustomComponentRouterItems = {
   INTRODUCTION_CUSTOM_FILTER_PAGE: RouterItem;
   INTRODUCTION_CUSTOM_TABLE_PAGE: RouterItem;
-  INTRODUCTION_CUSTOM_DATA_GRID_PAGE: RouterItem;
+  INTRODUCTION_FULL_FEATURE_DATA_GRID_PAGE: RouterItem;
   INTRODUCTION_TEXT_EDITOR_PAGE: RouterItem;
   [key: string]: RouterItem;
 };
@@ -37,12 +37,12 @@ export const CUSTOM_COMPONENT_ROUTER_ITEMS: CustomComponentRouterItems = {
     path: '/introduction-custom-table-component',
     icon: TableChartIcon,
   },
-  INTRODUCTION_CUSTOM_DATA_GRID_PAGE: {
+  INTRODUCTION_FULL_FEATURE_DATA_GRID_PAGE: {
     whoCanSeeForPage: ['admin'],
     parentKey: 'CUSTOM_COMPONENT_ROUTER_ITEMS',
-    key: 'INTRODUCTION_CUSTOM_DATA_GRID_PAGE',
-    label: 'routes.customDataGrid',
-    path: '/introduction-custom-data-grid-component',
+    key: 'INTRODUCTION_FULL_FEATURE_DATA_GRID_PAGE',
+    label: 'routes.fullFeatureDataGrid',
+    path: '/introduction-full-feature-data-grid-component',
     icon: Grid4x4Icon,
   },
   INTRODUCTION_TEXT_EDITOR_PAGE: {
