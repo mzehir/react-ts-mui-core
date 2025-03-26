@@ -1,5 +1,5 @@
 import { GridColDef } from '@mui/x-data-grid';
-import { FullFeatureDataGridBaseRow } from '../../../../components/introduction/dataGrid/fullFeatureDataGrid/fullFeatureDataGridTypes';
+import { DataGridCompValidRowModel } from '../../../../components/base/dataGrid/dataGridHelper';
 
 export enum Gender {
   MALE = 'male',
@@ -44,7 +44,7 @@ export enum PerformanceRating {
   POOR = 'Poor',
 }
 
-export interface EmployeeRowType extends FullFeatureDataGridBaseRow {
+export interface EmployeeRowType extends DataGridCompValidRowModel {
   id: number;
   name: string;
   surname: string;

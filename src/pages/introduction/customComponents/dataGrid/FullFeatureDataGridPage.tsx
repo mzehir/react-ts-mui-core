@@ -16,7 +16,6 @@ const FullFeatureDataGridPage: React.FC = () => {
     const dataGrid = fullFeatureDataGridRef.current?.getDataGrid();
     if (dataGrid) {
       console.log(dataGrid);
-      console.log(dataGrid.getSelectedRows());
     }
   };
 

@@ -1,7 +1,7 @@
 import { GridColDef } from '@mui/x-data-grid';
-import { FullFeatureDataGridBaseRow } from './fullFeatureDataGridTypes';
+import { DataGridCompValidRowModel } from '../../../base/dataGrid/dataGridHelper';
 
-export const fullFeatureDataGridPropsprepareColumn = <R extends FullFeatureDataGridBaseRow>(
+export const fullFeatureDataGridPropsprepareColumn = <R extends DataGridCompValidRowModel>(
   column: GridColDef<R>,
 ): GridColDef<R> => {
   const result: GridColDef = {
