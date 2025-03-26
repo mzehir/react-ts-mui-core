@@ -1,5 +1,4 @@
-import { GridColDef } from '@mui/x-data-grid';
-import { DataGridCompValidRowModel } from '../../../../components/base/dataGrid/dataGridHelper';
+import { DataGridCompColDef } from '../../../../components/base/dataGrid/dataGridHelper';
 
 export enum Gender {
   MALE = 'male',
@@ -44,24 +43,7 @@ export enum PerformanceRating {
   POOR = 'Poor',
 }
 
-export interface EmployeeRowType extends DataGridCompValidRowModel {
-  id: number;
-  name: string;
-  surname: string;
-  gender: Gender;
-  age: string;
-  birthDate: string;
-  phone: string;
-  email: string;
-  address: string;
-  department: Department;
-  position: Position;
-  salary: number;
-  status: EmployeeStatus;
-  performanceRating: PerformanceRating;
-}
-
-export const employeeColumns: GridColDef<EmployeeRowType>[] = [
+export const employeeColumns: DataGridCompColDef[] = [
   { field: 'id', headerName: 'introduction.id2', width: 150, editable: false },
   { field: 'name', headerName: 'introduction.name', width: 150, editable: false },
   { field: 'surname', headerName: 'introduction.surname', width: 150, editable: false },
@@ -77,6 +59,23 @@ export const employeeColumns: GridColDef<EmployeeRowType>[] = [
   { field: 'status', headerName: 'introduction.status', width: 150, editable: false },
   { field: 'performanceRating', headerName: 'introduction.performanceRating', width: 200, editable: false },
 ];
+
+export interface EmployeeRowType {
+  id: number;
+  name: string;
+  surname: string;
+  gender: Gender;
+  age: string;
+  birthDate: string;
+  phone: string;
+  email: string;
+  address: string;
+  department: Department;
+  position: Position;
+  salary: number;
+  status: EmployeeStatus;
+  performanceRating: PerformanceRating;
+}
 
 export const employeeRows: EmployeeRowType[] = [
   {

@@ -1,11 +1,12 @@
-import { GridApi, GridCallbackDetails, GridCellParams, GridColDef } from '@mui/x-data-grid';
-import { DataGridCompValidRowModel } from '../../../base/dataGrid/dataGridHelper';
+import { GridApi, GridCallbackDetails, GridCellParams } from '@mui/x-data-grid';
+import { DataGridCompColDef, DataGridCompValidRowModel } from '../../../base/dataGrid/dataGridHelper';
 
 export interface FullFeatureDataGridRef {
   getDataGrid: () => GridApi;
 }
-export interface FullFeatureDataGridProps<R extends DataGridCompValidRowModel = DataGridCompValidRowModel> {
-  columns: GridColDef[];
-  rows: R[];
+
+export interface FullFeatureDataGridProps {
+  columns: DataGridCompColDef[];
+  rows: DataGridCompValidRowModel[];
   onCellClick?: (params: GridCellParams, event: React.MouseEvent, details: GridCallbackDetails) => void;
 }

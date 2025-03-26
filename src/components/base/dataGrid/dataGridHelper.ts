@@ -1,16 +1,15 @@
-import { DataGridProps, GridValidRowModel, GridColDef } from '@mui/x-data-grid';
+import { DataGridProps, GridColDef, GridValidRowModel } from '@mui/x-data-grid';
 
 export interface DataGridCompValidRowModel extends GridValidRowModel {}
 
-export type DataGridCompColDef<R extends DataGridCompValidRowModel = DataGridCompValidRowModel> = GridColDef<R> & {
+export type DataGridCompColDef = GridColDef & {
   isTranslation?: boolean;
 };
 
-export interface DataGridCompProps<R extends DataGridCompValidRowModel = DataGridCompValidRowModel>
-  extends Omit<DataGridProps<R>, 'rows'> {
-  rows?: R[];
+export interface DataGridCompProps extends Omit<DataGridProps, 'rows'> {
+  rows?: DataGridCompValidRowModel[];
 }
 
-export const dataGridCompDefaultProps: Partial<DataGridCompProps<DataGridCompValidRowModel>> = {
+export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   columns: [],
 };
