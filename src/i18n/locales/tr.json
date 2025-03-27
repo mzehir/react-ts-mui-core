@@ -487,7 +487,6 @@
     "dataGridOnCellClickDescription": "Herhangi bir hücreye tıklandığında geri çağrılır.",
     "dataGridOnCellDoubleClickDescription": "Bir hücre öğesinden çift tıklama olayı geldiğinde geri çağrılır.",
     "dataGridOnCellEditStartDescription": "Hücre düzenleme moduna geçtiğinde geri çağrılır.",
-
     "dataGridOnCellEditStopDescription": "Hücre görüntüleme moduna geçtiğinde geri çağrılır.",
     "dataGridOnCellKeyDownDescription": "Bir hücre öğesinden keydown olayı geldiğinde geri çağrılır.",
     "dataGridOnCellModesModelChangeDescription": "`cellModesModel` prop'u değiştiğinde geri çağrılır.",
@@ -521,7 +520,6 @@
     "dataGridOnRowModesModelChangeDescription": "`rowModesModel` prop'u değiştiğinde geri çağrılır.",
     "dataGridOnRowSelectionModelChangeDescription": "Bir veya birden fazla satırın seçim durumu değiştiğinde geri çağrılır.",
     "dataGridOnSortModelChangeDescription": "Bir sütun sıralanmadan önce sıralama modeli değiştiğinde geri çağrılır.",
-
     "xxx": "xxx"
   },
   "_interpolations": {
