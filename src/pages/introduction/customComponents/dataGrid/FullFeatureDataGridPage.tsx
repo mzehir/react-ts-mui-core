@@ -30,6 +30,7 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnCellClickDescription',
+      enabled: true,
     },
     onCellDoubleClick: {
       eventHandlerName: 'onCellDoubleClick',
@@ -39,6 +40,7 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnCellDoubleClickDescription',
+      enabled: false,
     },
     onCellEditStart: {
       eventHandlerName: 'onCellEditStart',
@@ -47,6 +49,7 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'event', value: null },
       ],
       description: 'introduction.dataGridOnCellEditStartDescription',
+      enabled: false,
     },
     onCellEditStop: {
       eventHandlerName: 'onCellEditStop',
@@ -55,6 +58,7 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'event', value: null },
       ],
       description: 'introduction.dataGridOnCellEditStopDescription',
+      enabled: false,
     },
     onCellKeyDown: {
       eventHandlerName: 'onCellKeyDown',
@@ -64,6 +68,7 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnCellKeyDownDescription',
+      enabled: false,
     },
     onCellModesModelChange: {
       eventHandlerName: 'onCellModesModelChange',
@@ -72,11 +77,13 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnCellModesModelChangeDescription',
+      enabled: false,
     },
     onClipboardCopy: {
       eventHandlerName: 'onClipboardCopy',
       parameters: [{ name: 'params', value: null }],
       description: 'introduction.dataGridOnClipboardCopyDescription',
+      enabled: false,
     },
     onColumnHeaderClick: {
       eventHandlerName: 'onColumnHeaderClick',
@@ -86,6 +93,7 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnColumnHeaderClickDescription',
+      enabled: false,
     },
     onColumnHeaderContextMenu: {
       eventHandlerName: 'onColumnHeaderContextMenu',
@@ -94,6 +102,7 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'event', value: null },
       ],
       description: 'introduction.dataGridOnColumnHeaderContextMenuDescription',
+      enabled: false,
     },
     onColumnHeaderDoubleClick: {
       eventHandlerName: 'onColumnHeaderDoubleClick',
@@ -103,6 +112,7 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnColumnHeaderDoubleClickDescription',
+      enabled: false,
     },
     onColumnHeaderEnter: {
       eventHandlerName: 'onColumnHeaderEnter',
@@ -112,6 +122,7 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnColumnHeaderEnterDescription',
+      enabled: false,
     },
     onColumnHeaderLeave: {
       eventHandlerName: 'onColumnHeaderLeave',
@@ -121,6 +132,7 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnColumnHeaderLeaveDescription',
+      enabled: false,
     },
     onColumnHeaderOut: {
       eventHandlerName: 'onColumnHeaderOut',
@@ -130,6 +142,7 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnColumnHeaderOutDescription',
+      enabled: false,
     },
     onColumnHeaderOver: {
       eventHandlerName: 'onColumnHeaderOver',
@@ -139,6 +152,7 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnColumnHeaderOverDescription',
+      enabled: false,
     },
     onColumnOrderChange: {
       eventHandlerName: 'onColumnOrderChange',
@@ -148,6 +162,7 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnColumnOrderChangeDescription',
+      enabled: false,
     },
     onColumnResize: {
       eventHandlerName: 'onColumnResize',
@@ -157,6 +172,7 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnColumnResizeDescription',
+      enabled: false,
     },
     onColumnVisibilityModelChange: {
       eventHandlerName: 'onColumnVisibilityModelChange',
@@ -165,6 +181,7 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnColumnVisibilityModelChangeDescription',
+      enabled: false,
     },
     onColumnWidthChange: {
       eventHandlerName: 'onColumnWidthChange',
@@ -174,11 +191,13 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnColumnWidthChangeDescription',
+      enabled: false,
     },
     onDensityChange: {
       eventHandlerName: 'onDensityChange',
       parameters: [{ name: 'density', value: null }],
       description: 'introduction.dataGridOnDensityChangeDescription',
+      enabled: false,
     },
     onFilterModelChange: {
       eventHandlerName: 'onFilterModelChange',
@@ -187,6 +206,7 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnFilterModelChangeDescription',
+      enabled: false,
     },
     onMenuClose: {
       eventHandlerName: 'onMenuClose',
@@ -196,6 +216,7 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnMenuCloseDescription',
+      enabled: false,
     },
     onMenuOpen: {
       eventHandlerName: 'onMenuOpen',
@@ -205,11 +226,13 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnMenuOpenDescription',
+      enabled: false,
     },
     onPaginationMetaChange: {
       eventHandlerName: 'onPaginationMetaChange',
       parameters: [{ name: 'paginationMeta', value: null }],
       description: 'introduction.dataGridOnPaginationMetaChangeDescription',
+      enabled: false,
     },
     onPaginationModelChange: {
       eventHandlerName: 'onPaginationModelChange',
@@ -218,6 +241,7 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnPaginationModelChangeDescription',
+      enabled: false,
     },
     onPreferencePanelClose: {
       eventHandlerName: 'onPreferencePanelClose',
@@ -227,6 +251,7 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnPreferencePanelCloseDescription',
+      enabled: false,
     },
     onPreferencePanelOpen: {
       eventHandlerName: 'onPreferencePanelOpen',
@@ -236,11 +261,13 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnPreferencePanelOpenDescription',
+      enabled: false,
     },
     onProcessRowUpdateError: {
       eventHandlerName: 'onProcessRowUpdateError',
       parameters: [{ name: 'error', value: null }],
       description: 'introduction.dataGridOnProcessRowUpdateErrorDescription',
+      enabled: false,
     },
     onResize: {
       eventHandlerName: 'onResize',
@@ -250,6 +277,7 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnResizeDescription',
+      enabled: false,
     },
     onRowClick: {
       eventHandlerName: 'onRowClick',
@@ -259,11 +287,13 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnRowClickDescription',
+      enabled: false,
     },
     onRowCountChange: {
       eventHandlerName: 'onRowCountChange',
       parameters: [{ name: 'count', value: null }],
       description: 'introduction.dataGridOnRowCountChangeDescription',
+      enabled: false,
     },
     onRowDoubleClick: {
       eventHandlerName: 'onRowDoubleClick',
@@ -273,6 +303,7 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnRowDoubleClickDescription',
+      enabled: false,
     },
     onRowEditStart: {
       eventHandlerName: 'onRowEditStart',
@@ -281,6 +312,7 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'event', value: null },
       ],
       description: 'introduction.dataGridOnRowEditStartDescription',
+      enabled: false,
     },
     onRowEditStop: {
       eventHandlerName: 'onRowEditStop',
@@ -289,6 +321,7 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'event', value: null },
       ],
       description: 'introduction.dataGridOnRowEditStopDescription',
+      enabled: false,
     },
     onRowModesModelChange: {
       eventHandlerName: 'onRowModesModelChange',
@@ -297,6 +330,7 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnRowModesModelChangeDescription',
+      enabled: false,
     },
     onRowSelectionModelChange: {
       eventHandlerName: 'onRowSelectionModelChange',
@@ -305,6 +339,7 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnRowSelectionModelChangeDescription',
+      enabled: false,
     },
     onSortModelChange: {
       eventHandlerName: 'onSortModelChange',
@@ -313,22 +348,34 @@ const FullFeatureDataGridPage: React.FC = () => {
         { name: 'details', value: null },
       ],
       description: 'introduction.dataGridOnSortModelChangeDescription',
+      enabled: false,
     },
   });
-  // DataGrid Event Handler State ************************
+
+  const handleEventHandlerToggle = (eventName: string, enabled: boolean) => {
+    setDataGridEventHandlers((prev) => ({
+      ...prev,
+      [eventName]: {
+        ...prev[eventName],
+        enabled,
+      },
+    }));
+  };
 
   // DataGrid Event Handler Methods ************************
   const setDataGridEventHandlersMethods = (
     eventHandlerName: string,
     parametersData: DataGridEventHandlers[string]['parameters'],
   ) => {
-    setDataGridEventHandlers((prevValue) => ({
-      ...prevValue,
-      [eventHandlerName]: {
-        ...prevValue[eventHandlerName],
-        parameters: parametersData,
-      },
-    }));
+    if (dataGridEventHandlers[eventHandlerName]?.enabled) {
+      setDataGridEventHandlers((prevValue) => ({
+        ...prevValue,
+        [eventHandlerName]: {
+          ...prevValue[eventHandlerName],
+          parameters: parametersData,
+        },
+      }));
+    }
   };
 
   const onCellClick: FullFeatureDataGridProps['onCellClick'] = (params, event, details) => {
@@ -724,47 +771,50 @@ const FullFeatureDataGridPage: React.FC = () => {
           ref={fullFeatureDataGridRef}
           onCellClick={onCellClick}
           onCellDoubleClick={onCellDoubleClick}
-          // onCellEditStart={onCellEditStart}
-          // onCellEditStop={onCellEditStop}
-          // onCellKeyDown={onCellKeyDown}
-          // onCellModesModelChange={onCellModesModelChange}
-          // onClipboardCopy={onClipboardCopy}
-          // onColumnHeaderClick={onColumnHeaderClick}
-          // onColumnHeaderContextMenu={onColumnHeaderContextMenu}
-          // onColumnHeaderDoubleClick={onColumnHeaderDoubleClick}
-          // onColumnHeaderEnter={onColumnHeaderEnter}
-          // onColumnHeaderLeave={onColumnHeaderLeave}
-          // onColumnHeaderOut={onColumnHeaderOut}
-          // onColumnHeaderOver={onColumnHeaderOver}
-          // onColumnOrderChange={onColumnOrderChange}
-          // onColumnResize={onColumnResize}
-          // onColumnVisibilityModelChange={onColumnVisibilityModelChange}
-          // onColumnWidthChange={onColumnWidthChange}
-          // onDensityChange={onDensityChange}
-          // onFilterModelChange={onFilterModelChange}
-          // onMenuClose={onMenuClose}
-          // onMenuOpen={onMenuOpen}
-          // onPaginationMetaChange={onPaginationMetaChange}
-          // onPaginationModelChange={onPaginationModelChange}
-          // onPreferencePanelClose={onPreferencePanelClose}
-          // onPreferencePanelOpen={onPreferencePanelOpen}
-          // onProcessRowUpdateError={onProcessRowUpdateError}
-          // onResize={onResize}
-          // onRowClick={onRowClick}
-          // onRowCountChange={onRowCountChange}
-          // onRowDoubleClick={onRowDoubleClick}
-          // onRowEditStart={onRowEditStart}
-          // onRowEditStop={onRowEditStop}
-          // onRowModesModelChange={onRowModesModelChange}
-          // onRowSelectionModelChange={onRowSelectionModelChange}
-          // onSortModelChange={onSortModelChange}
+          onCellEditStart={onCellEditStart}
+          onCellEditStop={onCellEditStop}
+          onCellKeyDown={onCellKeyDown}
+          onCellModesModelChange={onCellModesModelChange}
+          onClipboardCopy={onClipboardCopy}
+          onColumnHeaderClick={onColumnHeaderClick}
+          onColumnHeaderContextMenu={onColumnHeaderContextMenu}
+          onColumnHeaderDoubleClick={onColumnHeaderDoubleClick}
+          onColumnHeaderEnter={onColumnHeaderEnter}
+          onColumnHeaderLeave={onColumnHeaderLeave}
+          onColumnHeaderOut={onColumnHeaderOut}
+          onColumnHeaderOver={onColumnHeaderOver}
+          onColumnOrderChange={onColumnOrderChange}
+          onColumnResize={onColumnResize}
+          onColumnVisibilityModelChange={onColumnVisibilityModelChange}
+          onColumnWidthChange={onColumnWidthChange}
+          onDensityChange={onDensityChange}
+          onFilterModelChange={onFilterModelChange}
+          onMenuClose={onMenuClose}
+          onMenuOpen={onMenuOpen}
+          onPaginationMetaChange={onPaginationMetaChange}
+          onPaginationModelChange={onPaginationModelChange}
+          onPreferencePanelClose={onPreferencePanelClose}
+          onPreferencePanelOpen={onPreferencePanelOpen}
+          onProcessRowUpdateError={onProcessRowUpdateError}
+          onResize={onResize}
+          onRowClick={onRowClick}
+          onRowCountChange={onRowCountChange}
+          onRowDoubleClick={onRowDoubleClick}
+          onRowEditStart={onRowEditStart}
+          onRowEditStop={onRowEditStop}
+          onRowModesModelChange={onRowModesModelChange}
+          onRowSelectionModelChange={onRowSelectionModelChange}
+          onSortModelChange={onSortModelChange}
         />
       </BoxComp>
 
       <br />
       <br />
 
-      <DataGridEventHandlerSection eventHandlers={dataGridEventHandlers} />
+      <DataGridEventHandlerSection
+        eventHandlers={dataGridEventHandlers}
+        onEventHandlerToggle={handleEventHandlerToggle}
+      />
     </>
   );
 };

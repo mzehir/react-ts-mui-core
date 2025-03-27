@@ -6,6 +6,8 @@ import CardComp from '../../../../../components/base/card/Card';
 import CardContentComp from '../../../../../components/base/cardContent/CardContent';
 import BoxComp from '../../../../../components/base/box/Box';
 import ChipComp from '../../../../../components/base/chip/Chip';
+import FormControlLabelComp from '../../../../../components/base/formControlLabel/FormControlLabel';
+import SwitchComp from '../../../../../components/base/switch/Switch';
 
 interface EventHandlerParameter {
   name: string;
@@ -16,6 +18,7 @@ interface EventHandler {
   eventHandlerName: string;
   parameters: EventHandlerParameter[];
   description: string;
+  enabled?: boolean;
 }
 
 export interface DataGridEventHandlers {
@@ -24,6 +27,7 @@ export interface DataGridEventHandlers {
 
 interface DataGridEventHandlerSectionProps {
   eventHandlers: DataGridEventHandlers;
+  onEventHandlerToggle: (eventName: string, enabled: boolean) => void;
 }
 
 const getCircularReplacer = () => {
@@ -50,7 +54,10 @@ const safeStringify = (obj: unknown): string => {
   }
 };
 
-const DataGridEventHandlerSection: React.FC<DataGridEventHandlerSectionProps> = ({ eventHandlers }) => {
+const DataGridEventHandlerSection: React.FC<DataGridEventHandlerSectionProps> = ({
+  eventHandlers,
+  onEventHandlerToggle,
+}) => {
   return (
     <>
       <DividerComp>
@@ -87,7 +94,18 @@ const DataGridEventHandlerSection: React.FC<DataGridEventHandlerSectionProps> = 
 
                 <br />
 
-                <TypographyComp>{handler.description}</TypographyComp>
+                <BoxComp display="flex" justifyContent="space-between" alignItems="center">
+                  <TypographyComp>{handler.description}</TypographyComp>
+                  <FormControlLabelComp
+                    control={
+                      <SwitchComp
+                        checked={handler.enabled || false}
+                        onChange={(e) => onEventHandlerToggle(key, e.target.checked)}
+                      />
+                    }
+                    label=""
+                  />
+                </BoxComp>
 
                 <br />
 
