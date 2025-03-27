@@ -717,47 +717,47 @@ const FullFeatureDataGridPage: React.FC = () => {
         Göster
       </button>
 
-      <BoxComp sx={{ height: 400, width: '100%' }}>
+      <BoxComp sx={{ height: 250, width: '100%' }}>
         <FullFeatureDataGrid
           rows={employeeRows}
           columns={employeeColumns}
           ref={fullFeatureDataGridRef}
           onCellClick={onCellClick}
           onCellDoubleClick={onCellDoubleClick}
-          onCellEditStart={onCellEditStart}
-          onCellEditStop={onCellEditStop}
-          onCellKeyDown={onCellKeyDown}
-          onCellModesModelChange={onCellModesModelChange}
-          onClipboardCopy={onClipboardCopy}
-          onColumnHeaderClick={onColumnHeaderClick}
-          onColumnHeaderContextMenu={onColumnHeaderContextMenu}
-          onColumnHeaderDoubleClick={onColumnHeaderDoubleClick}
-          onColumnHeaderEnter={onColumnHeaderEnter}
-          onColumnHeaderLeave={onColumnHeaderLeave}
-          onColumnHeaderOut={onColumnHeaderOut}
-          onColumnHeaderOver={onColumnHeaderOver}
-          onColumnOrderChange={onColumnOrderChange}
-          onColumnResize={onColumnResize}
-          onColumnVisibilityModelChange={onColumnVisibilityModelChange}
-          onColumnWidthChange={onColumnWidthChange}
-          onDensityChange={onDensityChange}
-          onFilterModelChange={onFilterModelChange}
-          onMenuClose={onMenuClose}
-          onMenuOpen={onMenuOpen}
-          onPaginationMetaChange={onPaginationMetaChange}
-          onPaginationModelChange={onPaginationModelChange}
-          onPreferencePanelClose={onPreferencePanelClose}
-          onPreferencePanelOpen={onPreferencePanelOpen}
-          onProcessRowUpdateError={onProcessRowUpdateError}
-          onResize={onResize}
-          onRowClick={onRowClick}
-          onRowCountChange={onRowCountChange}
-          onRowDoubleClick={onRowDoubleClick}
-          onRowEditStart={onRowEditStart}
-          onRowEditStop={onRowEditStop}
-          onRowModesModelChange={onRowModesModelChange}
-          onRowSelectionModelChange={onRowSelectionModelChange}
-          onSortModelChange={onSortModelChange}
+          // onCellEditStart={onCellEditStart}
+          // onCellEditStop={onCellEditStop}
+          // onCellKeyDown={onCellKeyDown}
+          // onCellModesModelChange={onCellModesModelChange}
+          // onClipboardCopy={onClipboardCopy}
+          // onColumnHeaderClick={onColumnHeaderClick}
+          // onColumnHeaderContextMenu={onColumnHeaderContextMenu}
+          // onColumnHeaderDoubleClick={onColumnHeaderDoubleClick}
+          // onColumnHeaderEnter={onColumnHeaderEnter}
+          // onColumnHeaderLeave={onColumnHeaderLeave}
+          // onColumnHeaderOut={onColumnHeaderOut}
+          // onColumnHeaderOver={onColumnHeaderOver}
+          // onColumnOrderChange={onColumnOrderChange}
+          // onColumnResize={onColumnResize}
+          // onColumnVisibilityModelChange={onColumnVisibilityModelChange}
+          // onColumnWidthChange={onColumnWidthChange}
+          // onDensityChange={onDensityChange}
+          // onFilterModelChange={onFilterModelChange}
+          // onMenuClose={onMenuClose}
+          // onMenuOpen={onMenuOpen}
+          // onPaginationMetaChange={onPaginationMetaChange}
+          // onPaginationModelChange={onPaginationModelChange}
+          // onPreferencePanelClose={onPreferencePanelClose}
+          // onPreferencePanelOpen={onPreferencePanelOpen}
+          // onProcessRowUpdateError={onProcessRowUpdateError}
+          // onResize={onResize}
+          // onRowClick={onRowClick}
+          // onRowCountChange={onRowCountChange}
+          // onRowDoubleClick={onRowDoubleClick}
+          // onRowEditStart={onRowEditStart}
+          // onRowEditStop={onRowEditStop}
+          // onRowModesModelChange={onRowModesModelChange}
+          // onRowSelectionModelChange={onRowSelectionModelChange}
+          // onSortModelChange={onSortModelChange}
         />
       </BoxComp>
 

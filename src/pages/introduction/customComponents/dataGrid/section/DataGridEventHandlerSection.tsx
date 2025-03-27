@@ -64,7 +64,7 @@ const DataGridEventHandlerSection: React.FC<DataGridEventHandlerSectionProps> = 
 
       <GridComp container spacing={5}>
         {Object.entries(eventHandlers).map(([key, handler]) => (
-          <GridComp key={key} item xs={12} sm={6} md={4}>
+          <GridComp key={key} item xs={12} sm={4} md={3}>
             <CardComp>
               <CardContentComp>
                 <BoxComp
