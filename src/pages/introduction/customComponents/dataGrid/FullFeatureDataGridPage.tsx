@@ -16,37 +16,69 @@ const FullFeatureDataGridPage: React.FC = () => {
   const [generalSettings, setGeneralSettings] = React.useState<DataGridGeneralSettings>({
     checkboxSelection: {
       generalSettingName: 'checkboxSelection',
-      description: 'If `true`, the Data Grid will display an extra column with checkboxes for selecting rows.',
+      description: 'introduction.dataGridCheckboxSelectionDescription',
+      enabled: false,
+    },
+
+    disableAutosize: {
+      generalSettingName: 'disableAutosize',
+      description: 'introduction.dataGridDisableAutosizeDescription',
       enabled: false,
     },
 
     disableColumnFilter: {
       generalSettingName: 'disableColumnFilter',
-      description: 'If `true`, column filters are disabled.',
+      description: 'introduction.dataGridDisableColumnFilterDescription',
       enabled: false,
     },
 
     disableColumnMenu: {
       generalSettingName: 'disableColumnMenu',
-      description: 'If `true`, the column menu is disabled.',
+      description: 'introduction.dataGridDisableColumnMenuDescription',
       enabled: false,
     },
 
     disableColumnResize: {
       generalSettingName: 'disableColumnResize',
-      description: 'If `true`, resizing columns is disabled.',
+      description: 'introduction.dataGridDisableColumnResizeDescription',
       enabled: false,
     },
 
     disableColumnSelector: {
       generalSettingName: 'disableColumnSelector',
-      description: 'If `true`, hiding/showing columns is disabled.',
+      description: 'introduction.dataGridDisableColumnSelectorDescription',
       enabled: false,
     },
 
     disableColumnSorting: {
       generalSettingName: 'disableColumnSorting',
-      description: 'If `true`, the column sorting feature will be disabled.',
+      description: 'introduction.dataGridDisableColumnSortingDescription',
+      enabled: false,
+    },
+
+    disableDensitySelector: {
+      generalSettingName: 'disableDensitySelector',
+      description: 'introduction.dataGridDisableDensitySelectorDescription',
+      enabled: false,
+    },
+    disableEval: {
+      generalSettingName: 'disableEval',
+      description: 'introduction.dataGridDisableEvalDescription',
+      enabled: false,
+    },
+    disableMultipleRowSelection: {
+      generalSettingName: 'disableMultipleRowSelection',
+      description: 'introduction.dataGridDisableMultipleRowSelectionDescription',
+      enabled: false,
+    },
+    disableRowSelectionOnClick: {
+      generalSettingName: 'disableRowSelectionOnClick',
+      description: 'introduction.dataGridDisableRowSelectionOnClickDescription',
+      enabled: false,
+    },
+    disableVirtualization: {
+      generalSettingName: 'disableVirtualization',
+      description: 'introduction.dataGridDisableVirtualizationDescription',
       enabled: false,
     },
   });
@@ -816,11 +848,17 @@ const FullFeatureDataGridPage: React.FC = () => {
           rows={employeeRows}
           columns={employeeColumns}
           checkboxSelection={generalSettings.checkboxSelection.enabled}
+          disableAutosize={generalSettings.disableAutosize.enabled}
           disableColumnFilter={generalSettings.disableColumnFilter.enabled}
           disableColumnMenu={generalSettings.disableColumnMenu.enabled}
           disableColumnResize={generalSettings.disableColumnResize.enabled}
           disableColumnSelector={generalSettings.disableColumnSelector.enabled}
           disableColumnSorting={generalSettings.disableColumnSorting.enabled}
+          disableDensitySelector={generalSettings.disableDensitySelector.enabled}
+          disableEval={generalSettings.disableEval.enabled}
+          disableMultipleRowSelection={generalSettings.disableMultipleRowSelection.enabled}
+          disableRowSelectionOnClick={generalSettings.disableRowSelectionOnClick.enabled}
+          disableVirtualization={generalSettings.disableVirtualization.enabled}
           // Events
           onCellClick={onCellClick}
           onCellDoubleClick={onCellDoubleClick}

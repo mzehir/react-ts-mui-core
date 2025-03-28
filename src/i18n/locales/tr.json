@@ -520,7 +520,25 @@
     "dataGridOnRowModesModelChangeDescription": "`rowModesModel` prop'u değiştiğinde geri çağrılır.",
     "dataGridOnRowSelectionModelChangeDescription": "Bir veya birden fazla satırın seçim durumu değiştiğinde geri çağrılır.",
     "dataGridOnSortModelChangeDescription": "Bir sütun sıralanmadan önce sıralama modeli değiştiğinde geri çağrılır.",
-    "xxx": "xxx"
+    "---": "---",
+    "ccc": "ccc",
+    "ccc": "ccc",
+    "ccc": "ccc",
+    "dataGridCheckboxSelectionDescription": "`true` ise, Data Grid seçim yapmak için satırların yanında bir onay kutusu (checkbox) sütunu gösterir.",
+    "ddd": "ddd",
+    "ddd": "ddd",
+    "ddd": "ddd",
+    "dataGridDisableAutosizeDescription": "`true` ise, başlık ayırıcıya çift tıklanarak sütun otomatik boyutlandırması devre dışı bırakılır.",
+    "dataGridDisableColumnFilterDescription": "`true` ise, sütun filtreleri devre dışı bırakılır.",
+    "dataGridDisableColumnMenuDescription": "`true` ise, sütun menüsü devre dışı bırakılır.",
+    "dataGridDisableColumnResizeDescription": "`true` ise, sütunların yeniden boyutlandırılması devre dışı bırakılır.",
+    "dataGridDisableColumnSelectorDescription": "`true` ise, sütun göster/gizle özelliği devre dışı bırakılır.",
+    "dataGridDisableColumnSortingDescription": "`true` ise, sütun sıralama özelliği devre dışı bırakılır.",
+    "dataGridDisableDensitySelectorDescription": "`true` ise, yoğunluk (density) seçici devre dışı bırakılır.",
+    "dataGridDisableEvalDescription": "`true` ise, performans optimizasyonu için `eval()` kullanılmaz.",
+    "dataGridDisableMultipleRowSelectionDescription": "`true` ise, Ctrl/CMD veya Shift tuşları ile çoklu seçim devre dışı bırakılır. MIT DataGrid bu özelliği yok sayar, yalnızca `checkboxSelection` etkinleştirildiğinde dikkate alınır.",
+    "dataGridDisableRowSelectionOnClickDescription": "`true` ise, bir satıra veya hücreye tıklayarak seçim yapılması devre dışı bırakılır.",
+    "dataGridDisableVirtualizationDescription": "`true` ise, sanallaştırma (virtualization) devre dışı bırakılır."
   },
   "_interpolations": {
     "interpolations_1": "Merhaba {{name}} {{surname}}, uygulamaya hoşgeldin"

@@ -520,7 +520,25 @@
     "dataGridOnRowModesModelChangeDescription": "Callback fired when the `rowModesModel` prop changes.",
     "dataGridOnRowSelectionModelChangeDescription": "Callback fired when the selection state of one or multiple rows changes.",
     "dataGridOnSortModelChangeDescription": "Callback fired when the sort model changes before a column is sorted.",
-    "xxx": "xxx"
+    "---": "---",
+    "ccc":"ccc",
+    "ccc":"ccc",
+    "ccc":"ccc",
+    "dataGridCheckboxSelectionDescription": "If `true`, the Data Grid will display an extra column with checkboxes for selecting rows.",
+    "ddd":"ddd",
+    "ddd":"ddd",
+    "ddd":"ddd",
+    "dataGridDisableAutosizeDescription": "If `true`, column autosizing on header separator double-click is disabled.",
+    "dataGridDisableColumnFilterDescription": "If `true`, column filters are disabled.",
+    "dataGridDisableColumnMenuDescription": "If `true`, the column menu is disabled.",
+    "dataGridDisableColumnResizeDescription": "If `true`, resizing columns is disabled.",
+    "dataGridDisableColumnSelectorDescription": "If `true`, hiding/showing columns is disabled.",
+    "dataGridDisableColumnSortingDescription": "If `true`, the column sorting feature will be disabled.",
+    "dataGridDisableDensitySelectorDescription": "If `true`, the density selector is disabled.",
+    "dataGridDisableEvalDescription": "If `true`, `eval()` is not used for performance optimization.",
+    "dataGridDisableMultipleRowSelectionDescription": "If `true`, multiple selection using the Ctrl/CMD or Shift key is disabled. The MIT DataGrid will ignore this prop, unless `checkboxSelection` is enabled.",
+    "dataGridDisableRowSelectionOnClickDescription": "If `true`, the selection on click on a row or cell is disabled.",
+    "dataGridDisableVirtualizationDescription": "If `true`, the virtualization is disabled."
   },
   "_interpolations": {
     "interpolations_1": "Hello {{name}} {{surname}}, welcome to the application"

@@ -36,6 +36,8 @@ export interface FullFeatureDataGridProps {
 
   disableColumnFilter?: boolean;
 
+  disableAutosize?: boolean;
+
   disableColumnMenu?: boolean;
 
   disableColumnResize?: boolean;
@@ -43,6 +45,16 @@ export interface FullFeatureDataGridProps {
   disableColumnSelector?: boolean;
 
   disableColumnSorting?: boolean;
+
+  disableDensitySelector?: boolean;
+
+  disableEval?: boolean;
+
+  disableMultipleRowSelection?: boolean;
+
+  disableRowSelectionOnClick?: boolean;
+
+  disableVirtualization?: boolean;
 
   // Events
   onCellClick?: (params: GridCellParams, event: React.MouseEvent, details: GridCallbackDetails) => void;

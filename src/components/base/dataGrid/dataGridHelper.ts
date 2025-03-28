@@ -222,7 +222,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   density="compact" // Daha fazla veriyi ekranda göstermek için
   // />
 
-  //! disableAutosize
+  //TODO disableAutosize
   /**
    * disableAutosize: Otomatik boyutlandırmayı devre dışı bırakır.
    * Kullanım amacı: Performans optimizasyonu
@@ -291,7 +291,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
 
   // <DataGrid disableColumnSorting />
 
-  //! disableDensitySelector
+  //TODO disableDensitySelector
   /**
    * disableDensitySelector: Yoğunluk seçici özelliğini devre dışı bırakır.
    * Kullanım amacı: Yoğunluk ayarı seçeneğini gizlemek
@@ -302,7 +302,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
 
   // <DataGrid disableDensitySelector />
 
-  //! disableEval
+  //TODO disableEval
   /**
    * disableEval: eval() fonksiyonunun kullanımını engeller.
    * Kullanım amacı: Güvenlik önlemi
@@ -313,7 +313,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
 
   // <DataGrid disableEval />
 
-  //! disableMultipleRowSelection
+  //TODO disableMultipleRowSelection
   /**
    * disableMultipleRowSelection: Çoklu satır seçimini devre dışı bırakır.
    * Kullanım amacı: Tek satır seçimine zorlamak
@@ -324,7 +324,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
 
   // <DataGrid disableMultipleRowSelection />
 
-  //! disableRowSelectionOnClick
+  //TODO disableRowSelectionOnClick
   /**
    * disableRowSelectionOnClick: Tıklama ile satır seçimini devre dışı bırakır.
    * Kullanım amacı: Yanlışlıkla seçimleri engellemek
@@ -335,7 +335,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
 
   // <DataGrid disableRowSelectionOnClick />
 
-  //! disableVirtualization
+  //TODO disableVirtualization
   /**
    * disableVirtualization: Sanallaştırmayı devre dışı bırakır.
    * Kullanım amacı: Tüm satırları DOM'da tutmak
