@@ -13,6 +13,15 @@ import {
 
 const FullFeatureDataGridPage: React.FC = () => {
   const fullFeatureDataGridRef = useRef<FullFeatureDataGridRef>(null);
+
+  const handleSomeAction = () => {
+    const dataGrid = fullFeatureDataGridRef.current?.getDataGrid();
+    if (dataGrid) {
+      console.log(dataGrid);
+    }
+  };
+
+  // DataGrid General Setting State ************************
   const [generalSettings, setGeneralSettings] = React.useState<DataGridGeneralSettings>({
     checkboxSelection: {
       generalSettingName: 'checkboxSelection',
@@ -85,13 +94,6 @@ const FullFeatureDataGridPage: React.FC = () => {
 
   const handleSettingsChange = (settings: DataGridGeneralSettings) => {
     setGeneralSettings(settings);
-  };
-
-  const handleSomeAction = () => {
-    const dataGrid = fullFeatureDataGridRef.current?.getDataGrid();
-    if (dataGrid) {
-      console.log(dataGrid);
-    }
   };
 
   // DataGrid Event Handler State ************************
@@ -818,7 +820,7 @@ const FullFeatureDataGridPage: React.FC = () => {
 
     setDataGridEventHandlersMethods(eventHandlerName, parametersData);
   };
-  // DataGrid Event Handler Methods ************************
+
   return (
     <>
       <DividerComp>
@@ -847,6 +849,7 @@ const FullFeatureDataGridPage: React.FC = () => {
           ref={fullFeatureDataGridRef}
           rows={employeeRows}
           columns={employeeColumns}
+          // General Setting
           checkboxSelection={generalSettings.checkboxSelection.enabled}
           disableAutosize={generalSettings.disableAutosize.enabled}
           disableColumnFilter={generalSettings.disableColumnFilter.enabled}

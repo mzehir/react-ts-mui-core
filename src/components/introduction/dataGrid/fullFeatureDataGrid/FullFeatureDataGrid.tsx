@@ -9,6 +9,7 @@ const FullFeatureDataGrid = forwardRef<FullFeatureDataGridRef, FullFeatureDataGr
   const {
     columns,
     rows,
+    // General Setting
     checkboxSelection,
     disableAutosize,
     disableColumnFilter,

@@ -32,6 +32,8 @@ export interface FullFeatureDataGridProps {
 
   rows: DataGridCompValidRowModel[];
 
+  // General Setting
+
   checkboxSelection?: boolean;
 
   disableColumnFilter?: boolean;
