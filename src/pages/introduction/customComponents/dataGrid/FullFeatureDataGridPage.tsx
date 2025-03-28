@@ -23,154 +23,192 @@ const FullFeatureDataGridPage: React.FC = () => {
 
   // DataGrid General Setting State ************************
   const [generalSettings, setGeneralSettings] = React.useState<DataGridGeneralSettings>({
+    // Boolean
     autoPageSize: {
+      generalSettingTitle: 'introduction.booleanSettinsTitle',
       generalSettingName: 'autoPageSize',
       description: 'introduction.dataGridAutoPageSizeDescription',
       enabled: false,
+      type: 'boolean',
     },
 
     autosizeOnMount: {
       generalSettingName: 'autosizeOnMount',
       description: 'introduction.dataGridAutosizeOnMountDescription',
       enabled: false,
+      type: 'boolean',
     },
 
     checkboxSelection: {
       generalSettingName: 'checkboxSelection',
       description: 'introduction.dataGridCheckboxSelectionDescription',
       enabled: false,
+      type: 'boolean',
     },
 
     disableAutosize: {
       generalSettingName: 'disableAutosize',
       description: 'introduction.dataGridDisableAutosizeDescription',
       enabled: false,
+      type: 'boolean',
     },
 
     disableColumnFilter: {
       generalSettingName: 'disableColumnFilter',
       description: 'introduction.dataGridDisableColumnFilterDescription',
       enabled: false,
+      type: 'boolean',
     },
 
     disableColumnMenu: {
       generalSettingName: 'disableColumnMenu',
       description: 'introduction.dataGridDisableColumnMenuDescription',
       enabled: false,
+      type: 'boolean',
     },
 
     disableColumnResize: {
       generalSettingName: 'disableColumnResize',
       description: 'introduction.dataGridDisableColumnResizeDescription',
       enabled: false,
+      type: 'boolean',
     },
 
     disableColumnSelector: {
       generalSettingName: 'disableColumnSelector',
       description: 'introduction.dataGridDisableColumnSelectorDescription',
       enabled: false,
+      type: 'boolean',
     },
 
     disableColumnSorting: {
       generalSettingName: 'disableColumnSorting',
       description: 'introduction.dataGridDisableColumnSortingDescription',
       enabled: false,
+      type: 'boolean',
     },
 
     disableDensitySelector: {
       generalSettingName: 'disableDensitySelector',
       description: 'introduction.dataGridDisableDensitySelectorDescription',
       enabled: false,
+      type: 'boolean',
     },
     disableEval: {
       generalSettingName: 'disableEval',
       description: 'introduction.dataGridDisableEvalDescription',
       enabled: false,
+      type: 'boolean',
     },
     disableMultipleRowSelection: {
       generalSettingName: 'disableMultipleRowSelection',
       description: 'introduction.dataGridDisableMultipleRowSelectionDescription',
       enabled: false,
+      type: 'boolean',
     },
     disableRowSelectionOnClick: {
       generalSettingName: 'disableRowSelectionOnClick',
       description: 'introduction.dataGridDisableRowSelectionOnClickDescription',
       enabled: false,
+      type: 'boolean',
     },
     disableVirtualization: {
       generalSettingName: 'disableVirtualization',
       description: 'introduction.dataGridDisableVirtualizationDescription',
       enabled: false,
+      type: 'boolean',
     },
     hideFooter: {
       generalSettingName: 'hideFooter',
       description: 'introduction.dataGridHideFooterDescription',
       enabled: false,
+      type: 'boolean',
     },
     hideFooterPagination: {
       generalSettingName: 'hideFooterPagination',
       description: 'introduction.dataGridHideFooterPaginationDescription',
       enabled: false,
+      type: 'boolean',
     },
     hideFooterSelectedRowCount: {
       generalSettingName: 'hideFooterSelectedRowCount',
       description: 'introduction.dataGridHideFooterSelectedRowCountDescription',
       enabled: false,
+      type: 'boolean',
     },
     ignoreDiacritics: {
       generalSettingName: 'ignoreDiacritics',
       description: 'introduction.dataGridIgnoreDiacriticsDescription',
       enabled: false,
+      type: 'boolean',
     },
     ignoreValueFormatterDuringExportCvs: {
       generalSettingName: 'ignoreValueFormatterDuringExportCvs',
       description: 'introduction.dataGridIgnoreValueFormatterDuringExportCvsDescription',
       enabled: false,
+      type: 'boolean',
     },
     ignoreValueFormatterDuringExportClipboard: {
       generalSettingName: 'ignoreValueFormatterDuringExportClipboard',
       description: 'introduction.dataGridignoreValueFormatterDuringExportClipboardDescription',
       enabled: false,
+      type: 'boolean',
     },
     keepNonExistentRowsSelected: {
       generalSettingName: 'keepNonExistentRowsSelected',
       description: 'introduction.dataGridKeepNonExistentRowsSelectedDescription',
       enabled: false,
+      type: 'boolean',
     },
     loading: {
       generalSettingName: 'loading',
       description: 'introduction.dataGridLoadingDescription',
       enabled: false,
+      type: 'boolean',
     },
     resetPageOnSortFilter: {
       generalSettingName: 'resetPageOnSortFilter',
       description: 'introduction.dataGridResetPageOnSortFilterDescription',
       enabled: false,
+      type: 'boolean',
     },
     rowSelection: {
       generalSettingName: 'rowSelection',
       description: 'introduction.dataGridRowSelectionDescription',
       enabled: false,
+      type: 'boolean',
     },
     showCellVerticalBorder: {
       generalSettingName: 'showCellVerticalBorder',
       description: 'introduction.dataGridShowCellVerticalBorderDescription',
       enabled: false,
+      type: 'boolean',
     },
     showColumnVerticalBorder: {
       generalSettingName: 'showColumnVerticalBorder',
       description: 'introduction.dataGridShowColumnVerticalBorderDescription',
       enabled: false,
+      type: 'boolean',
     },
     unstable_rowSpanning: {
       generalSettingName: 'unstable_rowSpanning',
       description: 'introduction.dataGridUnstable_rowSpanningDescription',
       enabled: false,
+      type: 'boolean',
     },
     virtualizeColumnsWithAutoRowHeight: {
       generalSettingName: 'virtualizeColumnsWithAutoRowHeight',
       description: 'introduction.dataGridVirtualizeColumnsWithAutoRowHeightDescription',
       enabled: false,
+      type: 'boolean',
+    },
+    // Number
+    columnHeaderHeight: {
+      generalSettingTitle: 'introduction.numberSettinsTitle',
+      generalSettingName: 'columnHeaderHeight',
+      description: 'introduction.dataGridColumnHeaderHeightDescription',
+      type: 'number',
+      value: 56,
     },
   });
 
@@ -931,7 +969,7 @@ const FullFeatureDataGridPage: React.FC = () => {
           ref={fullFeatureDataGridRef}
           rows={employeeRows}
           columns={employeeColumns}
-          // General Setting
+          // General Setting Boolean
           autoPageSize={generalSettings.autoPageSize.enabled}
           autosizeOnMount={generalSettings.autosizeOnMount.enabled}
           checkboxSelection={generalSettings.checkboxSelection.enabled}
@@ -962,7 +1000,9 @@ const FullFeatureDataGridPage: React.FC = () => {
           showColumnVerticalBorder={generalSettings.showColumnVerticalBorder.enabled}
           unstable_rowSpanning={generalSettings.unstable_rowSpanning.enabled}
           virtualizeColumnsWithAutoRowHeight={generalSettings.virtualizeColumnsWithAutoRowHeight.enabled}
-          // Events
+          // General Setting Number
+          columnHeaderHeight={generalSettings.columnHeaderHeight.value}
+          // General Setting Events
           onCellClick={onCellClick}
           onCellDoubleClick={onCellDoubleClick}
           onCellEditStart={onCellEditStart}

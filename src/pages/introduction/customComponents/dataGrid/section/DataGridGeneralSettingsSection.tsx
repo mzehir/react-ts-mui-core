@@ -8,6 +8,7 @@ import ChipComp from '../../../../../components/base/chip/Chip';
 import FormControlLabelComp from '../../../../../components/base/formControlLabel/FormControlLabel';
 import SwitchComp from '../../../../../components/base/switch/Switch';
 import AlertComp from '../../../../../components/base/alert/Alert';
+import TextFieldComp from '../../../../../components/base/textField/TextField';
 
 const DrawerRoot = styled(BoxComp)`
   width: 270px;
@@ -16,9 +17,12 @@ const DrawerRoot = styled(BoxComp)`
 `;
 
 interface GeneralSetting {
+  generalSettingTitle?: string;
   generalSettingName: string;
   description: string;
   enabled?: boolean;
+  value?: number;
+  type: 'boolean' | 'number';
 }
 
 export interface DataGridGeneralSettings {
@@ -48,6 +52,17 @@ const DataGridGeneralSettingsSection: React.FC<DataGridGeneralSettingsSectionPro
     onSettingsChange?.(newState);
   };
 
+  const handleNumberValueChange = (name: string, value: number) => {
+    const newState = {
+      ...settings,
+      [name]: {
+        ...settings[name],
+        value,
+      },
+    };
+    onSettingsChange?.(newState);
+  };
+
   return (
     <>
       <ButtonComp variant="contained" color="success" onClick={() => setDrawerOpen(true)}>
@@ -58,27 +73,46 @@ const DataGridGeneralSettingsSection: React.FC<DataGridGeneralSettingsSectionPro
         <DrawerRoot>
           {Object.entries(settings).map(([key, setting]) => (
             <BoxComp key={key} display={'flex'} flexDirection={'column'} gap={'5px'} marginBottom={'25px'}>
+              {setting.generalSettingTitle && (
+                <BoxComp paddingLeft={'5px'} paddingRight={'5px'} marginBottom={'15px'}>
+                  <AlertComp variant="standard" color="info" icon={false}>
+                    {setting.generalSettingTitle}
+                  </AlertComp>
+                </BoxComp>
+              )}
+
               <DividerComp>
                 <ChipComp color="warning" label={setting.generalSettingName} />
               </DividerComp>
 
-              <BoxComp display={'flex'} flexDirection={'column'} gap={'1px'} paddingLeft={'5px'} paddingRight={'5px'}>
+              <BoxComp display={'flex'} flexDirection={'column'} gap={'2px'} paddingLeft={'5px'} paddingRight={'5px'}>
                 <AlertComp variant="outlined" color="warning" icon={false} severity="info">
                   {setting.description}
                 </AlertComp>
 
                 <BoxComp display={'flex'} justifyContent={'center'}>
-                  <FormControlLabelComp
-                    control={
-                      <SwitchComp
-                        checked={setting.enabled || false}
-                        onChange={(e) => {
-                          handleGeneralSettingsToggle(setting.generalSettingName, e.target.checked);
-                        }}
-                      />
-                    }
-                    label=""
-                  />
+                  {setting.type === 'boolean' ? (
+                    <FormControlLabelComp
+                      control={
+                        <SwitchComp
+                          checked={setting.enabled || false}
+                          onChange={(e) => {
+                            handleGeneralSettingsToggle(setting.generalSettingName, e.target.checked);
+                          }}
+                        />
+                      }
+                      label=""
+                    />
+                  ) : (
+                    <TextFieldComp
+                      sx={{ marginTop: '5px' }}
+                      fullWidth={true}
+                      type="number"
+                      value={setting.value || 0}
+                      onChange={(e) => handleNumberValueChange(setting.generalSettingName, Number(e.target.value))}
+                      size="small"
+                    />
+                  )}
                 </BoxComp>
               </BoxComp>
             </BoxComp>

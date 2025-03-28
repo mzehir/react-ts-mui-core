@@ -37,7 +37,7 @@ export interface FullFeatureDataGridProps {
 
   rows: DataGridCompValidRowModel[];
 
-  // General Setting
+  // General Setting Boolean
 
   autoPageSize?: boolean;
 
@@ -93,7 +93,12 @@ export interface FullFeatureDataGridProps {
 
   virtualizeColumnsWithAutoRowHeight?: boolean;
 
-  // Events
+  // General Setting Number
+
+  columnHeaderHeight?: number;
+
+  // General Setting Events
+
   onCellClick?: (params: GridCellParams, event: React.MouseEvent, details: GridCallbackDetails) => void;
 
   onCellDoubleClick?: (params: GridCellParams, event: React.MouseEvent, details: GridCallbackDetails) => void;

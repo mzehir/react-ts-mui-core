@@ -178,7 +178,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
 
   // <DataGrid columnGroupHeaderHeight={80} />
 
-  //! columnHeaderHeight
+  //TODO columnHeaderHeight
   /**
    * columnHeaderHeight: Sütun başlıklarının yüksekliği.
    * Kullanım amacı: Başlık satırının yüksekliğini ayarlar.

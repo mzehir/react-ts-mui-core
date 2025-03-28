@@ -9,7 +9,7 @@ const FullFeatureDataGrid = forwardRef<FullFeatureDataGridRef, FullFeatureDataGr
   const {
     columns,
     rows,
-    // General Setting
+    // General Setting Boolean
     autoPageSize,
     autosizeOnMount,
     checkboxSelection,
@@ -37,7 +37,9 @@ const FullFeatureDataGrid = forwardRef<FullFeatureDataGridRef, FullFeatureDataGr
     showColumnVerticalBorder,
     unstable_rowSpanning,
     virtualizeColumnsWithAutoRowHeight,
-    // Events
+    // General Setting Number
+    columnHeaderHeight,
+    // General Setting Events
     onCellClick,
     onCellDoubleClick,
     onCellEditStart,
@@ -96,7 +98,7 @@ const FullFeatureDataGrid = forwardRef<FullFeatureDataGridRef, FullFeatureDataGr
       apiRef={apiRef}
       columns={preparedColumns}
       rows={rows}
-      // General Setting
+      // General Setting Boolean
       autoPageSize={autoPageSize}
       autosizeOnMount={autosizeOnMount}
       checkboxSelection={checkboxSelection}
@@ -124,7 +126,9 @@ const FullFeatureDataGrid = forwardRef<FullFeatureDataGridRef, FullFeatureDataGr
       showColumnVerticalBorder={showColumnVerticalBorder}
       unstable_rowSpanning={unstable_rowSpanning}
       virtualizeColumnsWithAutoRowHeight={virtualizeColumnsWithAutoRowHeight}
-      // Events
+      // General Setting Number
+      columnHeaderHeight={columnHeaderHeight}
+      // General Setting Events
       onCellClick={onCellClick}
       onCellDoubleClick={onCellDoubleClick}
       onCellEditStart={onCellEditStart}
