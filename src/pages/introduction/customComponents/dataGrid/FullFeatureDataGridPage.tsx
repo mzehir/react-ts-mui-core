@@ -122,6 +122,16 @@ const FullFeatureDataGridPage: React.FC = () => {
       description: 'introduction.dataGridIgnoreDiacriticsDescription',
       enabled: false,
     },
+    ignoreValueFormatterDuringExportCvs: {
+      generalSettingName: 'ignoreValueFormatterDuringExportCvs',
+      description: 'introduction.dataGridIgnoreValueFormatterDuringExportCvsDescription',
+      enabled: false,
+    },
+    ignoreValueFormatterDuringExportClipboard: {
+      generalSettingName: 'ignoreValueFormatterDuringExportClipboard',
+      description: 'introduction.dataGridignoreValueFormatterDuringExportClipboardDescription',
+      enabled: false,
+    },
     keepNonExistentRowsSelected: {
       generalSettingName: 'keepNonExistentRowsSelected',
       description: 'introduction.dataGridKeepNonExistentRowsSelectedDescription',
@@ -940,6 +950,10 @@ const FullFeatureDataGridPage: React.FC = () => {
           hideFooterPagination={generalSettings.hideFooterPagination.enabled}
           hideFooterSelectedRowCount={generalSettings.hideFooterSelectedRowCount.enabled}
           ignoreDiacritics={generalSettings.ignoreDiacritics.enabled}
+          ignoreValueFormatterDuringExport={{
+            csvExport: generalSettings.ignoreValueFormatterDuringExportCvs.enabled,
+            clipboardExport: generalSettings.ignoreValueFormatterDuringExportClipboard.enabled,
+          }}
           keepNonExistentRowsSelected={generalSettings.keepNonExistentRowsSelected.enabled}
           loading={generalSettings.loading.enabled}
           resetPageOnSortFilter={generalSettings.resetPageOnSortFilter.enabled}

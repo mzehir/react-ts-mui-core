@@ -28,6 +28,7 @@ const FullFeatureDataGrid = forwardRef<FullFeatureDataGridRef, FullFeatureDataGr
     hideFooterPagination,
     hideFooterSelectedRowCount,
     ignoreDiacritics,
+    ignoreValueFormatterDuringExport,
     keepNonExistentRowsSelected,
     loading,
     resetPageOnSortFilter,
@@ -114,6 +115,7 @@ const FullFeatureDataGrid = forwardRef<FullFeatureDataGridRef, FullFeatureDataGr
       hideFooterPagination={hideFooterPagination}
       hideFooterSelectedRowCount={hideFooterSelectedRowCount}
       ignoreDiacritics={ignoreDiacritics}
+      ignoreValueFormatterDuringExport={ignoreValueFormatterDuringExport}
       keepNonExistentRowsSelected={keepNonExistentRowsSelected}
       loading={loading}
       resetPageOnSortFilter={resetPageOnSortFilter}

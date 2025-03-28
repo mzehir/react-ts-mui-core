@@ -27,6 +27,11 @@ export interface FullFeatureDataGridRef {
   getDataGrid: () => GridApi;
 }
 
+interface IgnoreValueFormatterDuringExport {
+  csvExport?: boolean;
+  clipboardExport?: boolean;
+}
+
 export interface FullFeatureDataGridProps {
   columns: DataGridCompColDef[];
 
@@ -69,6 +74,8 @@ export interface FullFeatureDataGridProps {
   hideFooterSelectedRowCount?: boolean;
 
   ignoreDiacritics?: boolean;
+
+  ignoreValueFormatterDuringExport?: IgnoreValueFormatterDuringExport;
 
   keepNonExistentRowsSelected?: boolean;
 

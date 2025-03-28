@@ -554,6 +554,8 @@
     "i": "i",
     "i": "i",
     "dataGridIgnoreDiacriticsDescription": "Eğer `true` ise, filtreleme veya hızlı filtreleme sırasında diyakritikler (aksanlar) göz ardı edilir. Örneğin, filtre değeri `cafe` olduğunda, `café` içeren satırlar görünür olacaktır.",
+    "dataGridIgnoreValueFormatterDuringExportCvsDescription": "Eğer `true` ise, Veri Izgarası CSV'ye dışa aktarırken veya panoya kopyalarken `valueFormatter` kullanmaz. Bir nesne sağlanırsa, CSV dışa aktarma veya panoya aktarma için `valueFormatter`ı yok saymayı seçebilirsiniz.",
+    "dataGridignoreValueFormatterDuringExportClipboardDescription": "Eğer `true` ise, Veri Izgarası CSV'ye dışa aktarırken veya panoya kopyalarken `valueFormatter` kullanmaz. Bir nesne sağlanırsa, CSV dışa aktarma veya panoya aktarma için `valueFormatter`ı yok saymayı seçebilirsiniz.",
     "k": "k",
     "k": "k",
     "k": "k",

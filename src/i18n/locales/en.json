@@ -554,6 +554,8 @@
     "i": "i",
     "i": "i",
     "dataGridIgnoreDiacriticsDescription": "If `true`, the diacritics (accents) are ignored when filtering or quick filtering. E.g. when filter value is `cafe`, the rows with `café` will be visible.",
+    "dataGridIgnoreValueFormatterDuringExportCvsDescription": "If `true`, the Data Grid will not use `valueFormatter` when exporting to CSV or copying to clipboard. If an object is provided, you can choose to ignore the `valueFormatter` for CSV export or clipboard export.",
+    "dataGridignoreValueFormatterDuringExportClipboardDescription": "If `true`, the Data Grid will not use `valueFormatter` when exporting to CSV or copying to clipboard. If an object is provided, you can choose to ignore the `valueFormatter` for CSV export or clipboard export.",
     "k": "k",
     "k": "k",
     "k": "k",
