@@ -10,6 +10,11 @@ const FullFeatureDataGrid = forwardRef<FullFeatureDataGridRef, FullFeatureDataGr
     columns,
     rows,
     checkboxSelection,
+    disableColumnFilter,
+    disableColumnMenu,
+    disableColumnResize,
+    disableColumnSelector,
+    disableColumnSorting,
     // Events
     onCellClick,
     onCellDoubleClick,
@@ -70,6 +75,11 @@ const FullFeatureDataGrid = forwardRef<FullFeatureDataGridRef, FullFeatureDataGr
       columns={preparedColumns}
       rows={rows}
       checkboxSelection={checkboxSelection}
+      disableColumnFilter={disableColumnFilter}
+      disableColumnMenu={disableColumnMenu}
+      disableColumnResize={disableColumnResize}
+      disableColumnSelector={disableColumnSelector}
+      disableColumnSorting={disableColumnSorting}
       // Events
       onCellClick={onCellClick}
       onCellDoubleClick={onCellDoubleClick}

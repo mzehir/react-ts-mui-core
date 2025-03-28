@@ -111,7 +111,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   }}
   // />
 
-  //! checkboxSelection
+  //TODO checkboxSelection
   /**
    * checkboxSelection: Veri Izgarası satırları seçmek için onay kutuları içeren ekstra bir sütun görüntüler.
    * Kullanım amacı: Kullanıcıların satırları seçmesine izin vermek için.
@@ -236,7 +236,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   columnWidths={{ id: 100, name: 150 }}
   // />
 
-  //! disableColumnFilter
+  //TODO disableColumnFilter
   /**
    * disableColumnFilter: Sütun filtreleme özelliğini devre dışı bırakır.
    * Kullanım amacı: Filtreleme özelliğini tamamen kapatmak
@@ -247,7 +247,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
 
   // <DataGrid disableColumnFilter />
 
-  //! disableColumnMenu
+  //TODO disableColumnMenu
   /**
    * disableColumnMenu: Sütun menüsünü devre dışı bırakır.
    * Kullanım amacı: Sütun başlıklarındaki menü özelliğini kapatmak
@@ -258,7 +258,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
 
   // <DataGrid disableColumnMenu />
 
-  //! disableColumnResize
+  //TODO disableColumnResize
   /**
    * disableColumnResize: Sütun genişlik ayarlama özelliğini devre dışı bırakır.
    * Kullanım amacı: Sütun genişliklerini sabit tutmak
@@ -269,7 +269,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
 
   // <DataGrid disableColumnResize />
 
-  //! disableColumnSelector
+  //TODO disableColumnSelector
   /**
    * disableColumnSelector: Sütun seçici özelliğini devre dışı bırakır.
    * Kullanım amacı: Sütun görünürlük kontrolünü kapatmak
@@ -280,7 +280,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
 
   // <DataGrid disableColumnSelector />
 
-  //! disableColumnSorting
+  //TODO disableColumnSorting
   /**
    * disableColumnSorting: Sütun sıralama özelliğini devre dışı bırakır.
    * Kullanım amacı: Sıralama özelliğini kapatmak

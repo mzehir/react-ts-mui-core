@@ -34,6 +34,16 @@ export interface FullFeatureDataGridProps {
 
   checkboxSelection?: boolean;
 
+  disableColumnFilter?: boolean;
+
+  disableColumnMenu?: boolean;
+
+  disableColumnResize?: boolean;
+
+  disableColumnSelector?: boolean;
+
+  disableColumnSorting?: boolean;
+
   // Events
   onCellClick?: (params: GridCellParams, event: React.MouseEvent, details: GridCallbackDetails) => void;
 

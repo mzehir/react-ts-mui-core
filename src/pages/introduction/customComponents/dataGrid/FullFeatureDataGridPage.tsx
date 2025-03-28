@@ -19,6 +19,36 @@ const FullFeatureDataGridPage: React.FC = () => {
       description: 'If `true`, the Data Grid will display an extra column with checkboxes for selecting rows.',
       enabled: false,
     },
+
+    disableColumnFilter: {
+      generalSettingName: 'disableColumnFilter',
+      description: 'If `true`, column filters are disabled.',
+      enabled: false,
+    },
+
+    disableColumnMenu: {
+      generalSettingName: 'disableColumnMenu',
+      description: 'If `true`, the column menu is disabled.',
+      enabled: false,
+    },
+
+    disableColumnResize: {
+      generalSettingName: 'disableColumnResize',
+      description: 'If `true`, resizing columns is disabled.',
+      enabled: false,
+    },
+
+    disableColumnSelector: {
+      generalSettingName: 'disableColumnSelector',
+      description: 'If `true`, hiding/showing columns is disabled.',
+      enabled: false,
+    },
+
+    disableColumnSorting: {
+      generalSettingName: 'disableColumnSorting',
+      description: 'If `true`, the column sorting feature will be disabled.',
+      enabled: false,
+    },
   });
 
   const handleSettingsChange = (settings: DataGridGeneralSettings) => {
@@ -786,6 +816,11 @@ const FullFeatureDataGridPage: React.FC = () => {
           rows={employeeRows}
           columns={employeeColumns}
           checkboxSelection={generalSettings.checkboxSelection.enabled}
+          disableColumnFilter={generalSettings.disableColumnFilter.enabled}
+          disableColumnMenu={generalSettings.disableColumnMenu.enabled}
+          disableColumnResize={generalSettings.disableColumnResize.enabled}
+          disableColumnSelector={generalSettings.disableColumnSelector.enabled}
+          disableColumnSorting={generalSettings.disableColumnSorting.enabled}
           // Events
           onCellClick={onCellClick}
           onCellDoubleClick={onCellDoubleClick}
