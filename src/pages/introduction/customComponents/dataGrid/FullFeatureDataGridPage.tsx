@@ -1,4 +1,7 @@
 import React, { useRef } from 'react';
+import DataGridEventHandlerSection, { DataGridEventHandlers } from './section/DataGridEventHandlerSection';
+import DataGridGeneralSettingsSection from './section/DataGridGeneralSettingsSection';
+import { employeeColumns, employeeRows } from './fullFeatureDataGridPageTypes';
 import TypographyComp from '../../../../components/base/typography/Typography';
 import DividerComp from '../../../../components/base/divider/Divider';
 import BoxComp from '../../../../components/base/box/Box';
@@ -7,8 +10,6 @@ import {
   FullFeatureDataGridProps,
   FullFeatureDataGridRef,
 } from '../../../../components/introduction/dataGrid/fullFeatureDataGrid/fullFeatureDataGridTypes';
-import { employeeColumns, employeeRows } from './fullFeatureDataGridPageTypes';
-import DataGridEventHandlerSection, { DataGridEventHandlers } from './section/DataGridEventHandlerSection';
 
 const FullFeatureDataGridPage: React.FC = () => {
   const fullFeatureDataGridRef = useRef<FullFeatureDataGridRef>(null);
@@ -755,6 +756,10 @@ const FullFeatureDataGridPage: React.FC = () => {
 
       <br />
       <br />
+
+      <BoxComp display={'flex'} flexDirection={'row'} justifyContent={'end'} gap={'5px'}>
+        <DataGridGeneralSettingsSection />
+      </BoxComp>
 
       <button
         onClick={() => {
