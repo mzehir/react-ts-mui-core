@@ -34,6 +34,10 @@ export interface FullFeatureDataGridProps {
 
   // General Setting
 
+  autoPageSize?: boolean;
+
+  autosizeOnMount?: boolean;
+
   checkboxSelection?: boolean;
 
   disableColumnFilter?: boolean;
@@ -57,6 +61,30 @@ export interface FullFeatureDataGridProps {
   disableRowSelectionOnClick?: boolean;
 
   disableVirtualization?: boolean;
+
+  hideFooter?: boolean;
+
+  hideFooterPagination?: boolean;
+
+  hideFooterSelectedRowCount?: boolean;
+
+  ignoreDiacritics?: boolean;
+
+  keepNonExistentRowsSelected?: boolean;
+
+  loading?: boolean;
+
+  resetPageOnSortFilter?: boolean;
+
+  rowSelection?: boolean;
+
+  showCellVerticalBorder?: boolean;
+
+  showColumnVerticalBorder?: boolean;
+
+  unstable_rowSpanning?: boolean;
+
+  virtualizeColumnsWithAutoRowHeight?: boolean;
 
   // Events
   onCellClick?: (params: GridCellParams, event: React.MouseEvent, details: GridCallbackDetails) => void;

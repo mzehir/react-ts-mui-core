@@ -23,6 +23,18 @@ const FullFeatureDataGridPage: React.FC = () => {
 
   // DataGrid General Setting State ************************
   const [generalSettings, setGeneralSettings] = React.useState<DataGridGeneralSettings>({
+    autoPageSize: {
+      generalSettingName: 'autoPageSize',
+      description: 'introduction.dataGridAutoPageSizeDescription',
+      enabled: false,
+    },
+
+    autosizeOnMount: {
+      generalSettingName: 'autosizeOnMount',
+      description: 'introduction.dataGridAutosizeOnMountDescription',
+      enabled: false,
+    },
+
     checkboxSelection: {
       generalSettingName: 'checkboxSelection',
       description: 'introduction.dataGridCheckboxSelectionDescription',
@@ -88,6 +100,66 @@ const FullFeatureDataGridPage: React.FC = () => {
     disableVirtualization: {
       generalSettingName: 'disableVirtualization',
       description: 'introduction.dataGridDisableVirtualizationDescription',
+      enabled: false,
+    },
+    hideFooter: {
+      generalSettingName: 'hideFooter',
+      description: 'introduction.dataGridHideFooterDescription',
+      enabled: false,
+    },
+    hideFooterPagination: {
+      generalSettingName: 'hideFooterPagination',
+      description: 'introduction.dataGridHideFooterPaginationDescription',
+      enabled: false,
+    },
+    hideFooterSelectedRowCount: {
+      generalSettingName: 'hideFooterSelectedRowCount',
+      description: 'introduction.dataGridHideFooterSelectedRowCountDescription',
+      enabled: false,
+    },
+    ignoreDiacritics: {
+      generalSettingName: 'ignoreDiacritics',
+      description: 'introduction.dataGridIgnoreDiacriticsDescription',
+      enabled: false,
+    },
+    keepNonExistentRowsSelected: {
+      generalSettingName: 'keepNonExistentRowsSelected',
+      description: 'introduction.dataGridKeepNonExistentRowsSelectedDescription',
+      enabled: false,
+    },
+    loading: {
+      generalSettingName: 'loading',
+      description: 'introduction.dataGridLoadingDescription',
+      enabled: false,
+    },
+    resetPageOnSortFilter: {
+      generalSettingName: 'resetPageOnSortFilter',
+      description: 'introduction.dataGridResetPageOnSortFilterDescription',
+      enabled: false,
+    },
+    rowSelection: {
+      generalSettingName: 'rowSelection',
+      description: 'introduction.dataGridRowSelectionDescription',
+      enabled: false,
+    },
+    showCellVerticalBorder: {
+      generalSettingName: 'showCellVerticalBorder',
+      description: 'introduction.dataGridShowCellVerticalBorderDescription',
+      enabled: false,
+    },
+    showColumnVerticalBorder: {
+      generalSettingName: 'showColumnVerticalBorder',
+      description: 'introduction.dataGridShowColumnVerticalBorderDescription',
+      enabled: false,
+    },
+    unstable_rowSpanning: {
+      generalSettingName: 'unstable_rowSpanning',
+      description: 'introduction.dataGridUnstable_rowSpanningDescription',
+      enabled: false,
+    },
+    virtualizeColumnsWithAutoRowHeight: {
+      generalSettingName: 'virtualizeColumnsWithAutoRowHeight',
+      description: 'introduction.dataGridVirtualizeColumnsWithAutoRowHeightDescription',
       enabled: false,
     },
   });
@@ -850,6 +922,8 @@ const FullFeatureDataGridPage: React.FC = () => {
           rows={employeeRows}
           columns={employeeColumns}
           // General Setting
+          autoPageSize={generalSettings.autoPageSize.enabled}
+          autosizeOnMount={generalSettings.autosizeOnMount.enabled}
           checkboxSelection={generalSettings.checkboxSelection.enabled}
           disableAutosize={generalSettings.disableAutosize.enabled}
           disableColumnFilter={generalSettings.disableColumnFilter.enabled}
@@ -862,6 +936,18 @@ const FullFeatureDataGridPage: React.FC = () => {
           disableMultipleRowSelection={generalSettings.disableMultipleRowSelection.enabled}
           disableRowSelectionOnClick={generalSettings.disableRowSelectionOnClick.enabled}
           disableVirtualization={generalSettings.disableVirtualization.enabled}
+          hideFooter={generalSettings.hideFooter.enabled}
+          hideFooterPagination={generalSettings.hideFooterPagination.enabled}
+          hideFooterSelectedRowCount={generalSettings.hideFooterSelectedRowCount.enabled}
+          ignoreDiacritics={generalSettings.ignoreDiacritics.enabled}
+          keepNonExistentRowsSelected={generalSettings.keepNonExistentRowsSelected.enabled}
+          loading={generalSettings.loading.enabled}
+          resetPageOnSortFilter={generalSettings.resetPageOnSortFilter.enabled}
+          rowSelection={generalSettings.rowSelection.enabled}
+          showCellVerticalBorder={generalSettings.showCellVerticalBorder.enabled}
+          showColumnVerticalBorder={generalSettings.showColumnVerticalBorder.enabled}
+          unstable_rowSpanning={generalSettings.unstable_rowSpanning.enabled}
+          virtualizeColumnsWithAutoRowHeight={generalSettings.virtualizeColumnsWithAutoRowHeight.enabled}
           // Events
           onCellClick={onCellClick}
           onCellDoubleClick={onCellDoubleClick}

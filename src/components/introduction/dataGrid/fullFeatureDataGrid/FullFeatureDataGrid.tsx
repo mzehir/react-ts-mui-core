@@ -10,6 +10,8 @@ const FullFeatureDataGrid = forwardRef<FullFeatureDataGridRef, FullFeatureDataGr
     columns,
     rows,
     // General Setting
+    autoPageSize,
+    autosizeOnMount,
     checkboxSelection,
     disableAutosize,
     disableColumnFilter,
@@ -22,6 +24,18 @@ const FullFeatureDataGrid = forwardRef<FullFeatureDataGridRef, FullFeatureDataGr
     disableMultipleRowSelection,
     disableRowSelectionOnClick,
     disableVirtualization,
+    hideFooter,
+    hideFooterPagination,
+    hideFooterSelectedRowCount,
+    ignoreDiacritics,
+    keepNonExistentRowsSelected,
+    loading,
+    resetPageOnSortFilter,
+    rowSelection,
+    showCellVerticalBorder,
+    showColumnVerticalBorder,
+    unstable_rowSpanning,
+    virtualizeColumnsWithAutoRowHeight,
     // Events
     onCellClick,
     onCellDoubleClick,
@@ -81,6 +95,9 @@ const FullFeatureDataGrid = forwardRef<FullFeatureDataGridRef, FullFeatureDataGr
       apiRef={apiRef}
       columns={preparedColumns}
       rows={rows}
+      // General Setting
+      autoPageSize={autoPageSize}
+      autosizeOnMount={autosizeOnMount}
       checkboxSelection={checkboxSelection}
       disableAutosize={disableAutosize}
       disableColumnFilter={disableColumnFilter}
@@ -93,6 +110,18 @@ const FullFeatureDataGrid = forwardRef<FullFeatureDataGridRef, FullFeatureDataGr
       disableMultipleRowSelection={disableMultipleRowSelection}
       disableRowSelectionOnClick={disableRowSelectionOnClick}
       disableVirtualization={disableVirtualization}
+      hideFooter={hideFooter}
+      hideFooterPagination={hideFooterPagination}
+      hideFooterSelectedRowCount={hideFooterSelectedRowCount}
+      ignoreDiacritics={ignoreDiacritics}
+      keepNonExistentRowsSelected={keepNonExistentRowsSelected}
+      loading={loading}
+      resetPageOnSortFilter={resetPageOnSortFilter}
+      rowSelection={rowSelection}
+      showCellVerticalBorder={showCellVerticalBorder}
+      showColumnVerticalBorder={showColumnVerticalBorder}
+      unstable_rowSpanning={unstable_rowSpanning}
+      virtualizeColumnsWithAutoRowHeight={virtualizeColumnsWithAutoRowHeight}
       // Events
       onCellClick={onCellClick}
       onCellDoubleClick={onCellDoubleClick}

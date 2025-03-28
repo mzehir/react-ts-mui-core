@@ -47,7 +47,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   // <h2 id="userTableTitle">Kullanıcı Listesi</h2>
   // <DataGrid aria-labelledby="userTableTitle" />
 
-  //! autoPageSize
+  //TODO autoPageSize
   /**
    * autoPageSize: Görünür alan yüksekliğine göre sayfa boyutunu otomatik ayarlar.
    * Kullanım amacı: Kaydırma çubuğu olmadan tüm alanı kullanmak.
@@ -58,7 +58,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
 
   // <DataGrid autoPageSize />
 
-  //! autosizeOnMount
+  //TODO autosizeOnMount
   /**
    * autosizeOnMount: Grid yüklendiğinde sütun genişliklerini otomatik ayarlar.
    * Kullanım amacı: İçeriğe göre optimal sütun genişliklerini belirler.
@@ -692,9 +692,9 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   })}
   // />
 
-  //! hideFooter
-  //! hideFooterPagination
-  //! hideFooterSelectedRowCount
+  //TODO hideFooter
+  //TODO hideFooterPagination
+  //TODO hideFooterSelectedRowCount
   /**
    * hideFooter: Alt bilgi çubuğunu tamamen gizler
    * hideFooterPagination: Sadece sayfalama kontrollerini gizler
@@ -727,7 +727,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //     />
   //   );
 
-  //! ignoreDiacritics
+  //TODO ignoreDiacritics
   /**
    * ignoreDiacritics: Diakritik işaretleri (é, è, ë vb.) filtreleme ve sıralamada yok sayar
    *
@@ -822,7 +822,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   }}
   // />
 
-  //! keepNonExistentRowsSelected
+  //TODO keepNonExistentRowsSelected
   /**
    * keepNonExistentRowsSelected: Var olmayan satırların seçili kalmasını sağlar
    *
@@ -849,7 +849,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //     );
   //   };
 
-  //! loading
+  //TODO loading
   /**
    * loading: Grid'in yükleme durumunu belirtir
    *
@@ -975,7 +975,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //     );
   //   };
 
-  //! onCellClick
+  //TODO onCellClick
   /**
    * onCellClick: Hücreye tıklandığında tetiklenir
    * params: { id, field, value, row, colDef, api }
@@ -986,7 +986,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //     }
   // };
 
-  //! onCellDoubleClick
+  //TODO onCellDoubleClick
   /**
    * onCellDoubleClick: Bir hücreye çift tıklandığında tetiklenen event
    *
@@ -1019,8 +1019,8 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   );
   // };
 
-  //! onCellEditStart
-  //! onCellEditStop
+  //TODO onCellEditStart
+  //TODO onCellEditStop
   /**
    * onCellEditStart/onCellEditStop: Hücre düzenleme başlangıç/bitiş
    * Düzenleme durumunu yönetmek için kullanılır
@@ -1035,7 +1035,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   setEditingCell(null);
   // };
 
-  //! onCellKeyDown
+  //TODO onCellKeyDown
   /**
    * onCellKeyDown: Hücrede klavye tuşuna basıldığında tetiklenir
    */
@@ -1063,7 +1063,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   }
   // };
 
-  //! onCellModesModelChange
+  //TODO onCellModesModelChange
   /**
    * onCellModesModelChange: Hücrelerin düzenleme modları değiştiğinde
    */
@@ -1082,7 +1082,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   });
   // };
 
-  //! onClipboardCopy
+  //TODO onClipboardCopy
   /**
    * onClipboardCopy: Veri kopyalandığında tetiklenir
    */
@@ -1104,7 +1104,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   }
   // };
 
-  //! onColumnHeaderClick
+  //TODO onColumnHeaderClick
   /**
    * onColumnHeaderClick: Sütun başlığına tıklandığında
    */
@@ -1122,7 +1122,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   }
   // };
 
-  //! onColumnHeaderContextMenu
+  //TODO onColumnHeaderContextMenu
   /**
    * onColumnHeaderContextMenu: Sağ tıklama menüsü
    */
@@ -1149,7 +1149,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   });
   // };
 
-  //! onColumnHeaderDoubleClick
+  //TODO onColumnHeaderDoubleClick
   /**
    * onColumnHeaderDoubleClick: Çift tıklama
    */
@@ -1159,7 +1159,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   autoSizeColumn(params.field);
   // };
 
-  //! onColumnHeaderEnter
+  //TODO onColumnHeaderEnter
   /**
    * onColumnHeaderEnter: Fare sütun başlığına girdiğinde
    */
@@ -1168,7 +1168,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   showColumnTooltip(params);
   // };
 
-  //! onColumnHeaderLeave
+  //TODO onColumnHeaderLeave
   /**
    * onColumnHeaderLeave: Fare sütun başlığından çıktığında
    */
@@ -1177,7 +1177,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   hideColumnTooltip();
   // };
 
-  //! onColumnHeaderOut
+  //TODO onColumnHeaderOut
   /**
    * onColumnHeaderOut: Fare sütun başlığından tamamen çıktığında
    */
@@ -1186,7 +1186,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   resetColumnState(params.field);
   // };
 
-  //! onColumnHeaderOver
+  //TODO onColumnHeaderOver
   /**
    * onColumnHeaderOver: Fare sütun başlığı üzerinde
    */
@@ -1195,7 +1195,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   updateColumnHoverState(params.field);
   // };
 
-  //! onColumnOrderChange
+  //TODO onColumnOrderChange
   /**
    * onColumnOrderChange: Sütunların sırası değiştiğinde
    */
@@ -1210,7 +1210,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   });
   // };
 
-  //! onColumnResize
+  //TODO onColumnResize
   /**
    * onColumnResize: Sütun genişliği değiştiğinde
    * Kullanıcı tercihleri için önemli
@@ -1223,7 +1223,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   });
   // };
 
-  //! onColumnVisibilityModelChange
+  //TODO onColumnVisibilityModelChange
   /**
    * onColumnVisibilityModelChange: Sütun görünürlüğü değiştiğinde
    * Kullanıcı tercihleri için önemli
@@ -1233,7 +1233,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   saveUserPreferences('columnVisibility', newModel);
   // };
 
-  //! onColumnWidthChange
+  //TODO onColumnWidthChange
   /**
    * onColumnWidthChange: Bir sütunun genişliği değiştiğinde tetiklenir
    *
@@ -1292,7 +1292,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   );
   // };
 
-  //! onDensityChange
+  //TODO onDensityChange
   /**
    * 2. onDensityChange: Grid'in yoğunluk ayarı değiştiğinde tetiklenir
    *
@@ -1300,7 +1300,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
    * density: 'compact' | 'standard' | 'comfortable'
    */
 
-  //! onFilterModelChange
+  //TODO onFilterModelChange
   /**
    * onFilterModelChange: Filtreleme değiştiğinde
    * Server-side filtering için kritik
@@ -1316,7 +1316,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   }
   // };
 
-  //! onMenuClose
+  //TODO onMenuClose
   /**
    * Sütun menüsü kapandığında tetiklenir
    *
@@ -1328,7 +1328,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
    * }
    */
 
-  //! onMenuOpen
+  //TODO onMenuOpen
   /**
    * Sütun menüsü açıldığında tetiklenir
    *
@@ -1339,7 +1339,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
    *   target: HTMLElement    // Menünün açıldığı element
    * }
    */
-  //! onPaginationMetaChange
+  //TODO onPaginationMetaChange
   /**
    * Sayfalama meta verileri değiştiğinde tetiklenir
    * Parametre tipleri:
@@ -1351,7 +1351,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
    * }
    */
 
-  //! onPaginationModelChange
+  //TODO onPaginationModelChange
   /**
    * onPaginationModelChange: Sayfalama değiştiğinde
    * Server-side pagination için kritik
@@ -1368,7 +1368,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   }
   // };
 
-  //! onPreferencePanelClose
+  //TODO onPreferencePanelClose
   /**
    * Tercihler paneli kapandığında tetiklenir
    * Kullanım Amacı:
@@ -1377,7 +1377,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
    * - Temizlik işlemleri
    */
 
-  //! onPreferencePanelOpen
+  //TODO onPreferencePanelOpen
   /**
    * Tercihler paneli açıldığında tetiklenir
    * Kullanım Amacı:
@@ -1386,7 +1386,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
    * - Panel içeriğini hazırlama
    */
 
-  //! onProcessRowUpdateError
+  //TODO onProcessRowUpdateError
   /**
    * Satır güncelleme işlemi başarısız olduğunda tetiklenir
    * Kullanım Amacı:
@@ -1395,7 +1395,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
    * - Hata loglama
    */
 
-  //! onResize
+  //TODO onResize
   /**
    * onResize: Grid yeniden boyutlandırıldığında tetiklenir
    * Kullanım Amacı:
@@ -1404,7 +1404,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
    * - Boyut değişikliklerini izleme
    */
 
-  //! onRowClick
+  //TODO onRowClick
   /**
    * onRowClick: Satıra tıklandığında tetiklenir
    * params: { id, row, field, value, rowNode, colDef, api }
@@ -1416,7 +1416,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //     showRowDetails(params.row);
   // };
 
-  //! onRowCountChange
+  //TODO onRowCountChange
   /**
    * onRowCountChange: Toplam satır sayısı değiştiğinde tetiklenir
    * Parametre: number (yeni satır sayısı)
@@ -1426,7 +1426,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
    * - UI güncellemeleri yapma
    */
 
-  //! onRowDoubleClick
+  //TODO onRowDoubleClick
   /**
    * onRowDoubleClick: Satıra çift tıklandığında tetiklenir
    * Genellikle düzenleme veya detay görünümü için kullanılır
@@ -1436,7 +1436,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //     openEditDialog(params.row);
   // };
 
-  //! onRowEditStart
+  //TODO onRowEditStart
   /**
    * Bir satırın düzenleme modu başladığında tetiklenir
    * Parametre tipleri:
@@ -1446,7 +1446,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
    * }
    */
 
-  //! onRowEditStop
+  //TODO onRowEditStop
   /**
    * Bir satırın düzenleme modu bittiğinde tetiklenir
    * Parametre tipleri:
@@ -1457,7 +1457,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
    * }
    */
 
-  //! onRowModesModelChange
+  //TODO onRowModesModelChange
   /**
    * onRowModesModelChange: Satırların düzenleme modları değiştiğinde tetiklenir
    * Parametre tipleri:
@@ -1467,7 +1467,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
    * }
    */
 
-  //! onRowSelectionModelChange
+  //TODO onRowSelectionModelChange
   /**
    * onRowSelectionModelChange: Satır seçimi değiştiğinde tetiklenir
    * Çoklu seçim durumlarında önemlidir
@@ -1478,7 +1478,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //     updateBulkActions(selectionModel.length > 0);
   // };
 
-  //! onSortModelChange
+  //TODO onSortModelChange
   /**
    * onSortModelChange: Sıralama değiştiğinde
    * Server-side sorting için kritik
@@ -1622,7 +1622,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   );
   // };
 
-  //! resetPageOnSortFilter
+  //TODO resetPageOnSortFilter
   /**
    * resetPageOnSortFilter: boolean
    * Sıralama veya filtreleme yapıldığında sayfayı sıfırlar
@@ -1745,7 +1745,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   />
   // );
 
-  //! rowSelection
+  //TODO rowSelection
   /**
    * rowSelection: boolean
    * Satır seçimini etkinleştirir/devre dışı bırakır
@@ -1820,7 +1820,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   />
   // );
 
-  //! showCellVerticalBorder
+  //TODO showCellVerticalBorder
   /**
    * showCellVerticalBorder: boolean
    * Hücre dikey kenarlıklarını gösterir/gizler
@@ -1840,7 +1840,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   />
   // );
 
-  //! showColumnVerticalBorder
+  //TODO showColumnVerticalBorder
   /**
    * showColumnVerticalBorder: boolean
    * Sütun dikey kenarlıklarını gösterir/gizler
@@ -1987,7 +1987,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   />
   // );
 
-  //! unstable_rowSpanning
+  //TODO unstable_rowSpanning
   /**
    * unstable_rowSpanning: boolean
    * Satır birleştirme özelliğini etkinleştirir
@@ -2017,7 +2017,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   />
   // );
 
-  //! virtualizeColumnsWithAutoRowHeight
+  //TODO virtualizeColumnsWithAutoRowHeight
   /**
    * virtualizeColumnsWithAutoRowHeight: boolean
    * Otomatik satır yüksekliği ile sütun sanallaştırmasını etkinleştirir
