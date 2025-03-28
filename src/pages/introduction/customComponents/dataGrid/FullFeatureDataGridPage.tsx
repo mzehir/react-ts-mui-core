@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import DataGridEventHandlerSection, { DataGridEventHandlers } from './section/DataGridEventHandlerSection';
-import DataGridGeneralSettingsSection from './section/DataGridGeneralSettingsSection';
+import DataGridGeneralSettingsSection, { DataGridGeneralSettings } from './section/DataGridGeneralSettingsSection';
 import { employeeColumns, employeeRows } from './fullFeatureDataGridPageTypes';
 import TypographyComp from '../../../../components/base/typography/Typography';
 import DividerComp from '../../../../components/base/divider/Divider';
@@ -13,6 +13,17 @@ import {
 
 const FullFeatureDataGridPage: React.FC = () => {
   const fullFeatureDataGridRef = useRef<FullFeatureDataGridRef>(null);
+  const [generalSettings, setGeneralSettings] = React.useState<DataGridGeneralSettings>({
+    checkboxSelection: {
+      generalSettingName: 'checkboxSelection',
+      description: 'If `true`, the Data Grid will display an extra column with checkboxes for selecting rows.',
+      enabled: false,
+    },
+  });
+
+  const handleSettingsChange = (settings: DataGridGeneralSettings) => {
+    setGeneralSettings(settings);
+  };
 
   const handleSomeAction = () => {
     const dataGrid = fullFeatureDataGridRef.current?.getDataGrid();
@@ -758,7 +769,7 @@ const FullFeatureDataGridPage: React.FC = () => {
       <br />
 
       <BoxComp display={'flex'} flexDirection={'row'} justifyContent={'end'} gap={'5px'}>
-        <DataGridGeneralSettingsSection />
+        <DataGridGeneralSettingsSection onSettingsChange={handleSettingsChange} settings={generalSettings} />
       </BoxComp>
 
       <button
@@ -774,7 +785,7 @@ const FullFeatureDataGridPage: React.FC = () => {
           ref={fullFeatureDataGridRef}
           rows={employeeRows}
           columns={employeeColumns}
-          checkboxSelection={true} // DataGridGeneralSettingsSection.tsx dosyasındaki generalSettingsState değişkenindeki checkboxSelection.enabled değeri gönderilmeli
+          checkboxSelection={generalSettings.checkboxSelection.enabled}
           // Events
           onCellClick={onCellClick}
           onCellDoubleClick={onCellDoubleClick}

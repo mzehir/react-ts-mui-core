@@ -27,27 +27,25 @@ export interface DataGridGeneralSettings {
 
 interface DataGridGeneralSettingsSectionProps {
   onEventHandlerToggle?: (eventName: string, enabled: boolean) => void;
+  onSettingsChange?: (settings: DataGridGeneralSettings) => void;
+  settings: DataGridGeneralSettings;
 }
 
-const DataGridGeneralSettingsSection: React.FC<DataGridGeneralSettingsSectionProps> = () => {
+const DataGridGeneralSettingsSection: React.FC<DataGridGeneralSettingsSectionProps> = ({
+  onSettingsChange,
+  settings,
+}) => {
   const [drawerOpen, setDrawerOpen] = React.useState<boolean>(false);
 
-  const [generalSettingsState, setGeneralSettingsState] = React.useState<DataGridGeneralSettings>({
-    checkboxSelection: {
-      generalSettingName: 'checkboxSelection',
-      description: 'If `true`, the Data Grid will display an extra column with checkboxes for selecting rows.',
-      enabled: false,
-    },
-  });
-
   const handleGeneralSettingsToggle = (name: string, enabled: boolean) => {
-    setGeneralSettingsState((prev) => ({
-      ...prev,
+    const newState = {
+      ...settings,
       [name]: {
-        ...prev[name],
+        ...settings[name],
         enabled,
       },
-    }));
+    };
+    onSettingsChange?.(newState);
   };
 
   return (
@@ -58,7 +56,7 @@ const DataGridGeneralSettingsSection: React.FC<DataGridGeneralSettingsSectionPro
 
       <DrawerComp anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <DrawerRoot>
-          {Object.entries(generalSettingsState).map(([key, setting]) => (
+          {Object.entries(settings).map(([key, setting]) => (
             <BoxComp key={key} display={'flex'} flexDirection={'column'} gap={'5px'} marginBottom={'25px'}>
               <DividerComp>
                 <ChipComp color="warning" label={setting.generalSettingName} />
