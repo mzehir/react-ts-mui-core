@@ -771,9 +771,11 @@ const FullFeatureDataGridPage: React.FC = () => {
 
       <BoxComp sx={{ height: 250, width: '100%' }}>
         <FullFeatureDataGrid
+          ref={fullFeatureDataGridRef}
           rows={employeeRows}
           columns={employeeColumns}
-          ref={fullFeatureDataGridRef}
+          checkboxSelection={true} // DataGridGeneralSettingsSection.tsx dosyasındaki generalSettingsState değişkenindeki checkboxSelection.enabled değeri gönderilmeli
+          // Events
           onCellClick={onCellClick}
           onCellDoubleClick={onCellDoubleClick}
           onCellEditStart={onCellEditStart}

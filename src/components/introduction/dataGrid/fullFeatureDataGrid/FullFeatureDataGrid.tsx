@@ -9,6 +9,8 @@ const FullFeatureDataGrid = forwardRef<FullFeatureDataGridRef, FullFeatureDataGr
   const {
     columns,
     rows,
+    checkboxSelection,
+    // Events
     onCellClick,
     onCellDoubleClick,
     onCellEditStart,
@@ -67,6 +69,8 @@ const FullFeatureDataGrid = forwardRef<FullFeatureDataGridRef, FullFeatureDataGr
       apiRef={apiRef}
       columns={preparedColumns}
       rows={rows}
+      checkboxSelection={checkboxSelection}
+      // Events
       onCellClick={onCellClick}
       onCellDoubleClick={onCellDoubleClick}
       onCellEditStart={onCellEditStart}

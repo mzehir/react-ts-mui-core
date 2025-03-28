@@ -32,6 +32,9 @@ export interface FullFeatureDataGridProps {
 
   rows: DataGridCompValidRowModel[];
 
+  checkboxSelection?: boolean;
+
+  // Events
   onCellClick?: (params: GridCellParams, event: React.MouseEvent, details: GridCallbackDetails) => void;
 
   onCellDoubleClick?: (params: GridCellParams, event: React.MouseEvent, details: GridCallbackDetails) => void;
