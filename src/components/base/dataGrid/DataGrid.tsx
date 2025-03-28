@@ -4,7 +4,7 @@ import { DataGridCompProps, dataGridCompDefaultProps } from './dataGridHelper';
 const DataGridComp = (props: DataGridCompProps) => {
   const { ...dataGridProps } = { ...dataGridCompDefaultProps, ...props };
 
-  return <DataGrid disableDensitySelector {...dataGridProps} />;
+  return <DataGrid {...dataGridProps} />;
 };
 
 DataGridComp.displayName = 'DataGridComp';
