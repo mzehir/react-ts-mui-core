@@ -154,7 +154,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   // <DataGrid clipboardCopyCellDelimiter="\t" /> // Tab ile ayırma
   // <DataGrid clipboardCopyCellDelimiter="," />  // Virgül ile ayırma
 
-  //! columnBufferPx
+  //TODO columnBufferPx
   /**
    * columnBufferPx: Sütunların önbellek piksel değeri.
    * Kullanım amacı: Yatay kaydırmada performansı optimize etmek.
@@ -166,7 +166,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
 
   // <DataGrid columnBufferPx={200} />
 
-  //! columnGroupHeaderHeight
+  //TODO columnGroupHeaderHeight
   /**
    * columnGroupHeaderHeight: Grup başlıklarının yüksekliği.
    * Kullanım amacı: Gruplanmış sütun başlıklarının yüksekliğini ayarlar.
@@ -391,7 +391,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   // }}
   // />
 
-  //! estimatedRowCount
+  //TODO estimatedRowCount
   /**
    * estimatedRowCount: Tahmini toplam satır sayısı.
    * Kullanım amacı: Sanallaştırma ve kaydırma performansını optimize etmek
@@ -431,7 +431,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   }}
   // />
 
-  //! filterDebounceMs
+  //TODO filterDebounceMs
   /**
    * filterDebounceMs: Filtreleme işlemi için bekleme süresi (milisaniye)
    * Kullanım amacı: Filtreleme performansını optimize etmek
@@ -1494,7 +1494,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   }
   // };
 
-  //! pageSizeOptions
+  //!? pageSizeOptions
   /**
    * pageSizeOptions: Sayfa başına gösterilecek kayıt sayısı seçenekleri
    * Varsayılan: [25, 50, 100]
@@ -1640,7 +1640,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   />
   // );
 
-  //! resizeThrottleMs
+  //TODO resizeThrottleMs
   /**
    * resizeThrottleMs: number
    * Yeniden boyutlandırma olaylarının throttle süresi (ms)
@@ -1658,7 +1658,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   />
   // );
 
-  //! rowBufferPx
+  //TODO rowBufferPx
   /**
    * rowBufferPx: number
    * Görünür alanın üstünde ve altında tamponlanacak piksel miktarı
@@ -1674,7 +1674,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   />
   // );
 
-  //! rowCount
+  //TODO rowCount
   /**
    * rowCount: number
    * Toplam satır sayısı
@@ -1689,7 +1689,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   />
   // );
 
-  //! rowHeight
+  //TODO rowHeight
   /**
    * rowHeight: number
    * Satır yüksekliği (piksel)
@@ -1800,7 +1800,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   />
   // );
 
-  //! scrollbarSize
+  //TODO scrollbarSize
   /**
    * scrollbarSize: number
    * Kaydırma çubuğunun boyutunu piksel cinsinden belirler

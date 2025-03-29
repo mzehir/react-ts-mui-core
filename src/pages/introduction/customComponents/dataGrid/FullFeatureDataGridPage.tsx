@@ -203,12 +203,67 @@ const FullFeatureDataGridPage: React.FC = () => {
       type: 'boolean',
     },
     // Number
-    columnHeaderHeight: {
+    columnBufferPx: {
       generalSettingTitle: 'introduction.numberSettinsTitle',
+      generalSettingName: 'columnBufferPx',
+      description: 'introduction.dataGridColumnBufferPxDescription',
+      type: 'number',
+      value: 150,
+    },
+    columnGroupHeaderHeight: {
+      generalSettingName: 'columnGroupHeaderHeight',
+      description: 'introduction.dataGridColumnGroupHeaderHeightDescription',
+      type: 'number',
+      value: 56,
+    },
+    columnHeaderHeight: {
       generalSettingName: 'columnHeaderHeight',
       description: 'introduction.dataGridColumnHeaderHeightDescription',
       type: 'number',
       value: 56,
+    },
+
+    estimatedRowCount: {
+      generalSettingName: 'estimatedRowCount',
+      description: 'introduction.dataGridEstimatedRowCountDescription',
+      type: 'number',
+      value: 0,
+    },
+    filterDebounceMs: {
+      generalSettingName: 'filterDebounceMs',
+      description: 'introduction.dataGridFilterDebounceMsDescription',
+      type: 'number',
+      value: 150,
+    },
+    resizeThrottleMs: {
+      generalSettingName: 'resizeThrottleMs',
+      description: 'introduction.dataGridResizeThrottleMsDescription',
+      type: 'number',
+      value: 60,
+    },
+    rowBufferPx: {
+      generalSettingName: 'rowBufferPx',
+      description: 'introduction.dataGridRowBufferPxDescription',
+      type: 'number',
+      value: 150,
+    },
+    rowCount: {
+      generalSettingName: 'rowCount',
+      description: 'introduction.dataGridRowCountDescription',
+      type: 'number',
+      value: 0,
+    },
+    rowHeight: {
+      generalSettingName: 'rowHeight',
+      description: 'introduction.dataGridRowHeightDescription',
+      type: 'number',
+      value: 52,
+    },
+    scrollbarSize: {
+      generalSettingName: 'scrollbarSize',
+      description: 'introduction.dataGridScrollbarSizeDescription',
+      type: 'number',
+      value: 0,
     },
   });
 
@@ -1001,7 +1056,16 @@ const FullFeatureDataGridPage: React.FC = () => {
           unstable_rowSpanning={generalSettings.unstable_rowSpanning.enabled}
           virtualizeColumnsWithAutoRowHeight={generalSettings.virtualizeColumnsWithAutoRowHeight.enabled}
           // General Setting Number
+          columnBufferPx={generalSettings.columnBufferPx.value}
+          columnGroupHeaderHeight={generalSettings.columnGroupHeaderHeight.value}
           columnHeaderHeight={generalSettings.columnHeaderHeight.value}
+          estimatedRowCount={generalSettings.estimatedRowCount.value}
+          filterDebounceMs={generalSettings.filterDebounceMs.value}
+          resizeThrottleMs={generalSettings.resizeThrottleMs.value}
+          rowBufferPx={generalSettings.rowBufferPx.value}
+          rowCount={generalSettings.rowCount.value}
+          rowHeight={generalSettings.rowHeight.value}
+          scrollbarSize={generalSettings.scrollbarSize.value}
           // General Setting Events
           onCellClick={onCellClick}
           onCellDoubleClick={onCellDoubleClick}

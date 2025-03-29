@@ -95,7 +95,25 @@ export interface FullFeatureDataGridProps {
 
   // General Setting Number
 
+  columnBufferPx?: number;
+
+  columnGroupHeaderHeight?: number;
+
   columnHeaderHeight?: number;
+
+  estimatedRowCount?: number;
+
+  filterDebounceMs?: number;
+
+  resizeThrottleMs?: number;
+
+  rowBufferPx?: number;
+
+  rowCount?: number;
+
+  rowHeight?: number;
+
+  scrollbarSize?: number;
 
   // General Setting Events
 

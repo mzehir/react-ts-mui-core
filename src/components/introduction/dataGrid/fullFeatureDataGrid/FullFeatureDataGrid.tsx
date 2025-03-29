@@ -38,7 +38,16 @@ const FullFeatureDataGrid = forwardRef<FullFeatureDataGridRef, FullFeatureDataGr
     unstable_rowSpanning,
     virtualizeColumnsWithAutoRowHeight,
     // General Setting Number
+    columnBufferPx,
+    columnGroupHeaderHeight,
     columnHeaderHeight,
+    estimatedRowCount,
+    filterDebounceMs,
+    resizeThrottleMs,
+    rowBufferPx,
+    rowCount,
+    rowHeight,
+    scrollbarSize,
     // General Setting Events
     onCellClick,
     onCellDoubleClick,
@@ -127,7 +136,16 @@ const FullFeatureDataGrid = forwardRef<FullFeatureDataGridRef, FullFeatureDataGr
       unstable_rowSpanning={unstable_rowSpanning}
       virtualizeColumnsWithAutoRowHeight={virtualizeColumnsWithAutoRowHeight}
       // General Setting Number
+      columnBufferPx={columnBufferPx}
+      columnGroupHeaderHeight={columnGroupHeaderHeight}
       columnHeaderHeight={columnHeaderHeight}
+      estimatedRowCount={estimatedRowCount}
+      filterDebounceMs={filterDebounceMs}
+      resizeThrottleMs={resizeThrottleMs}
+      rowBufferPx={rowBufferPx}
+      rowCount={rowCount}
+      rowHeight={rowHeight}
+      scrollbarSize={scrollbarSize}
       // General Setting Events
       onCellClick={onCellClick}
       onCellDoubleClick={onCellDoubleClick}
