@@ -207,7 +207,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   }}
   // />
 
-  //! density
+  //TODO density
   /**
    * density: Grid satırlarının yüksekliğini belirler.
    * Değerler: 'compact' | 'comfortable' | 'standard'
@@ -347,7 +347,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
 
   // <DataGrid disableVirtualization />
 
-  //! editMode
+  //TODO editMode
   /**
    * editMode: Grid'in düzenleme modunu belirler.
    * Değerler: 'cell' | 'row'
@@ -469,7 +469,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   // );
   // };
 
-  //! filterMode
+  //TODO filterMode
   /**
    * filterMode: Filtreleme modunu belirler
    * Değerler: 'client' | 'server'
@@ -1537,7 +1537,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   />
   // );
 
-  //! paginationMode
+  //TODO paginationMode
   /**
    * paginationMode: 'client' | 'server'
    * Sayfalama işleminin nerede yapılacağını belirler
@@ -1782,7 +1782,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   );
   // };
 
-  //! rowSpacingType
+  //TODO rowSpacingType
   /**
    * rowSpacingType: 'margin' | 'border'
    * Satır aralığı tipini belirler
@@ -1901,7 +1901,7 @@ export const dataGridCompDefaultProps: Partial<DataGridCompProps> = {
   //   />
   // );
 
-  //! sortingMode
+  //TODO sortingMode
   /**
    * sortingMode: 'client' | 'server'
    * Sıralama işleminin nerede yapılacağını belirler

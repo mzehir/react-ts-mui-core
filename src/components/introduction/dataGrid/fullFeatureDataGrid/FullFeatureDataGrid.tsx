@@ -48,6 +48,13 @@ const FullFeatureDataGrid = forwardRef<FullFeatureDataGridRef, FullFeatureDataGr
     rowCount,
     rowHeight,
     scrollbarSize,
+    // General Setting Select
+    density,
+    editMode,
+    filterMode,
+    paginationMode,
+    rowSpacingType,
+    sortingMode,
     // General Setting Events
     onCellClick,
     onCellDoubleClick,
@@ -146,6 +153,13 @@ const FullFeatureDataGrid = forwardRef<FullFeatureDataGridRef, FullFeatureDataGr
       rowCount={rowCount}
       rowHeight={rowHeight}
       scrollbarSize={scrollbarSize}
+      // General Setting Select
+      density={density}
+      editMode={editMode}
+      filterMode={filterMode}
+      paginationMode={paginationMode}
+      rowSpacingType={rowSpacingType}
+      sortingMode={sortingMode}
       // General Setting Events
       onCellClick={onCellClick}
       onCellDoubleClick={onCellDoubleClick}

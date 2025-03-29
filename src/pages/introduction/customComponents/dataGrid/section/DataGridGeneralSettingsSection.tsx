@@ -9,6 +9,8 @@ import FormControlLabelComp from '../../../../../components/base/formControlLabe
 import SwitchComp from '../../../../../components/base/switch/Switch';
 import AlertComp from '../../../../../components/base/alert/Alert';
 import TextFieldComp from '../../../../../components/base/textField/TextField';
+import SelectComp from '../../../../../components/base/select/Select';
+import MenuItemComp from '../../../../../components/base/menuItem/MenuItem';
 
 const DrawerRoot = styled(BoxComp)`
   width: 270px;
@@ -21,8 +23,9 @@ interface GeneralSetting {
   generalSettingName: string;
   description: string;
   enabled?: boolean;
-  value?: number;
-  type: 'boolean' | 'number';
+  value?: number | string;
+  type: 'boolean' | 'number' | 'select';
+  options?: { value: string; label: string }[];
 }
 
 export interface DataGridGeneralSettings {
@@ -53,6 +56,17 @@ const DataGridGeneralSettingsSection: React.FC<DataGridGeneralSettingsSectionPro
   };
 
   const handleNumberValueChange = (name: string, value: number) => {
+    const newState = {
+      ...settings,
+      [name]: {
+        ...settings[name],
+        value,
+      },
+    };
+    onSettingsChange?.(newState);
+  };
+
+  const handleSelectValueChange = (name: string, value: string) => {
     const newState = {
       ...settings,
       [name]: {
@@ -103,7 +117,7 @@ const DataGridGeneralSettingsSection: React.FC<DataGridGeneralSettingsSectionPro
                       }
                       label=""
                     />
-                  ) : (
+                  ) : setting.type === 'number' ? (
                     <TextFieldComp
                       sx={{ marginTop: '5px' }}
                       fullWidth={true}
@@ -112,6 +126,21 @@ const DataGridGeneralSettingsSection: React.FC<DataGridGeneralSettingsSectionPro
                       onChange={(e) => handleNumberValueChange(setting.generalSettingName, Number(e.target.value))}
                       size="small"
                     />
+                  ) : (
+                    <SelectComp
+                      sx={{ marginTop: '5px' }}
+                      fullWidth={true}
+                      size="small"
+                      items={setting.options ?? []}
+                      value={setting.value || ''}
+                      onChange={(e) => handleSelectValueChange(setting.generalSettingName, e.target.value as string)}
+                    >
+                      {setting.options?.map((option) => (
+                        <MenuItemComp key={option.value} value={option.value}>
+                          {option.label}
+                        </MenuItemComp>
+                      ))}
+                    </SelectComp>
                   )}
                 </BoxComp>
               </BoxComp>

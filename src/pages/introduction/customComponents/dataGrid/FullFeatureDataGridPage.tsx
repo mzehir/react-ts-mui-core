@@ -25,7 +25,7 @@ const FullFeatureDataGridPage: React.FC = () => {
   const [generalSettings, setGeneralSettings] = React.useState<DataGridGeneralSettings>({
     // Boolean
     autoPageSize: {
-      generalSettingTitle: 'introduction.booleanSettinsTitle',
+      generalSettingTitle: 'introduction.booleanSettingsTitle',
       generalSettingName: 'autoPageSize',
       description: 'introduction.dataGridAutoPageSizeDescription',
       enabled: false,
@@ -204,7 +204,7 @@ const FullFeatureDataGridPage: React.FC = () => {
     },
     // Number
     columnBufferPx: {
-      generalSettingTitle: 'introduction.numberSettinsTitle',
+      generalSettingTitle: 'introduction.numberSettingsTitle',
       generalSettingName: 'columnBufferPx',
       description: 'introduction.dataGridColumnBufferPxDescription',
       type: 'number',
@@ -264,6 +264,74 @@ const FullFeatureDataGridPage: React.FC = () => {
       description: 'introduction.dataGridScrollbarSizeDescription',
       type: 'number',
       value: 0,
+    },
+    // Select
+    density: {
+      generalSettingTitle: 'introduction.selectSettingsTitle',
+      generalSettingName: 'density',
+      description: 'introduction.dataGridDensityDescription',
+      type: 'select',
+      value: 'standard',
+      options: [
+        { value: 'compact', label: 'Compact' },
+        { value: 'comfortable', label: 'Comfortable' },
+        { value: 'standard', label: 'Standard' },
+      ],
+    },
+
+    editMode: {
+      generalSettingName: 'editMode',
+      description: 'introduction.dataGridEditModeDescription',
+      type: 'select',
+      value: 'cell',
+      options: [
+        { value: 'cell', label: 'Cell' },
+        { value: 'row', label: 'Row' },
+      ],
+    },
+
+    filterMode: {
+      generalSettingName: 'filterMode',
+      description: 'introduction.dataGridFilterModeDescription',
+      type: 'select',
+      value: 'client',
+      options: [
+        { value: 'client', label: 'Client' },
+        { value: 'server', label: 'Server' },
+      ],
+    },
+
+    paginationMode: {
+      generalSettingName: 'paginationMode',
+      description: 'introduction.dataGridPaginationModeDescription',
+      type: 'select',
+      value: 'client',
+      options: [
+        { value: 'client', label: 'Client' },
+        { value: 'server', label: 'Server' },
+      ],
+    },
+
+    rowSpacingType: {
+      generalSettingName: 'rowSpacingType',
+      description: 'introduction.dataGridRowSpacingTypeDescription',
+      type: 'select',
+      value: 'margin',
+      options: [
+        { value: 'margin', label: 'Margin' },
+        { value: 'border', label: 'Border' },
+      ],
+    },
+
+    sortingMode: {
+      generalSettingName: 'sortingMode',
+      description: 'introduction.dataGridSortingModeDescription',
+      type: 'select',
+      value: 'client',
+      options: [
+        { value: 'client', label: 'Client' },
+        { value: 'server', label: 'Server' },
+      ],
     },
   });
 
@@ -1056,16 +1124,23 @@ const FullFeatureDataGridPage: React.FC = () => {
           unstable_rowSpanning={generalSettings.unstable_rowSpanning.enabled}
           virtualizeColumnsWithAutoRowHeight={generalSettings.virtualizeColumnsWithAutoRowHeight.enabled}
           // General Setting Number
-          columnBufferPx={generalSettings.columnBufferPx.value}
-          columnGroupHeaderHeight={generalSettings.columnGroupHeaderHeight.value}
-          columnHeaderHeight={generalSettings.columnHeaderHeight.value}
-          estimatedRowCount={generalSettings.estimatedRowCount.value}
-          filterDebounceMs={generalSettings.filterDebounceMs.value}
-          resizeThrottleMs={generalSettings.resizeThrottleMs.value}
-          rowBufferPx={generalSettings.rowBufferPx.value}
-          rowCount={generalSettings.rowCount.value}
-          rowHeight={generalSettings.rowHeight.value}
-          scrollbarSize={generalSettings.scrollbarSize.value}
+          columnBufferPx={Number(generalSettings.columnBufferPx.value)}
+          columnGroupHeaderHeight={Number(generalSettings.columnGroupHeaderHeight.value)}
+          columnHeaderHeight={Number(generalSettings.columnHeaderHeight.value)}
+          estimatedRowCount={Number(generalSettings.estimatedRowCount.value)}
+          filterDebounceMs={Number(generalSettings.filterDebounceMs.value)}
+          resizeThrottleMs={Number(generalSettings.resizeThrottleMs.value)}
+          rowBufferPx={Number(generalSettings.rowBufferPx.value)}
+          rowCount={Number(generalSettings.rowCount.value)}
+          rowHeight={Number(generalSettings.rowHeight.value)}
+          scrollbarSize={Number(generalSettings.scrollbarSize.value)}
+          // General Setting Select
+          density={generalSettings.density.value as 'compact' | 'standard' | 'comfortable'}
+          editMode={generalSettings.editMode.value as 'cell' | 'row'}
+          filterMode={generalSettings.filterMode.value as 'client' | 'server'}
+          paginationMode={generalSettings.paginationMode.value as 'client' | 'server'}
+          rowSpacingType={generalSettings.rowSpacingType.value as 'margin' | 'border'}
+          sortingMode={generalSettings.sortingMode.value as 'client' | 'server'}
           // General Setting Events
           onCellClick={onCellClick}
           onCellDoubleClick={onCellDoubleClick}

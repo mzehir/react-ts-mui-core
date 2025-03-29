@@ -115,6 +115,20 @@ export interface FullFeatureDataGridProps {
 
   scrollbarSize?: number;
 
+  // General Setting Select
+
+  density?: 'compact' | 'comfortable' | 'standard';
+
+  editMode?: 'cell' | 'row';
+
+  filterMode?: 'client' | 'server';
+
+  paginationMode?: 'client' | 'server';
+
+  rowSpacingType?: 'margin' | 'border';
+
+  sortingMode?: 'client' | 'server';
+
   // General Setting Events
 
   onCellClick?: (params: GridCellParams, event: React.MouseEvent, details: GridCallbackDetails) => void;
