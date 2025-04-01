@@ -9,6 +9,7 @@ type CustomComponentRouterItems = {
   INTRODUCTION_CUSTOM_FILTER_PAGE: RouterItem;
   INTRODUCTION_CUSTOM_TABLE_PAGE: RouterItem;
   INTRODUCTION_FULL_FEATURE_DATA_GRID_PAGE: RouterItem;
+  INTRODUCTION_LIST_DATA_GRID_PAGE: RouterItem;
   INTRODUCTION_TEXT_EDITOR_PAGE: RouterItem;
   [key: string]: RouterItem;
 };
@@ -43,6 +44,14 @@ export const CUSTOM_COMPONENT_ROUTER_ITEMS: CustomComponentRouterItems = {
     key: 'INTRODUCTION_FULL_FEATURE_DATA_GRID_PAGE',
     label: 'routes.fullFeatureDataGrid',
     path: '/introduction-full-feature-data-grid-component',
+    icon: Grid4x4Icon,
+  },
+  INTRODUCTION_LIST_DATA_GRID_PAGE: {
+    whoCanSeeForPage: ['admin'],
+    parentKey: 'CUSTOM_COMPONENT_ROUTER_ITEMS',
+    key: 'INTRODUCTION_LIST_DATA_GRID_PAGE',
+    label: 'routes.listDataGrid',
+    path: '/introduction-list-data-grid-component',
     icon: Grid4x4Icon,
   },
   INTRODUCTION_TEXT_EDITOR_PAGE: {

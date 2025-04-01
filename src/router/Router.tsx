@@ -21,6 +21,7 @@ import DialogPage from '../pages/introduction/components/dialog/DialogPage';
 import CustomFilterPage from '../pages/introduction/customComponents/customFilter/CustomFilterPage';
 import CustomTablePage from '../pages/introduction/customComponents/table/CustomTablePage';
 import FullFeatureDataGridPage from '../pages/introduction/customComponents/dataGrid/fullFeatureDataGrid/FullFeatureDataGridPage';
+import ListDataGridPage from '../pages/introduction/customComponents/dataGrid/listDataGrid/ListDataGridPage';
 import TextEditorPage from '../pages/introduction/customComponents/textEditor/TextEditorPage';
 // Custom Components Introduction
 import OrderProjectPage from '../pages/introduction/simpleProjects/orderProject/OrderProjectPage';
@@ -203,6 +204,16 @@ const customComponentsIntroductionRouter = [
       <Guard routeKey={allRoutes.INTRODUCTION_FULL_FEATURE_DATA_GRID_PAGE.key}>
         <DefaultLayout>
           <FullFeatureDataGridPage />
+        </DefaultLayout>
+      </Guard>
+    ),
+  },
+  {
+    path: allRoutes.INTRODUCTION_LIST_DATA_GRID_PAGE.path,
+    element: (
+      <Guard routeKey={allRoutes.INTRODUCTION_LIST_DATA_GRID_PAGE.key}>
+        <DefaultLayout>
+          <ListDataGridPage />
         </DefaultLayout>
       </Guard>
     ),
