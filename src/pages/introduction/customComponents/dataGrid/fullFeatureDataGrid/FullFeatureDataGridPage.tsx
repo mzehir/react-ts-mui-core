@@ -2,15 +2,15 @@ import React, { useRef } from 'react';
 import DataGridEventHandlerSection, { DataGridEventHandlers } from './section/DataGridEventHandlerSection';
 import DataGridGeneralSettingsSection, { DataGridGeneralSettings } from './section/DataGridGeneralSettingsSection';
 import { employeeColumns, employeeRows } from './fullFeatureDataGridPageTypes';
-import TypographyComp from '../../../../components/base/typography/Typography';
-import DividerComp from '../../../../components/base/divider/Divider';
-import BoxComp from '../../../../components/base/box/Box';
-import FullFeatureDataGrid from '../../../../components/introduction/dataGrid/fullFeatureDataGrid/FullFeatureDataGrid';
+import TypographyComp from '../../../../../components/base/typography/Typography';
+import DividerComp from '../../../../../components/base/divider/Divider';
+import BoxComp from '../../../../../components/base/box/Box';
+import FullFeatureDataGrid from '../../../../../components/introduction/dataGrid/fullFeatureDataGrid/FullFeatureDataGrid';
 import {
   FullFeatureDataGridProps,
   FullFeatureDataGridRef,
-} from '../../../../components/introduction/dataGrid/fullFeatureDataGrid/fullFeatureDataGridTypes';
-import ButtonComp from '../../../../components/base/button/Button';
+} from '../../../../../components/introduction/dataGrid/fullFeatureDataGrid/fullFeatureDataGridTypes';
+import ButtonComp from '../../../../../components/base/button/Button';
 
 const FullFeatureDataGridPage: React.FC = () => {
   const fullFeatureDataGridRef = useRef<FullFeatureDataGridRef>(null);

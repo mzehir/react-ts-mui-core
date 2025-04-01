@@ -1,13 +1,13 @@
 import React from 'react';
-import TypographyComp from '../../../../../components/base/typography/Typography';
-import DividerComp from '../../../../../components/base/divider/Divider';
-import GridComp from '../../../../../components/base/grid/Grid';
-import CardComp from '../../../../../components/base/card/Card';
-import CardContentComp from '../../../../../components/base/cardContent/CardContent';
-import BoxComp from '../../../../../components/base/box/Box';
-import ChipComp from '../../../../../components/base/chip/Chip';
-import FormControlLabelComp from '../../../../../components/base/formControlLabel/FormControlLabel';
-import SwitchComp from '../../../../../components/base/switch/Switch';
+import TypographyComp from '../../../../../../components/base/typography/Typography';
+import DividerComp from '../../../../../../components/base/divider/Divider';
+import GridComp from '../../../../../../components/base/grid/Grid';
+import CardComp from '../../../../../../components/base/card/Card';
+import CardContentComp from '../../../../../../components/base/cardContent/CardContent';
+import BoxComp from '../../../../../../components/base/box/Box';
+import ChipComp from '../../../../../../components/base/chip/Chip';
+import FormControlLabelComp from '../../../../../../components/base/formControlLabel/FormControlLabel';
+import SwitchComp from '../../../../../../components/base/switch/Switch';
 
 interface EventHandlerParameter {
   name: string;

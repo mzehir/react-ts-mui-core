@@ -1,4 +1,4 @@
-import { DataGridCompColDef } from '../../../../components/base/dataGrid/dataGridHelper';
+import { DataGridCompColDef } from '../../../../../components/base/dataGrid/dataGridHelper';
 
 export enum Gender {
   MALE = 'male',
