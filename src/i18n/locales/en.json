@@ -483,6 +483,8 @@
     "belowAverage": "Below Average",
     "poor": "Poor",
     "xxx": "xxx",
+    "showApplicableGridSettings": "Show Applicable Grid Settings",
+    "showGridRefConsole": "Show Grid Ref Information in Console",
     "eventHandlers": "Event Handlers",
     "booleanSettingsTitle": "Boolean Settings",
     "numberSettingsTitle": "Number Settings",

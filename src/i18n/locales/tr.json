@@ -483,6 +483,8 @@
     "belowAverage": "Ortalamanın Altı",
     "poor": "Zayıf",
     "xxx": "xxx",
+    "showApplicableGridSettings": "Uygulanabilir Grid Ayarlarını Göster",
+    "showGridRefConsole": "Konsolda Grid Ref Bilgisini Göster",
     "eventHandlers": "Olay İşleyicileri",
     "booleanSettingsTitle": "Boolean Ayarlar",
     "numberSettingsTitle": "Number Ayarlar",

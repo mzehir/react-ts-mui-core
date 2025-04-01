@@ -80,7 +80,7 @@ const DataGridGeneralSettingsSection: React.FC<DataGridGeneralSettingsSectionPro
   return (
     <>
       <ButtonComp variant="contained" color="success" onClick={() => setDrawerOpen(true)}>
-        Uygulanabilir Data Grid Ayarlarını Göster
+        introduction.showApplicableGridSettings
       </ButtonComp>
 
       <DrawerComp anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>

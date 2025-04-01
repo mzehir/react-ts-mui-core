@@ -10,6 +10,7 @@ import {
   FullFeatureDataGridProps,
   FullFeatureDataGridRef,
 } from '../../../../components/introduction/dataGrid/fullFeatureDataGrid/fullFeatureDataGridTypes';
+import ButtonComp from '../../../../components/base/button/Button';
 
 const FullFeatureDataGridPage: React.FC = () => {
   const fullFeatureDataGridRef = useRef<FullFeatureDataGridRef>(null);
@@ -31,63 +32,54 @@ const FullFeatureDataGridPage: React.FC = () => {
       enabled: false,
       type: 'boolean',
     },
-
     autosizeOnMount: {
       generalSettingName: 'autosizeOnMount',
       description: 'introduction.dataGridAutosizeOnMountDescription',
       enabled: false,
       type: 'boolean',
     },
-
     checkboxSelection: {
       generalSettingName: 'checkboxSelection',
       description: 'introduction.dataGridCheckboxSelectionDescription',
       enabled: false,
       type: 'boolean',
     },
-
     disableAutosize: {
       generalSettingName: 'disableAutosize',
       description: 'introduction.dataGridDisableAutosizeDescription',
       enabled: false,
       type: 'boolean',
     },
-
     disableColumnFilter: {
       generalSettingName: 'disableColumnFilter',
       description: 'introduction.dataGridDisableColumnFilterDescription',
       enabled: false,
       type: 'boolean',
     },
-
     disableColumnMenu: {
       generalSettingName: 'disableColumnMenu',
       description: 'introduction.dataGridDisableColumnMenuDescription',
       enabled: false,
       type: 'boolean',
     },
-
     disableColumnResize: {
       generalSettingName: 'disableColumnResize',
       description: 'introduction.dataGridDisableColumnResizeDescription',
       enabled: false,
       type: 'boolean',
     },
-
     disableColumnSelector: {
       generalSettingName: 'disableColumnSelector',
       description: 'introduction.dataGridDisableColumnSelectorDescription',
       enabled: false,
       type: 'boolean',
     },
-
     disableColumnSorting: {
       generalSettingName: 'disableColumnSorting',
       description: 'introduction.dataGridDisableColumnSortingDescription',
       enabled: false,
       type: 'boolean',
     },
-
     disableDensitySelector: {
       generalSettingName: 'disableDensitySelector',
       description: 'introduction.dataGridDisableDensitySelectorDescription',
@@ -222,7 +214,6 @@ const FullFeatureDataGridPage: React.FC = () => {
       type: 'number',
       value: 56,
     },
-
     estimatedRowCount: {
       generalSettingName: 'estimatedRowCount',
       description: 'introduction.dataGridEstimatedRowCountDescription',
@@ -278,7 +269,6 @@ const FullFeatureDataGridPage: React.FC = () => {
         { value: 'standard', label: 'Standard' },
       ],
     },
-
     editMode: {
       generalSettingName: 'editMode',
       description: 'introduction.dataGridEditModeDescription',
@@ -289,7 +279,6 @@ const FullFeatureDataGridPage: React.FC = () => {
         { value: 'row', label: 'Row' },
       ],
     },
-
     filterMode: {
       generalSettingName: 'filterMode',
       description: 'introduction.dataGridFilterModeDescription',
@@ -300,7 +289,6 @@ const FullFeatureDataGridPage: React.FC = () => {
         { value: 'server', label: 'Server' },
       ],
     },
-
     paginationMode: {
       generalSettingName: 'paginationMode',
       description: 'introduction.dataGridPaginationModeDescription',
@@ -311,7 +299,6 @@ const FullFeatureDataGridPage: React.FC = () => {
         { value: 'server', label: 'Server' },
       ],
     },
-
     rowSpacingType: {
       generalSettingName: 'rowSpacingType',
       description: 'introduction.dataGridRowSpacingTypeDescription',
@@ -322,7 +309,6 @@ const FullFeatureDataGridPage: React.FC = () => {
         { value: 'border', label: 'Border' },
       ],
     },
-
     sortingMode: {
       generalSettingName: 'sortingMode',
       description: 'introduction.dataGridSortingModeDescription',
@@ -1076,16 +1062,17 @@ const FullFeatureDataGridPage: React.FC = () => {
       <br />
 
       <BoxComp display={'flex'} flexDirection={'row'} justifyContent={'end'} gap={'5px'}>
+        <ButtonComp
+          variant="contained"
+          color="info"
+          onClick={() => {
+            handleSomeAction();
+          }}
+        >
+          introduction.showGridRefConsole
+        </ButtonComp>
         <DataGridGeneralSettingsSection onSettingsChange={handleSettingsChange} settings={generalSettings} />
       </BoxComp>
-
-      <button
-        onClick={() => {
-          handleSomeAction();
-        }}
-      >
-        Göster
-      </button>
 
       <BoxComp sx={{ height: 250, width: '100%' }}>
         <FullFeatureDataGrid
