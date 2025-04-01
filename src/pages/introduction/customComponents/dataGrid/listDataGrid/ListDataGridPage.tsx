@@ -4,8 +4,21 @@ import ListDataGrid from '../../../../../components/introduction/dataGrid/listDa
 import TypographyComp from '../../../../../components/base/typography/Typography';
 import DividerComp from '../../../../../components/base/divider/Divider';
 import BoxComp from '../../../../../components/base/box/Box';
+import MoodIcon from '@mui/icons-material/Mood';
 
 const ListDataGridPage: React.FC = () => {
+  const handleView = (row: unknown) => {
+    console.log('View clicked for:', row);
+  };
+
+  const handleEdit = (row: unknown) => {
+    console.log('Edit clicked for:', row);
+  };
+
+  const handleDelete = (row: unknown) => {
+    console.log('Delete clicked for:', row);
+  };
+
   return (
     <>
       <DividerComp>
@@ -18,7 +31,23 @@ const ListDataGridPage: React.FC = () => {
       <br />
 
       <BoxComp sx={{ height: 250, width: '100%' }}>
-        <ListDataGrid rows={employeeRows} columns={employeeColumns} />
+        <ListDataGrid
+          rows={employeeRows}
+          columns={employeeColumns}
+          onView={handleView}
+          onEdit={handleEdit}
+          onDelete={handleDelete}
+          operationItems={[
+            {
+              type: 'iconButton',
+              icon: <MoodIcon />,
+              color: 'warning',
+              onClick(row: unknown) {
+                console.log('operationItem clicked for:', row);
+              },
+            },
+          ]}
+        />
       </BoxComp>
     </>
   );

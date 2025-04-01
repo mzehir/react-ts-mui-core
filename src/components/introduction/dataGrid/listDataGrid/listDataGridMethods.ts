@@ -203,3 +203,32 @@ export const listDataGridPropsPrepareColumn = (column: DataGridCompColDef): Data
 
   return result;
 };
+
+interface OperationsColumnProps {
+  visibleOnView: boolean;
+  visibleOnEdit: boolean;
+  visibleOnDelete: boolean;
+  otherItemsLength: number;
+}
+
+export const listDataGridPropsPrepareOperationsColumn = ({
+  visibleOnView,
+  visibleOnEdit,
+  visibleOnDelete,
+  otherItemsLength,
+}: OperationsColumnProps): DataGridCompColDef => {
+  const actionCount = [visibleOnView, visibleOnEdit, visibleOnDelete].filter(Boolean).length;
+  const actionColumnWidth = (actionCount + otherItemsLength) * 40;
+
+  const result: DataGridCompColDef = {
+    field: 'actions',
+    headerName: '',
+    width: actionColumnWidth,
+    sortable: false,
+    filterable: false,
+    hideable: false,
+    disableColumnMenu: true,
+  };
+
+  return result;
+};
