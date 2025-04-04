@@ -7,7 +7,7 @@ export interface ListDataGridRef {
   getDataGrid: () => GridApi;
 }
 
-export type ProcessColumnItemFields =
+export type OperationColumnItemFields =
   | {
       type: 'iconButton';
       icon: ReactNode;
@@ -30,5 +30,5 @@ export interface ListDataGridProps {
   onView?: (row: unknown) => void;
   onEdit?: (row: unknown) => void;
   onDelete?: (row: unknown) => void;
-  operationItems?: ProcessColumnItemFields[];
+  operationItems?: OperationColumnItemFields[];
 }
