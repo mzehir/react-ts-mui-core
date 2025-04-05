@@ -1,21 +1,55 @@
-import React, { forwardRef, useImperativeHandle, useMemo } from 'react';
+import React from 'react';
 import useLanguageContext from '../../../../hooks/useLanguageContext';
+import { styled } from '@mui/material/styles';
 import { ListDataGridProps, ListDataGridRef } from './listDataGridTypes';
 import { listDataGridPropsPrepareColumn, listDataGridPropsPrepareOperationsColumn } from './listDataGridMethods';
+import { useGridApiRef, GridRenderCellParams } from '@mui/x-data-grid';
 import DataGridComp from '../../../base/dataGrid/DataGrid';
 import BoxComp from '../../../base/box/Box';
 import IconButtonComp from '../../../base/iconButton/IconButton';
-import { useGridApiRef, GridRenderCellParams } from '@mui/x-data-grid';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const ListDataGrid = forwardRef<ListDataGridRef, ListDataGridProps>((props, ref) => {
+const StyledDataGrid = styled(DataGridComp)(({ theme }) => ({
+  '& .MuiDataGrid-columnHeader[data-field="operations"]': {
+    position: 'sticky',
+    left: 0,
+    zIndex: 4,
+    backgroundColor: theme.palette.background.paper,
+    '&::after': {
+      content: '""',
+      position: 'absolute',
+      right: 0,
+      top: 0,
+      bottom: 0,
+      width: '1px',
+      backgroundColor: theme.palette.divider,
+    },
+  },
+  '& .MuiDataGrid-cell[data-field="operations"]': {
+    position: 'sticky',
+    left: 0,
+    zIndex: 3,
+    backgroundColor: theme.palette.background.paper,
+    '&::after': {
+      content: '""',
+      position: 'absolute',
+      right: 0,
+      top: 0,
+      bottom: 0,
+      width: '1px',
+      backgroundColor: theme.palette.divider,
+    },
+  },
+}));
+
+const ListDataGrid = React.forwardRef<ListDataGridRef, ListDataGridProps>((props, ref) => {
   const { columns, rows, onView, onEdit, onDelete, operationItems } = props;
   const { translate } = useLanguageContext();
   const apiRef = useGridApiRef();
 
-  const operationsColumn = useMemo(
+  const operationsColumn = React.useMemo(
     () => ({
       ...listDataGridPropsPrepareOperationsColumn({
         visibleOnView: onView ? true : false,
@@ -90,8 +124,9 @@ const ListDataGrid = forwardRef<ListDataGridRef, ListDataGridProps>((props, ref)
     [onView, onEdit, onDelete, operationItems],
   );
 
-  const preparedColumns = useMemo(() => {
+  const preparedColumns = React.useMemo(() => {
     const hasOperations = onView || onEdit || onDelete || (operationItems && operationItems.length > 0);
+
     const preparedCols = columns.map((column) => ({
       ...listDataGridPropsPrepareColumn(column),
       headerName: column.isTranslation === false ? column.headerName : translate(column.headerName as string),
@@ -100,12 +135,12 @@ const ListDataGrid = forwardRef<ListDataGridRef, ListDataGridProps>((props, ref)
     return hasOperations ? [operationsColumn, ...preparedCols] : preparedCols;
   }, [columns, translate, onView, onEdit, onDelete, operationItems, operationsColumn]);
 
-  useImperativeHandle(ref, () => ({
+  React.useImperativeHandle(ref, () => ({
     getDataGrid: () => apiRef.current,
   }));
 
   return (
-    <DataGridComp
+    <StyledDataGrid
       columns={preparedColumns}
       rows={rows}
       showCellVerticalBorder={true}
@@ -113,6 +148,7 @@ const ListDataGrid = forwardRef<ListDataGridRef, ListDataGridProps>((props, ref)
       hideFooter={true}
       hideFooterPagination={true}
       hideFooterSelectedRowCount={true}
+      disableVirtualization={true}
     />
   );
 });

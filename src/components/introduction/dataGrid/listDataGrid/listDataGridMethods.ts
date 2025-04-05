@@ -221,7 +221,7 @@ export const listDataGridPropsPrepareOperationsColumn = ({
   const actionColumnWidth = (actionCount + otherItemsLength) * 40;
 
   const result: DataGridCompColDef = {
-    field: 'actions',
+    field: 'operations',
     headerName: '',
     width: actionColumnWidth,
     sortable: false,
