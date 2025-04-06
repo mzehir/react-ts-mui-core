@@ -1,12 +1,17 @@
 import React from 'react';
-import { employeeColumns, employeeRows } from './listDataGridPageTypes';
+import { employeeColumns, employeeRows, ListDataGridRef } from './listDataGridPageTypes';
 import ListDataGrid from '../../../../../components/introduction/dataGrid/listDataGrid/ListDataGrid';
 import TypographyComp from '../../../../../components/base/typography/Typography';
 import DividerComp from '../../../../../components/base/divider/Divider';
 import BoxComp from '../../../../../components/base/box/Box';
 import MoodIcon from '@mui/icons-material/Mood';
+import { useLazyGetEmployeesQuery } from '../../../../../redux/slices/services/introductionApiSlices';
 
 const ListDataGridPage: React.FC = () => {
+  const listDataGridRef = React.useRef<ListDataGridRef>(null);
+
+  const [triggerGetEmployees] = useLazyGetEmployeesQuery();
+
   const handleView = (row: unknown) => {
     console.log('View clicked for:', row);
   };
@@ -19,6 +24,19 @@ const ListDataGridPage: React.FC = () => {
     console.log('Delete clicked for:', row);
   };
 
+  React.useEffect(() => {
+    const getData = async () => {
+      const { data } = await triggerGetEmployees({
+        maxResultCount: '40',
+        skipCount: '0',
+      });
+
+      console.log(data);
+    };
+
+    getData();
+  }, []);
+
   return (
     <>
       <DividerComp>
@@ -30,8 +48,9 @@ const ListDataGridPage: React.FC = () => {
       <br />
       <br />
 
-      <BoxComp sx={{ height: 250, width: '100%' }}>
+      <BoxComp sx={{ height: 500, width: '100%' }}>
         <ListDataGrid
+          ref={listDataGridRef}
           rows={employeeRows}
           columns={employeeColumns}
           onView={handleView}

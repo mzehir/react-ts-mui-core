@@ -139,8 +139,30 @@ const ListDataGrid = React.forwardRef<ListDataGridRef, ListDataGridProps>((props
     getDataGrid: () => apiRef.current,
   }));
 
+  const handleScroll = React.useCallback(() => {
+    const gridContainer = apiRef.current?.rootElementRef?.current;
+    if (!gridContainer) return;
+
+    const { scrollTop, scrollHeight, clientHeight } = gridContainer;
+    const isNearBottom = scrollHeight - scrollTop - clientHeight < 50;
+
+    if (isNearBottom) {
+      alert('veri çekilecek');
+    }
+  }, [apiRef]);
+
+  React.useEffect(() => {
+    const gridContainer = apiRef.current?.rootElementRef?.current;
+
+    if (gridContainer) {
+      gridContainer.addEventListener('scroll', handleScroll);
+      return () => gridContainer.removeEventListener('scroll', handleScroll);
+    }
+  }, [apiRef, handleScroll]);
+
   return (
     <StyledDataGrid
+      apiRef={apiRef}
       columns={preparedColumns}
       rows={rows}
       showCellVerticalBorder={true}
