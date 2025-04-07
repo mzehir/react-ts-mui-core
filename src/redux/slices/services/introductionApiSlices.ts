@@ -1,6 +1,7 @@
 import { BaseQueryApi, FetchArgs, createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Toastify } from '../../../components/custom/toastify/Toastify';
 import { ToastCompProps } from '../../../components/custom/toastify/toastifyHelper';
+import { employeesResponseDto } from './introductionApiDto';
 
 const baseUrl = 'http://localhost:3000/api';
 const defaultContentType = 'application/json; charset=UTF-8';
@@ -47,73 +48,6 @@ const baseQuery = async (args: string | FetchArgs, api: BaseQueryApi, extraOptio
     return { error: { status: 'FETCH_ERROR', error: error } };
   }
 };
-
-export enum Gender {
-  MALE = 'male',
-  FEMALE = 'female',
-}
-
-export enum Department {
-  IT = 'IT',
-  HR = 'HR',
-  FINANCE = 'Finance',
-  MARKETING = 'Marketing',
-  SALES = 'Sales',
-  OPERATIONS = 'Operations',
-  CUSTOMER_SERVICE = 'Customer Service',
-}
-
-export enum Position {
-  JUNIOR_DEVELOPER = 'Junior Developer',
-  SENIOR_DEVELOPER = 'Senior Developer',
-  TEAM_LEAD = 'Team Lead',
-  MANAGER = 'Manager',
-  DIRECTOR = 'Director',
-  CEO = 'CEO',
-  HR_SPECIALIST = 'HR Specialist',
-  ACCOUNTANT = 'Accountant',
-  MARKETING_SPECIALIST = 'Marketing Specialist',
-  SALES_REPRESENTATIVE = 'Sales Representative',
-}
-
-export enum EmployeeStatus {
-  ACTIVE = 'Active',
-  ON_LEAVE = 'On Leave',
-  RESIGNED = 'Resigned',
-  TERMINATED = 'Terminated',
-}
-
-export enum PerformanceRating {
-  EXCELLENT = 'Excellent',
-  GOOD = 'Good',
-  AVERAGE = 'Average',
-  BELOW_AVERAGE = 'Below Average',
-  POOR = 'Poor',
-}
-
-export interface EmployeeRowType {
-  id: number;
-  name: string;
-  surname: string;
-  gender: Gender;
-  age: string;
-  birthDate: string;
-  phone: string;
-  email: string;
-  address: string;
-  department: Department;
-  position: Position;
-  salary: number;
-  status: EmployeeStatus;
-  performanceRating: PerformanceRating;
-}
-
-export interface employeesResponseDto {
-  data: {
-    items: EmployeeRowType[];
-    totalCount: number;
-  };
-}
 
 export const introductionApi = createApi({
   reducerPath: 'introductionApi',
