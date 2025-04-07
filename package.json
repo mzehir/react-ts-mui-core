@@ -21,6 +21,7 @@
     "@mui/x-tree-view": "^7.19.0",
     "@reduxjs/toolkit": "^2.2.5",
     "@tinymce/tinymce-react": "^5.1.1",
+    "ag-grid-react": "^33.2.1",
     "dayjs": "^1.11.11",
     "deepmerge": "^4.3.1",
     "i18next": "^23.11.5",
