@@ -1,6 +1,12 @@
 import React from 'react';
 import type { ColDef } from 'ag-grid-community';
-import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
+import {
+  ModuleRegistry,
+  AllCommunityModule,
+  themeQuartz,
+  colorSchemeLightWarm,
+  colorSchemeDarkBlue,
+} from 'ag-grid-community';
 import { AgGridReact } from 'ag-grid-react';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
@@ -11,6 +17,10 @@ interface IRow {
   price: number;
   electric: boolean;
 }
+
+const themeLightWarm = themeQuartz.withPart(colorSchemeLightWarm); // Default theme'da bu kullanılacak
+
+const themeDarkBlue = themeQuartz.withPart(colorSchemeDarkBlue); // Dark theme'da bu kullanılacak
 
 // Create new GridExample component
 const AgGridComp: React.FC = () => {
@@ -39,7 +49,7 @@ const AgGridComp: React.FC = () => {
   // Container: Defines the grid's theme & dimensions.
   return (
     <div style={{ width: '100%', height: '100%' }}>
-      <AgGridReact rowData={rowData} columnDefs={colDefs} defaultColDef={defaultColDef} />
+      <AgGridReact theme={themeLightWarm} rowData={rowData} columnDefs={colDefs} defaultColDef={defaultColDef} />
     </div>
   );
 };
