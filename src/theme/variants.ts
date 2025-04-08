@@ -2,6 +2,7 @@ import { ThemeOptions } from '@mui/material/styles';
 import { ThemeType } from '../utils/enums/theme';
 import merge from 'deepmerge';
 import { green, grey } from '@mui/material/colors';
+import { themeQuartz, colorSchemeLightWarm, colorSchemeDarkBlue } from 'ag-grid-community';
 
 const customBlue = {
   50: '#e9f0fb',
@@ -75,9 +76,13 @@ const lightVariant = {
       backgroundSecondary: '#FFFFFF',
     },
   },
+  agGrid: {
+    theme: themeQuartz.withPart(colorSchemeLightWarm),
+  },
 } as ThemeOptions & { name: string };
 
-const darkVariant = merge(lightVariant, {
+// Dark variant without agGrid theme
+const darkVariantBase = merge(lightVariant, {
   name: ThemeType.dark,
   palette: {
     mode: 'dark',
@@ -134,6 +139,14 @@ const darkVariant = merge(lightVariant, {
     },
   },
 }) as ThemeOptions & { name: string };
+
+// Add agGrid theme separately
+const darkVariant = {
+  ...darkVariantBase,
+  agGrid: {
+    theme: themeQuartz.withPart(colorSchemeDarkBlue),
+  },
+} as ThemeOptions & { name: string };
 
 const variants = [lightVariant, darkVariant];
 

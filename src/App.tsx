@@ -22,6 +22,11 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
+import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
+
+// Register AG Grid modules
+ModuleRegistry.registerModules([AllCommunityModule]);
+
 function App() {
   const dispatch = useDispatch();
   const userFields: AuthState | null = localStorageGetItem('userFields');

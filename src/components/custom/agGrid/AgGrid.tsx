@@ -1,16 +1,12 @@
 import React from 'react';
+import { useTheme } from '@mui/material/styles';
+import useLanguageContext from '../../../hooks/useLanguageContext';
+import { Language } from '../../../utils/enums/languages';
+import { getAgGridLocaleText } from '../../../utils/locale/agGridLocales';
+
 import type { ColDef } from 'ag-grid-community';
-import {
-  ModuleRegistry,
-  AllCommunityModule,
-  themeQuartz,
-  colorSchemeLightWarm,
-  colorSchemeDarkBlue,
-} from 'ag-grid-community';
 import { AgGridReact } from 'ag-grid-react';
 
-ModuleRegistry.registerModules([AllCommunityModule]);
-// Row Data Interface
 interface IRow {
   make: string;
   model: string;
@@ -18,13 +14,10 @@ interface IRow {
   electric: boolean;
 }
 
-const themeLightWarm = themeQuartz.withPart(colorSchemeLightWarm); // Default theme'da bu kullanılacak
-
-const themeDarkBlue = themeQuartz.withPart(colorSchemeDarkBlue); // Dark theme'da bu kullanılacak
-
-// Create new GridExample component
 const AgGridComp: React.FC = () => {
-  // Row Data: The data to be displayed.
+  const theme = useTheme();
+  const { language } = useLanguageContext();
+
   const [rowData] = React.useState<IRow[]>([
     { make: 'Tesla', model: 'Model Y', price: 64950, electric: true },
     { make: 'Ford', model: 'F-Series', price: 33850, electric: false },
@@ -34,7 +27,6 @@ const AgGridComp: React.FC = () => {
     { make: 'Nissan', model: 'Juke', price: 20675, electric: false },
   ]);
 
-  // Column Definitions: Defines & controls grid columns.
   const [colDefs] = React.useState<ColDef<IRow>[]>([
     { field: 'make' },
     { field: 'model' },
@@ -46,11 +38,14 @@ const AgGridComp: React.FC = () => {
     flex: 1,
   };
 
-  // Container: Defines the grid's theme & dimensions.
   return (
-    <div style={{ width: '100%', height: '100%' }}>
-      <AgGridReact theme={themeLightWarm} rowData={rowData} columnDefs={colDefs} defaultColDef={defaultColDef} />
-    </div>
+    <AgGridReact
+      theme={theme.agGrid?.theme}
+      localeText={getAgGridLocaleText(language as Language)}
+      rowData={rowData}
+      columnDefs={colDefs}
+      defaultColDef={defaultColDef}
+    />
   );
 };
 

@@ -1,4 +1,5 @@
 import '@mui/material/styles';
+import { Theme as AgGridTheme } from 'ag-grid-community';
 
 declare module '@mui/material/styles' {
   interface Theme {
@@ -47,6 +48,10 @@ declare module '@mui/material/styles' {
         backgroundSecondary?: string;
       };
     };
+
+    agGrid?: {
+      theme: AgGridTheme;
+    };
   }
 
   interface ThemeOptions {
@@ -94,6 +99,10 @@ declare module '@mui/material/styles' {
         backgroundPrimary?: string;
         backgroundSecondary?: string;
       };
+    };
+
+    agGrid?: {
+      theme?: AgGridTheme;
     };
   }
 }

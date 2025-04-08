@@ -29,6 +29,7 @@ const createTheme = (name: string) => {
       footer: themeConfig.footer,
       sidebar: themeConfig.sidebar,
       customTable: themeConfig.customTable,
+      agGrid: themeConfig.agGrid,
     },
   );
 };
