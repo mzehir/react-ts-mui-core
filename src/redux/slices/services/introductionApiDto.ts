@@ -41,7 +41,7 @@ enum PerformanceRating {
   POOR = 'Poor',
 }
 
-interface EmployeeRowType {
+export interface EmployeeRowType {
   id: number;
   name: string;
   surname: string;
