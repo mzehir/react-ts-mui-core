@@ -17,6 +17,8 @@ export const fullFeatureAgGridPropsPrepareColumn = (column: AgGridCompColDef): A
     flex: column.flex,
     initialFlex: column.initialFlex,
 
+    valueFormatter: column.valueFormatter,
+
     headerValueGetter: column.headerValueGetter,
     headerStyle: column.headerStyle,
     headerClass: column.headerClass,
@@ -37,7 +39,6 @@ export const fullFeatureAgGridPropsPrepareColumn = (column: AgGridCompColDef): A
     colId: column.colId,
     type: column.type,
     valueGetter: column.valueGetter,
-    valueFormatter: column.valueFormatter,
     refData: column.refData,
     keyCreator: column.keyCreator,
     equals: column.equals,
