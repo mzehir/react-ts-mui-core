@@ -10,7 +10,7 @@ const ThemeSettings: React.FC = () => {
     <React.Fragment>
       <BoxComp px={4} my={3}>
         <AlertComp icon={false} severity="info">
-          component.chooseTheme
+          component.pleaseChooseTheme
         </AlertComp>
       </BoxComp>
 

@@ -1,0 +1,21 @@
+{
+  "name": "Name",
+  "namePlaceholder": "Enter your name",
+
+  "surname": "Surname",
+  "surnamePlaceholder": "Enter your surname",
+
+  "email": "Email",
+  "emailPlaceholder": "Enter your email address",
+
+  "phone": "Phone Number",
+  "phonePlaceholder": "Enter your phone number",
+
+  "password": "Password",
+  "passwordPlaceholder": "Enter your password",
+
+  "confirmPassword": "Confirm Password",
+  "confirmPasswordPlaceholder": "Re-enter your password",
+
+  "code": "Code"
+}

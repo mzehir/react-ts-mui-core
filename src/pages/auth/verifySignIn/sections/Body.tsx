@@ -25,14 +25,14 @@ const BodySection: React.FC = () => {
           control={control}
           componentFields={{
             componentType: 'textField',
-            label: 'common.code',
+            label: 'input.code',
             helperText: formState.errors.code?.message,
             error: !!formState.errors.code,
           }}
         />
 
         <ButtonComp type="submit" variant="contained" color="success" endIcon={<VerifiedUserIcon />}>
-          common.verify
+          button.verify
         </ButtonComp>
       </BoxComp>
     </form>

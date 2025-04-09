@@ -73,7 +73,7 @@ const SummarySection: React.FC<SummarySectionProps> = ({ filterItems, values, ha
     <CustomAccordionSummaryComp expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}>
       <ChipWrapperBox>
         {Object.keys(values).length === 0 ? (
-          <TypographyComp variant="h5">common.noFilterSelected</TypographyComp>
+          <TypographyComp variant="h5">component.customFilterNoFilterSelected</TypographyComp>
         ) : (
           <React.Fragment>
             {filterItems.map((item, index) => (
@@ -110,7 +110,7 @@ const SummarySection: React.FC<SummarySectionProps> = ({ filterItems, values, ha
 
                 {item.componentType === 'checkbox' && values[item.name] && (
                   <ChipComp
-                    label={`${localTranslate(!!item.summaryProps.isSummaryLabelTranslation, item.summaryProps.summaryLabel)}: ${values[item.name].value ? `${localTranslate(true, 'common.open')}` : `${localTranslate(true, 'common.close')}`}`}
+                    label={`${localTranslate(!!item.summaryProps.isSummaryLabelTranslation, item.summaryProps.summaryLabel)}: ${values[item.name].value ? `${localTranslate(true, 'component.customFilterSummaryCheckboxOpen')}` : `${localTranslate(true, 'component.customFilterSummaryCheckboxClose')}`}`}
                     isTranslation={false}
                     onDelete={() => handleValueChange({ key: item.name, newValue: null, type: 'delete' })}
                     color="warning"
@@ -164,7 +164,7 @@ const SummarySection: React.FC<SummarySectionProps> = ({ filterItems, values, ha
               handleValueChange({ key: '', newValue: null, type: 'allDelete' });
             }}
           >
-            common.clearTheFilters
+            component.customFilterSummaryClearButton
           </ButtonComp>
         )}
 
@@ -188,7 +188,7 @@ const SummarySection: React.FC<SummarySectionProps> = ({ filterItems, values, ha
               onFilter();
             }}
           >
-            common.filter
+            component.customFilterSummaryFilterButton
           </ButtonComp>
         )}
       </ButtonWrapperBox>

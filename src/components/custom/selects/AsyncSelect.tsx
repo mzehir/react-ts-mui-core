@@ -131,7 +131,6 @@ const AsyncSelectComp: React.FC<AsyncSelectCompProps> = (props) => {
             variant="outlined"
             size="small"
             autoFocus
-            placeholder="component.typeToSearch"
             fullWidth
             InputProps={{
               startAdornment: (

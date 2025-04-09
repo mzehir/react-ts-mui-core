@@ -25,8 +25,8 @@ const BodySection: React.FC = () => {
           control={control}
           componentFields={{
             componentType: 'textField',
-            label: 'common.name',
-            placeholder: 'common.enterFirstName',
+            label: 'input.name',
+            placeholder: 'input.namePlaceholder',
             helperText: formState.errors.name?.message,
             error: !!formState.errors.name,
           }}
@@ -37,8 +37,8 @@ const BodySection: React.FC = () => {
           control={control}
           componentFields={{
             componentType: 'textField',
-            label: 'common.surname',
-            placeholder: 'common.enterLastName',
+            label: 'input.surname',
+            placeholder: 'input.surnamePlaceholder',
             helperText: formState.errors.surname?.message,
             error: !!formState.errors.surname,
           }}
@@ -49,8 +49,8 @@ const BodySection: React.FC = () => {
           control={control}
           componentFields={{
             componentType: 'textField',
-            label: 'common.emailAddress',
-            placeholder: 'common.enterEmail',
+            label: 'input.email',
+            placeholder: 'input.emailPlaceholder',
             helperText: formState.errors.emailAddress?.message,
             error: !!formState.errors.emailAddress,
           }}
@@ -61,8 +61,8 @@ const BodySection: React.FC = () => {
           control={control}
           componentFields={{
             componentType: 'phoneTextField',
-            label: 'common.phoneNumber',
-            placeholder: 'common.enterPhoneNumber',
+            label: 'input.phone',
+            placeholder: 'input.phonePlaceholder',
             helperText: formState.errors.phoneNumber?.message,
             error: !!formState.errors.phoneNumber,
           }}
@@ -73,8 +73,8 @@ const BodySection: React.FC = () => {
           control={control}
           componentFields={{
             componentType: 'passwordTextField',
-            label: 'common.password',
-            placeholder: 'common.enterPassword',
+            label: 'input.password',
+            placeholder: 'input.passwordPlaceholder',
             helperText: formState.errors.password?.message,
             error: !!formState.errors.password,
           }}
@@ -85,15 +85,15 @@ const BodySection: React.FC = () => {
           control={control}
           componentFields={{
             componentType: 'passwordTextField',
-            label: 'common.confirmPassword',
-            placeholder: 'common.enterconfirmPassword',
+            label: 'input.confirmPassword',
+            placeholder: 'input.confirmPasswordPlaceholder',
             helperText: formState.errors.confirmPassword?.message,
             error: !!formState.errors.confirmPassword,
           }}
         />
 
         <ButtonComp type="submit" variant="contained" color="primary" endIcon={<HowToRegIcon />}>
-          common.signUp
+          button.signUp
         </ButtonComp>
       </BoxComp>
     </form>

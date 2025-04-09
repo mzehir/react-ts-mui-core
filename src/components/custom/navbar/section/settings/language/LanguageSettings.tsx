@@ -65,7 +65,7 @@ const LanguageSettings: React.FC = () => {
     <React.Fragment>
       <BoxComp px={4} my={3}>
         <AlertComp icon={false} severity="info">
-          component.chooseLanguage
+          component.pleaseChooseLanguage
         </AlertComp>
       </BoxComp>
 

@@ -25,15 +25,15 @@ const BodySection: React.FC = () => {
           control={control}
           componentFields={{
             componentType: 'textField',
-            label: 'common.emailAddress',
-            placeholder: 'common.enterEmail',
+            label: 'input.email',
+            placeholder: 'input.emailPlaceholder',
             helperText: formState.errors.emailAddress?.message,
             error: !!formState.errors.emailAddress,
           }}
         />
 
         <ButtonComp type="submit" variant="contained" endIcon={<SendIcon />}>
-          common.send
+          button.send
         </ButtonComp>
       </BoxComp>
     </form>

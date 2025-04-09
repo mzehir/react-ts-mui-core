@@ -1,0 +1,18 @@
+{
+  "information": "Bilgilendirme",
+  "noDataToShow": "Gösterecek veri yok!",
+
+  "theme": "Tema",
+  "language": "Dil",
+  "pleaseChooseLanguage": "Lütfen bir dil seçiniz",
+  "pleaseChooseTheme": "Lütfen bir tema seçiniz",
+  
+  "signOut": "Çıkış Yap",
+  "search": "Arama",
+
+  "customFilterNoFilterSelected": "Herhangi bir filtre seçilmedi",
+  "customFilterSummaryCheckboxOpen": "Açık",
+  "customFilterSummaryCheckboxClose": "Kapalı",
+  "customFilterSummaryClearButton": "Temizle",
+  "customFilterSummaryFilterButton": "Filtrele"
+}

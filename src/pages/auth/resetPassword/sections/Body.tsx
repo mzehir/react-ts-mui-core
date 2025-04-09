@@ -25,8 +25,8 @@ const BodySection: React.FC = () => {
           control={control}
           componentFields={{
             componentType: 'passwordTextField',
-            label: 'common.password',
-            placeholder: 'common.enterPassword',
+            label: 'input.password',
+            placeholder: 'input.passwordPlaceholder',
             helperText: formState.errors.password?.message,
             error: !!formState.errors.password,
           }}
@@ -37,15 +37,15 @@ const BodySection: React.FC = () => {
           control={control}
           componentFields={{
             componentType: 'passwordTextField',
-            label: 'common.confirmPassword',
-            placeholder: 'common.enterconfirmPassword',
+            label: 'input.confirmPassword',
+            placeholder: 'input.confirmPasswordPlaceholder',
             helperText: formState.errors.confirmPassword?.message,
             error: !!formState.errors.confirmPassword,
           }}
         />
 
         <ButtonComp type="submit" variant="contained" color="success" endIcon={<UpdateIcon />}>
-          common.update
+          button.update
         </ButtonComp>
       </BoxComp>
     </form>

@@ -80,7 +80,7 @@ const TinymceComp: React.FC = () => {
           }
         }}
       >
-        component.save
+        button.save
       </ButtonComp>
     </div>
   );

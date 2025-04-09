@@ -1,0 +1,18 @@
+{
+  "information": "Information",
+  "noDataToShow": "No data to show!",
+
+  "theme": "Theme",
+  "language": "Language",
+  "pleaseChooseLanguage": "Please choose a language",
+  "pleaseChooseTheme": "Please choose a theme",
+  
+  "signOut": "Sign Out",
+  "search": "Search",
+
+  "customFilterNoFilterSelected": "No filter selected",
+  "customFilterSummaryCheckboxOpen": "Open",
+  "customFilterSummaryCheckboxClose": "Close",
+  "customFilterSummaryClearButton": "Clear",
+  "customFilterSummaryFilterButton": "Filter"
+}

@@ -10,7 +10,7 @@ interface CancelButtonProps extends Omit<ButtonCompProps, 'startIcon' | 'endIcon
 }
 
 const CancelButton: React.FC<CancelButtonProps> = (props) => {
-  const { type = 'reset', label = 'component.cancel', iconVisible = true, iconPosition = 'left', ...rest } = props;
+  const { type = 'reset', label = 'button.cancel', iconVisible = true, iconPosition = 'left', ...rest } = props;
 
   const startIcon = iconPosition === 'left' && iconVisible ? <RestartAltIcon /> : undefined;
   const endIcon = iconPosition === 'right' && iconVisible ? <RestartAltIcon /> : undefined;

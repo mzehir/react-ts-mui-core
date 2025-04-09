@@ -17,13 +17,13 @@ const FooterSection: React.FC = () => {
             underline="hover"
             onClick={() => navigate(allRoutes.FORGOT_PASSWORD.path)}
           >
-            common.iforgotMyPassword
+            button.iforgotMyPassword
           </LinkComp>
         </GridComp>
 
         <GridComp item xs={6} display={'flex'} justifyContent={'end'}>
           <LinkComp sx={{ cursor: 'pointer' }} underline="hover" onClick={() => navigate(allRoutes.SIGN_UP.path)}>
-            common.iWantToBeAMember
+            button.iWantToBeAMember
           </LinkComp>
         </GridComp>
       </GridComp>

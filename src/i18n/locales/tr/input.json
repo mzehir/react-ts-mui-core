@@ -1,0 +1,21 @@
+{
+  "name": "Ad",
+  "namePlaceholder": "Adını gir",
+
+  "surname": "Soyad",
+  "surnamePlaceholder": "Soyadını gir",
+
+  "email": "E-Posta",
+  "emailPlaceholder": "E-posta adresini gir",
+
+  "phone": "Telefon Numarası",
+  "phonePlaceholder": "Telefon numaranı gir",
+
+  "password": "Parola",
+  "passwordPlaceholder": "Parolanı gir",
+
+  "confirmPassword": "Parola Doğrulama",
+  "confirmPasswordPlaceholder": "Parolanı tekrar gir",
+
+  "code": "Kod"
+}

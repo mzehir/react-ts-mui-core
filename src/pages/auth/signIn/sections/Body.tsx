@@ -52,8 +52,8 @@ const BodySection: React.FC = () => {
           control={control}
           componentFields={{
             componentType: 'textField',
-            label: 'common.emailAddress',
-            placeholder: 'common.enterEmail',
+            label: 'input.email',
+            placeholder: 'input.emailPlaceholder',
             helperText: formState.errors.emailAddress?.message,
             error: !!formState.errors.emailAddress,
           }}
@@ -64,8 +64,8 @@ const BodySection: React.FC = () => {
           control={control}
           componentFields={{
             componentType: 'passwordTextField',
-            label: 'common.password',
-            placeholder: 'common.enterPassword',
+            label: 'input.password',
+            placeholder: 'input.passwordPlaceholder',
             helperText: formState.errors.password?.message,
             error: !!formState.errors.password,
             disabled: true,
@@ -73,7 +73,7 @@ const BodySection: React.FC = () => {
         />
 
         <ButtonComp type="submit" variant="contained" color="primary" endIcon={<LoginIcon />}>
-          common.signIn
+          button.signIn
         </ButtonComp>
       </BoxComp>
     </form>

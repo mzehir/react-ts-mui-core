@@ -10,7 +10,7 @@ interface SaveButtonProps extends Omit<ButtonCompProps, 'startIcon' | 'endIcon' 
 }
 
 const SaveButton: React.FC<SaveButtonProps> = (props) => {
-  const { type = 'submit', label = 'component.save', iconVisible = true, iconPosition = 'left', ...rest } = props;
+  const { type = 'submit', label = 'button.save', iconVisible = true, iconPosition = 'left', ...rest } = props;
 
   const startIcon = iconPosition === 'left' && iconVisible ? <SaveIcon /> : undefined;
   const endIcon = iconPosition === 'right' && iconVisible ? <SaveIcon /> : undefined;

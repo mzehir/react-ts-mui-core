@@ -10,7 +10,7 @@ interface DeleteButtonProps extends Omit<ButtonCompProps, 'startIcon' | 'endIcon
 }
 
 const DeleteButton: React.FC<DeleteButtonProps> = (props) => {
-  const { type = 'button', label = 'component.delete', iconVisible = true, iconPosition = 'left', ...rest } = props;
+  const { type = 'button', label = 'button.delete', iconVisible = true, iconPosition = 'left', ...rest } = props;
 
   const startIcon = iconPosition === 'left' && iconVisible ? <RestartAltIcon /> : undefined;
   const endIcon = iconPosition === 'right' && iconVisible ? <RestartAltIcon /> : undefined;

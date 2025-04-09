@@ -22,7 +22,7 @@ const TableNoDataSection: React.FC<TableNoDataSectionProps> = ({ onAddClick }) =
     >
       <AlertComp severity="info" variant="filled" color="info">
         <AlertTitleComp>component.information</AlertTitleComp>
-        component.noDataNoShow
+        component.noDataToShow
         {onAddClick && (
           <BoxComp display={'flex'} justifyContent={'end'} marginTop={'15px'}>
             <TableAddButton
