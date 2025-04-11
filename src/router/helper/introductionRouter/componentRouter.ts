@@ -32,7 +32,7 @@ type ComponentRouterItems = {
 const COMPONENT_ROUTER_WRAPPER: Omit<RouterWrapper, 'children'> = {
   whoCanSeeForSidebar: ['admin'],
   key: 'COMPONENT_ROUTER_WRAPPER',
-  label: 'routes.components',
+  label: 'introductionRoutes.components',
   icon: GridViewIcon,
 };
 

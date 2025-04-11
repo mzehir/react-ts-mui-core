@@ -14,7 +14,7 @@ type routerByUserTypeItems = {
 const ROUTER_BY_USER_TYPE_WRAPPER: Omit<RouterWrapper, 'children'> = {
   whoCanSeeForSidebar: ['admin', 'teacher', 'student'],
   key: 'ROUTER_BY_USER_TYPE_WRAPPER',
-  label: 'routes.pagesByUserType',
+  label: 'introductionRoutes.pagesByUserType',
   icon: GroupsIcon,
 };
 
@@ -24,7 +24,7 @@ export const ROUTER_BY_USER_TYPE_ITEMS: routerByUserTypeItems = {
     whoCanSeeForPage: ['admin', 'guest'],
     parentKey: 'ROUTER_BY_USER_TYPE_ITEMS',
     key: 'INTRODUCTION_GUEST_PAGE',
-    label: 'routes.guestType',
+    label: 'introductionRoutes.guestType',
     path: '/introduction-guest-page',
     icon: WavingHandIcon,
   },
@@ -34,7 +34,7 @@ export const ROUTER_BY_USER_TYPE_ITEMS: routerByUserTypeItems = {
     whoCanSeeForPage: ['admin', 'teacher'],
     parentKey: 'ROUTER_BY_USER_TYPE_ITEMS',
     key: 'INTRODUCTION_TEACHER_PAGE',
-    label: 'routes.teacherType',
+    label: 'introductionRoutes.teacherType',
     path: '/introduction-teacher-page',
     icon: VolunteerActivismIcon,
   },
@@ -44,7 +44,7 @@ export const ROUTER_BY_USER_TYPE_ITEMS: routerByUserTypeItems = {
     whoCanSeeForPage: ['admin', 'student'],
     parentKey: 'ROUTER_BY_USER_TYPE_ITEMS',
     key: 'INTRODUCTION_STUDENT_PAGE',
-    label: 'routes.studentType',
+    label: 'introductionRoutes.studentType',
     path: '/introduction-student-page',
     icon: FamilyRestroomIcon,
   },

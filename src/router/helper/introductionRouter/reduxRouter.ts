@@ -12,7 +12,7 @@ type ReduxRouterItems = {
 const REDUX_ROUTER_WRAPPER: Omit<RouterWrapper, 'children'> = {
   whoCanSeeForSidebar: ['admin'],
   key: 'REDUX_ROUTER_WRAPPER',
-  label: 'routes.redux',
+  label: 'introductionRoutes.redux',
   icon: DataArrayIcon,
 };
 
@@ -21,7 +21,7 @@ export const REDUX_ROUTER_ITEMS: ReduxRouterItems = {
     whoCanSeeForPage: ['admin'],
     parentKey: 'REDUX_ROUTER_ITEMS',
     key: 'INTRODUCTION_REDUX_STANDARD_PAGE',
-    label: 'routes.simpleExample',
+    label: 'introductionRoutes.simpleExample',
     path: '/introduction-redux-standard-example',
     icon: PinIcon,
   },
@@ -29,7 +29,7 @@ export const REDUX_ROUTER_ITEMS: ReduxRouterItems = {
     whoCanSeeForPage: ['admin'],
     parentKey: 'REDUX_ROUTER_ITEMS',
     key: 'INTRODUCTION_REDUX_QUERY_PAGE',
-    label: 'routes.queryExamples',
+    label: 'introductionRoutes.queryExamples',
     path: '/introduction-redux-query-example',
     icon: ApiIcon,
   },

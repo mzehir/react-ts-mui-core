@@ -14,7 +14,7 @@ type AuthRouterItems = {
 const ACCESS_ERRORS_WRAPPER: Omit<RouterWrapper, 'children'> = {
   whoCanSeeForSidebar: ['admin'],
   key: 'ACCESS_ERRORS_WRAPPER',
-  label: 'routes.errorAndPermissionManagementPages',
+  label: 'introductionRoutes.errorAndPermissionManagementPages',
   icon: ReportProblemIcon,
 };
 
@@ -23,7 +23,7 @@ export const ACCESS_ERRORS_ROUTER_ITEMS: AuthRouterItems = {
     whoCanSeeForPage: ['admin', 'teacher', 'student', 'guest'],
     parentKey: 'ACCESS_ERRORS_WRAPPER',
     key: 'NOT_FOUND',
-    label: 'routes.notFoundPage',
+    label: 'introductionRoutes.notFoundPage',
     path: '/404',
     icon: LinkOffIcon,
   },
@@ -32,7 +32,7 @@ export const ACCESS_ERRORS_ROUTER_ITEMS: AuthRouterItems = {
     whoCanSeeForPage: ['admin', 'teacher', 'student', 'guest'],
     parentKey: 'ACCESS_ERRORS_WRAPPER',
     key: 'SERVER_ERROR',
-    label: 'routes.serverErrorPage',
+    label: 'introductionRoutes.serverErrorPage',
     path: '/500',
     icon: BugReportIcon,
   },
@@ -41,7 +41,7 @@ export const ACCESS_ERRORS_ROUTER_ITEMS: AuthRouterItems = {
     whoCanSeeForPage: ['admin', 'teacher', 'student', 'guest'],
     parentKey: 'ACCESS_ERRORS_WRAPPER',
     key: 'FORBIDDEN',
-    label: 'routes.forbiddenPage',
+    label: 'introductionRoutes.forbiddenPage',
     path: '/403',
     icon: BlockIcon,
   },

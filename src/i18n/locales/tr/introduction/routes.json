@@ -1,1 +1,40 @@
-{}
+{
+  "components": "Bileşenler",
+
+  "customizedComponents": "Özelleştirilmiş Bileşenler",
+  "customFilter": "Özel Filtre",
+  "customTable": "Özel Tablo",
+  "fullFeatureDataGrid": "Tam Özellikli Veri Tablosu",
+  "fullFeatureAgGrid": "Tam Özellikli Ag Tablosu",
+  "textEditor": "Metin Düzenleyicisi",
+
+  "simpleProjects": "Basit Projeler",
+  "orderProject": "Sipariş Projesi",
+
+  "redux": "Redux",
+  "simpleExample": "Basit Örnek",
+  "queryExamples": "Sorgu Örnekleri",
+
+  "reactHookForm": "React Hook Form",
+
+  "sessionPages": "Oturum Sayfaları",
+  "signUpPage": "Kayıt Ol Sayfası",
+  "signInPage": "Giriş Yap Sayfası",
+  "verifySignInPage": "Giriş Doğrulama Sayfası",
+  "forgotPasswordPage": "Şifremi Unuttum Sayfası",
+  "resetPasswordPage": "Şifre Sıfırlama Sayfası",
+
+  "errorAndPermissionManagementPages": "Hata-Yetki Yönetimi Sayfaları",
+  "notFoundPage": "Sayfa Bulunamadı Sayfası",
+  "serverErrorPage": "Sunucu Hatası Sayfası",
+  "forbiddenPage": "Erişim Yasak Sayfası",
+
+  "pagesByUserType": "Kullanıcı Tipine Göre Sayfalar",
+  "teacherType": "Öğretmen Tipi",
+  "studentType": "Öğrenci Tipi",
+  "guestType": "Misafir Tipi",
+
+  "pricing": "Fiyatlandırma",
+
+  "contact": "İletişim"
+}

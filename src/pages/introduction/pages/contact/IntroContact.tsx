@@ -63,7 +63,7 @@ const IntroContact: React.FC = () => {
     <BoxComp>
       <BoxComp display={'flex'} flexDirection={'row'} alignItems={'center'} gap={'5px'}>
         <TypographyComp variant="h3" gutterBottom display="inline">
-          routes.contact
+          introductionRoutes.contact
         </TypographyComp>
         <DividerComp sx={{ flexGrow: 1 }} />
       </BoxComp>

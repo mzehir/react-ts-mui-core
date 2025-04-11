@@ -8,6 +8,8 @@ import enButton from './locales/en/button.json';
 import enValidationWarnings from './locales/en/validationWarnings.json';
 import _enValidationWarnings from './locales/en/_validationWarnings.json';
 import enRoutes from './locales/en/routes.json';
+// introduction
+import enIntroductionRoutes from './locales/en/introduction/routes.json';
 
 import tr from './locales/tr.json';
 import trComponent from './locales/tr/component.json';
@@ -16,6 +18,8 @@ import trButton from './locales/tr/button.json';
 import trValidationWarnings from './locales/tr/validationWarnings.json';
 import _trValidationWarnings from './locales/tr/_validationWarnings.json';
 import trRoutes from './locales/tr/routes.json';
+// introduction
+import trIntroductionRoutes from './locales/tr/introduction/routes.json';
 
 import de from './locales/de.json';
 
@@ -29,6 +33,8 @@ const resources = {
       validationWarnings: enValidationWarnings,
       _validationWarnings: _enValidationWarnings,
       routes: enRoutes,
+      // introduction
+      introductionRoutes: enIntroductionRoutes,
     },
   },
   tr: {
@@ -40,6 +46,8 @@ const resources = {
       validationWarnings: trValidationWarnings,
       _validationWarnings: _trValidationWarnings,
       routes: trRoutes,
+      // introduction
+      introductionRoutes: trIntroductionRoutes,
     },
   },
   de: {

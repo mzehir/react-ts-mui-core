@@ -1,1 +1,40 @@
-{}
+{
+  "components": "Components",
+
+  "customizedComponents": "Customized Components",
+  "customFilter": "Custom Filter",
+  "customTable": "Custom Table",
+  "fullFeatureDataGrid": "Full Feature Data Grid",
+  "fullFeatureAgGrid": "Full Feature Ag Grid",
+  "textEditor": "Text Editor",
+
+  "simpleProjects": "Simple Projects",
+  "orderProject": "Order Project",
+
+  "redux": "Redux",
+  "simpleExample": "Simple Example",
+  "queryExamples": "Query Examples",
+
+  "reactHookForm": "React Hook Form",
+
+  "sessionPages": "Session Pages",
+  "signUpPage": "Sign Up Page",
+  "signInPage": "Sign In Page",
+  "verifySignInPage": "Verify Sign In Page",
+  "forgotPasswordPage": "Forgot Password Page",
+  "resetPasswordPage": "Reset Password Page",
+
+  "errorAndPermissionManagementPages": "Error and Permission Management Pages",
+  "notFoundPage": "Not Found Page",
+  "serverErrorPage": "Server Error Page",
+  "forbiddenPage": "Forbidden Page",
+
+  "pagesByUserType": "Pages By User Type",
+  "teacherType": "Teacher Type",
+  "studentType": "Student Type",
+  "guestType": "Guest Type",
+
+  "pricing": "Pricing",
+
+  "contact": "Contact"
+}

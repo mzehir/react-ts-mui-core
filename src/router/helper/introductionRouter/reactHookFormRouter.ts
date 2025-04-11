@@ -10,7 +10,7 @@ type RHFRouterItems = {
 const RHF_ROUTER_WRAPPER: Omit<RouterWrapper, 'children'> = {
   whoCanSeeForSidebar: ['admin'],
   key: 'RHF_ROUTER_WRAPPER',
-  label: 'routes.reactHookForm',
+  label: 'introductionRoutes.reactHookForm',
   icon: DynamicFormIcon,
 };
 
@@ -19,7 +19,7 @@ export const RHF_ROUTER_ITEMS: RHFRouterItems = {
     whoCanSeeForPage: ['admin'],
     parentKey: 'RHF_ROUTER_ITEMS',
     key: 'INTRODUCTION_RHF_STANDARD_PAGE',
-    label: 'routes.simpleExample',
+    label: 'introductionRoutes.simpleExample',
     path: '/introduction-rhf-standard-example',
     icon: AppsIcon,
   },

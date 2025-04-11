@@ -10,7 +10,7 @@ type SimpleProjectRouterItems = {
 const SIMPLE_PROJECT_ROUTER_WRAPPER: Omit<RouterWrapper, 'children'> = {
   whoCanSeeForSidebar: ['admin'],
   key: 'SIMPLE_PROJECT_ROUTER_WRAPPER',
-  label: 'routes.simpleProjects',
+  label: 'introductionRoutes.simpleProjects',
   icon: AccountTreeIcon,
 };
 
@@ -19,7 +19,7 @@ export const SIMPLE_PROJECT_ROUTER_ITEMS: SimpleProjectRouterItems = {
     whoCanSeeForPage: ['admin'],
     parentKey: 'SIMPLE_PROJECT_ROUTER_ITEMS',
     key: 'INTRODUCTION_ORDER_PROJECT_PAGE',
-    label: 'routes.orderProject',
+    label: 'introductionRoutes.orderProject',
     path: '/introduction-order-project',
     icon: BorderColorIcon,
   },
