@@ -1,0 +1,13 @@
+{
+  "required": "This field is required.",
+  "positive": "This field must be a positive number.",
+  "integer": "This field must be an integer.",
+  "email": "Please enter a valid email address.",
+  "password": "Please enter a valid password.",
+  "url": "Please enter a valid URL.",
+  "phone": "Please enter a valid phone number.",
+  "date": "Please enter a valid date.",
+  "equalsPassword": "This field must match the password.",
+  "nonZeroFirstDigit": "This field cannot start with 0.",
+  "numericString": "This field must contain only digits."
+}

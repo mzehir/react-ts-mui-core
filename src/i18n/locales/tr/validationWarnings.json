@@ -1,0 +1,13 @@
+{
+  "required": "Bu alan zorunludur.",
+  "positive": "Bu alan pozitif bir sayı olmalıdır.",
+  "integer": "Bu alan tam sayı olmalıdır.",
+  "email": "Lütfen geçerli bir e-posta adresi girin.",
+  "password": "Lütfen geçerli bir parola girin.",
+  "url": "Lütfen geçerli bir URL girin.",
+  "phone": "Lütfen geçerli bir telefon numarası girin.",
+  "date": "Lütfen geçerli bir tarih girin.",
+  "equalsPassword": "Bu alan parola ile aynı olmalıdır.",
+  "nonZeroFirstDigit": "Bu alan 0 ile başlayamaz.",
+  "numericString": "Bu alan sadece rakamlardan oluşmalıdır."
+}

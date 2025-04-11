@@ -1,0 +1,14 @@
+{
+  "min": "Bu alan en az {{number}} karakter olmalıdır.",
+  "max": "Bu alan en fazla {{number}} karakter olmalıdır.",
+  "numberOfDigits": "Bu alan {{number}} karakter olmalıdır.",
+  "minDate": "Tarih {{minDate}}'den sonra olmalıdır.",
+  "maxDate": "Tarih {{maxDate}}'den önce olmalıdır.",
+  "lessThan": "Bu alan {{less}} değerinden küçük olmalıdır.",
+  "moreThan": "Bu alan {{more}} değerinden büyük olmalıdır.",
+  "arrayMin": "Bu alanda en az {{min}} öğe olmalıdır.",
+  "arrayMax": "Bu alanda en fazla {{max}} öğe olmalıdır.",
+  "oneOf": "Bu alan, şu değerlerden biri olmalıdır: {{values}}.",
+  "notOneOf": "Bu alan şu değerlerden biri olamaz: {{values}}.",
+  "equals": "Bu alan {{reference}} ile aynı olmalıdır."
+}

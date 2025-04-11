@@ -1,0 +1,14 @@
+{
+  "min": "This field must be at least {{number}} characters.",
+  "max": "This field must be at most {{number}} characters.",
+  "numberOfDigits": "This field must be {{number}} characters.",
+  "minDate": "The date must be after {{minDate}}.",
+  "maxDate": "The date must be before {{maxDate}}.",
+  "lessThan": "This field must be less than {{less}}.",
+  "moreThan": "This field must be greater than {{more}}.",
+  "arrayMin": "This field must have at least {{min}} items.",
+  "arrayMax": "This field must have at most {{max}} items.",
+  "oneOf": "This field must be one of the following: {{values}}.",
+  "notOneOf": "This field cannot be one of the following: {{values}}.",
+  "equals": "This field must be the same as {{reference}}."
+}
