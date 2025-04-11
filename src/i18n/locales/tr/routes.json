@@ -3,6 +3,8 @@
   "components": "Bileşenler",
   "customizedComponents": "Özelleştirilmiş Bileşenler",
   "simpleProjects": "Basit Projeler",
+  "redux": "Redux",
+  "reactHookForm": "React Hook Form",
   "sessionPages": "Oturum Sayfaları",
   "errorAndPermissionManagementPages": "Hata-Yetki Yönetimi Sayfaları",
   "pagesByUserType": "Kullanıcı Tipine Göre Sayfalar",

@@ -10,7 +10,7 @@ type RHFRouterItems = {
 const RHF_ROUTER_WRAPPER: Omit<RouterWrapper, 'children'> = {
   whoCanSeeForSidebar: ['admin'],
   key: 'RHF_ROUTER_WRAPPER',
-  label: 'React Hook Form',
+  label: 'routes.reactHookForm',
   icon: DynamicFormIcon,
 };
 

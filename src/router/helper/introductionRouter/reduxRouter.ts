@@ -12,7 +12,7 @@ type ReduxRouterItems = {
 const REDUX_ROUTER_WRAPPER: Omit<RouterWrapper, 'children'> = {
   whoCanSeeForSidebar: ['admin'],
   key: 'REDUX_ROUTER_WRAPPER',
-  label: 'Redux',
+  label: 'routes.redux',
   icon: DataArrayIcon,
 };
 

@@ -3,6 +3,8 @@
   "components": "Components",
   "customizedComponents": "Customized Components",
   "simpleProjects": "Simple Projects",
+  "redux": "Redux",
+  "reactHookForm": "React Hook Form",
   "sessionPages": "Session Pages",
   "errorAndPermissionManagementPages": "Error and Permission Management Pages",
   "pagesByUserType": "Pages By User Type",
