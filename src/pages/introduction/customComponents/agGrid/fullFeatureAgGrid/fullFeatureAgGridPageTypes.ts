@@ -1,7 +1,7 @@
 import { AgGridCompColDef } from '../../../../../components/custom/agGrid/agGridHelper';
 
 export const employeeColumns: AgGridCompColDef[] = [
-  { field: 'id', headerName: 'introduction.id2', width: 150, editable: false, hide: true, cellDataType: 'text' },
+  { field: 'id', headerName: 'introduction.id2', width: 150, editable: false, hide: false, cellDataType: 'text' },
   { field: 'name', headerName: 'introduction.name', width: 150, editable: true, cellDataType: 'text' },
   { field: 'surname', headerName: 'introduction.surname', width: 150, editable: false, cellDataType: 'text' },
   {

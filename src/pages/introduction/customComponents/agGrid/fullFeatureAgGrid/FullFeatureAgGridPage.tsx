@@ -1,50 +1,73 @@
 import React from 'react';
+import { useLazyGetEmployeesQuery } from '../../../../../redux/slices/services/introductionApiSlices';
 import FullFeatureAgGrid from '../../../../../components/introduction/agGrid/FullFeatureAgGrid';
 import DividerComp from '../../../../../components/base/divider/Divider';
 import TypographyComp from '../../../../../components/base/typography/Typography';
-import { useLazyGetEmployeesQuery } from '../../../../../redux/slices/services/introductionApiSlices';
-import { EmployeeRowType } from '../../../../../redux/slices/services/introductionApiDto';
 import { employeeColumns } from './fullFeatureAgGridPageTypes';
+import { GridCacheSettings } from '../../../../../components/introduction/agGrid/fullFeatureAgGridTypes';
+import { GridReadyEvent, IDatasource } from 'ag-grid-community';
 
 const FullFeatureAgGridPage: React.FC = () => {
   const [triggerGetEmployees] = useLazyGetEmployeesQuery();
+  const [totalRowCount, setTotalRowCount] = React.useState<number>(1000);
 
-  const [rows, setRows] = React.useState<EmployeeRowType[]>([]); // Stores all loaded rows
-  const [skipCount, setSkipCount] = React.useState(0); // Tracks the number of items to skip
-  const [loading, setLoading] = React.useState(false); // Prevents multiple simultaneous data fetches
+  const gridSettings = React.useMemo<GridCacheSettings>(
+    () => ({
+      cacheBlockSize: 50,
+      cacheOverflowSize: 2,
+      maxConcurrentDatasourceRequests: 1,
+      totalRowCount: totalRowCount,
+      serverSideInitialRowCount: Math.ceil(totalRowCount * 1.1),
+    }),
+    [totalRowCount],
+  );
 
-  const loadData = async () => {
-    if (!loading) {
+  const onGridReady = React.useCallback(
+    async (params: GridReadyEvent) => {
       try {
-        setLoading(true);
-        const { data } = await triggerGetEmployees({
-          maxResultCount: '40', // Number of items to fetch per request
-          skipCount: skipCount.toString(), // Offset for pagination
+        const { data: initialData } = await triggerGetEmployees({
+          maxResultCount: '1',
+          skipCount: '0',
         });
 
-        if (data) {
-          if (Array.isArray(data.data.items)) {
-            // Append new items to existing rows
-            setRows((prev) => [...prev, ...data.data.items]);
-            // Increment skip count for next fetch
-            setSkipCount((prev) => prev + 40);
-          } else {
-            console.error('Invalid data format: items is not an array', data);
-          }
+        if (!initialData?.data?.totalCount) {
+          throw new Error('Total count not available in initial response');
         }
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      } finally {
-        setLoading(false);
-      }
-    }
-  };
 
-  // Load initial data on component mount
-  React.useEffect(() => {
-    loadData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+        const totalCount = initialData.data.totalCount;
+        setTotalRowCount(totalCount);
+
+        const dataSource: IDatasource = {
+          rowCount: totalCount,
+          getRows: async (params) => {
+            try {
+              const { data: pageData } = await triggerGetEmployees({
+                maxResultCount: (params.endRow - params.startRow).toString(),
+                skipCount: params.startRow.toString(),
+              });
+
+              if (!pageData?.data?.items || !Array.isArray(pageData.data.items)) {
+                throw new Error('Invalid data format received from API');
+              }
+
+              const rowsThisPage = pageData.data.items;
+              const lastRow = pageData.data.totalCount <= params.endRow ? pageData.data.totalCount : -1;
+
+              params.successCallback(rowsThisPage, lastRow);
+            } catch (error) {
+              console.error('Error fetching page data:', error);
+              params.failCallback();
+            }
+          },
+        };
+
+        params.api.setGridOption('datasource', dataSource);
+      } catch (error) {
+        console.error('Error initializing grid:', error);
+      }
+    },
+    [triggerGetEmployees],
+  );
 
   return (
     <>
@@ -57,7 +80,7 @@ const FullFeatureAgGridPage: React.FC = () => {
       <br />
       <br />
 
-      <FullFeatureAgGrid columns={employeeColumns} rows={rows} />
+      <FullFeatureAgGrid columns={employeeColumns} onGridReady={onGridReady} gridSettings={gridSettings} />
     </>
   );
 };
