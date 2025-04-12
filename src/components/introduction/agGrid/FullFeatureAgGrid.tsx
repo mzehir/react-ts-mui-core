@@ -8,7 +8,7 @@ import AgGridComp from '../../custom/agGrid/AgGrid';
 const FullFeatureAgGrid = <T,>({ columns, onGridReady, gridSettings = {} }: FullFeatureAgGridProps<T>) => {
   const { translate } = useLanguageContext();
 
-  const finalGridSettings = React.useMemo(
+  const preparedGridSettings = React.useMemo(
     () => ({
       ...DEFAULT_GRID_SETTINGS,
       ...gridSettings,
@@ -16,32 +16,26 @@ const FullFeatureAgGrid = <T,>({ columns, onGridReady, gridSettings = {} }: Full
     [gridSettings],
   );
 
+  const preparedMaxBlocksInCache = React.useMemo(() => {
+    return Math.ceil(preparedGridSettings.totalRowCount / preparedGridSettings.cacheBlockSize);
+  }, [preparedGridSettings.totalRowCount, preparedGridSettings.cacheBlockSize]);
+
   const preparedColumns = React.useMemo(() => {
-    const preparedCols = columns.map((column) => ({
-      ...fullFeatureAgGridPropsPrepareColumn(column),
-      headerName: column.isTranslation === false ? column.headerName : translate(column.headerName as string),
-      headerTooltip: column.isTranslation === false ? column.headerName : translate(column.headerName as string),
-    }));
-
-    return preparedCols;
+    return columns.map((column) => fullFeatureAgGridPropsPrepareColumn(column, translate));
   }, [columns, translate]);
-
-  const maxBlocksInCache = React.useMemo(() => {
-    return Math.ceil(finalGridSettings.totalRowCount / finalGridSettings.cacheBlockSize);
-  }, [finalGridSettings.totalRowCount, finalGridSettings.cacheBlockSize]);
 
   return (
     <BoxComp sx={{ width: '100%', height: '80%' }}>
       <AgGridComp
-        columnDefs={preparedColumns}
         rowModelType={'infinite'}
-        rowBuffer={finalGridSettings.rowBuffer}
-        cacheBlockSize={finalGridSettings.cacheBlockSize}
-        cacheOverflowSize={finalGridSettings.cacheOverflowSize}
-        maxBlocksInCache={maxBlocksInCache} // Grid'in önbelleğinde tutulacak maksimum blok sayısı => (maxBlocksInCache * cacheBlockSize) kadar satır önbellekte tutulur
-        maxConcurrentDatasourceRequests={finalGridSettings.maxConcurrentDatasourceRequests}
-        serverSideInitialRowCount={finalGridSettings.serverSideInitialRowCount}
+        columnDefs={preparedColumns}
         onGridReady={onGridReady}
+        maxConcurrentDatasourceRequests={preparedGridSettings.maxConcurrentDatasourceRequests}
+        cacheBlockSize={preparedGridSettings.cacheBlockSize}
+        serverSideInitialRowCount={preparedGridSettings.serverSideInitialRowCount}
+        maxBlocksInCache={preparedMaxBlocksInCache}
+        cacheOverflowSize={preparedGridSettings.cacheOverflowSize}
+        rowBuffer={preparedGridSettings.rowBuffer}
       />
     </BoxComp>
   );

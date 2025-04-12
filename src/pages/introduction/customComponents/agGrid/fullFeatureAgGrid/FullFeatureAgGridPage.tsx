@@ -13,11 +13,11 @@ const FullFeatureAgGridPage: React.FC = () => {
 
   const gridSettings = React.useMemo<GridCacheSettings>(
     () => ({
-      cacheBlockSize: 50,
-      cacheOverflowSize: 2,
       maxConcurrentDatasourceRequests: 1,
+      cacheBlockSize: 50,
       totalRowCount: totalRowCount,
       serverSideInitialRowCount: Math.ceil(totalRowCount * 1.1),
+      cacheOverflowSize: 2,
     }),
     [totalRowCount],
   );

@@ -1,14 +1,17 @@
 import { AgGridCompColDef } from '../../custom/agGrid/agGridHelper';
 
-export const fullFeatureAgGridPropsPrepareColumn = (column: AgGridCompColDef): AgGridCompColDef => {
+export const fullFeatureAgGridPropsPrepareColumn = (
+  column: AgGridCompColDef,
+  translate: (value: string) => string,
+): AgGridCompColDef => {
   const result: AgGridCompColDef = {
     field: column.field,
     cellDataType: column.cellDataType,
     hide: column.hide,
     editable: column.editable,
 
-    headerName: column.headerName,
-    headerTooltip: column.headerTooltip,
+    headerName: column.isTranslation === false ? column.headerName : translate(column.headerName as string),
+    headerTooltip: column.isTranslation === false ? column.headerName : translate(column.headerName as string),
 
     initialWidth: column.initialWidth,
     width: column.width,
