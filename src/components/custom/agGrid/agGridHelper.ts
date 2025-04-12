@@ -8,6 +8,12 @@ export type AgGridCompColDef = ColDef & {
   cellDataType: AgGridCellDataType;
 };
 
-export interface AgGridCompProps extends AgGridReactProps {}
+export interface AgGridCompProps extends AgGridReactProps {
+  verticalLine?: boolean;
+  horizontalLine?: boolean;
+}
 
-export const agGridCompDefaultProps: Partial<AgGridCompProps> = {};
+export const agGridCompDefaultProps: Partial<AgGridCompProps> = {
+  verticalLine: true,
+  horizontalLine: true,
+};
