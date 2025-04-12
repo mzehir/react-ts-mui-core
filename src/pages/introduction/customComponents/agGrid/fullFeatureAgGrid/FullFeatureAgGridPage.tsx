@@ -41,7 +41,6 @@ const FullFeatureAgGridPage: React.FC = () => {
         const dataSource: IDatasource = {
           rowCount: totalCount,
           getRows: async (params) => {
-            // setTimeout(async () => {
             try {
               const { data: pageData } = await triggerGetEmployees({
                 maxResultCount: (params.endRow - params.startRow).toString(),
@@ -60,7 +59,6 @@ const FullFeatureAgGridPage: React.FC = () => {
               console.error('Error fetching page data:', error);
               params.failCallback();
             }
-            // }, 4000);
           },
         };
 
