@@ -6,6 +6,7 @@ import TypographyComp from '../../../../../components/base/typography/Typography
 import { employeeColumns } from './fullFeatureAgGridPageTypes';
 import { GridCacheSettings } from '../../../../../components/introduction/agGrid/fullFeatureAgGridTypes';
 import { GridReadyEvent, IDatasource } from 'ag-grid-community';
+import MoodIcon from '@mui/icons-material/Mood';
 
 const FullFeatureAgGridPage: React.FC = () => {
   const [triggerGetEmployees] = useLazyGetEmployeesQuery();
@@ -69,6 +70,18 @@ const FullFeatureAgGridPage: React.FC = () => {
     [triggerGetEmployees],
   );
 
+  const handleView = (row: unknown) => {
+    console.log('View clicked for:', row);
+  };
+
+  const handleEdit = (row: unknown) => {
+    console.log('Edit clicked for:', row);
+  };
+
+  const handleDelete = (row: unknown) => {
+    console.log('Delete clicked for:', row);
+  };
+
   return (
     <>
       <DividerComp>
@@ -80,7 +93,24 @@ const FullFeatureAgGridPage: React.FC = () => {
       <br />
       <br />
 
-      <FullFeatureAgGrid columns={employeeColumns} onGridReady={onGridReady} gridSettings={gridSettings} />
+      <FullFeatureAgGrid
+        columns={employeeColumns}
+        onGridReady={onGridReady}
+        gridSettings={gridSettings}
+        onView={handleView}
+        onEdit={handleEdit}
+        onDelete={handleDelete}
+        operationItems={[
+          {
+            type: 'iconButton',
+            icon: <MoodIcon />,
+            color: 'warning',
+            onClick(row: unknown) {
+              console.log('operationItem clicked for:', row);
+            },
+          },
+        ]}
+      />
     </>
   );
 };

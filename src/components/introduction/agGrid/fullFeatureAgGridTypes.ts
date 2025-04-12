@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+import { IconButtonColor } from '../../base/iconButton/iconButtonHelper';
 import { AgGridCompColDef } from '../../custom/agGrid/agGridHelper';
 import { GridReadyEvent } from 'ag-grid-community';
 
@@ -17,10 +19,31 @@ export interface GridCacheSettings {
   rowBuffer?: number; // Grid'in görünür alanının dışında kaç satır render edileceğini belirler => Örn: 20 ise, görünür alanın üstünde 20 ve altında 20 satır daha render edilir
 }
 
+export type OperationColumnItemFields =
+  | {
+      type: 'iconButton';
+      icon: ReactNode;
+      color?: IconButtonColor;
+      visable?: boolean;
+      visablePrepare?: (row: unknown) => boolean;
+      disabled?: boolean;
+      disabledPrepare?: (row: unknown) => boolean;
+      onClick: (row: unknown) => void;
+    }
+  | {
+      type: 'button';
+      label: string;
+      onClick: (row: unknown) => void;
+    };
+
 export interface FullFeatureAgGridProps<T> {
   columns: AgGridCompColDef[];
   onGridReady: (event: GridReadyEvent<T>) => void;
   gridSettings?: GridCacheSettings;
+  onView?: (row: unknown) => void;
+  onEdit?: (row: unknown) => void;
+  onDelete?: (row: unknown) => void;
+  operationItems?: OperationColumnItemFields[];
 }
 
 export const DEFAULT_GRID_SETTINGS: Required<GridCacheSettings> = {
