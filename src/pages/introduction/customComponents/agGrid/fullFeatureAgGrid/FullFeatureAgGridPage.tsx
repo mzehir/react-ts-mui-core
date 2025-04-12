@@ -41,24 +41,26 @@ const FullFeatureAgGridPage: React.FC = () => {
         const dataSource: IDatasource = {
           rowCount: totalCount,
           getRows: async (params) => {
-            try {
-              const { data: pageData } = await triggerGetEmployees({
-                maxResultCount: (params.endRow - params.startRow).toString(),
-                skipCount: params.startRow.toString(),
-              });
+            setTimeout(async () => {
+              try {
+                const { data: pageData } = await triggerGetEmployees({
+                  maxResultCount: (params.endRow - params.startRow).toString(),
+                  skipCount: params.startRow.toString(),
+                });
 
-              if (!pageData?.data?.items || !Array.isArray(pageData.data.items)) {
-                throw new Error('Invalid data format received from API');
+                if (!pageData?.data?.items || !Array.isArray(pageData.data.items)) {
+                  throw new Error('Invalid data format received from API');
+                }
+
+                const rowsThisPage = pageData.data.items;
+                const lastRow = pageData.data.totalCount <= params.endRow ? pageData.data.totalCount : -1;
+
+                params.successCallback(rowsThisPage, lastRow);
+              } catch (error) {
+                console.error('Error fetching page data:', error);
+                params.failCallback();
               }
-
-              const rowsThisPage = pageData.data.items;
-              const lastRow = pageData.data.totalCount <= params.endRow ? pageData.data.totalCount : -1;
-
-              params.successCallback(rowsThisPage, lastRow);
-            } catch (error) {
-              console.error('Error fetching page data:', error);
-              params.failCallback();
-            }
+            }, 4000);
           },
         };
 

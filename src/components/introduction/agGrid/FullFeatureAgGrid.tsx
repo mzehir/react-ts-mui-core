@@ -1,18 +1,20 @@
 import React from 'react';
 import useLanguageContext from '../../../hooks/useLanguageContext';
-import BoxComp from '../../base/box/Box';
+
+import { CustomCellRendererProps } from 'ag-grid-react';
+import { ICellRendererParams } from 'ag-grid-community';
 import { fullFeatureAgGridPropsPrepareColumn } from './fullFeatureAgGridMethods';
 import { FullFeatureAgGridProps, DEFAULT_GRID_SETTINGS } from './fullFeatureAgGridTypes';
 import AgGridComp from '../../custom/agGrid/AgGrid';
+import CellSkeletonSection from '../../custom/agGrid/sections/CellSkeletonSection';
+import { AgGridCompColDef } from '../../custom/agGrid/agGridHelper';
 
-import { ICellRendererParams } from 'ag-grid-community';
-
+import BoxComp from '../../base/box/Box';
 import IconButtonComp from '../../base/iconButton/IconButton';
+import { Stack } from '@mui/material';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Stack } from '@mui/material';
-import { AgGridCompColDef } from '../../custom/agGrid/agGridHelper';
 
 const FullFeatureAgGrid = <T,>({
   columns,
@@ -114,7 +116,19 @@ const FullFeatureAgGrid = <T,>({
   }, [onView, onEdit, onDelete, operationItems]);
 
   const preparedColumns = React.useMemo(() => {
-    const baseColumns = columns.map((column) => fullFeatureAgGridPropsPrepareColumn(column, translate));
+    const baseColumns = columns.map((column) => {
+      return {
+        ...fullFeatureAgGridPropsPrepareColumn(column, translate),
+        cellRenderer: (props: CustomCellRendererProps) => {
+          if (props.value !== undefined) {
+            return props.value;
+          } else {
+            return <CellSkeletonSection />;
+          }
+        },
+      };
+    });
+
     return operationColumn ? [...baseColumns, operationColumn] : baseColumns;
   }, [columns, translate, operationColumn]);
 
