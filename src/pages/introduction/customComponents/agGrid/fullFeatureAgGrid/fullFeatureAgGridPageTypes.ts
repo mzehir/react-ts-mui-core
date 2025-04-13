@@ -2,7 +2,7 @@ import { AgGridColDef } from '../../../../../components/custom/agGrid/helper/col
 
 export const employeeColumns: AgGridColDef[] = [
   { field: 'id', cellDataType: 'text', headerName: 'introduction.id2', width: 150, hide: false },
-  { field: 'name', cellDataType: 'text', headerName: 'introduction.name', width: 150 },
+  { field: 'name', cellDataType: 'text', headerName: 'introduction.name', width: 150, filter: true },
   { field: 'surname', cellDataType: 'text', headerName: 'introduction.surname', width: 150 },
   { field: 'gender', cellDataType: 'text', headerName: 'introduction.gender', width: 150 },
   { field: 'age', cellDataType: 'text', headerName: 'introduction.age', width: 150 },
