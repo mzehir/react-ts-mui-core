@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { IconButtonColor } from '../../base/iconButton/iconButtonHelper';
-import { AgGridCompColDef } from '../../custom/agGrid/agGridHelper';
+import { AgGridColDef } from '../../custom/agGrid/helper/colDef/agGridColDef';
 import { GridReadyEvent } from 'ag-grid-community';
 
 export interface GridCacheSettings {
@@ -37,7 +37,7 @@ export type OperationColumnItemFields =
     };
 
 export interface FullFeatureAgGridProps<T> {
-  columns: AgGridCompColDef[];
+  columns: AgGridColDef[];
   onGridReady: (event: GridReadyEvent<T>) => void;
   gridSettings?: GridCacheSettings;
   onView?: (row: unknown) => void;

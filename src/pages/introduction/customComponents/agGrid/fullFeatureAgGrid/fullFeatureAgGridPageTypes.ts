@@ -1,6 +1,6 @@
-import { AgGridCompColDef } from '../../../../../components/custom/agGrid/agGridHelper';
+import { AgGridColDef } from '../../../../../components/custom/agGrid/helper/colDef/agGridColDef';
 
-export const employeeColumns: AgGridCompColDef[] = [
+export const employeeColumns: AgGridColDef[] = [
   { field: 'id', cellDataType: 'text', headerName: 'introduction.id2', width: 150, hide: false },
   { field: 'name', cellDataType: 'text', headerName: 'introduction.name', width: 150 },
   { field: 'surname', cellDataType: 'text', headerName: 'introduction.surname', width: 150 },

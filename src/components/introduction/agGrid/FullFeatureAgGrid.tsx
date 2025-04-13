@@ -7,7 +7,7 @@ import { fullFeatureAgGridPropsPrepareColumn } from './fullFeatureAgGridMethods'
 import { FullFeatureAgGridProps, DEFAULT_GRID_SETTINGS } from './fullFeatureAgGridTypes';
 import AgGridComp from '../../custom/agGrid/AgGrid';
 import CellSkeletonSection from '../../custom/agGrid/sections/CellSkeletonSection';
-import { AgGridCompColDef } from '../../custom/agGrid/agGridHelper';
+import { AgGridColDef } from '../../custom/agGrid/helper/colDef/agGridColDef';
 
 import BoxComp from '../../base/box/Box';
 import IconButtonComp from '../../base/iconButton/IconButton';
@@ -112,7 +112,7 @@ const FullFeatureAgGrid = <T,>({
           </Stack>
         );
       },
-    } as AgGridCompColDef;
+    } as AgGridColDef;
   }, [onView, onEdit, onDelete, operationItems]);
 
   const preparedColumns = React.useMemo(() => {

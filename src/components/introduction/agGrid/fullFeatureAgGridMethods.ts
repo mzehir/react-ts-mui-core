@@ -1,10 +1,10 @@
-import { AgGridCompColDef } from '../../custom/agGrid/agGridHelper';
+import { AgGridColDef } from '../../custom/agGrid/helper/colDef/agGridColDef';
 
 export const fullFeatureAgGridPropsPrepareColumn = (
-  column: AgGridCompColDef,
+  column: AgGridColDef,
   translate: (value: string) => string,
-): AgGridCompColDef => {
-  const result: AgGridCompColDef = {
+): AgGridColDef => {
+  const result: AgGridColDef = {
     field: column.field,
     cellDataType: column.cellDataType ?? 'text',
     hide: column.hide,
