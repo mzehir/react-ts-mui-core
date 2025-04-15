@@ -1,65 +1,27 @@
-import { AgGridColDef } from '../../custom/agGrid/helper/colDef/agGridColDef';
-import { AgGridFilter, AgGridFilterParams } from '../../custom/agGrid/helper/columnFilter/agGridColumnFilter';
+import AgGridRadioCustomFilterComp from '../../custom/agGrid/components/AgGridRadioCustomFilter';
+import { AgGridColDefType } from '../../custom/agGrid/types/agGridColDefType';
+import { AgGridColumnFilterType, AgGridFilterType } from '../../custom/agGrid/types/agGridColumnFilterType';
 
 export const fullFeatureAgGridPropsPrepareColumn = (
-  column: AgGridColDef,
+  column: AgGridColDefType,
   translate: (value: string) => string,
-): AgGridColDef => {
-  let _filter: AgGridFilter | null | undefined;
-  let _filterParams: AgGridFilterParams | null | undefined;
+): AgGridColDefType => {
+  const _customFilter: AgGridColumnFilterType | undefined | null = column.customFilter;
+  let _filter: AgGridFilterType | undefined | null = undefined;
 
-  if (typeof column.filter === 'boolean' && column.filter === true) {
-    if (column.cellDataType === 'text') {
+  if (_customFilter) {
+    if (_customFilter.componentType === 'agTextColumnFilter') {
       _filter = 'agTextColumnFilter';
-      _filterParams = {
-        defaultOption: 'equals',
-        filterOptions: ['equals', 'notEqual', 'contains', 'notContains', 'startsWith', 'endsWith', 'blank', 'notBlank'],
-        filterPlaceholder: 'Filtrele',
-        maxNumConditions: 1,
-      };
-    } else if (column.cellDataType === 'number') {
+    } else if (_customFilter.componentType === 'agNumberColumnFilter') {
       _filter = 'agNumberColumnFilter';
-      _filterParams = {
-        allowedCharPattern: '\\d\\.',
-        defaultOption: 'equals',
-        filterOptions: [
-          'equals',
-          'notEqual',
-          'lessThan',
-          'lessThanOrEqual',
-          'greaterThan',
-          'greaterThanOrEqual',
-          'inRange',
-          'blank',
-          'notBlank',
-        ],
-        filterPlaceholder: 'Filtrele',
-        maxNumConditions: 1,
-      };
-    } else if (column.cellDataType === 'date') {
-      //! Burası nasıl yapılandırılmalı
-    } else if (column.cellDataType === 'dateString') {
-      //! Burası nasıl yapılandırılmalı
-    } else if (column.cellDataType === 'boolean') {
-      //! Burası nasıl yapılandırılmalı
-    } else if (column.cellDataType === 'object') {
-      //! Burası nasıl yapılandırılmalı
+    } else if (_customFilter.componentType === 'agDateColumnFilter') {
+      _filter = 'agDateColumnFilter';
+    } else if (_customFilter.componentType === 'agRadioCustomFilter') {
+      _filter = AgGridRadioCustomFilterComp;
     }
-  } else if (column.filter === 'agTextColumnFilter') {
-    _filter = column.filter;
-    _filterParams = column.filterParams;
-  } else if (column.filter === 'agNumberColumnFilter') {
-    _filter = column.filter;
-    _filterParams = column.filterParams;
-  } else if (column.filter === 'agDateColumnFilter') {
-    _filter = column.filter;
-    _filterParams = column.filterParams;
-  } else {
-    _filter = null;
-    _filterParams = null;
   }
 
-  const result: AgGridColDef = {
+  const result: AgGridColDefType = {
     field: column.field,
     cellDataType: column.cellDataType ?? 'text',
     hide: column.hide,
@@ -69,7 +31,7 @@ export const fullFeatureAgGridPropsPrepareColumn = (
     headerTooltip: column.isTranslation === false ? column.headerName : translate(column.headerName as string),
     width: column.width,
     ...(_filter !== undefined && _filter !== null ? { filter: _filter } : {}),
-    ...(_filterParams !== undefined && _filterParams !== null ? { filterParams: _filterParams } : {}),
+    ...(_customFilter !== undefined && _customFilter !== null ? { filterParams: _customFilter.componentProps } : {}),
   };
 
   return result;

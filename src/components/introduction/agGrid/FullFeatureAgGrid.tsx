@@ -6,8 +6,8 @@ import { ICellRendererParams } from 'ag-grid-community';
 import { fullFeatureAgGridPropsPrepareColumn } from './fullFeatureAgGridMethods';
 import { FullFeatureAgGridProps, DEFAULT_GRID_SETTINGS } from './fullFeatureAgGridTypes';
 import AgGridComp from '../../custom/agGrid/AgGrid';
-import CellSkeletonSection from '../../custom/agGrid/sections/CellSkeletonSection';
-import { AgGridColDef } from '../../custom/agGrid/helper/colDef/agGridColDef';
+import AgGridCellSkeletonComp from '../../custom/agGrid/components/AgGridCellSkeleton';
+import { AgGridColDefType } from '../../custom/agGrid/types/agGridColDefType';
 
 import BoxComp from '../../base/box/Box';
 import IconButtonComp from '../../base/iconButton/IconButton';
@@ -112,7 +112,7 @@ const FullFeatureAgGrid = <T,>({
           </Stack>
         );
       },
-    } as AgGridColDef;
+    } as AgGridColDefType;
   }, [onView, onEdit, onDelete, operationItems]);
 
   const preparedColumns = React.useMemo(() => {
@@ -123,7 +123,7 @@ const FullFeatureAgGrid = <T,>({
           if (props.value !== undefined) {
             return props.value;
           } else {
-            return <CellSkeletonSection />;
+            return <AgGridCellSkeletonComp />;
           }
         },
       };

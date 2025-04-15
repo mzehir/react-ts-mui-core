@@ -1,11 +1,52 @@
-import { AgGridColDef } from '../../../../../components/custom/agGrid/helper/colDef/agGridColDef';
+import { AgGridColDefType } from '../../../../../components/custom/agGrid/types/agGridColDefType';
 
-export const employeeColumns: AgGridColDef[] = [
+export const employeeColumns: AgGridColDefType[] = [
   { field: 'id', cellDataType: 'text', headerName: 'introduction.id2', width: 150, hide: false },
-  { field: 'name', cellDataType: 'text', headerName: 'introduction.name', width: 150, filter: true },
+  {
+    field: 'name',
+    cellDataType: 'text',
+    headerName: 'introduction.name',
+    width: 150,
+    customFilter: {
+      name: 'name',
+      componentType: 'agTextColumnFilter',
+      componentProps: {
+        defaultOption: 'equals',
+        filterOptions: ['equals', 'notEqual', 'contains', 'notContains', 'startsWith', 'endsWith', 'blank', 'notBlank'],
+        filterPlaceholder: 'Filtrele',
+        maxNumConditions: 1,
+      },
+    },
+  },
   { field: 'surname', cellDataType: 'text', headerName: 'introduction.surname', width: 150 },
   { field: 'gender', cellDataType: 'text', headerName: 'introduction.gender', width: 150 },
-  { field: 'age', cellDataType: 'text', headerName: 'introduction.age', width: 150 },
+  {
+    field: 'age',
+    cellDataType: 'number',
+    headerName: 'introduction.age',
+    width: 150,
+    customFilter: {
+      name: 'age',
+      componentType: 'agNumberColumnFilter',
+      componentProps: {
+        allowedCharPattern: '\\d\\.',
+        defaultOption: 'equals',
+        filterOptions: [
+          'equals',
+          'notEqual',
+          'lessThan',
+          'lessThanOrEqual',
+          'greaterThan',
+          'greaterThanOrEqual',
+          'inRange',
+          'blank',
+          'notBlank',
+        ],
+        filterPlaceholder: 'Filtrele',
+        maxNumConditions: 1,
+      },
+    },
+  },
   { field: 'birthDate', cellDataType: 'text', headerName: 'introduction.birthDate', width: 150 },
   { field: 'phone', cellDataType: 'text', headerName: 'introduction.phone', width: 150 },
   { field: 'email', cellDataType: 'text', headerName: 'introduction.email', width: 250 },
@@ -13,6 +54,22 @@ export const employeeColumns: AgGridColDef[] = [
   { field: 'department', cellDataType: 'text', headerName: 'introduction.department', width: 150 },
   { field: 'position', cellDataType: 'text', headerName: 'introduction.position', width: 150 },
   { field: 'salary', cellDataType: 'text', headerName: 'introduction.salary', width: 150 },
-  { field: 'status', cellDataType: 'text', headerName: 'introduction.status', width: 150 },
+  {
+    field: 'status',
+    cellDataType: 'boolean',
+    headerName: 'introduction.status',
+    width: 150,
+    customFilter: {
+      name: 'status',
+      componentType: 'agRadioCustomFilter',
+      componentProps: {
+        label: 'Bir statü seç',
+        items: [
+          { label: 'Aktif', value: 'active' },
+          { label: 'Pasif', value: 'passive' },
+        ],
+      },
+    },
+  },
   { field: 'performanceRating', cellDataType: 'text', headerName: 'introduction.performanceRating', width: 200 },
 ];

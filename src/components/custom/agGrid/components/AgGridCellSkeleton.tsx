@@ -1,7 +1,7 @@
 import React from 'react';
 import SkeletonComp from '../../../base/skeleton/Skeleton';
 
-const CellSkeletonSection: React.FC = () => {
+const AgGridCellSkeletonComp: React.FC = () => {
   return (
     <>
       <SkeletonComp variant="text" width="100%" height="100%" />
@@ -9,4 +9,4 @@ const CellSkeletonSection: React.FC = () => {
   );
 };
 
-export default CellSkeletonSection;
+export default AgGridCellSkeletonComp;
