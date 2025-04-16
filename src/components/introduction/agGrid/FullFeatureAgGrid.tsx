@@ -2,7 +2,7 @@ import React from 'react';
 import useLanguageContext from '../../../hooks/useLanguageContext';
 
 import { CustomCellRendererProps } from 'ag-grid-react';
-import { ICellRendererParams } from 'ag-grid-community';
+import { FilterChangedEvent, ICellRendererParams } from 'ag-grid-community';
 import { fullFeatureAgGridPropsPrepareColumn } from './fullFeatureAgGridMethods';
 import { FullFeatureAgGridProps, DEFAULT_GRID_SETTINGS } from './fullFeatureAgGridTypes';
 import AgGridComp from '../../custom/agGrid/AgGrid';
@@ -132,6 +132,10 @@ const FullFeatureAgGrid = <T,>({
     return operationColumn ? [...baseColumns, operationColumn] : baseColumns;
   }, [columns, translate, operationColumn]);
 
+  const onFilterChanged = (params: FilterChangedEvent) => {
+    params.api.refreshInfiniteCache();
+  };
+
   return (
     <BoxComp sx={{ width: '100%', height: '80%' }}>
       <AgGridComp
@@ -144,6 +148,8 @@ const FullFeatureAgGrid = <T,>({
         maxBlocksInCache={preparedMaxBlocksInCache}
         cacheOverflowSize={preparedGridSettings.cacheOverflowSize}
         rowBuffer={preparedGridSettings.rowBuffer}
+        //
+        onFilterChanged={onFilterChanged}
       />
     </BoxComp>
   );

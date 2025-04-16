@@ -25,6 +25,9 @@ const FullFeatureAgGridPage: React.FC = () => {
 
   const onGridReady = React.useCallback(
     async (params: GridReadyEvent) => {
+      const filterModel = params.api.getFilterModel();
+      console.log(filterModel);
+
       try {
         const { data: initialData } = await triggerGetEmployees({
           maxResultCount: '1',

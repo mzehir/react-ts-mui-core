@@ -15,6 +15,7 @@ export const employeeColumns: AgGridColDefType[] = [
         filterOptions: ['equals', 'notEqual', 'contains', 'notContains', 'startsWith', 'endsWith', 'blank', 'notBlank'],
         filterPlaceholder: 'Filtrele',
         maxNumConditions: 1,
+        buttons: ['apply', 'clear', 'reset', 'cancel'],
       },
     },
   },
