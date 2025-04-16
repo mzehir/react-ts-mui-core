@@ -2,7 +2,7 @@ import React from 'react';
 import useLanguageContext from '../../../hooks/useLanguageContext';
 
 import { CustomCellRendererProps } from 'ag-grid-react';
-import { FilterChangedEvent, ICellRendererParams } from 'ag-grid-community';
+import { FilterChangedEvent, ICellRendererParams, GridReadyEvent, IDatasource } from 'ag-grid-community';
 import { fullFeatureAgGridPropsPrepareColumn } from './fullFeatureAgGridMethods';
 import { FullFeatureAgGridProps, DEFAULT_GRID_SETTINGS } from './fullFeatureAgGridTypes';
 import AgGridComp from '../../custom/agGrid/AgGrid';
@@ -16,28 +16,97 @@ import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const FullFeatureAgGrid = <T,>({
+const FullFeatureAgGrid = ({
   columns,
-  onGridReady,
-  gridSettings = {},
   onView,
   onEdit,
   onDelete,
   operationItems,
-}: FullFeatureAgGridProps<T>) => {
+  triggerGetEmployees,
+}: FullFeatureAgGridProps & {
+  triggerGetEmployees: (params: {
+    maxResultCount: string;
+    skipCount: string;
+  }) => Promise<{ data?: { data?: { totalCount?: number; items?: unknown[] } } }>;
+}) => {
   const { translate } = useLanguageContext();
+  const [totalRowCount, setTotalRowCount] = React.useState<number>(1000);
+
+  const gridSettings = React.useMemo(
+    () => ({
+      maxConcurrentDatasourceRequests: 1,
+      cacheBlockSize: 50,
+      cacheOverflowSize: 2,
+    }),
+    [],
+  );
 
   const preparedGridSettings = React.useMemo(
     () => ({
       ...DEFAULT_GRID_SETTINGS,
       ...gridSettings,
+      totalRowCount: totalRowCount,
+      serverSideInitialRowCount: Math.ceil(totalRowCount * 1.1),
     }),
-    [gridSettings],
+    [gridSettings, totalRowCount],
   );
 
   const preparedMaxBlocksInCache = React.useMemo(() => {
     return Math.ceil(preparedGridSettings.totalRowCount / preparedGridSettings.cacheBlockSize);
   }, [preparedGridSettings.totalRowCount, preparedGridSettings.cacheBlockSize]);
+
+  const onGridReady = React.useCallback(
+    async (params: GridReadyEvent) => {
+      const filterModel = params.api.getFilterModel();
+      console.log(filterModel);
+
+      try {
+        const { data: initialData } = await triggerGetEmployees({
+          maxResultCount: '1',
+          skipCount: '0',
+        });
+
+        if (!initialData?.data?.totalCount) {
+          throw new Error('Total count not available in initial response');
+        }
+
+        const totalCount = initialData.data.totalCount;
+        setTotalRowCount(totalCount);
+
+        const dataSource: IDatasource = {
+          rowCount: totalCount,
+          getRows: async (params) => {
+            try {
+              const { data: pageData } = await triggerGetEmployees({
+                maxResultCount: (params.endRow - params.startRow).toString(),
+                skipCount: params.startRow.toString(),
+              });
+
+              if (!pageData?.data?.items || !Array.isArray(pageData.data.items)) {
+                throw new Error('Invalid data format received from API');
+              }
+
+              const rowsThisPage = pageData.data.items;
+              const lastRow =
+                pageData.data.totalCount !== undefined && pageData.data.totalCount <= params.endRow
+                  ? pageData.data.totalCount
+                  : -1;
+
+              params.successCallback(rowsThisPage, lastRow);
+            } catch (error) {
+              console.error('Error fetching page data:', error);
+              params.failCallback();
+            }
+          },
+        };
+
+        params.api.setGridOption('datasource', dataSource);
+      } catch (error) {
+        console.error('Error initializing grid:', error);
+      }
+    },
+    [triggerGetEmployees],
+  );
 
   const operationColumn = React.useMemo(() => {
     if (!onView && !onEdit && !onDelete && (!operationItems || operationItems.length === 0)) {
@@ -69,7 +138,7 @@ const FullFeatureAgGrid = <T,>({
       sortable: false,
       filter: false,
       cellDataType: 'object' as const,
-      cellRenderer: (params: ICellRendererParams<T>) => {
+      cellRenderer: (params: ICellRendererParams) => {
         return (
           <Stack direction="row" spacing={1}>
             {onView && (
@@ -116,7 +185,7 @@ const FullFeatureAgGrid = <T,>({
   }, [onView, onEdit, onDelete, operationItems]);
 
   const preparedColumns = React.useMemo(() => {
-    const baseColumns = columns.map((column) => {
+    const baseColumns = columns.map((column: AgGridColDefType) => {
       return {
         ...fullFeatureAgGridPropsPrepareColumn(column, translate),
         cellRenderer: (props: CustomCellRendererProps) => {
@@ -148,7 +217,6 @@ const FullFeatureAgGrid = <T,>({
         maxBlocksInCache={preparedMaxBlocksInCache}
         cacheOverflowSize={preparedGridSettings.cacheOverflowSize}
         rowBuffer={preparedGridSettings.rowBuffer}
-        //
         onFilterChanged={onFilterChanged}
       />
     </BoxComp>

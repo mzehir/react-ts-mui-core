@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 import { IconButtonColor } from '../../base/iconButton/iconButtonHelper';
 import { AgGridColDefType } from '../../custom/agGrid/types/agGridColDefType';
-import { GridReadyEvent } from 'ag-grid-community';
 
 export interface GridCacheSettings {
   maxConcurrentDatasourceRequests?: number; // Api'ye aynı anda yapılabilecek maksimum istek sayısı
@@ -36,10 +35,8 @@ export type OperationColumnItemFields =
       onClick: (row: unknown) => void;
     };
 
-export interface FullFeatureAgGridProps<T> {
+export interface FullFeatureAgGridProps {
   columns: AgGridColDefType[];
-  onGridReady: (event: GridReadyEvent<T>) => void;
-  gridSettings?: GridCacheSettings;
   onView?: (row: unknown) => void;
   onEdit?: (row: unknown) => void;
   onDelete?: (row: unknown) => void;
