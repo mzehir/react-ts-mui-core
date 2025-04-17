@@ -41,13 +41,5 @@ export interface FullFeatureAgGridProps {
   onEdit?: (row: unknown) => void;
   onDelete?: (row: unknown) => void;
   operationItems?: OperationColumnItemFields[];
+  gridCacheSettings?: GridCacheSettings;
 }
-
-export const DEFAULT_GRID_SETTINGS: Required<GridCacheSettings> = {
-  maxConcurrentDatasourceRequests: 1,
-  cacheBlockSize: 100,
-  totalRowCount: 1000,
-  serverSideInitialRowCount: 1000,
-  cacheOverflowSize: 2,
-  rowBuffer: 0,
-} as const;

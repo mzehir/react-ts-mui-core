@@ -48,6 +48,11 @@ const FullFeatureAgGridPage: React.FC = () => {
             },
           },
         ]}
+        gridCacheSettings={{
+          maxConcurrentDatasourceRequests: 1,
+          cacheBlockSize: 50,
+          cacheOverflowSize: 2,
+        }}
       />
     </>
   );

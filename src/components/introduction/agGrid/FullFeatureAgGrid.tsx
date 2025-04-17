@@ -4,7 +4,7 @@ import useLanguageContext from '../../../hooks/useLanguageContext';
 import { CustomCellRendererProps } from 'ag-grid-react';
 import { FilterChangedEvent, ICellRendererParams, GridReadyEvent, IDatasource } from 'ag-grid-community';
 import { fullFeatureAgGridPropsPrepareColumn } from './fullFeatureAgGridMethods';
-import { FullFeatureAgGridProps, DEFAULT_GRID_SETTINGS } from './fullFeatureAgGridTypes';
+import { FullFeatureAgGridProps } from './fullFeatureAgGridTypes';
 import AgGridComp from '../../custom/agGrid/AgGrid';
 import AgGridCellSkeletonComp from '../../custom/agGrid/components/AgGridCellSkeleton';
 import { AgGridColDefType } from '../../custom/agGrid/types/agGridColDefType';
@@ -22,6 +22,7 @@ const FullFeatureAgGrid = ({
   onEdit,
   onDelete,
   operationItems,
+  gridCacheSettings,
   triggerGetEmployees,
 }: FullFeatureAgGridProps & {
   triggerGetEmployees: (params: {
@@ -32,23 +33,21 @@ const FullFeatureAgGrid = ({
   const { translate } = useLanguageContext();
   const [totalRowCount, setTotalRowCount] = React.useState<number>(1000);
 
-  const gridSettings = React.useMemo(
-    () => ({
-      maxConcurrentDatasourceRequests: 1,
-      cacheBlockSize: 50,
-      cacheOverflowSize: 2,
-    }),
-    [],
-  );
-
   const preparedGridSettings = React.useMemo(
     () => ({
-      ...DEFAULT_GRID_SETTINGS,
-      ...gridSettings,
-      totalRowCount: totalRowCount,
-      serverSideInitialRowCount: Math.ceil(totalRowCount * 1.1),
+      maxConcurrentDatasourceRequests: gridCacheSettings?.maxConcurrentDatasourceRequests ?? 1,
+      cacheBlockSize: gridCacheSettings?.cacheBlockSize ?? 100,
+      totalRowCount: gridCacheSettings?.totalRowCount ?? totalRowCount,
+      serverSideInitialRowCount: gridCacheSettings?.serverSideInitialRowCount
+        ? gridCacheSettings.serverSideInitialRowCount
+        : gridCacheSettings?.totalRowCount
+          ? Math.ceil(gridCacheSettings?.totalRowCount * 1.1)
+          : Math.ceil((totalRowCount ?? 1000) * 1.1),
+
+      cacheOverflowSize: gridCacheSettings?.cacheOverflowSize ?? 2,
+      rowBuffer: gridCacheSettings?.rowBuffer ?? 0,
     }),
-    [gridSettings, totalRowCount],
+    [gridCacheSettings, totalRowCount],
   );
 
   const preparedMaxBlocksInCache = React.useMemo(() => {
@@ -211,13 +210,15 @@ const FullFeatureAgGrid = ({
         rowModelType={'infinite'}
         columnDefs={preparedColumns}
         onGridReady={onGridReady}
+        onFilterChanged={onFilterChanged}
+        // GridCacheSettings
         maxConcurrentDatasourceRequests={preparedGridSettings.maxConcurrentDatasourceRequests}
         cacheBlockSize={preparedGridSettings.cacheBlockSize}
         serverSideInitialRowCount={preparedGridSettings.serverSideInitialRowCount}
         maxBlocksInCache={preparedMaxBlocksInCache}
         cacheOverflowSize={preparedGridSettings.cacheOverflowSize}
         rowBuffer={preparedGridSettings.rowBuffer}
-        onFilterChanged={onFilterChanged}
+        // GridCacheSettings
       />
     </BoxComp>
   );
