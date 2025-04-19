@@ -1,20 +1,10 @@
 import React from 'react';
 import useLanguageContext from '../../../hooks/useLanguageContext';
-
-import { CustomCellRendererProps } from 'ag-grid-react';
-import { FilterChangedEvent, ICellRendererParams, GridReadyEvent, IDatasource } from 'ag-grid-community';
-import { fullFeatureAgGridPropsPrepareColumn } from './fullFeatureAgGridMethods';
+import { FilterChangedEvent, GridReadyEvent, IDatasource } from 'ag-grid-community';
 import { FullFeatureAgGridProps } from './fullFeatureAgGridTypes';
+import { prepareOperationColumn, prepareColumns } from './fullFeatureAgGridHelper';
 import AgGridComp from '../../custom/agGrid/AgGrid';
-import AgGridCellSkeletonComp from '../../custom/agGrid/components/AgGridCellSkeleton';
-import { AgGridColDefType } from '../../custom/agGrid/types/agGridColDefType';
-
 import BoxComp from '../../base/box/Box';
-import IconButtonComp from '../../base/iconButton/IconButton';
-import { Stack } from '@mui/material';
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
 
 const FullFeatureAgGrid = ({
   columns,
@@ -38,7 +28,6 @@ const FullFeatureAgGrid = ({
         : gridCacheSettings?.totalRowCount
           ? Math.ceil(gridCacheSettings?.totalRowCount * 1.1)
           : Math.ceil((totalRowCount ?? 1000) * 1.1),
-
       cacheOverflowSize: gridCacheSettings?.cacheOverflowSize ?? 2,
       rowBuffer: gridCacheSettings?.rowBuffer ?? 0,
     }),
@@ -48,6 +37,16 @@ const FullFeatureAgGrid = ({
   const preparedMaxBlocksInCache = React.useMemo(() => {
     return Math.ceil(preparedGridSettings.totalRowCount / preparedGridSettings.cacheBlockSize);
   }, [preparedGridSettings.totalRowCount, preparedGridSettings.cacheBlockSize]);
+
+  const operationColumn = React.useMemo(
+    () => prepareOperationColumn(onView, onEdit, onDelete, operationItems),
+    [onView, onEdit, onDelete, operationItems],
+  );
+
+  const preparedColumns = React.useMemo(
+    () => prepareColumns(columns, translate, operationColumn),
+    [columns, translate, operationColumn],
+  );
 
   const onGridReady = React.useCallback(
     async (params: GridReadyEvent) => {
@@ -102,99 +101,6 @@ const FullFeatureAgGrid = ({
     [triggerGetEmployees],
   );
 
-  const operationColumn = React.useMemo(() => {
-    if (!onView && !onEdit && !onDelete && (!operationItems || operationItems.length === 0)) {
-      return null;
-    }
-
-    const ICON_BUTTON_WIDTH = 40;
-    let operationColumnItemLength = 0;
-
-    if (onView) operationColumnItemLength++;
-
-    if (onEdit) operationColumnItemLength++;
-
-    if (onDelete) operationColumnItemLength++;
-
-    if (operationItems?.length) {
-      operationColumnItemLength += operationItems.filter((item) => {
-        return item.type === 'iconButton';
-      }).length;
-    }
-
-    const operationColumnWidth = operationColumnItemLength * ICON_BUTTON_WIDTH;
-
-    return {
-      field: 'operations',
-      headerName: '',
-      width: operationColumnWidth || 200,
-      pinned: 'left' as const,
-      sortable: false,
-      filter: false,
-      cellDataType: 'object' as const,
-      cellRenderer: (params: ICellRendererParams) => {
-        return (
-          <Stack direction="row" spacing={1}>
-            {onView && (
-              <IconButtonComp size="small" color="primary" onClick={() => onView(params.data)}>
-                <RemoveRedEyeIcon />
-              </IconButtonComp>
-            )}
-            {onEdit && (
-              <IconButtonComp size="small" color="success" onClick={() => onEdit(params.data)}>
-                <EditIcon />
-              </IconButtonComp>
-            )}
-            {onDelete && (
-              <IconButtonComp size="small" color="error" onClick={() => onDelete(params.data)}>
-                <DeleteIcon />
-              </IconButtonComp>
-            )}
-            {operationItems?.map((item, index) => {
-              if (item.type === 'iconButton') {
-                const isVisible = item.visablePrepare ? item.visablePrepare(params.data) : (item.visable ?? true);
-                const isDisabled = item.disabledPrepare ? item.disabledPrepare(params.data) : (item.disabled ?? false);
-
-                if (!isVisible) return null;
-
-                return (
-                  <IconButtonComp
-                    key={index}
-                    size="small"
-                    color={item.color}
-                    disabled={isDisabled}
-                    onClick={() => item.onClick(params.data)}
-                  >
-                    {item.icon}
-                  </IconButtonComp>
-                );
-              }
-
-              return null;
-            })}
-          </Stack>
-        );
-      },
-    } as AgGridColDefType;
-  }, [onView, onEdit, onDelete, operationItems]);
-
-  const preparedColumns = React.useMemo(() => {
-    const baseColumns = columns.map((column: AgGridColDefType) => {
-      return {
-        ...fullFeatureAgGridPropsPrepareColumn(column, translate),
-        cellRenderer: (props: CustomCellRendererProps) => {
-          if (props.value !== undefined) {
-            return props.value;
-          } else {
-            return <AgGridCellSkeletonComp />;
-          }
-        },
-      };
-    });
-
-    return operationColumn ? [...baseColumns, operationColumn] : baseColumns;
-  }, [columns, translate, operationColumn]);
-
   const onFilterChanged = (params: FilterChangedEvent) => {
     params.api.refreshInfiniteCache();
   };
@@ -206,14 +112,12 @@ const FullFeatureAgGrid = ({
         columnDefs={preparedColumns}
         onGridReady={onGridReady}
         onFilterChanged={onFilterChanged}
-        // GridCacheSettings
         maxConcurrentDatasourceRequests={preparedGridSettings.maxConcurrentDatasourceRequests}
         cacheBlockSize={preparedGridSettings.cacheBlockSize}
         serverSideInitialRowCount={preparedGridSettings.serverSideInitialRowCount}
         maxBlocksInCache={preparedMaxBlocksInCache}
         cacheOverflowSize={preparedGridSettings.cacheOverflowSize}
         rowBuffer={preparedGridSettings.rowBuffer}
-        // GridCacheSettings
       />
     </BoxComp>
   );
