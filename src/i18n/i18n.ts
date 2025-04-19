@@ -55,10 +55,6 @@ const resources = {
   },
 };
 
-console.log(resources.en.translation);
-
-console.log(resources.tr.translation);
-
 i18n.use(initReactI18next).init({
   resources,
   lng: 'en',
