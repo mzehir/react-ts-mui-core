@@ -49,56 +49,51 @@ const FullFeatureAgGrid = ({
   );
 
   const onGridReady = React.useCallback(
-    async (params: GridReadyEvent) => {
-      const filterModel = params.api.getFilterModel();
-      console.log(filterModel);
-
+    async (gridParams: GridReadyEvent) => {
       try {
-        const { data: initialData } = await triggerGetEmployees({
-          maxResultCount: '1',
-          skipCount: '0',
-        });
-
-        if (!initialData?.data?.totalCount) {
-          throw new Error('Total count not available in initial response');
-        }
-
-        const totalCount = initialData.data.totalCount;
-        setTotalRowCount(totalCount);
-
         const dataSource: IDatasource = {
-          rowCount: totalCount,
-          getRows: async (params) => {
+          rowCount: totalRowCount,
+          getRows: async (rowParams) => {
+            //! filterModel backend hazır olduğunda kullanılacak
+            // const filterModel = gridParams.api.getFilterModel();
+            // console.log(filterModel);
+
             try {
               const { data: pageData } = await triggerGetEmployees({
-                maxResultCount: (params.endRow - params.startRow).toString(),
-                skipCount: params.startRow.toString(),
+                maxResultCount: (rowParams.endRow - rowParams.startRow).toString(),
+                skipCount: rowParams.startRow.toString(),
               });
 
               if (!pageData?.data?.items || !Array.isArray(pageData.data.items)) {
                 throw new Error('Invalid data format received from API');
               }
 
+              if (!pageData?.data?.totalCount) {
+                throw new Error('Total count not available in initial response');
+              }
+
+              totalRowCount !== pageData?.data?.totalCount && setTotalRowCount(pageData?.data?.totalCount);
+
               const rowsThisPage = pageData.data.items;
               const lastRow =
-                pageData.data.totalCount !== undefined && pageData.data.totalCount <= params.endRow
+                pageData.data.totalCount !== undefined && pageData.data.totalCount <= rowParams.endRow
                   ? pageData.data.totalCount
                   : -1;
 
-              params.successCallback(rowsThisPage, lastRow);
+              rowParams.successCallback(rowsThisPage, lastRow);
             } catch (error) {
               console.error('Error fetching page data:', error);
-              params.failCallback();
+              rowParams.failCallback();
             }
           },
         };
 
-        params.api.setGridOption('datasource', dataSource);
+        gridParams.api.setGridOption('datasource', dataSource);
       } catch (error) {
         console.error('Error initializing grid:', error);
       }
     },
-    [triggerGetEmployees],
+    [triggerGetEmployees, totalRowCount],
   );
 
   const onFilterChanged = (params: FilterChangedEvent) => {
