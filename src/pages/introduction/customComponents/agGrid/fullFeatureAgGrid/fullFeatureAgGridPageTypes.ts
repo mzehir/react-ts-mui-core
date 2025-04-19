@@ -45,6 +45,7 @@ export const employeeColumns: AgGridColDefType[] = [
         ],
         filterPlaceholder: 'Filtrele',
         maxNumConditions: 1,
+        buttons: ['apply', 'clear', 'reset', 'cancel'],
       },
     },
   },
