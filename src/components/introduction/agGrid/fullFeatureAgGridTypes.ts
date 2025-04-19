@@ -42,4 +42,8 @@ export interface FullFeatureAgGridProps {
   onDelete?: (row: unknown) => void;
   operationItems?: OperationColumnItemFields[];
   gridCacheSettings?: GridCacheSettings;
+  triggerGetEmployees: (params: {
+    maxResultCount: string;
+    skipCount: string;
+  }) => Promise<{ data?: { data?: { totalCount?: number; items?: unknown[] } } }>;
 }

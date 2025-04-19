@@ -24,12 +24,7 @@ const FullFeatureAgGrid = ({
   operationItems,
   gridCacheSettings,
   triggerGetEmployees,
-}: FullFeatureAgGridProps & {
-  triggerGetEmployees: (params: {
-    maxResultCount: string;
-    skipCount: string;
-  }) => Promise<{ data?: { data?: { totalCount?: number; items?: unknown[] } } }>;
-}) => {
+}: FullFeatureAgGridProps) => {
   const { translate } = useLanguageContext();
   const [totalRowCount, setTotalRowCount] = React.useState<number>(1000);
 
