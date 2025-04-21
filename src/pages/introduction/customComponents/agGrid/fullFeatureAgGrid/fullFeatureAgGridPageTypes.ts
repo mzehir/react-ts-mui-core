@@ -70,6 +70,7 @@ export const employeeColumns: AgGridColDefType[] = [
           { label: 'Aktif', value: 'active' },
           { label: 'Pasif', value: 'passive' },
         ],
+        buttons: ['apply', 'clear', 'reset', 'cancel'],
       },
     },
   },

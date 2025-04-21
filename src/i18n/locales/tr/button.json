@@ -9,5 +9,9 @@
   "verify": "Doğrula",
   "save": "Kaydet",
   "cancel": "İptal et",
-  "delete": "Sil"
+  "delete": "Sil",
+  "apply": "Uygula",
+  "clear": "Temizle",
+  "reset": "Sıfırla",
+  "cancel2": "İptal"
 }

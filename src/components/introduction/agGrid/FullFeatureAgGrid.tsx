@@ -55,8 +55,8 @@ const FullFeatureAgGrid = ({
           rowCount: totalRowCount,
           getRows: async (rowParams) => {
             //! filterModel backend hazır olduğunda kullanılacak
-            // const filterModel = gridParams.api.getFilterModel();
-            // console.log(filterModel);
+            const filterModel = gridParams.api.getFilterModel();
+            console.log(filterModel);
 
             try {
               const { data: pageData } = await triggerGetEmployees({

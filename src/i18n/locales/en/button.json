@@ -9,5 +9,10 @@
   "verify": "Verify",
   "save": "Save",
   "cancel": "Cancel",
-  "delete": "Delete"
+  "delete": "Delete",
+  "apply": "Apply",
+  "clear": "Clear",
+  "reset": "Reset",
+  "cancel2": "Cancel"
+
 }
