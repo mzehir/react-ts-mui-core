@@ -164,4 +164,6 @@ export interface FilterParamsAgNumberColumnFilter {
   numberFormatter?: NumberFormatterAgNumberColumnFilter;
   numberParser?: NumberParserAgNumberColumnFilter;
   readOnly?: ReadOnlyAgNumberColumnFilter;
+  // extra props
+  initialFilterValue?: number | string;
 }

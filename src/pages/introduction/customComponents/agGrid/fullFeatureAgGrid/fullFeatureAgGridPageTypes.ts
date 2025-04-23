@@ -11,6 +11,7 @@ export const employeeColumns: AgGridColDefType[] = [
       name: 'name',
       componentType: 'agTextColumnFilter',
       componentProps: {
+        initialFilterValue: 'Michael',
         defaultOption: 'equals',
         filterOptions: ['equals', 'notEqual', 'contains', 'notContains', 'startsWith', 'endsWith', 'blank', 'notBlank'],
         filterPlaceholder: 'Filtrele',
@@ -65,6 +66,7 @@ export const employeeColumns: AgGridColDefType[] = [
       name: 'status',
       componentType: 'agRadioCustomFilter',
       componentProps: {
+        initialFilterValue: 'active',
         defaultOption: 'equals',
         label: 'Bir statü seç',
         items: [

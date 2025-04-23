@@ -141,4 +141,6 @@ export interface FilterParamsAgTextColumnFilter {
   textFormatter?: TextFormatterAgTextColumnFilter;
   textMatcher?: TextMatcherAgTextColumnFilter;
   trimInput?: TrimInputAgTextColumnFilter;
+  // extra props
+  initialFilterValue?: string;
 }

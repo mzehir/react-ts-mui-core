@@ -198,4 +198,6 @@ export interface FilterParamsAgDateColumnFilter {
   minValidYear: MinValidYearAgDateColumnFilter;
   numAlwaysVisibleConditions: NumAlwaysVisibleConditionsAgDateColumnFilter;
   readOnly: ReadOnlyAgDateColumnFilter;
+  // extra props
+  initialFilterValue?: string;
 }

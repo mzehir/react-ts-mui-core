@@ -51,6 +51,7 @@ export interface AgGridRadioCustomFilterCompProps {
   filterOptions?: FilterOptionsAgGridRadioCustomFilter[];
   readOnly?: ReadOnlyAgGridRadioCustomFilter;
   // extra props
+  initialFilterValue?: string | number;
   label: string;
   isLabelTranslation?: boolean;
   items: AgGridRadioCustomFilterCompItemProp[];
