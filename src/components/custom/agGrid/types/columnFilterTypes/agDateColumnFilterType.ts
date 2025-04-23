@@ -52,7 +52,14 @@ type DefaultJoinOperatorAgDateColumnFilter = 'AND' | 'OR';
  * Filtre popup'ı açıldığında seçili olacak varsayılan filtre tipi.
  * Örn: 'equals', 'greaterThan', 'inRange'
  */
-type DefaultOptionAgDateColumnFilter = string;
+type DefaultOptionAgDateColumnFilter =
+  | 'equals'
+  | 'notEqual'
+  | 'lessThan'
+  | 'greaterThan'
+  | 'inRange'
+  | 'blank'
+  | 'notBlank';
 
 /**
  * Kullanıcının seçebileceği filtre türleri listesi.

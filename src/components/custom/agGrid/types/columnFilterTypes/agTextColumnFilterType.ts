@@ -48,7 +48,15 @@ type DefaultJoinOperatorAgTextColumnFilter = 'AND' | 'OR';
  * Filtre popup'ı açıldığında varsayılan olarak seçili olan filtre tipi.
  * Örn: 'contains', 'startsWith', vs.
  */
-type DefaultOptionAgTextColumnFilter = string;
+type DefaultOptionAgTextColumnFilter =
+  | 'equals'
+  | 'notEqual'
+  | 'contains'
+  | 'notContains'
+  | 'startsWith'
+  | 'endsWith'
+  | 'blank'
+  | 'notBlank';
 
 /**
  * Kullanıcının seçim yapabileceği filtre türlerinin listesi.
@@ -124,7 +132,7 @@ export interface FilterParamsAgTextColumnFilter {
   closeOnApply?: CloseOnApplyAgTextColumnFilter;
   debounceMs?: DebounceMsAgTextColumnFilter;
   defaultJoinOperator?: DefaultJoinOperatorAgTextColumnFilter;
-  defaultOption?: DefaultOptionAgTextColumnFilter;
+  defaultOption: DefaultOptionAgTextColumnFilter;
   filterOptions?: FilterOptionsAgTextColumnFilter[];
   filterPlaceholder?: FilterPlaceholderAgTextColumnFilter;
   maxNumConditions?: MaxNumConditionsAgTextColumnFilter;

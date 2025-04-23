@@ -45,7 +45,16 @@ type DefaultJoinOperatorAgNumberColumnFilter = 'AND' | 'OR';
  * Filtre popup'ı açıldığında varsayılan olarak hangi filtre türü seçili olacak?
  * Örn: 'equals', 'lessThan', vs.
  */
-type DefaultOptionAgNumberColumnFilter = string;
+type DefaultOptionAgNumberColumnFilter =
+  | 'equals'
+  | 'notEqual'
+  | 'lessThan'
+  | 'lessThanOrEqual'
+  | 'greaterThan'
+  | 'greaterThanOrEqual'
+  | 'inRange'
+  | 'blank'
+  | 'notBlank';
 
 /**
  * Kullanıcının seçim yapabileceği filtre türlerinin listesi.
@@ -141,7 +150,7 @@ export interface FilterParamsAgNumberColumnFilter {
   closeOnApply?: CloseOnApplyAgNumberColumnFilter;
   debounceMs?: DebounceMsAgNumberColumnFilter;
   defaultJoinOperator?: DefaultJoinOperatorAgNumberColumnFilter;
-  defaultOption?: DefaultOptionAgNumberColumnFilter;
+  defaultOption: DefaultOptionAgNumberColumnFilter;
   filterOptions?: FilterOptionsAgNumberColumnFilter[];
   filterPlaceholder?: FilterPlaceholderAgNumberColumnFilter;
   inRangeInclusive?: InRangeInclusiveAgNumberColumnFilter;

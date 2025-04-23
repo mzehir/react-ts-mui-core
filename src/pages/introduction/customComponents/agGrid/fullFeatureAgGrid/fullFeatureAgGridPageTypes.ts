@@ -65,6 +65,7 @@ export const employeeColumns: AgGridColDefType[] = [
       name: 'status',
       componentType: 'agRadioCustomFilter',
       componentProps: {
+        defaultOption: 'equals',
         label: 'Bir statü seç',
         items: [
           { label: 'Aktif', value: 'active' },
