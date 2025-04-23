@@ -48,8 +48,37 @@ const FullFeatureAgGrid = ({
     [columns, translate, operationColumn],
   );
 
+  const initialFilterModelPrepare = () => {
+    const columnsContainingDefaultFilterValue =
+      columns.filter(
+        (column) =>
+          column.customFilter &&
+          column.customFilter.componentProps &&
+          column?.customFilter?.componentProps?.initialFilterValue,
+      ) ?? [];
+
+    if (columnsContainingDefaultFilterValue.length > 0) {
+      const filterModel = columnsContainingDefaultFilterValue.reduce<Record<string, unknown>>((acc, column) => {
+        const fieldName = column.field as string;
+
+        acc[fieldName] = {
+          type: column.customFilter?.componentProps?.defaultOption,
+          filter: column.customFilter?.componentProps.initialFilterValue,
+        };
+        return acc;
+      }, {});
+
+      return filterModel;
+    } else {
+      return {};
+    }
+  };
+
   const onGridReady = React.useCallback(
     async (gridParams: GridReadyEvent) => {
+      const initialFilterModel = initialFilterModelPrepare();
+      Object.keys(initialFilterModel).length > 0 && gridParams.api.setFilterModel(initialFilterModel);
+
       try {
         const dataSource: IDatasource = {
           rowCount: totalRowCount,
