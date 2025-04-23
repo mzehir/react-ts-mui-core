@@ -9,18 +9,6 @@ import MoodIcon from '@mui/icons-material/Mood';
 const FullFeatureAgGridPage: React.FC = () => {
   const [triggerGetEmployees] = useLazyGetEmployeesQuery();
 
-  const handleView = (row: unknown) => {
-    console.log('View clicked for:', row);
-  };
-
-  const handleEdit = (row: unknown) => {
-    console.log('Edit clicked for:', row);
-  };
-
-  const handleDelete = (row: unknown) => {
-    console.log('Delete clicked for:', row);
-  };
-
   return (
     <>
       <DividerComp>
@@ -34,9 +22,9 @@ const FullFeatureAgGridPage: React.FC = () => {
 
       <FullFeatureAgGrid
         columns={employeeColumns}
-        onView={handleView}
-        onEdit={handleEdit}
-        onDelete={handleDelete}
+        onView={(row: unknown) => console.log('View clicked for:', row)}
+        onEdit={(row: unknown) => console.log('Edit clicked for:', row)}
+        onDelete={(row: unknown) => console.log('Delete clicked for:', row)}
         triggerGetEmployees={triggerGetEmployees}
         operationItems={[
           {
