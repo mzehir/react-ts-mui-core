@@ -1,20 +1,12 @@
 import React from 'react';
 import useLanguageContext from '../../../hooks/useLanguageContext';
-import { FilterChangedEvent, GridReadyEvent, IDatasource } from 'ag-grid-community';
+import { GridReadyEvent, IDatasource } from 'ag-grid-community';
 import { FullFeatureAgGridProps } from './fullFeatureAgGridTypes';
-import { prepareOperationColumn, prepareColumns } from './fullFeatureAgGridHelper';
+import { prepareColumns } from './fullFeatureAgGridHelper';
 import AgGridComp from '../../custom/agGrid/AgGrid';
 import BoxComp from '../../base/box/Box';
 
-const FullFeatureAgGrid = ({
-  columns,
-  onView,
-  onEdit,
-  onDelete,
-  operationItems,
-  gridCacheSettings,
-  triggerGetEmployees,
-}: FullFeatureAgGridProps) => {
+const FullFeatureAgGrid = ({ columns, gridCacheSettings, triggerGetEmployees }: FullFeatureAgGridProps) => {
   const { translate } = useLanguageContext();
   const [totalRowCount, setTotalRowCount] = React.useState<number>(1000);
 
@@ -38,15 +30,7 @@ const FullFeatureAgGrid = ({
     return Math.ceil(preparedGridSettings.totalRowCount / preparedGridSettings.cacheBlockSize);
   }, [preparedGridSettings.totalRowCount, preparedGridSettings.cacheBlockSize]);
 
-  const operationColumn = React.useMemo(
-    () => prepareOperationColumn(onView, onEdit, onDelete, operationItems),
-    [onView, onEdit, onDelete, operationItems],
-  );
-
-  const preparedColumns = React.useMemo(
-    () => prepareColumns(columns, translate, operationColumn),
-    [columns, translate, operationColumn],
-  );
+  const preparedColumns = React.useMemo(() => prepareColumns(columns, translate), [columns, translate]);
 
   const onGridReady = React.useCallback(
     async (gridParams: GridReadyEvent) => {
@@ -96,17 +80,12 @@ const FullFeatureAgGrid = ({
     [triggerGetEmployees, totalRowCount],
   );
 
-  const onFilterChanged = (params: FilterChangedEvent) => {
-    params.api.refreshInfiniteCache();
-  };
-
   return (
     <BoxComp sx={{ width: '100%', height: '80%' }}>
       <AgGridComp
         rowModelType={'infinite'}
         columnDefs={preparedColumns}
         onGridReady={onGridReady}
-        onFilterChanged={onFilterChanged}
         maxConcurrentDatasourceRequests={preparedGridSettings.maxConcurrentDatasourceRequests}
         cacheBlockSize={preparedGridSettings.cacheBlockSize}
         serverSideInitialRowCount={preparedGridSettings.serverSideInitialRowCount}
