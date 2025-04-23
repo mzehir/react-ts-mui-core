@@ -115,9 +115,25 @@ const FullFeatureAgGrid = ({
             console.log(filterModel);
 
             try {
+              let requestDtoFilter = {};
+              const filterModelKeys = Object.keys(filterModel);
+              if (filterModelKeys.length > 0) {
+                for (let i = 0; i < filterModelKeys.length; i++) {
+                  const key = filterModelKeys[i];
+                  requestDtoFilter = {
+                    ...requestDtoFilter,
+                    [key]: {
+                      type: filterModel[key].type,
+                      value: filterModel[key].filter,
+                    },
+                  };
+                }
+              }
+
               const { data: pageData } = await triggerGetEmployees({
                 maxResultCount: (rowParams.endRow - rowParams.startRow).toString(),
                 skipCount: rowParams.startRow.toString(),
+                ...requestDtoFilter,
               });
 
               if (!pageData?.data?.items || !Array.isArray(pageData.data.items)) {

@@ -1,44 +1,44 @@
 enum Gender {
-  MALE = 'male',
-  FEMALE = 'female',
+  MALE = 'MALE',
+  FEMALE = 'FEMALE',
 }
 
 enum Department {
   IT = 'IT',
   HR = 'HR',
-  FINANCE = 'Finance',
-  MARKETING = 'Marketing',
-  SALES = 'Sales',
-  OPERATIONS = 'Operations',
-  CUSTOMER_SERVICE = 'Customer Service',
+  FINANCE = 'FINANCE',
+  MARKETING = 'MARKETING',
+  SALES = 'SALES',
+  OPERATIONS = 'OPERATIONS',
+  CUSTOMER_SERVICE = 'CUSTOMER_SERVICE',
 }
 
 enum Position {
-  JUNIOR_DEVELOPER = 'Junior Developer',
-  SENIOR_DEVELOPER = 'Senior Developer',
-  TEAM_LEAD = 'Team Lead',
-  MANAGER = 'Manager',
-  DIRECTOR = 'Director',
+  JUNIOR_DEVELOPER = 'JUNIOR_DEVELOPER',
+  SENIOR_DEVELOPER = 'SENIOR_DEVELOPER',
+  TEAM_LEAD = 'TEAM_LEAD',
+  MANAGER = 'MANAGER',
+  DIRECTOR = 'DIRECTOR',
   CEO = 'CEO',
-  HR_SPECIALIST = 'HR Specialist',
-  ACCOUNTANT = 'Accountant',
-  MARKETING_SPECIALIST = 'Marketing Specialist',
-  SALES_REPRESENTATIVE = 'Sales Representative',
+  HR_SPECIALIST = 'HR_SPECIALIST',
+  ACCOUNTANT = 'ACCOUNTANT',
+  MARKETING_SPECIALIST = 'MARKETING_SPECIALIST',
+  SALES_REPRESENTATIVE = 'SALES_REPRESENTATIVE',
 }
 
-enum EmployeeStatus {
-  ACTIVE = 'Active',
-  ON_LEAVE = 'On Leave',
-  RESIGNED = 'Resigned',
-  TERMINATED = 'Terminated',
+enum Status {
+  ACTIVE = 'ACTIVE',
+  ON_LEAVE = 'ON_LEAVE',
+  RESIGNED = 'RESIGNED',
+  TERMINATED = 'TERMINATED',
 }
 
 enum PerformanceRating {
-  EXCELLENT = 'Excellent',
-  GOOD = 'Good',
-  AVERAGE = 'Average',
-  BELOW_AVERAGE = 'Below Average',
-  POOR = 'Poor',
+  EXCELLENT = 'EXCELLENT',
+  GOOD = 'GOOD',
+  AVERAGE = 'AVERAGE',
+  BELOW_AVERAGE = 'BELOW_AVERAGE',
+  POOR = 'POOR',
 }
 
 export interface EmployeeRowType {
@@ -54,7 +54,7 @@ export interface EmployeeRowType {
   department: Department;
   position: Position;
   salary: number;
-  status: EmployeeStatus;
+  status: Status;
   performanceRating: PerformanceRating;
 }
 
@@ -63,4 +63,15 @@ export interface employeesResponseDto {
     items: EmployeeRowType[];
     totalCount: number;
   };
+}
+
+export interface INameRequest {
+  type: string;
+  value: string;
+}
+
+export interface employeesRequestDto {
+  maxResultCount: string;
+  skipCount: string;
+  name?: INameRequest;
 }

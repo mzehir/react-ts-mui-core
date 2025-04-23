@@ -1,7 +1,7 @@
 import { BaseQueryApi, FetchArgs, createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Toastify } from '../../../components/custom/toastify/Toastify';
 import { ToastCompProps } from '../../../components/custom/toastify/toastifyHelper';
-import { employeesResponseDto } from './introductionApiDto';
+import { employeesRequestDto, employeesResponseDto } from './introductionApiDto';
 
 const baseUrl = 'http://localhost:3000/api';
 const defaultContentType = 'application/json; charset=UTF-8';
@@ -53,9 +53,18 @@ export const introductionApi = createApi({
   reducerPath: 'introductionApi',
   baseQuery: baseQuery,
   endpoints: (builder) => ({
-    // http://localhost:3000/api/employees?maxResultCount=10&skipCount=10
-    getEmployees: builder.query<employeesResponseDto, { maxResultCount: string; skipCount: string }>({
-      query: ({ maxResultCount, skipCount }) => `/employees?maxResultCount=${maxResultCount}&skipCount=${skipCount}`,
+    getEmployees: builder.query<employeesResponseDto, employeesRequestDto>({
+      query: ({ maxResultCount, skipCount, name }) => {
+        // Base URL oluştur
+        let url = `/employees?maxResultCount=${maxResultCount}&skipCount=${skipCount}`;
+
+        // Eğer name filtresi varsa, JSON string olarak ekle
+        if (name) {
+          url += `&name=${encodeURIComponent(JSON.stringify(name))}`;
+        }
+
+        return url;
+      },
       extraOptions: {
         headersContentType: 'none',
         messages: {
