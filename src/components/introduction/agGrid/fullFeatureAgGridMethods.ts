@@ -29,6 +29,7 @@ export const fullFeatureAgGridPropsPrepareColumn = (
     sortable: column.sortable ?? false,
     headerName: column.isTranslation === false ? column.headerName : translate(column.headerName as string),
     headerTooltip: column.isTranslation === false ? column.headerName : translate(column.headerName as string),
+    valueFormatter: column.valueFormatter,
     width: column.width,
     ...(_filter !== undefined && _filter !== null ? { filter: _filter } : {}),
     ...(_customFilter !== undefined && _customFilter !== null ? { filterParams: _customFilter.componentProps } : {}),

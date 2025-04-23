@@ -99,7 +99,7 @@ export const prepareColumns = (
       ...fullFeatureAgGridPropsPrepareColumn(column, translate),
       cellRenderer: (props: CustomCellRendererProps) => {
         if (props.value !== undefined) {
-          return props.value;
+          return props.valueFormatted ?? props.value;
         } else {
           return <AgGridCellSkeletonComp />;
         }

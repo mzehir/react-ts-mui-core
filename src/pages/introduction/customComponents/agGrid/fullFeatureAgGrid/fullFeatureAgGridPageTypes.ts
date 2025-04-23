@@ -1,4 +1,5 @@
 import { AgGridColDefType } from '../../../../../components/custom/agGrid/types/agGridColDefType';
+import { ValueFormatterParams } from 'ag-grid-community';
 
 export const employeeColumns: AgGridColDefType[] = [
   { field: 'id', cellDataType: 'text', headerName: 'introduction.id2', width: 150, hide: false },
@@ -21,10 +22,24 @@ export const employeeColumns: AgGridColDefType[] = [
     },
   },
   { field: 'surname', cellDataType: 'text', headerName: 'introduction.surname', width: 150 },
-  { field: 'gender', cellDataType: 'text', headerName: 'introduction.gender', width: 150 },
+  {
+    field: 'gender',
+    cellDataType: 'text',
+    headerName: 'introduction.gender',
+    width: 150,
+    valueFormatter: (params: ValueFormatterParams) => {
+      if (params.value === 'MALE') {
+        return 'Male';
+      } else if (params.value === 'FEMALE') {
+        return 'Female';
+      } else {
+        return 'params.value';
+      }
+    },
+  },
   {
     field: 'age',
-    cellDataType: 'number',
+    cellDataType: 'text',
     headerName: 'introduction.age',
     width: 150,
     // customFilter: {
