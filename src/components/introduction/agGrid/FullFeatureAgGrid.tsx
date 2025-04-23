@@ -1,10 +1,16 @@
 import React from 'react';
 import useLanguageContext from '../../../hooks/useLanguageContext';
-import { FilterChangedEvent, GridReadyEvent, IDatasource } from 'ag-grid-community';
+import { GridReadyEvent, IDatasource } from 'ag-grid-community';
 import { FullFeatureAgGridProps } from './fullFeatureAgGridTypes';
 import { prepareOperationColumn, prepareColumns } from './fullFeatureAgGridHelper';
 import AgGridComp from '../../custom/agGrid/AgGrid';
 import BoxComp from '../../base/box/Box';
+
+// Filter model için interface tanımı
+interface FilterModelItem {
+  type: string;
+  filter: string | number | boolean;
+}
 
 const FullFeatureAgGrid = ({
   columns,
@@ -48,7 +54,7 @@ const FullFeatureAgGrid = ({
     [columns, translate, operationColumn],
   );
 
-  const initialFilterModelPrepare = () => {
+  const initialFilterModelPrepare = React.useCallback(() => {
     const columnsContainingDefaultFilterValue =
       columns.filter(
         (column) =>
@@ -58,13 +64,17 @@ const FullFeatureAgGrid = ({
       ) ?? [];
 
     if (columnsContainingDefaultFilterValue.length > 0) {
-      const filterModel = columnsContainingDefaultFilterValue.reduce<Record<string, unknown>>((acc, column) => {
+      const filterModel = columnsContainingDefaultFilterValue.reduce<Record<string, FilterModelItem>>((acc, column) => {
         const fieldName = column.field as string;
+        const defaultOption = column.customFilter?.componentProps?.defaultOption;
+        const initialFilterValue = column.customFilter?.componentProps?.initialFilterValue;
 
-        acc[fieldName] = {
-          type: column.customFilter?.componentProps?.defaultOption,
-          filter: column.customFilter?.componentProps.initialFilterValue,
-        };
+        if (defaultOption && initialFilterValue && fieldName) {
+          acc[fieldName] = {
+            type: defaultOption,
+            filter: initialFilterValue,
+          };
+        }
         return acc;
       }, {});
 
@@ -72,12 +82,29 @@ const FullFeatureAgGrid = ({
     } else {
       return {};
     }
-  };
+  }, [columns]);
 
   const onGridReady = React.useCallback(
     async (gridParams: GridReadyEvent) => {
       const initialFilterModel = initialFilterModelPrepare();
-      Object.keys(initialFilterModel).length > 0 && gridParams.api.setFilterModel(initialFilterModel);
+
+      if (Object.keys(initialFilterModel).length > 0) {
+        const initialFilterModelKeys = Object.keys(initialFilterModel);
+
+        for (let i = 0; i < initialFilterModelKeys.length; i++) {
+          const columnName = initialFilterModelKeys[i];
+
+          const matchedColumnFilterInstance = await gridParams.api.getColumnFilterInstance(columnName);
+          if (matchedColumnFilterInstance) {
+            matchedColumnFilterInstance?.setModel({
+              type: initialFilterModel[columnName]?.type,
+              filter: initialFilterModel[columnName]?.filter,
+            });
+          }
+        }
+
+        gridParams.api.onFilterChanged();
+      }
 
       try {
         const dataSource: IDatasource = {
@@ -122,12 +149,8 @@ const FullFeatureAgGrid = ({
         console.error('Error initializing grid:', error);
       }
     },
-    [triggerGetEmployees, totalRowCount],
+    [triggerGetEmployees, totalRowCount, initialFilterModelPrepare],
   );
-
-  const onFilterChanged = (params: FilterChangedEvent) => {
-    params.api.refreshInfiniteCache();
-  };
 
   return (
     <BoxComp sx={{ width: '100%', height: '80%' }}>
@@ -135,7 +158,6 @@ const FullFeatureAgGrid = ({
         rowModelType={'infinite'}
         columnDefs={preparedColumns}
         onGridReady={onGridReady}
-        onFilterChanged={onFilterChanged}
         maxConcurrentDatasourceRequests={preparedGridSettings.maxConcurrentDatasourceRequests}
         cacheBlockSize={preparedGridSettings.cacheBlockSize}
         serverSideInitialRowCount={preparedGridSettings.serverSideInitialRowCount}
