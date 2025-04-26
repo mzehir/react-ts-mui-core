@@ -70,8 +70,14 @@ export interface INameRequest {
   value: string;
 }
 
+export interface IGenderRequest {
+  type: string;
+  value: string;
+}
+
 export interface employeesRequestDto {
   maxResultCount: string;
   skipCount: string;
   name?: INameRequest;
+  gender?: IGenderRequest;
 }

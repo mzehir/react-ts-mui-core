@@ -36,35 +36,23 @@ export const employeeColumns: AgGridColDefType[] = [
         return 'params.value';
       }
     },
+    customFilter: {
+      name: 'gender',
+      componentType: 'agRadioCustomFilter',
+      componentProps: {
+        initialFilterValue: 'MALE',
+        defaultOption: 'equals',
+        filterOptions: ['equals'],
+        label: 'Bir cinsiyet seç',
+        items: [
+          { label: 'Erkek', value: 'MALE' },
+          { label: 'Kadın', value: 'FEMALE' },
+        ],
+        buttons: ['apply', 'clear', 'reset', 'cancel'],
+      },
+    },
   },
-  {
-    field: 'age',
-    cellDataType: 'text',
-    headerName: 'introduction.age',
-    width: 150,
-    // customFilter: {
-    //   name: 'age',
-    //   componentType: 'agNumberColumnFilter',
-    //   componentProps: {
-    //     allowedCharPattern: '\\d\\.',
-    //     defaultOption: 'equals',
-    //     filterOptions: [
-    //       'equals',
-    //       'notEqual',
-    //       'lessThan',
-    //       'lessThanOrEqual',
-    //       'greaterThan',
-    //       'greaterThanOrEqual',
-    //       'inRange',
-    //       'blank',
-    //       'notBlank',
-    //     ],
-    //     filterPlaceholder: 'Filtrele',
-    //     maxNumConditions: 1,
-    //     buttons: ['apply', 'clear', 'reset', 'cancel'],
-    //   },
-    // },
-  },
+  { field: 'age', cellDataType: 'text', headerName: 'introduction.age', width: 150 },
   { field: 'birthDate', cellDataType: 'text', headerName: 'introduction.birthDate', width: 150 },
   { field: 'phone', cellDataType: 'text', headerName: 'introduction.phone', width: 150 },
   { field: 'email', cellDataType: 'text', headerName: 'introduction.email', width: 250 },
@@ -72,25 +60,6 @@ export const employeeColumns: AgGridColDefType[] = [
   { field: 'department', cellDataType: 'text', headerName: 'introduction.department', width: 150 },
   { field: 'position', cellDataType: 'text', headerName: 'introduction.position', width: 150 },
   { field: 'salary', cellDataType: 'text', headerName: 'introduction.salary', width: 150 },
-  {
-    field: 'status',
-    cellDataType: 'boolean',
-    headerName: 'introduction.status',
-    width: 150,
-    // customFilter: {
-    //   name: 'status',
-    //   componentType: 'agRadioCustomFilter',
-    //   componentProps: {
-    //     initialFilterValue: 'active',
-    //     defaultOption: 'equals',
-    //     label: 'Bir statü seç',
-    //     items: [
-    //       { label: 'Aktif', value: 'active' },
-    //       { label: 'Pasif', value: 'passive' },
-    //     ],
-    //     buttons: ['apply', 'clear', 'reset', 'cancel'],
-    //   },
-    // },
-  },
+  { field: 'status', cellDataType: 'boolean', headerName: 'introduction.status', width: 150 },
   { field: 'performanceRating', cellDataType: 'text', headerName: 'introduction.performanceRating', width: 200 },
 ];
