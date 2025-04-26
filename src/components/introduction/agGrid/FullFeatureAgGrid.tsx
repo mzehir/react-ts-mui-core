@@ -7,12 +7,6 @@ import { prepareOperationColumn, prepareColumns } from './fullFeatureAgGridHelpe
 import AgGridComp from '../../custom/agGrid/AgGrid';
 import BoxComp from '../../base/box/Box';
 
-// Filter model için interface tanımı
-interface FilterModelItem {
-  type: string;
-  filter: string | number | boolean;
-}
-
 const FullFeatureAgGrid = ({
   columns,
   onView,
@@ -65,6 +59,11 @@ const FullFeatureAgGrid = ({
       ) ?? [];
 
     if (columnsContainingDefaultFilterValue.length > 0) {
+      interface FilterModelItem {
+        type: string;
+        filter: string | number | boolean;
+      }
+
       const filterModel = columnsContainingDefaultFilterValue.reduce<Record<string, FilterModelItem>>((acc, column) => {
         const fieldName = column.field as string;
         const defaultOption = column.customFilter?.componentProps?.defaultOption;
