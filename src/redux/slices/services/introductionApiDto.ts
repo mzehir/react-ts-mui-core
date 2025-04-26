@@ -1,9 +1,9 @@
-enum Gender {
+export enum Gender {
   MALE = 'MALE',
   FEMALE = 'FEMALE',
 }
 
-enum Department {
+export enum Department {
   IT = 'IT',
   HR = 'HR',
   FINANCE = 'FINANCE',
@@ -13,7 +13,7 @@ enum Department {
   CUSTOMER_SERVICE = 'CUSTOMER_SERVICE',
 }
 
-enum Position {
+export enum Position {
   JUNIOR_DEVELOPER = 'JUNIOR_DEVELOPER',
   SENIOR_DEVELOPER = 'SENIOR_DEVELOPER',
   TEAM_LEAD = 'TEAM_LEAD',
@@ -26,14 +26,14 @@ enum Position {
   SALES_REPRESENTATIVE = 'SALES_REPRESENTATIVE',
 }
 
-enum Status {
+export enum Status {
   ACTIVE = 'ACTIVE',
   ON_LEAVE = 'ON_LEAVE',
   RESIGNED = 'RESIGNED',
   TERMINATED = 'TERMINATED',
 }
 
-enum PerformanceRating {
+export enum PerformanceRating {
   EXCELLENT = 'EXCELLENT',
   GOOD = 'GOOD',
   AVERAGE = 'AVERAGE',

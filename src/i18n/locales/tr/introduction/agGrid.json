@@ -1,0 +1,37 @@
+{
+  "male": "Erkek",
+  "female": "Kadın",
+
+  "it": "Bilişim",
+  "hr": "İnsan Kaynakları",
+  "finance": "Finans",
+  "marketing": "Pazarlama",
+  "sales": "Satış",
+  "operations": "Operasyonlar",
+  "customerService": "Müşteri Hizmetleri",
+
+  "juniorDeveloper": "Junior Yazılımcı",
+  "seniorDeveloper": "Senior Yazılımcı",
+  "teamLead": "Takım Lideri",
+  "manager": "Yönetici",
+  "director": "Direktör",
+  "ceo": "Genel Müdür (CEO)",
+  "hrSpecialist": "İK Uzmanı",
+  "accountant": "Muhasebeci",
+  "marketingSpecialist": "Pazarlama Uzmanı",
+  "salesRepresentative": "Satış Temsilcisi",
+
+  "active": "Aktif",
+  "onLeave": "İzinde",
+  "resigned": "İstifa Etti",
+  "terminated": "İşten Çıkarıldı",
+
+  "excellent": "Mükemmel",
+  "good": "İyi",
+  "average": "Ortalama",
+  "belowAverage": "Ortalama Altı",
+  "poor": "Zayıf",
+
+  "chooseAGender": "Bir cinsiyet seç"
+
+}

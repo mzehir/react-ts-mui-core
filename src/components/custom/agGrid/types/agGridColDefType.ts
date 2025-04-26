@@ -4,7 +4,8 @@ import { AgGridColumnFilterType } from './agGridColumnFilterType';
 type AgGridCellDataType = 'text' | 'number' | 'boolean' | 'date' | 'dateString' | 'object';
 
 export type AgGridColDefType = ColDef & {
-  isTranslation?: boolean;
+  isHeaderCellTranslation?: boolean;
+  isBodyCellTranslation?: boolean;
   cellDataType: AgGridCellDataType;
   customFilter?: AgGridColumnFilterType;
 };

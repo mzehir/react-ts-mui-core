@@ -1,0 +1,36 @@
+{
+  "male": "Male",
+  "female": "Female",
+
+  "it": "IT",
+  "hr": "HR",
+  "finance": "Finance",
+  "marketing": "Marketing",
+  "sales": "Sales",
+  "operations": "Operations",
+  "customerService": "Customer Service",
+
+  "juniorDeveloper": "Junior Developer",
+  "seniorDeveloper": "Senior Developer",
+  "teamLead": "Team Lead",
+  "manager": "Manager",
+  "director": "Director",
+  "ceo": "CEO",
+  "hrSpecialist": "HR Specialist",
+  "accountant": "Accountant",
+  "marketingSpecialist": "Marketing Specialist",
+  "salesRepresentative": "Sales Representative",
+
+  "active": "Active",
+  "onLeave": "On Leave",
+  "resigned": "Resigned",
+  "terminated": "Terminated",
+
+  "excellent": "Excellent",
+  "good": "Good",
+  "average": "Average",
+  "belowAverage": "Below Average",
+  "poor": "Poor",
+
+  "chooseAGender": "Choose a gender"
+}

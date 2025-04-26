@@ -1,3 +1,4 @@
+import { ValueFormatterParams } from 'ag-grid-community';
 import AgGridRadioCustomFilterComp from '../../custom/agGrid/components/AgGridRadioCustomFilter';
 import { AgGridColDefType } from '../../custom/agGrid/types/agGridColDefType';
 import { AgGridColumnFilterType, AgGridFilterType } from '../../custom/agGrid/types/agGridColumnFilterType';
@@ -21,16 +22,33 @@ export const fullFeatureAgGridPropsPrepareColumn = (
     }
   }
 
+  const valueFormatter = column?.valueFormatter;
+
   const result: AgGridColDefType = {
     field: column.field,
     cellDataType: column.cellDataType ?? 'text',
     hide: column.hide,
     editable: column.editable ?? false,
     sortable: column.sortable ?? false,
-    headerName: column.isTranslation === false ? column.headerName : translate(column.headerName as string),
-    headerTooltip: column.isTranslation === false ? column.headerName : translate(column.headerName as string),
-    valueFormatter: column.valueFormatter,
     width: column.width,
+    headerName: column.isHeaderCellTranslation === false ? column.headerName : translate(column.headerName as string),
+    headerTooltip:
+      column.isHeaderCellTranslation === false ? column.headerName : translate(column.headerName as string),
+
+    ...(typeof valueFormatter === 'function'
+      ? {
+          valueFormatter: (params: ValueFormatterParams) => {
+            if (params.value) {
+              const customValueFormatterText = valueFormatter(params);
+              const transCustomValueFormatterText = translate(customValueFormatterText);
+              return column.isBodyCellTranslation === false ? customValueFormatterText : transCustomValueFormatterText;
+            } else {
+              return params.value;
+            }
+          },
+        }
+      : {}),
+
     ...(_filter !== undefined && _filter !== null ? { filter: _filter } : {}),
     ...(_customFilter !== undefined && _customFilter !== null ? { filterParams: _customFilter.componentProps } : {}),
   };

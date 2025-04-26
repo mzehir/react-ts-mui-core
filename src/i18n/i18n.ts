@@ -10,6 +10,7 @@ import _enValidationWarnings from './locales/en/_validationWarnings.json';
 import enRoutes from './locales/en/routes.json';
 // introduction
 import enIntroductionRoutes from './locales/en/introduction/routes.json';
+import enIntroductionAGGrid from './locales/en/introduction/agGrid.json';
 
 import tr from './locales/tr.json';
 import trComponent from './locales/tr/component.json';
@@ -20,6 +21,7 @@ import _trValidationWarnings from './locales/tr/_validationWarnings.json';
 import trRoutes from './locales/tr/routes.json';
 // introduction
 import trIntroductionRoutes from './locales/tr/introduction/routes.json';
+import trIntroductionAGGrid from './locales/tr/introduction/agGrid.json';
 
 import de from './locales/de.json';
 
@@ -35,6 +37,7 @@ const resources = {
       routes: enRoutes,
       // introduction
       introductionRoutes: enIntroductionRoutes,
+      introductionAgGrid: enIntroductionAGGrid,
     },
   },
   tr: {
@@ -48,6 +51,7 @@ const resources = {
       routes: trRoutes,
       // introduction
       introductionRoutes: trIntroductionRoutes,
+      introductionAgGrid: trIntroductionAGGrid,
     },
   },
   de: {
