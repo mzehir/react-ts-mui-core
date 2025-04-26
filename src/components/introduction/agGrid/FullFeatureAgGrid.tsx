@@ -1,6 +1,7 @@
 import React from 'react';
+import eventBus from '../../../utils/eventBus/eventBusInstance';
 import useLanguageContext from '../../../hooks/useLanguageContext';
-import { GridReadyEvent, IDatasource } from 'ag-grid-community';
+import { FilterOpenedEvent, GridReadyEvent, IDatasource } from 'ag-grid-community';
 import { FullFeatureAgGridProps } from './fullFeatureAgGridTypes';
 import { prepareOperationColumn, prepareColumns } from './fullFeatureAgGridHelper';
 import AgGridComp from '../../custom/agGrid/AgGrid';
@@ -168,6 +169,14 @@ const FullFeatureAgGrid = ({
     [triggerGetEmployees, totalRowCount, initialFilterModelPrepare],
   );
 
+  const onFilterOpened = (event: FilterOpenedEvent) => {
+    eventBus.emit('agGrid:onFilterOpened', {
+      type: event.type,
+      source: event.source,
+      field: event.column.getId() ?? '',
+    });
+  };
+
   return (
     <BoxComp sx={{ width: '100%', height: '80%' }}>
       <AgGridComp
@@ -180,6 +189,7 @@ const FullFeatureAgGrid = ({
         maxBlocksInCache={preparedMaxBlocksInCache}
         cacheOverflowSize={preparedGridSettings.cacheOverflowSize}
         rowBuffer={preparedGridSettings.rowBuffer}
+        onFilterOpened={onFilterOpened}
       />
     </BoxComp>
   );
