@@ -29,19 +29,19 @@ const AgGridRadioCustomFilterComp: React.FC<CustomFilterProps> = (props) => {
     const field = props.colDef.field ?? '';
     const currentFilter = filterModel[field]?.filter;
 
-    // Eğer hem mevcut filter hem de seçili değer boşsa, işlem yapma
+    // If both the current filter and selected value are empty, do nothing
     if (isEmpty(currentFilter) && isEmpty(selectedValue)) return;
 
-    // Eğer mevcut filter ile seçili değer aynıysa, işlem yapma
+    // If the current filter and selected value are the same, do nothing
     if (currentFilter === selectedValue) return;
 
-    // Eğer seçili değer boşsa, filtreyi kaldır
+    // If the selected value is empty, clear the filter
     if (isEmpty(selectedValue)) {
       props.onModelChange(null);
       return;
     }
 
-    // Değilse, yeni filtreyi uygula
+    // Otherwise, apply the new filter
     props.onModelChange({
       type: 'equals',
       filter: selectedValue,
@@ -64,26 +64,29 @@ const AgGridRadioCustomFilterComp: React.FC<CustomFilterProps> = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Listen for the filter dialog open event and update state accordingly
   React.useEffect(() => {
-    // AG Grid filter dialog açıldığında, ilgili kolonun filter değerini güncelle
     const handler = (_props: EventBusAgGridOnFilterOpenedProps) => {
+      // Only handle the event if it matches this column and is the correct event type
       if (_props.field !== props.colDef.field || _props.type !== 'filterOpened') return;
 
       const filterModel = props.api.getFilterModel();
       const currentFilter = filterModel?.[_props.field]?.filter;
 
-      // Eğer modelde bir değer varsa ve bu değer güncel state'ten farklıysa güncelle
+      // If there is a filter value in the model and it's different from the current state, update state
       if (currentFilter !== undefined && currentFilter !== selectedValueRef.current) {
         setSelectedValue(currentFilter);
       }
-      // Eğer modelde değer yoksa ve state boş değilse, state'i sıfırla
+      // If there is no filter value in the model and the state is not empty, reset state
       else if ((currentFilter === undefined || currentFilter === '') && selectedValueRef.current !== '') {
         setSelectedValue('');
       }
     };
 
+    // Register the event listener
     eventBus.on('agGrid:onFilterOpened', handler);
 
+    // Cleanup the event listener on unmount
     return () => {
       eventBus.off('agGrid:onFilterOpened', handler);
     };
