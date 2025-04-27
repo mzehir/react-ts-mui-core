@@ -1,7 +1,7 @@
 import { ICellRendererParams } from 'ag-grid-community';
-import { CustomCellRendererProps } from 'ag-grid-react';
+// import { CustomCellRendererProps } from 'ag-grid-react';
 import { AgGridColDefType } from '../../custom/agGrid/types/agGridColDefType';
-import AgGridCellSkeletonComp from '../../custom/agGrid/components/AgGridCellSkeleton';
+// import AgGridCellSkeletonComp from '../../custom/agGrid/components/AgGridCellSkeleton';
 import { OperationColumnItemFields } from './fullFeatureAgGridTypes';
 import { fullFeatureAgGridPropsPrepareColumn } from './fullFeatureAgGridMethods';
 import IconButtonComp from '../../base/iconButton/IconButton';
@@ -97,13 +97,13 @@ export const prepareColumns = (
   const baseColumns = columns.map((column: AgGridColDefType) => {
     return {
       ...fullFeatureAgGridPropsPrepareColumn(column, translate),
-      cellRenderer: (props: CustomCellRendererProps) => {
-        if (props.value !== undefined) {
-          return props.valueFormatted ?? props.value;
-        } else {
-          return <AgGridCellSkeletonComp />;
-        }
-      },
+      // cellRenderer: (props: CustomCellRendererProps) => {
+      //   if (props.value !== undefined) {
+      //     return props.valueFormatted ?? props.value;
+      //   } else {
+      //     return <AgGridCellSkeletonComp />;
+      //   }
+      // },
     };
   });
 

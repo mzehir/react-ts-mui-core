@@ -104,6 +104,8 @@ export const fullFeatureAgGridPropsPrepareColumn = (
         }
       : {}),
 
+    ...(column.cellRenderer ? { cellRenderer: column.cellRenderer } : {}),
+
     ...(_filter !== undefined && _filter !== null ? { filter: _filter } : {}),
     ...(_customFilter !== undefined && _customFilter !== null ? { filterParams: _customFilter.componentProps } : {}),
   };

@@ -7,3 +7,6 @@ export interface ChipCompProps extends ChipProps {
 export const chipCompDefaultProps: ChipCompProps = {
   isTranslation: true,
 };
+
+// for color
+export type ChipCompColor = ChipProps['color'];

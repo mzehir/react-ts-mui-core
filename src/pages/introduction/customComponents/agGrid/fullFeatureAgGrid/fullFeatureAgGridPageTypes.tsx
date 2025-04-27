@@ -1,3 +1,4 @@
+import { CustomCellRendererProps } from 'ag-grid-react';
 import { AgGridColDefType } from '../../../../../components/custom/agGrid/types/agGridColDefType';
 import {
   Department,
@@ -6,11 +7,17 @@ import {
   Position,
   Status,
 } from '../../../../../redux/slices/services/introductionApiDto';
+import RatingComp from '../../../../../components/base/rating/Rating';
+import StarIcon from '@mui/icons-material/Star';
+import BoxComp from '../../../../../components/base/box/Box';
+import TypographyComp from '../../../../../components/base/typography/Typography';
+import ChipComp from '../../../../../components/base/chip/Chip';
+import { ChipCompColor } from '../../../../../components/base/chip/chipHelper';
 
 export const employeeColumns: AgGridColDefType[] = [
   {
     field: 'id',
-    cellDataType: 'text',
+    cellDataType: 'number',
     headerName: 'introduction.id2',
     width: 150,
     hide: false,
@@ -140,53 +147,87 @@ export const employeeColumns: AgGridColDefType[] = [
   },
   {
     field: 'salary',
-    cellDataType: 'text',
+    cellDataType: 'number',
     headerName: 'introduction.salary',
     width: 150,
     valueFormatterType: 'currencyFormatter',
   },
   {
     field: 'status',
-    cellDataType: 'boolean',
+    cellDataType: 'text',
     headerName: 'introduction.status',
     width: 150,
-    customValueFormatter: (params) => {
-      const statusValue: `${Status}` = params.value;
+    cellRenderer: (params: CustomCellRendererProps) => {
+      const status: `${Status}` = params.value;
+      let statusLabel: string = '';
+      let statusColor: ChipCompColor = 'primary';
 
-      if (statusValue === 'ACTIVE') {
-        return 'introductionAgGrid.active';
-      } else if (statusValue === 'ON_LEAVE') {
-        return 'introductionAgGrid.onLeave';
-      } else if (statusValue === 'RESIGNED') {
-        return 'introductionAgGrid.resigned';
-      } else if (statusValue === 'TERMINATED') {
-        return 'introductionAgGrid.terminated';
+      if (status === 'ACTIVE') {
+        statusLabel = 'introductionAgGrid.active';
+        statusColor = 'success';
+      } else if (status === 'ON_LEAVE') {
+        statusLabel = 'introductionAgGrid.onLeave';
+        statusColor = 'warning';
+      } else if (status === 'RESIGNED') {
+        statusLabel = 'introductionAgGrid.resigned';
+        statusColor = 'error';
+      } else if (status === 'TERMINATED') {
+        statusLabel = 'introductionAgGrid.terminated';
+        statusColor = 'secondary';
       } else {
-        return params.value;
+        statusLabel = 'introductionAgGrid.active';
+        statusColor = 'success';
       }
+
+      return (
+        <BoxComp sx={{ height: '100%', display: 'flex', gap: '25px', alignItems: 'center' }}>
+          <ChipComp variant="filled" color={statusColor} label={statusLabel} size="small" />
+        </BoxComp>
+      );
     },
   },
   {
     field: 'performanceRating',
     cellDataType: 'text',
     headerName: 'introduction.performanceRating',
-    width: 200,
-    customValueFormatter: (params) => {
-      const performanceRatingValue: `${PerformanceRating}` = params.value;
+    width: 300,
+    cellRenderer: (params: CustomCellRendererProps) => {
+      const performanceRating: `${PerformanceRating}` = params.value;
+      let performanceRatingLabel: string = '';
+      let performanceRatingValue: number = 0;
 
-      if (performanceRatingValue === 'EXCELLENT') {
-        return 'introductionAgGrid.excellent';
-      } else if (performanceRatingValue === 'GOOD') {
-        return 'introductionAgGrid.good';
-      } else if (performanceRatingValue === 'AVERAGE') {
-        return 'introductionAgGrid.average';
-      } else if (performanceRatingValue === 'BELOW_AVERAGE') {
-        return 'introductionAgGrid.belowAverage';
-      } else if (performanceRatingValue === 'POOR') {
-        return 'introductionAgGrid.poor';
+      if (performanceRating === 'EXCELLENT') {
+        performanceRatingLabel = 'introductionAgGrid.excellent';
+        performanceRatingValue = 5;
+      } else if (performanceRating === 'GOOD') {
+        performanceRatingLabel = 'introductionAgGrid.good';
+        performanceRatingValue = 4;
+      } else if (performanceRating === 'AVERAGE') {
+        performanceRatingLabel = 'introductionAgGrid.average';
+        performanceRatingValue = 3;
+      } else if (performanceRating === 'BELOW_AVERAGE') {
+        performanceRatingLabel = 'introductionAgGrid.belowAverage';
+        performanceRatingValue = 2;
+      } else if (performanceRating === 'POOR') {
+        performanceRatingLabel = 'introductionAgGrid.poor';
+        performanceRatingValue = 1;
       } else {
-        return params.value;
+        performanceRatingLabel = 'introductionAgGrid.poor';
+        performanceRatingValue = 0;
       }
+
+      return (
+        <BoxComp sx={{ height: '100%', display: 'flex', gap: '25px', alignItems: 'center' }}>
+          <RatingComp
+            readOnly
+            value={performanceRatingValue}
+            size="medium"
+            emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+          />
+
+          <TypographyComp>{performanceRatingLabel}</TypographyComp>
+        </BoxComp>
+      );
     },
   },
 ];
