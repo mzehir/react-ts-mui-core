@@ -54,7 +54,7 @@ export const introductionApi = createApi({
   baseQuery: baseQuery,
   endpoints: (builder) => ({
     getEmployees: builder.query<employeesResponseDto, employeesRequestDto>({
-      query: ({ maxResultCount, skipCount, name, gender }) => {
+      query: ({ maxResultCount, skipCount, name, gender, birthDate }) => {
         // Base URL oluştur
         let url = `/employees?maxResultCount=${maxResultCount}&skipCount=${skipCount}`;
 
@@ -66,6 +66,11 @@ export const introductionApi = createApi({
         // Eğer gender filtresi varsa, JSON string olarak ekle
         if (gender) {
           url += `&gender=${encodeURIComponent(JSON.stringify(gender))}`;
+        }
+
+        // Eğer birthDate filtresi varsa, JSON string olarak ekle
+        if (birthDate) {
+          url += `&birthDate=${encodeURIComponent(JSON.stringify(birthDate))}`;
         }
 
         return url;

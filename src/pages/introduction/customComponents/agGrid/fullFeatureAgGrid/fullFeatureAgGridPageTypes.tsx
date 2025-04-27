@@ -7,12 +7,13 @@ import {
   Position,
   Status,
 } from '../../../../../redux/slices/services/introductionApiDto';
+import { getDateFormat } from '../../../../../utils/locale/dateFormats';
 import RatingComp from '../../../../../components/base/rating/Rating';
-import StarIcon from '@mui/icons-material/Star';
 import BoxComp from '../../../../../components/base/box/Box';
 import TypographyComp from '../../../../../components/base/typography/Typography';
 import ChipComp from '../../../../../components/base/chip/Chip';
 import { ChipCompColor } from '../../../../../components/base/chip/chipHelper';
+import StarIcon from '@mui/icons-material/Star';
 
 export const employeeColumns: AgGridColDefType[] = [
   {
@@ -75,7 +76,27 @@ export const employeeColumns: AgGridColDefType[] = [
     },
   },
   { field: 'age', cellDataType: 'text', headerName: 'introduction.age', width: 150 },
-  { field: 'birthDate', cellDataType: 'text', headerName: 'introduction.birthDate', width: 150 },
+  {
+    field: 'birthDate',
+    cellDataType: 'text',
+    headerName: 'introduction.birthDate',
+    width: 150,
+    customFilter: {
+      name: 'name',
+      componentType: 'agDateColumnFilter',
+      componentProps: {
+        defaultOption: 'equals',
+        filterOptions: ['equals', 'notEqual', 'lessThan', 'greaterThan', 'inRange', 'blank', 'notBlank'],
+        filterPlaceholder: 'Filtrele',
+        maxNumConditions: 1,
+        buttons: ['apply', 'clear'],
+        //
+        minValidYear: 1900,
+        maxValidYear: 2500,
+        inRangeFloatingFilterDateFormat: getDateFormat(),
+      },
+    },
+  },
   {
     field: 'phone',
     cellDataType: 'text',

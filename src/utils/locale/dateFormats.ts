@@ -1,4 +1,4 @@
-import { activeCountryCode } from './locale';
+import { activeCountryCode, Countries } from './locale';
 import dayjs, { Dayjs } from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import 'dayjs/locale/tr';
@@ -13,6 +13,15 @@ if (activeCountryCode === 'tr') {
 }
 
 export const configuredDayjs = dayjs;
+
+export const getDateFormat = (countryCodeParams?: Countries) => {
+  const countryCode = countryCodeParams ?? activeCountryCode;
+  if (countryCode === 'tr') {
+    return 'DD-MM-YYYY';
+  } else if (countryCode === 'en') {
+    return 'YYYY-MM-DD';
+  }
+};
 
 export const stringToDayjsDate = (dateString: string) => {
   if (activeCountryCode === 'tr') {

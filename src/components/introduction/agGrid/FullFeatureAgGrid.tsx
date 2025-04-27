@@ -120,13 +120,29 @@ const FullFeatureAgGrid = ({
               if (filterModelKeys.length > 0) {
                 for (let i = 0; i < filterModelKeys.length; i++) {
                   const key = filterModelKeys[i];
-                  requestDtoFilter = {
-                    ...requestDtoFilter,
-                    [key]: {
-                      type: filterModel[key].type,
-                      value: filterModel[key].filter,
-                    },
-                  };
+                  if (filterModel[key].filterType === 'date') {
+                    requestDtoFilter = {
+                      ...requestDtoFilter,
+                      [key]: {
+                        type: filterModel[key].type,
+                        ...(filterModel[key].type === 'inRange'
+                          ? {
+                              value: { dateFrom: filterModel[key].dateFrom, dateTo: filterModel[key].dateTo },
+                            }
+                          : {
+                              value: filterModel[key].dateFrom,
+                            }),
+                      },
+                    };
+                  } else {
+                    requestDtoFilter = {
+                      ...requestDtoFilter,
+                      [key]: {
+                        type: filterModel[key].type,
+                        value: filterModel[key].filter,
+                      },
+                    };
+                  }
                 }
               }
 
