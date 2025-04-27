@@ -8,7 +8,14 @@ import {
 } from '../../../../../redux/slices/services/introductionApiDto';
 
 export const employeeColumns: AgGridColDefType[] = [
-  { field: 'id', cellDataType: 'text', headerName: 'introduction.id2', width: 150, hide: false },
+  {
+    field: 'id',
+    cellDataType: 'text',
+    headerName: 'introduction.id2',
+    width: 150,
+    hide: false,
+    valueFormatterType: 'numberFormatter',
+  },
   {
     field: 'name',
     cellDataType: 'text',
@@ -33,7 +40,7 @@ export const employeeColumns: AgGridColDefType[] = [
     cellDataType: 'text',
     headerName: 'introduction.gender',
     width: 150,
-    valueFormatter: (params) => {
+    customValueFormatter: (params) => {
       const genderValue: `${Gender}` = params.value;
 
       if (genderValue === 'MALE') {
@@ -62,7 +69,13 @@ export const employeeColumns: AgGridColDefType[] = [
   },
   { field: 'age', cellDataType: 'text', headerName: 'introduction.age', width: 150 },
   { field: 'birthDate', cellDataType: 'text', headerName: 'introduction.birthDate', width: 150 },
-  { field: 'phone', cellDataType: 'text', headerName: 'introduction.phone', width: 150 },
+  {
+    field: 'phone',
+    cellDataType: 'text',
+    headerName: 'introduction.phone',
+    width: 150,
+    valueFormatterType: 'phoneFormatter',
+  },
   { field: 'email', cellDataType: 'text', headerName: 'introduction.email', width: 250 },
   { field: 'address', cellDataType: 'text', headerName: 'introduction.address', width: 350 },
   {
@@ -70,7 +83,7 @@ export const employeeColumns: AgGridColDefType[] = [
     cellDataType: 'text',
     headerName: 'introduction.department',
     width: 150,
-    valueFormatter: (params) => {
+    customValueFormatter: (params) => {
       const departmentValue: `${Department}` = params.value;
 
       if (departmentValue === 'IT') {
@@ -97,7 +110,7 @@ export const employeeColumns: AgGridColDefType[] = [
     cellDataType: 'text',
     headerName: 'introduction.position',
     width: 150,
-    valueFormatter: (params) => {
+    customValueFormatter: (params) => {
       const positionValue: `${Position}` = params.value;
 
       if (positionValue === 'JUNIOR_DEVELOPER') {
@@ -125,13 +138,19 @@ export const employeeColumns: AgGridColDefType[] = [
       }
     },
   },
-  { field: 'salary', cellDataType: 'text', headerName: 'introduction.salary', width: 150 },
+  {
+    field: 'salary',
+    cellDataType: 'text',
+    headerName: 'introduction.salary',
+    width: 150,
+    valueFormatterType: 'currencyFormatter',
+  },
   {
     field: 'status',
     cellDataType: 'boolean',
     headerName: 'introduction.status',
     width: 150,
-    valueFormatter: (params) => {
+    customValueFormatter: (params) => {
       const statusValue: `${Status}` = params.value;
 
       if (statusValue === 'ACTIVE') {
@@ -152,7 +171,7 @@ export const employeeColumns: AgGridColDefType[] = [
     cellDataType: 'text',
     headerName: 'introduction.performanceRating',
     width: 200,
-    valueFormatter: (params) => {
+    customValueFormatter: (params) => {
       const performanceRatingValue: `${PerformanceRating}` = params.value;
 
       if (performanceRatingValue === 'EXCELLENT') {
