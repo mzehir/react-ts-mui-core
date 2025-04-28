@@ -1,4 +1,4 @@
-import { ICellRendererParams } from 'ag-grid-community';
+import { FilterModel, ICellRendererParams } from 'ag-grid-community';
 // import { CustomCellRendererProps } from 'ag-grid-react';
 import { AgGridColDefType } from '../../custom/agGrid/types/agGridColDefType';
 // import AgGridCellSkeletonComp from '../../custom/agGrid/components/AgGridCellSkeleton';
@@ -108,4 +108,68 @@ export const prepareColumns = (
   });
 
   return operationColumn ? [...baseColumns, operationColumn] : baseColumns;
+};
+
+interface FilterModelItem {
+  type: string;
+  filter: string | number | boolean;
+}
+
+export const prepareInitialFilterModel = (columns: AgGridColDefType[]) => {
+  const initialFilteredColumns =
+    columns.filter((column) => column?.customFilter?.componentProps?.initialFilterValue) ?? [];
+
+  if (initialFilteredColumns.length > 0) {
+    const filterModel = initialFilteredColumns.reduce<Record<string, FilterModelItem>>((acc, column) => {
+      const fieldName = column.field as string;
+      const defaultOption = column.customFilter?.componentProps?.defaultOption;
+      const initialFilterValue = column.customFilter?.componentProps?.initialFilterValue;
+
+      if (defaultOption && initialFilterValue && fieldName) {
+        acc[fieldName] = {
+          type: defaultOption,
+          filter: initialFilterValue,
+        };
+      }
+      return acc;
+    }, {});
+
+    return filterModel;
+  } else {
+    return {};
+  }
+};
+
+export const prepareRequestDtoFilters = (filterModel: FilterModel) => {
+  let requestDtoFilter = {};
+  const filterModelKeys = Object.keys(filterModel);
+
+  for (let i = 0; i < filterModelKeys.length; i++) {
+    const key = filterModelKeys[i];
+    if (filterModel[key].filterType === 'date') {
+      requestDtoFilter = {
+        ...requestDtoFilter,
+        [key]: {
+          type: filterModel[key].type,
+          ...(filterModel[key].type === 'inRange'
+            ? {
+                value: { dateFrom: filterModel[key].dateFrom, dateTo: filterModel[key].dateTo },
+              }
+            : {
+                value: filterModel[key].dateFrom,
+              }),
+        },
+      };
+    } else {
+      requestDtoFilter = {
+        ...requestDtoFilter,
+        [key]: {
+          type: filterModel[key].type,
+          value: filterModel[key].filter,
+        },
+      };
+    }
+  }
+
+  return requestDtoFilter;
 };

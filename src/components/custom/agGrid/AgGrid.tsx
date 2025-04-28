@@ -1,11 +1,12 @@
 import React from 'react';
-
+import eventBus from '../../../utils/eventBus/eventBusInstance';
 import { useTheme } from '@mui/material/styles';
 import useLanguageContext from '../../../hooks/useLanguageContext';
 import { Language } from '../../../utils/enums/languages';
 import { getAgGridLocaleText } from '../../../utils/locale/agGridLocales';
 import { AgGridCompProps, agGridCompDefaultProps } from './agGridHelper';
 import { AgGridReact } from 'ag-grid-react';
+import { FilterOpenedEvent } from 'ag-grid-community';
 
 interface GridThemeParams {
   rowBorder?: { style: string; width: number };
@@ -39,7 +40,22 @@ const AgGridComp = (props: AgGridCompProps) => {
     return theme.agGrid?.theme.withParams(params);
   }, [theme, verticalLine, horizontalLine]);
 
-  return <AgGridReact {...agGridProps} theme={gridTheme} localeText={getAgGridLocaleText(language as Language)} />;
+  const onFilterOpened = (event: FilterOpenedEvent) => {
+    eventBus.emit('agGrid:onFilterOpened', {
+      type: event.type,
+      source: event.source,
+      field: event.column.getId() ?? '',
+    });
+  };
+
+  return (
+    <AgGridReact
+      {...agGridProps}
+      theme={gridTheme}
+      localeText={getAgGridLocaleText(language as Language)}
+      onFilterOpened={onFilterOpened}
+    />
+  );
 };
 
 AgGridComp.displayName = 'AgGridComp';
