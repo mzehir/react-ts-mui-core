@@ -1,9 +1,9 @@
 import { ColDef, ValueFormatterParams } from 'ag-grid-community';
 import { AgGridColumnFilterType } from './agGridColumnFilterType';
 
-type AgGridCellDataType = 'text' | 'number' | 'boolean' | 'date' | 'dateString' | 'object';
+type AgCellDataType = 'text' | 'number' | 'boolean' | 'date' | 'dateString' | 'object';
 
-type AgGridValueFormatterType =
+type AgValueFormatterType =
   | 'stringFormatter' // Basic text display or translation (e.g., using a translate function)
   | 'dateFormatter' // Formatting date values into a specific format (e.g., 26/04/2025 or 2025-04-26)
   | 'phoneFormatter' // Formatting phone numbers into a standardized format (e.g., +90 (532) 123 45 67)
@@ -25,10 +25,10 @@ interface IExtraPropsForValueFormatterType {
 export type AgGridColDefType = ColDef & {
   isHeaderCellTranslation?: boolean;
   isBodyCellTranslation?: boolean;
-  cellDataType: AgGridCellDataType;
+  cellDataType: AgCellDataType;
   customFilter?: AgGridColumnFilterType;
   //
   customValueFormatter?: (params: ValueFormatterParams) => string | number;
-  valueFormatterType?: AgGridValueFormatterType;
+  valueFormatterType?: AgValueFormatterType;
   extraPropsForValueFormatterType?: IExtraPropsForValueFormatterType;
 };

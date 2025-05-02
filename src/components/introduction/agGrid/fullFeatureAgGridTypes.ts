@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { IconButtonColor } from '../../base/iconButton/iconButtonHelper';
-import { AgGridColDefType } from '../../custom/agGrid/types/agGridColDefType';
+import { AgGridColDefType } from '../../other/agGrid/base/agGridColumnHelper/agGridColDefType';
 
 export interface GridCacheSettings {
   maxConcurrentDatasourceRequests?: number; // Api'ye aynı anda yapılabilecek maksimum istek sayısı

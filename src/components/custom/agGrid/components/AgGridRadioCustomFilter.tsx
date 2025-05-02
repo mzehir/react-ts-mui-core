@@ -4,8 +4,10 @@ import { EventBusAgGridOnFilterOpenedProps } from '../../../../utils/eventBus/ev
 
 import type { CustomFilterProps } from 'ag-grid-react';
 import AgGridCustomFilterActionButtonComp from './AgGridCustomFilterActionButton';
-import { AgGridRadioCustomFilterCompItemProp } from '../types/columnFilterTypes/agGridRadioCustomFilterType';
-import { FilterParamsAgTextColumnFilter } from '../types/columnFilterTypes/agTextColumnFilterType';
+import {
+  AgGridRadioCustomFilterCompItemProp,
+  AgGridRadioCustomFilterCompProps,
+} from '../../../other/agGrid/base/agGridColumnHelper/agGridColumnFilterType/agGridRadioCustomFilterType';
 
 import BoxComp from '../../../base/box/Box';
 import FormControlComp from '../../../base/formControl/FormControl';
@@ -127,11 +129,11 @@ const AgGridRadioCustomFilterComp: React.FC<CustomFilterProps> = (props) => {
       </FormControlComp>
 
       <Stack direction="row" spacing={1} mt={2}>
-        {(props.colDef?.filterParams as FilterParamsAgTextColumnFilter)?.buttons?.includes('apply') && (
+        {(props.colDef?.filterParams as AgGridRadioCustomFilterCompProps)?.buttons?.includes('apply') && (
           <AgGridCustomFilterActionButtonComp label="button.apply" onClick={handleApply} />
         )}
 
-        {(props.colDef?.filterParams as FilterParamsAgTextColumnFilter)?.buttons?.includes('clear') && (
+        {(props.colDef?.filterParams as AgGridRadioCustomFilterCompProps)?.buttons?.includes('clear') && (
           <AgGridCustomFilterActionButtonComp
             label="button.clear"
             onClick={() => {
@@ -140,11 +142,11 @@ const AgGridRadioCustomFilterComp: React.FC<CustomFilterProps> = (props) => {
           />
         )}
 
-        {(props.colDef?.filterParams as FilterParamsAgTextColumnFilter)?.buttons?.includes('reset') && (
+        {(props.colDef?.filterParams as AgGridRadioCustomFilterCompProps)?.buttons?.includes('reset') && (
           <AgGridCustomFilterActionButtonComp label="button.reset" onClick={() => {}} />
         )}
 
-        {(props.colDef?.filterParams as FilterParamsAgTextColumnFilter)?.buttons?.includes('cancel') && (
+        {(props.colDef?.filterParams as AgGridRadioCustomFilterCompProps)?.buttons?.includes('cancel') && (
           <AgGridCustomFilterActionButtonComp label="button.cancel2" onClick={() => {}} />
         )}
       </Stack>

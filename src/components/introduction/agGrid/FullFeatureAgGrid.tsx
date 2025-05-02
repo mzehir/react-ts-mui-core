@@ -1,7 +1,7 @@
 import React from 'react';
 import useLanguageContext from '../../../hooks/useLanguageContext';
 import { GridReadyEvent, IDatasource } from 'ag-grid-community';
-import { AgGridColDefType } from '../../custom/agGrid/types/agGridColDefType';
+import { AgGridColDefType } from '../../other/agGrid/base/agGridColumnHelper/agGridColDefType';
 import { FullFeatureAgGridProps } from './fullFeatureAgGridTypes';
 import {
   prepareOperationColumn,
@@ -9,7 +9,7 @@ import {
   prepareInitialFilterModel,
   prepareRequestDtoFilters,
 } from './fullFeatureAgGridHelper';
-import AgGridComp from '../../custom/agGrid/AgGrid';
+import AgGridComp from '../../other/agGrid/base/AgGrid';
 import BoxComp from '../../base/box/Box';
 
 const FullFeatureAgGrid = ({

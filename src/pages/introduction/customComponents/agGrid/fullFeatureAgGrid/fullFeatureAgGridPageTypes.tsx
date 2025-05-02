@@ -1,5 +1,5 @@
 import { CustomCellRendererProps } from 'ag-grid-react';
-import { AgGridColDefType } from '../../../../../components/custom/agGrid/types/agGridColDefType';
+import { AgGridColDefType } from '../../../../../components/other/agGrid/base/agGridColumnHelper/agGridColDefType';
 import {
   Department,
   Gender,

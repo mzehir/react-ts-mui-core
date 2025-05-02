@@ -1,7 +1,7 @@
-import { FilterParamsAgTextColumnFilter } from './columnFilterTypes/agTextColumnFilterType';
-import { FilterParamsAgNumberColumnFilter } from './columnFilterTypes/agNumberColumnFilterType';
-import { FilterParamsAgDateColumnFilter } from './columnFilterTypes/agDateColumnFilterType';
-import { AgGridRadioCustomFilterCompProps } from './columnFilterTypes/agGridRadioCustomFilterType';
+import { FilterParamsAgTextColumnFilter } from './agGridColumnFilterType/agTextColumnFilterType';
+import { FilterParamsAgNumberColumnFilter } from './agGridColumnFilterType/agNumberColumnFilterType';
+import { FilterParamsAgDateColumnFilter } from './agGridColumnFilterType/agDateColumnFilterType';
+import { AgGridRadioCustomFilterCompProps } from './agGridColumnFilterType/agGridRadioCustomFilterType';
 import { CustomFilterProps } from 'ag-grid-react';
 
 export type AgGridFilterType =

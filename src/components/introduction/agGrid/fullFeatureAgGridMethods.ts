@@ -1,7 +1,10 @@
 import { ValueFormatterParams } from 'ag-grid-community';
 import AgGridRadioCustomFilterComp from '../../custom/agGrid/components/AgGridRadioCustomFilter';
-import { AgGridColDefType } from '../../custom/agGrid/types/agGridColDefType';
-import { AgGridColumnFilterType, AgGridFilterType } from '../../custom/agGrid/types/agGridColumnFilterType';
+import { AgGridColDefType } from '../../other/agGrid/base/agGridColumnHelper/agGridColDefType';
+import {
+  AgGridColumnFilterType,
+  AgGridFilterType,
+} from '../../other/agGrid/base/agGridColumnHelper/agGridColumnFilterType';
 import { formatCurrency, formatNumber } from '../../../utils/methods/format';
 import { formatPhoneNumber } from '../../../utils/locale/phoneFormats';
 
