@@ -1,7 +1,7 @@
 import React from 'react';
 import useLanguageContext from '../../../hooks/useLanguageContext';
 import { GridReadyEvent, IDatasource } from 'ag-grid-community';
-import { AgGridColDefType } from '../../other/agGrid/base/agGridColumnHelper/agGridColDefType';
+import { ColumnType } from '../../other/agGrid/helper/column/columnType';
 import { FullFeatureAgGridProps } from './fullFeatureAgGridTypes';
 import {
   prepareOperationColumn,
@@ -54,7 +54,7 @@ const FullFeatureAgGrid = ({
     [columns, translate, operationColumn],
   );
 
-  const setGridInitialFilters = async (gridParams: GridReadyEvent, columns: AgGridColDefType[]) => {
+  const setGridInitialFilters = async (gridParams: GridReadyEvent, columns: ColumnType[]) => {
     const initialFilterModel = prepareInitialFilterModel(columns);
 
     if (Object.keys(initialFilterModel).length > 0) {

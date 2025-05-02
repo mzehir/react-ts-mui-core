@@ -126,7 +126,7 @@ type TextMatcherAgTextColumnFilter = (params: unknown) => boolean;
  */
 type TrimInputAgTextColumnFilter = boolean;
 
-export interface FilterParamsAgTextColumnFilter {
+export interface TextColumnFilterParams {
   buttons?: ButtonsAgTextColumnFilter[];
   caseSensitive?: CaseSensitiveAgTextColumnFilter;
   closeOnApply?: CloseOnApplyAgTextColumnFilter;

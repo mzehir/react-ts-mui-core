@@ -1,13 +1,13 @@
 import React from 'react';
-import useLanguageContext from '../../../../hooks/useLanguageContext';
+import useLanguageContext from '../../../../../../../../hooks/useLanguageContext';
 
-export interface AgGridCustomFilterActionButtonCompProps {
+interface RadioCustomFilterActionButtonCompProps {
   label: string;
   onClick: () => void;
   isTranslation?: boolean;
 }
 
-const AgGridCustomFilterActionButtonComp: React.FC<AgGridCustomFilterActionButtonCompProps> = ({
+const RadioCustomFilterActionButtonComp: React.FC<RadioCustomFilterActionButtonCompProps> = ({
   label,
   onClick,
   isTranslation = true,
@@ -21,4 +21,4 @@ const AgGridCustomFilterActionButtonComp: React.FC<AgGridCustomFilterActionButto
   );
 };
 
-export default AgGridCustomFilterActionButtonComp;
+export default RadioCustomFilterActionButtonComp;

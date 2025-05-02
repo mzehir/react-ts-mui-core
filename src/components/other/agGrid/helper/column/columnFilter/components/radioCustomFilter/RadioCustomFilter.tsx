@@ -1,23 +1,23 @@
 import React from 'react';
-import eventBus from '../../../../utils/eventBus/eventBusInstance';
-import { EventBusAgGridOnFilterOpenedProps } from '../../../../utils/eventBus/eventBusTypes';
+import eventBus from '../../../../../../../../utils/eventBus/eventBusInstance';
+import { EventBusAgGridOnFilterOpenedProps } from '../../../../../../../../utils/eventBus/eventBusTypes';
 
 import type { CustomFilterProps } from 'ag-grid-react';
-import AgGridCustomFilterActionButtonComp from './AgGridCustomFilterActionButton';
+import RadioCustomFilterActionButtonComp from './RadioCustomFilterActionButton';
 import {
-  AgGridRadioCustomFilterCompItemProp,
-  AgGridRadioCustomFilterCompProps,
-} from '../../../other/agGrid/base/agGridColumnHelper/agGridColumnFilterType/agGridRadioCustomFilterType';
+  RadioCustomFilterItemParams,
+  RadioCustomFilterParams,
+} from '../../columnFilterTypeSections/radioCustomFilterType';
 
-import BoxComp from '../../../base/box/Box';
-import FormControlComp from '../../../base/formControl/FormControl';
-import RadioGroupComp from '../../../base/radioGroup/RadioGroup';
-import FormControlLabelComp from '../../../base/formControlLabel/FormControlLabel';
-import RadioComp from '../../../base/radio/Radio';
-import TypographyComp from '../../../base/typography/Typography';
+import BoxComp from '../../../../../../../base/box/Box';
+import FormControlComp from '../../../../../../../base/formControl/FormControl';
+import RadioGroupComp from '../../../../../../../base/radioGroup/RadioGroup';
+import FormControlLabelComp from '../../../../../../../base/formControlLabel/FormControlLabel';
+import RadioComp from '../../../../../../../base/radio/Radio';
+import TypographyComp from '../../../../../../../base/typography/Typography';
 import { Stack } from '@mui/material';
 
-const AgGridRadioCustomFilterComp: React.FC<CustomFilterProps> = (props) => {
+const RadioCustomFilterComp: React.FC<CustomFilterProps> = (props) => {
   const [selectedValue, setSelectedValue] = React.useState<string>('');
   const [initialValue, setInitialValue] = React.useState<string>('');
 
@@ -115,7 +115,7 @@ const AgGridRadioCustomFilterComp: React.FC<CustomFilterProps> = (props) => {
           }}
           sx={{ alignItems: 'center' }}
         >
-          {props.colDef?.filterParams?.items.map((item: AgGridRadioCustomFilterCompItemProp) => (
+          {props.colDef?.filterParams?.items.map((item: RadioCustomFilterItemParams) => (
             <FormControlLabelComp
               isTranslation={props.colDef?.filterParams?.isItemTextTranslation ?? true}
               key={item.value}
@@ -129,12 +129,12 @@ const AgGridRadioCustomFilterComp: React.FC<CustomFilterProps> = (props) => {
       </FormControlComp>
 
       <Stack direction="row" spacing={1} mt={2}>
-        {(props.colDef?.filterParams as AgGridRadioCustomFilterCompProps)?.buttons?.includes('apply') && (
-          <AgGridCustomFilterActionButtonComp label="button.apply" onClick={handleApply} />
+        {(props.colDef?.filterParams as RadioCustomFilterParams)?.buttons?.includes('apply') && (
+          <RadioCustomFilterActionButtonComp label="button.apply" onClick={handleApply} />
         )}
 
-        {(props.colDef?.filterParams as AgGridRadioCustomFilterCompProps)?.buttons?.includes('clear') && (
-          <AgGridCustomFilterActionButtonComp
+        {(props.colDef?.filterParams as RadioCustomFilterParams)?.buttons?.includes('clear') && (
+          <RadioCustomFilterActionButtonComp
             label="button.clear"
             onClick={() => {
               setSelectedValue('');
@@ -142,16 +142,16 @@ const AgGridRadioCustomFilterComp: React.FC<CustomFilterProps> = (props) => {
           />
         )}
 
-        {(props.colDef?.filterParams as AgGridRadioCustomFilterCompProps)?.buttons?.includes('reset') && (
-          <AgGridCustomFilterActionButtonComp label="button.reset" onClick={() => {}} />
+        {(props.colDef?.filterParams as RadioCustomFilterParams)?.buttons?.includes('reset') && (
+          <RadioCustomFilterActionButtonComp label="button.reset" onClick={() => {}} />
         )}
 
-        {(props.colDef?.filterParams as AgGridRadioCustomFilterCompProps)?.buttons?.includes('cancel') && (
-          <AgGridCustomFilterActionButtonComp label="button.cancel2" onClick={() => {}} />
+        {(props.colDef?.filterParams as RadioCustomFilterParams)?.buttons?.includes('cancel') && (
+          <RadioCustomFilterActionButtonComp label="button.cancel2" onClick={() => {}} />
         )}
       </Stack>
     </BoxComp>
   );
 };
 
-export default AgGridRadioCustomFilterComp;
+export default RadioCustomFilterComp;

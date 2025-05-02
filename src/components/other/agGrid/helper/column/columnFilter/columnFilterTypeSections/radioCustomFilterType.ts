@@ -7,7 +7,7 @@
  * - `reset`: Filtreyi varsayılana döndürür.
  * - `cancel`: Yapılan değişiklikleri iptal eder.
  */
-type ButtonsAgGridRadioCustomFilter = 'apply' | 'clear' | 'reset' | 'cancel';
+type Buttons = 'apply' | 'clear' | 'reset' | 'cancel';
 
 /**
  * `buttons` içinde `apply` varsa, `apply` butonuna basıldığında filtre popup'ının hemen kapanıp kapanmayacağını belirler.
@@ -16,19 +16,19 @@ type ButtonsAgGridRadioCustomFilter = 'apply' | 'clear' | 'reset' | 'cancel';
  *
  * @default false
  */
-type CloseOnApplyAgGridRadioCustomFilter = boolean;
+type CloseOnApply = boolean;
 
 /**
  * Filtre popup'ı açıldığında varsayılan olarak seçili olan filtre tipi.
  * Örn: 'contains', 'startsWith', vs.
  */
-type DefaultOptionAgGridRadioCustomFilter = 'equals';
+type DefaultOption = 'equals';
 
 /**
  * Kullanıcının seçim yapabileceği filtre türlerinin listesi.
  * Örn: sadece 'contains' ve 'startsWith' sunmak istiyorsan burada belirtirsin.
  */
-type FilterOptionsAgGridRadioCustomFilter = 'equals';
+type FilterOptions = 'equals';
 
 /**
  * true verilirse filtre readonly olur, kullanıcı düzenleme yapamaz.
@@ -36,25 +36,25 @@ type FilterOptionsAgGridRadioCustomFilter = 'equals';
  *
  * @default false
  */
-type ReadOnlyAgGridRadioCustomFilter = boolean;
+type ReadOnly = boolean;
 
-export interface AgGridRadioCustomFilterCompItemProp {
+export interface RadioCustomFilterItemParams {
   label: string;
   value: string | number;
   disabled?: boolean;
 }
 
-export interface AgGridRadioCustomFilterCompProps {
-  buttons?: ButtonsAgGridRadioCustomFilter[];
-  closeOnApply?: CloseOnApplyAgGridRadioCustomFilter;
-  defaultOption: DefaultOptionAgGridRadioCustomFilter;
-  filterOptions?: FilterOptionsAgGridRadioCustomFilter[];
-  readOnly?: ReadOnlyAgGridRadioCustomFilter;
+export interface RadioCustomFilterParams {
+  buttons?: Buttons[];
+  closeOnApply?: CloseOnApply;
+  defaultOption: DefaultOption;
+  filterOptions?: FilterOptions[];
+  readOnly?: ReadOnly;
   // extra props
   initialFilterValue?: string | number;
   label: string;
   isLabelTranslation?: boolean;
-  items: AgGridRadioCustomFilterCompItemProp[];
+  items: RadioCustomFilterItemParams[];
   isItemTextTranslation?: boolean;
   disabled?: boolean;
 }

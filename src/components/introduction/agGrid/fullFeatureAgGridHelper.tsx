@@ -1,5 +1,5 @@
 import { FilterModel, ICellRendererParams } from 'ag-grid-community';
-import { AgGridColDefType } from '../../other/agGrid/base/agGridColumnHelper/agGridColDefType';
+import { ColumnType } from '../../other/agGrid/helper/column/columnType';
 import { OperationColumnItemFields } from './fullFeatureAgGridTypes';
 import { fullFeatureAgGridPropsPrepareColumn } from './fullFeatureAgGridMethods';
 import IconButtonComp from '../../base/iconButton/IconButton';
@@ -13,7 +13,7 @@ export const prepareOperationColumn = (
   onEdit?: (row: unknown) => void,
   onDelete?: (row: unknown) => void,
   operationItems?: OperationColumnItemFields[],
-): AgGridColDefType | null => {
+): ColumnType | null => {
   if (!onView && !onEdit && !onDelete && (!operationItems || operationItems.length === 0)) {
     return null;
   }
@@ -88,11 +88,11 @@ export const prepareOperationColumn = (
 };
 
 export const prepareColumns = (
-  columns: AgGridColDefType[],
+  columns: ColumnType[],
   translate: (key: string) => string,
-  operationColumn: AgGridColDefType | null,
-): AgGridColDefType[] => {
-  const baseColumns = columns.map((column: AgGridColDefType) => {
+  operationColumn: ColumnType | null,
+): ColumnType[] => {
+  const baseColumns = columns.map((column: ColumnType) => {
     return {
       ...fullFeatureAgGridPropsPrepareColumn(column, translate),
     };
@@ -106,7 +106,7 @@ interface FilterModelItem {
   filter: string | number | boolean;
 }
 
-export const prepareInitialFilterModel = (columns: AgGridColDefType[]) => {
+export const prepareInitialFilterModel = (columns: ColumnType[]) => {
   const initialFilteredColumns =
     columns.filter((column) => column?.customFilter?.componentProps?.initialFilterValue) ?? [];
 

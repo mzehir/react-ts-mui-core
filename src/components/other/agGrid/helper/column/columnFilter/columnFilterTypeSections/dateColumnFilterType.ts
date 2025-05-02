@@ -173,7 +173,7 @@ type NumAlwaysVisibleConditionsAgDateColumnFilter = number;
  */
 type ReadOnlyAgDateColumnFilter = boolean;
 
-export interface FilterParamsAgDateColumnFilter {
+export interface DateColumnFilterParams {
   browserDatePicker?: BrowserDatePickerAgDateColumnFilter;
   buttons?: ButtonsAgDateColumnFilter[];
   closeOnApply?: CloseOnApplyAgDateColumnFilter;

@@ -144,7 +144,7 @@ type NumberParserAgNumberColumnFilter = (text: string | null) => number | null;
  */
 type ReadOnlyAgNumberColumnFilter = boolean;
 
-export interface FilterParamsAgNumberColumnFilter {
+export interface NumberColumnFilterParams {
   allowedCharPattern?: AllowedCharPatternAgNumberColumnFilter;
   buttons?: ButtonsAgNumberColumnFilter[];
   closeOnApply?: CloseOnApplyAgNumberColumnFilter;

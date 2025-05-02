@@ -1,5 +1,5 @@
 import { CustomCellRendererProps } from 'ag-grid-react';
-import { AgGridColDefType } from '../../../../../components/other/agGrid/base/agGridColumnHelper/agGridColDefType';
+import { ColumnType } from '../../../../../components/other/agGrid/helper/column/columnType';
 import {
   Department,
   Gender,
@@ -15,7 +15,7 @@ import ChipComp from '../../../../../components/base/chip/Chip';
 import { ChipCompColor } from '../../../../../components/base/chip/chipHelper';
 import StarIcon from '@mui/icons-material/Star';
 
-export const employeeColumns: AgGridColDefType[] = [
+export const employeeColumns: ColumnType[] = [
   {
     field: 'id',
     cellDataType: 'number',

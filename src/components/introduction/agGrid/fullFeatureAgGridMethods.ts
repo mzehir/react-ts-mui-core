@@ -1,19 +1,16 @@
 import { ValueFormatterParams } from 'ag-grid-community';
-import AgGridRadioCustomFilterComp from '../../custom/agGrid/components/AgGridRadioCustomFilter';
-import { AgGridColDefType } from '../../other/agGrid/base/agGridColumnHelper/agGridColDefType';
-import {
-  AgGridColumnFilterType,
-  AgGridFilterType,
-} from '../../other/agGrid/base/agGridColumnHelper/agGridColumnFilterType';
+import RadioCustomFilterComp from '../../other/agGrid/helper/column/columnFilter/components/radioCustomFilter/RadioCustomFilter';
+import { ColumnType } from '../../other/agGrid/helper/column/columnType';
+import { ColumnFilterType, FilterType } from '../../other/agGrid/helper/column/columnFilter/columnFilterType';
 import { formatCurrency, formatNumber } from '../../../utils/methods/format';
 import { formatPhoneNumber } from '../../../utils/locale/phoneFormats';
 
 export const fullFeatureAgGridPropsPrepareColumn = (
-  column: AgGridColDefType,
+  column: ColumnType,
   translate: (value: string) => string,
-): AgGridColDefType => {
-  const _customFilter: AgGridColumnFilterType | undefined | null = column.customFilter;
-  let _filter: AgGridFilterType | undefined | null = undefined;
+): ColumnType => {
+  const _customFilter: ColumnFilterType | undefined | null = column.customFilter;
+  let _filter: FilterType | undefined | null = undefined;
 
   if (_customFilter) {
     if (_customFilter.componentType === 'agTextColumnFilter') {
@@ -23,13 +20,13 @@ export const fullFeatureAgGridPropsPrepareColumn = (
     } else if (_customFilter.componentType === 'agDateColumnFilter') {
       _filter = 'agDateColumnFilter';
     } else if (_customFilter.componentType === 'agRadioCustomFilter') {
-      _filter = AgGridRadioCustomFilterComp;
+      _filter = RadioCustomFilterComp;
     }
   }
 
   const customValueFormatter = column?.customValueFormatter;
 
-  const result: AgGridColDefType = {
+  const result: ColumnType = {
     field: column.field,
     cellDataType: column.cellDataType ?? 'text',
     hide: column.hide,
