@@ -14,21 +14,21 @@ export type FilterType =
 export type ColumnFilterType =
   | {
       name: string;
-      componentType: 'agTextColumnFilter';
+      componentType: 'textColumnFilter';
       componentProps: TextColumnFilterParams;
     }
   | {
       name: string;
-      componentType: 'agNumberColumnFilter';
+      componentType: 'numberColumnFilter';
       componentProps: NumberColumnFilterParams;
     }
   | {
       name: string;
-      componentType: 'agDateColumnFilter';
+      componentType: 'dateColumnFilter';
       componentProps: DateColumnFilterParams;
     }
   | {
       name: string;
-      componentType: 'agRadioCustomFilter';
+      componentType: 'radioCustomFilter';
       componentProps: RadioCustomFilterParams;
     };

@@ -13,13 +13,13 @@ export const fullFeatureAgGridPropsPrepareColumn = (
   let _filter: FilterType | undefined | null = undefined;
 
   if (_customFilter) {
-    if (_customFilter.componentType === 'agTextColumnFilter') {
+    if (_customFilter.componentType === 'textColumnFilter') {
       _filter = 'agTextColumnFilter';
-    } else if (_customFilter.componentType === 'agNumberColumnFilter') {
+    } else if (_customFilter.componentType === 'numberColumnFilter') {
       _filter = 'agNumberColumnFilter';
-    } else if (_customFilter.componentType === 'agDateColumnFilter') {
+    } else if (_customFilter.componentType === 'dateColumnFilter') {
       _filter = 'agDateColumnFilter';
-    } else if (_customFilter.componentType === 'agRadioCustomFilter') {
+    } else if (_customFilter.componentType === 'radioCustomFilter') {
       _filter = RadioCustomFilterComp;
     }
   }

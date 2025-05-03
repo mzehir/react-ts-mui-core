@@ -31,7 +31,7 @@ export const employeeColumns: ColumnType[] = [
     width: 150,
     customFilter: {
       name: 'name',
-      componentType: 'agTextColumnFilter',
+      componentType: 'textColumnFilter',
       componentProps: {
         initialFilterValue: 'Mehmet',
         defaultOption: 'equals',
@@ -61,7 +61,7 @@ export const employeeColumns: ColumnType[] = [
     },
     customFilter: {
       name: 'gender',
-      componentType: 'agRadioCustomFilter',
+      componentType: 'radioCustomFilter',
       componentProps: {
         initialFilterValue: 'MALE',
         defaultOption: 'equals',
@@ -83,7 +83,7 @@ export const employeeColumns: ColumnType[] = [
     width: 150,
     customFilter: {
       name: 'name',
-      componentType: 'agDateColumnFilter',
+      componentType: 'dateColumnFilter',
       componentProps: {
         defaultOption: 'equals',
         filterOptions: ['equals', 'notEqual', 'lessThan', 'greaterThan', 'inRange', 'blank', 'notBlank'],

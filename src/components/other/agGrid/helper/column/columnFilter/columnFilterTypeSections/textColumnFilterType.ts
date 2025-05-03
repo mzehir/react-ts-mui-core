@@ -7,7 +7,7 @@
  * - `reset`: Filtreyi varsayılana döndürür.
  * - `cancel`: Yapılan değişiklikleri iptal eder.
  */
-type ButtonsAgTextColumnFilter = 'apply' | 'clear' | 'reset' | 'cancel';
+type Buttons = 'apply' | 'clear' | 'reset' | 'cancel';
 
 /**
  * Filtreleme sırasında büyük/küçük harf duyarlılığını belirler.
@@ -16,7 +16,7 @@ type ButtonsAgTextColumnFilter = 'apply' | 'clear' | 'reset' | 'cancel';
  *
  * @default false
  */
-type CaseSensitiveAgTextColumnFilter = boolean;
+type CaseSensitive = boolean;
 
 /**
  * `buttons` içinde `apply` varsa, `apply` butonuna basıldığında filtre popup'ının hemen kapanıp kapanmayacağını belirler.
@@ -25,7 +25,7 @@ type CaseSensitiveAgTextColumnFilter = boolean;
  *
  * @default false
  */
-type CloseOnApplyAgTextColumnFilter = boolean;
+type CloseOnApply = boolean;
 
 /**
  * Kullanıcı yazı yazarken filtrelemenin ne kadar gecikmeyle (ms cinsinden) uygulanacağını belirler.
@@ -33,7 +33,7 @@ type CloseOnApplyAgTextColumnFilter = boolean;
  *
  * @default 500
  */
-type DebounceMsAgTextColumnFilter = number;
+type DebounceMs = number;
 
 /**
  * Çoklu filtre koşullarında, koşulların AND mi yoksa OR ile mi bağlanacağını belirler.
@@ -42,13 +42,13 @@ type DebounceMsAgTextColumnFilter = number;
  *
  * @default 'AND'
  */
-type DefaultJoinOperatorAgTextColumnFilter = 'AND' | 'OR';
+type DefaultJoinOperator = 'AND' | 'OR';
 
 /**
  * Filtre popup'ı açıldığında varsayılan olarak seçili olan filtre tipi.
  * Örn: 'contains', 'startsWith', vs.
  */
-type DefaultOptionAgTextColumnFilter =
+type DefaultOption =
   | 'equals'
   | 'notEqual'
   | 'contains'
@@ -62,7 +62,7 @@ type DefaultOptionAgTextColumnFilter =
  * Kullanıcının seçim yapabileceği filtre türlerinin listesi.
  * Örn: sadece 'contains' ve 'startsWith' sunmak istiyorsan burada belirtirsin.
  */
-type FilterOptionsAgTextColumnFilter =
+type FilterOptions =
   | 'equals'
   | 'notEqual'
   | 'contains'
@@ -77,7 +77,7 @@ type FilterOptionsAgTextColumnFilter =
  *
  * Örn: "İsme göre ara..."
  */
-type FilterPlaceholderAgTextColumnFilter = unknown | string;
+type FilterPlaceholder = unknown | string;
 
 /**
  * Kullanıcının aynı anda kaç filtre koşulu tanımlayabileceğini sınırlar.
@@ -85,7 +85,7 @@ type FilterPlaceholderAgTextColumnFilter = unknown | string;
  *
  * @default 2
  */
-type MaxNumConditionsAgTextColumnFilter = number;
+type MaxNumConditions = number;
 
 /**
  * Popup ilk açıldığında kaç koşul görünür olsun?
@@ -93,7 +93,7 @@ type MaxNumConditionsAgTextColumnFilter = number;
  *
  * @default 1
  */
-type NumAlwaysVisibleConditionsAgTextColumnFilter = number;
+type NumAlwaysVisibleConditions = number;
 
 /**
  * true verilirse filtre readonly olur, kullanıcı düzenleme yapamaz.
@@ -101,7 +101,7 @@ type NumAlwaysVisibleConditionsAgTextColumnFilter = number;
  *
  * @default false
  */
-type ReadOnlyAgTextColumnFilter = boolean;
+type ReadOnly = boolean;
 
 /**
  * Kullanıcının yazdığı input'u filtre karşılaştırmasından önce biçimlendirir.
@@ -109,7 +109,7 @@ type ReadOnlyAgTextColumnFilter = boolean;
  *
  * Örnek: "ç" → "c"
  */
-type TextFormatterAgTextColumnFilter = (from: string) => string | null;
+type TextFormatter = (from: string) => string | null;
 
 /**
  * Gelişmiş bir karşılaştırma fonksiyonu.
@@ -117,30 +117,30 @@ type TextFormatterAgTextColumnFilter = (from: string) => string | null;
  *
  * true dönerse değer filtreyi geçer, false dönerse geçemez.
  */
-type TextMatcherAgTextColumnFilter = (params: unknown) => boolean;
+type TextMatcher = (params: unknown) => boolean;
 
 /**
  * true verilirse kullanıcıdan gelen input'un başındaki ve sonundaki boşluklar silinir.
  *
  * @default false
  */
-type TrimInputAgTextColumnFilter = boolean;
+type TrimInput = boolean;
 
 export interface TextColumnFilterParams {
-  buttons?: ButtonsAgTextColumnFilter[];
-  caseSensitive?: CaseSensitiveAgTextColumnFilter;
-  closeOnApply?: CloseOnApplyAgTextColumnFilter;
-  debounceMs?: DebounceMsAgTextColumnFilter;
-  defaultJoinOperator?: DefaultJoinOperatorAgTextColumnFilter;
-  defaultOption: DefaultOptionAgTextColumnFilter;
-  filterOptions?: FilterOptionsAgTextColumnFilter[];
-  filterPlaceholder?: FilterPlaceholderAgTextColumnFilter;
-  maxNumConditions?: MaxNumConditionsAgTextColumnFilter;
-  numAlwaysVisibleConditions?: NumAlwaysVisibleConditionsAgTextColumnFilter;
-  readOnly?: ReadOnlyAgTextColumnFilter;
-  textFormatter?: TextFormatterAgTextColumnFilter;
-  textMatcher?: TextMatcherAgTextColumnFilter;
-  trimInput?: TrimInputAgTextColumnFilter;
+  buttons?: Buttons[];
+  caseSensitive?: CaseSensitive;
+  closeOnApply?: CloseOnApply;
+  debounceMs?: DebounceMs;
+  defaultJoinOperator?: DefaultJoinOperator;
+  defaultOption: DefaultOption;
+  filterOptions?: FilterOptions[];
+  filterPlaceholder?: FilterPlaceholder;
+  maxNumConditions?: MaxNumConditions;
+  numAlwaysVisibleConditions?: NumAlwaysVisibleConditions;
+  readOnly?: ReadOnly;
+  textFormatter?: TextFormatter;
+  textMatcher?: TextMatcher;
+  trimInput?: TrimInput;
   // extra props
   initialFilterValue?: string;
 }

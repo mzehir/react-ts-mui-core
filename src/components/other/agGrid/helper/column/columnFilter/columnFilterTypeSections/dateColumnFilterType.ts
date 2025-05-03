@@ -2,7 +2,7 @@
  * true verilirse, tarayıcının yerleşik tarih seçici (browser date picker) bileşeni kullanılır.
  * false ise AG Grid'in kendi tarih bileşeni kullanılır.
  */
-type BrowserDatePickerAgDateColumnFilter = boolean;
+type BrowserDatePicker = boolean;
 
 /**
  * `filterParams.buttons` özelliği, filtre kutusunun altında hangi butonların görüneceğini belirler.
@@ -13,7 +13,7 @@ type BrowserDatePickerAgDateColumnFilter = boolean;
  * - `reset`: Filtreyi varsayılana döndürür.
  * - `cancel`: Yapılan değişiklikleri iptal eder.
  */
-type ButtonsAgDateColumnFilter = 'apply' | 'clear' | 'reset' | 'cancel';
+type Buttons = 'apply' | 'clear' | 'reset' | 'cancel';
 
 /**
  * `buttons` içinde `apply` varsa, `apply` butonuna basıldığında filtre popup'ının hemen kapanıp kapanmayacağını belirler.
@@ -22,7 +22,7 @@ type ButtonsAgDateColumnFilter = 'apply' | 'clear' | 'reset' | 'cancel';
  *
  * @default false
  */
-type CloseOnApplyAgDateColumnFilter = boolean;
+type CloseOnApply = boolean;
 
 /**
  * Hücredeki tarih değeri ile filtre tarihini karşılaştırmak için özel fonksiyon.
@@ -30,14 +30,14 @@ type CloseOnApplyAgDateColumnFilter = boolean;
  *
  * Örn: (filterDate, cellValue) => filterDate.getTime() - new Date(cellValue).getTime()
  */
-type ComparatorAgDateColumnFilter = (filterLocalDateAtMidnight: Date, cellValue: unknown) => number;
+type Comparator = (filterLocalDateAtMidnight: Date, cellValue: unknown) => number;
 
 /**
  * Kullanıcının tarih girdikten sonra filtrelemenin ne kadar gecikmeyle yapılacağını belirler (ms).
  *
  * @default 0
  */
-type DebounceMsAgDateColumnFilter = number;
+type DebounceMs = number;
 
 /**
  * Çoklu filtre koşullarının varsayılan bağlama şekli.
@@ -46,38 +46,24 @@ type DebounceMsAgDateColumnFilter = number;
  *
  * @default 'AND'
  */
-type DefaultJoinOperatorAgDateColumnFilter = 'AND' | 'OR';
+type DefaultJoinOperator = 'AND' | 'OR';
 
 /**
  * Filtre popup'ı açıldığında seçili olacak varsayılan filtre tipi.
  * Örn: 'equals', 'greaterThan', 'inRange'
  */
-type DefaultOptionAgDateColumnFilter =
-  | 'equals'
-  | 'notEqual'
-  | 'lessThan'
-  | 'greaterThan'
-  | 'inRange'
-  | 'blank'
-  | 'notBlank';
+type DefaultOption = 'equals' | 'notEqual' | 'lessThan' | 'greaterThan' | 'inRange' | 'blank' | 'notBlank';
 
 /**
  * Kullanıcının seçebileceği filtre türleri listesi.
  * 'equals', 'notEqual', 'greaterThan', 'inRange', vb.
  */
-type FilterOptionsAgDateColumnFilter =
-  | 'equals'
-  | 'notEqual'
-  | 'lessThan'
-  | 'greaterThan'
-  | 'inRange'
-  | 'blank'
-  | 'notBlank';
+type FilterOptions = 'equals' | 'notEqual' | 'lessThan' | 'greaterThan' | 'inRange' | 'blank' | 'notBlank';
 
 /**
  * Tarih filtresi için input kutusunun placeholder (örnek metin) değeri.
  */
-type FilterPlaceholderAgDateColumnFilter = unknown | string;
+type FilterPlaceholder = unknown | string;
 
 /**
  * Floating filter üzerinde 'inRange' seçildiğinde, tarihlerin nasıl formatlanacağını belirler.
@@ -85,44 +71,44 @@ type FilterPlaceholderAgDateColumnFilter = unknown | string;
  *
  * @default 'YYYY-MM-DD'
  */
-type InRangeFloatingFilterDateFormatAgDateColumnFilter = string;
+type InRangeFloatingFilterDateFormat = string;
 
 /**
  * 'inRange' filtresinde başlangıç ve bitiş tarihinin aralığa dahil olup olmadığını belirler.
  * true → dahil
  */
-type InRangeInclusiveAgDateColumnFilter = boolean;
+type InRangeInclusive = boolean;
 
 /**
  * 'equals' filtresinde, boş (null) hücrelerin de filtreye dahil edilip edilmeyeceğini belirler.
  */
-type IncludeBlanksInEqualsAgDateColumnFilter = boolean;
+type IncludeBlanksInEquals = boolean;
 
 /**
  * 'greaterThan' filtresinde boş (null) değerlerin dahil edilip edilmeyeceğini belirtir.
  */
-type IncludeBlanksInGreaterThanAgDateColumnFilter = boolean;
+type IncludeBlanksInGreaterThan = boolean;
 
 /**
  * 'lessThan' filtresinde boş (null) değerlerin dahil edilip edilmeyeceğini belirtir.
  */
-type IncludeBlanksInLessThanAgDateColumnFilter = boolean;
+type IncludeBlanksInLessThan = boolean;
 
 /**
  * 'notEqual' filtresinde boş (null) değerlerin dahil edilip edilmeyeceğini belirtir.
  */
-type IncludeBlanksInNotEqualAgDateColumnFilter = boolean;
+type IncludeBlanksInNotEqual = boolean;
 
 /**
  * 'inRange' filtresinde boş (null) değerlerin dahil edilip edilmeyeceğini belirtir.
  */
-type IncludeBlanksInRangeAgDateColumnFilter = boolean;
+type IncludeBlanksInRange = boolean;
 
 /**
  * Hücredeki değerin geçerli bir tarih olup olmadığını kontrol eden özel fonksiyon.
  * true → geçerli tarih
  */
-type IsValidDateAgDateColumnFilter = (value: unknown) => boolean;
+type IsValidDate = (value: unknown) => boolean;
 
 /**
  * Kullanıcının aynı anda tanımlayabileceği maksimum koşul sayısı.
@@ -130,32 +116,32 @@ type IsValidDateAgDateColumnFilter = (value: unknown) => boolean;
  *
  * @default 2
  */
-type MaxNumConditionsAgDateColumnFilter = number;
+type MaxNumConditions = number;
 
 /**
  * Filtrede girilebilecek maksimum tarih değeri.
  * Örn: '2099-12-31' gibi
  */
-type MaxValidDateAgDateColumnFilter = Date | string;
+type MaxValidDate = Date | string;
 
 /**
  * Girilebilecek maksimum yıl değeri.
  * Örn: 2099
  */
-type MaxValidYearAgDateColumnFilter = number;
+type MaxValidYear = number;
 
 /**
  * Filtrede girilebilecek minimum tarih değeri.
  * Örn: '1900-01-01'
  */
-type MinValidDateAgDateColumnFilter = Date | string;
+type MinValidDate = Date | string;
 
 /**
  * Girilebilecek minimum yıl değeri.
  *
  * @default 1000
  */
-type MinValidYearAgDateColumnFilter = number;
+type MinValidYear = number;
 
 /**
  * Filtre popup'ı ilk açıldığında kaç koşul görünür olacak?
@@ -163,7 +149,7 @@ type MinValidYearAgDateColumnFilter = number;
  *
  * @default 1
  */
-type NumAlwaysVisibleConditionsAgDateColumnFilter = number;
+type NumAlwaysVisibleConditions = number;
 
 /**
  * true verilirse filtre sadece okunabilir olur, kullanıcı müdahale edemez.
@@ -171,33 +157,33 @@ type NumAlwaysVisibleConditionsAgDateColumnFilter = number;
  *
  * @default false
  */
-type ReadOnlyAgDateColumnFilter = boolean;
+type ReadOnly = boolean;
 
 export interface DateColumnFilterParams {
-  browserDatePicker?: BrowserDatePickerAgDateColumnFilter;
-  buttons?: ButtonsAgDateColumnFilter[];
-  closeOnApply?: CloseOnApplyAgDateColumnFilter;
-  comparator?: ComparatorAgDateColumnFilter;
-  debounceMs?: DebounceMsAgDateColumnFilter;
-  defaultJoinOperator?: DefaultJoinOperatorAgDateColumnFilter;
-  defaultOption: DefaultOptionAgDateColumnFilter;
-  filterOptions?: FilterOptionsAgDateColumnFilter[];
-  filterPlaceholder?: FilterPlaceholderAgDateColumnFilter;
-  inRangeFloatingFilterDateFormat?: InRangeFloatingFilterDateFormatAgDateColumnFilter;
-  inRangeInclusive?: InRangeInclusiveAgDateColumnFilter;
-  includeBlanksInEquals?: IncludeBlanksInEqualsAgDateColumnFilter;
-  includeBlanksInGreaterThan?: IncludeBlanksInGreaterThanAgDateColumnFilter;
-  includeBlanksInLessThan?: IncludeBlanksInLessThanAgDateColumnFilter;
-  includeBlanksInNotEqual?: IncludeBlanksInNotEqualAgDateColumnFilter;
-  includeBlanksInRange?: IncludeBlanksInRangeAgDateColumnFilter;
-  isValidDate?: IsValidDateAgDateColumnFilter;
-  maxNumConditions?: MaxNumConditionsAgDateColumnFilter;
-  maxValidDate?: MaxValidDateAgDateColumnFilter;
-  maxValidYear?: MaxValidYearAgDateColumnFilter;
-  minValidDate?: MinValidDateAgDateColumnFilter;
-  minValidYear?: MinValidYearAgDateColumnFilter;
-  numAlwaysVisibleConditions?: NumAlwaysVisibleConditionsAgDateColumnFilter;
-  readOnly?: ReadOnlyAgDateColumnFilter;
+  browserDatePicker?: BrowserDatePicker;
+  buttons?: Buttons[];
+  closeOnApply?: CloseOnApply;
+  comparator?: Comparator;
+  debounceMs?: DebounceMs;
+  defaultJoinOperator?: DefaultJoinOperator;
+  defaultOption: DefaultOption;
+  filterOptions?: FilterOptions[];
+  filterPlaceholder?: FilterPlaceholder;
+  inRangeFloatingFilterDateFormat?: InRangeFloatingFilterDateFormat;
+  inRangeInclusive?: InRangeInclusive;
+  includeBlanksInEquals?: IncludeBlanksInEquals;
+  includeBlanksInGreaterThan?: IncludeBlanksInGreaterThan;
+  includeBlanksInLessThan?: IncludeBlanksInLessThan;
+  includeBlanksInNotEqual?: IncludeBlanksInNotEqual;
+  includeBlanksInRange?: IncludeBlanksInRange;
+  isValidDate?: IsValidDate;
+  maxNumConditions?: MaxNumConditions;
+  maxValidDate?: MaxValidDate;
+  maxValidYear?: MaxValidYear;
+  minValidDate?: MinValidDate;
+  minValidYear?: MinValidYear;
+  numAlwaysVisibleConditions?: NumAlwaysVisibleConditions;
+  readOnly?: ReadOnly;
   // extra props
   initialFilterValue?: string;
 }

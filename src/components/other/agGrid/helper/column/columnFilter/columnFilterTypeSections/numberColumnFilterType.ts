@@ -2,7 +2,7 @@
  * Giriş kutusuna sadece belirli karakterlerin girilmesine izin verir.
  * Örn: '\\d\\.' ifadesi, sadece sayılar ve nokta karakterine izin verir.
  */
-type AllowedCharPatternAgNumberColumnFilter = string;
+type AllowedCharPattern = string;
 
 /**
  * `filterParams.buttons` özelliği, filtre kutusunun altında hangi butonların görüneceğini belirler.
@@ -13,7 +13,7 @@ type AllowedCharPatternAgNumberColumnFilter = string;
  * - `reset`: Filtreyi varsayılana döndürür.
  * - `cancel`: Yapılan değişiklikleri iptal eder.
  */
-type ButtonsAgNumberColumnFilter = 'apply' | 'clear' | 'reset' | 'cancel';
+type Buttons = 'apply' | 'clear' | 'reset' | 'cancel';
 
 /**
  * `buttons` içinde `apply` varsa, `apply` butonuna basıldığında filtre popup'ının hemen kapanıp kapanmayacağını belirler.
@@ -22,7 +22,7 @@ type ButtonsAgNumberColumnFilter = 'apply' | 'clear' | 'reset' | 'cancel';
  *
  * @default false
  */
-type CloseOnApplyAgNumberColumnFilter = boolean;
+type CloseOnApply = boolean;
 
 /**
  * Kullanıcı yazı yazarken filtrelemenin ne kadar gecikmeyle (ms cinsinden) uygulanacağını belirler.
@@ -30,7 +30,7 @@ type CloseOnApplyAgNumberColumnFilter = boolean;
  *
  * @default 500
  */
-type DebounceMsAgNumberColumnFilter = number;
+type DebounceMs = number;
 
 /**
  * Çoklu filtre koşullarında, koşulların AND mi yoksa OR ile mi bağlanacağını belirler.
@@ -39,13 +39,13 @@ type DebounceMsAgNumberColumnFilter = number;
  *
  * @default 'AND'
  */
-type DefaultJoinOperatorAgNumberColumnFilter = 'AND' | 'OR';
+type DefaultJoinOperator = 'AND' | 'OR';
 
 /**
  * Filtre popup'ı açıldığında varsayılan olarak hangi filtre türü seçili olacak?
  * Örn: 'equals', 'lessThan', vs.
  */
-type DefaultOptionAgNumberColumnFilter =
+type DefaultOption =
   | 'equals'
   | 'notEqual'
   | 'lessThan'
@@ -60,7 +60,7 @@ type DefaultOptionAgNumberColumnFilter =
  * Kullanıcının seçim yapabileceği filtre türlerinin listesi.
  * Örn: sadece 'lessThan' ve 'greaterThanOrEqual' sunmak istiyorsan burada belirtirsin.
  */
-type FilterOptionsAgNumberColumnFilter =
+type FilterOptions =
   | 'equals'
   | 'notEqual'
   | 'lessThan'
@@ -75,38 +75,38 @@ type FilterOptionsAgNumberColumnFilter =
  * Filtre giriş kutusunun placeholder (örnek) yazısı.
  * Örn: "Tutar giriniz"
  */
-type FilterPlaceholderAgNumberColumnFilter = unknown | string;
+type FilterPlaceholder = unknown | string;
 
 /**
  * 'inRange' filtresinde aralık uç değerlerinin dahil olup olmadığını belirler.
  * true → min ve max dahil
  */
-type InRangeInclusiveAgNumberColumnFilter = boolean;
+type InRangeInclusive = boolean;
 
 /**
  * 'equals' filtresinde hücre değeri boşsa, yine de filtreye dahil edilip edilmeyeceğini belirler.
  */
-type IncludeBlanksInEqualsAgNumberColumnFilter = boolean;
+type IncludeBlanksInEquals = boolean;
 
 /**
  * 'greaterThan' filtresinde boş (null) değerlerin dahil edilip edilmeyeceği.
  */
-type IncludeBlanksInGreaterThanAgNumberColumnFilter = boolean;
+type IncludeBlanksInGreaterThan = boolean;
 
 /**
  * 'lessThan' filtresinde boş (null) değerlerin dahil edilip edilmeyeceği.
  */
-type IncludeBlanksInLessThanAgNumberColumnFilter = boolean;
+type IncludeBlanksInLessThan = boolean;
 
 /**
  * 'notEqual' filtresinde boş (null) değerlerin dahil edilip edilmeyeceği.
  */
-type IncludeBlanksInNotEqualAgNumberColumnFilter = boolean;
+type IncludeBlanksInNotEqual = boolean;
 
 /**
  * 'inRange' filtresinde boş (null) değerlerin dahil edilip edilmeyeceği.
  */
-type IncludeBlanksInRangeAgNumberColumnFilter = boolean;
+type IncludeBlanksInRange = boolean;
 
 /**
  * Kullanıcının aynı anda kaç filtre koşulu tanımlayabileceğini sınırlar.
@@ -114,7 +114,7 @@ type IncludeBlanksInRangeAgNumberColumnFilter = boolean;
  *
  * @default 2
  */
-type MaxNumConditionsAgNumberColumnFilter = number;
+type MaxNumConditions = number;
 
 /**
  * Popup ilk açıldığında kaç koşul görünür olsun?
@@ -122,19 +122,19 @@ type MaxNumConditionsAgNumberColumnFilter = number;
  *
  * @default 1
  */
-type NumAlwaysVisibleConditionsAgNumberColumnFilter = number;
+type NumAlwaysVisibleConditions = number;
 
 /**
  * Sayı filtrelemeden önce, değerin nasıl görüneceğini belirleyen biçimlendirici.
  * Örn: 1000 → "1.000" gibi
  */
-type NumberFormatterAgNumberColumnFilter = (value: number | null) => string | null;
+type NumberFormatter = (value: number | null) => string | null;
 
 /**
  * Girişteki metni sayıya çevirmek için kullanılan fonksiyon.
  * Örn: "1.000" → 1000
  */
-type NumberParserAgNumberColumnFilter = (text: string | null) => number | null;
+type NumberParser = (text: string | null) => number | null;
 
 /**
  * true verilirse filtre readonly olur, kullanıcı düzenleme yapamaz.
@@ -142,28 +142,28 @@ type NumberParserAgNumberColumnFilter = (text: string | null) => number | null;
  *
  * @default false
  */
-type ReadOnlyAgNumberColumnFilter = boolean;
+type ReadOnly = boolean;
 
 export interface NumberColumnFilterParams {
-  allowedCharPattern?: AllowedCharPatternAgNumberColumnFilter;
-  buttons?: ButtonsAgNumberColumnFilter[];
-  closeOnApply?: CloseOnApplyAgNumberColumnFilter;
-  debounceMs?: DebounceMsAgNumberColumnFilter;
-  defaultJoinOperator?: DefaultJoinOperatorAgNumberColumnFilter;
-  defaultOption: DefaultOptionAgNumberColumnFilter;
-  filterOptions?: FilterOptionsAgNumberColumnFilter[];
-  filterPlaceholder?: FilterPlaceholderAgNumberColumnFilter;
-  inRangeInclusive?: InRangeInclusiveAgNumberColumnFilter;
-  includeBlanksInEquals?: IncludeBlanksInEqualsAgNumberColumnFilter;
-  includeBlanksInGreaterThan?: IncludeBlanksInGreaterThanAgNumberColumnFilter;
-  includeBlanksInLessThan?: IncludeBlanksInLessThanAgNumberColumnFilter;
-  includeBlanksInNotEqual?: IncludeBlanksInNotEqualAgNumberColumnFilter;
-  includeBlanksInRange?: IncludeBlanksInRangeAgNumberColumnFilter;
-  maxNumConditions?: MaxNumConditionsAgNumberColumnFilter;
-  numAlwaysVisibleConditions?: NumAlwaysVisibleConditionsAgNumberColumnFilter;
-  numberFormatter?: NumberFormatterAgNumberColumnFilter;
-  numberParser?: NumberParserAgNumberColumnFilter;
-  readOnly?: ReadOnlyAgNumberColumnFilter;
+  allowedCharPattern?: AllowedCharPattern;
+  buttons?: Buttons[];
+  closeOnApply?: CloseOnApply;
+  debounceMs?: DebounceMs;
+  defaultJoinOperator?: DefaultJoinOperator;
+  defaultOption: DefaultOption;
+  filterOptions?: FilterOptions[];
+  filterPlaceholder?: FilterPlaceholder;
+  inRangeInclusive?: InRangeInclusive;
+  includeBlanksInEquals?: IncludeBlanksInEquals;
+  includeBlanksInGreaterThan?: IncludeBlanksInGreaterThan;
+  includeBlanksInLessThan?: IncludeBlanksInLessThan;
+  includeBlanksInNotEqual?: IncludeBlanksInNotEqual;
+  includeBlanksInRange?: IncludeBlanksInRange;
+  maxNumConditions?: MaxNumConditions;
+  numAlwaysVisibleConditions?: NumAlwaysVisibleConditions;
+  numberFormatter?: NumberFormatter;
+  numberParser?: NumberParser;
+  readOnly?: ReadOnly;
   // extra props
   initialFilterValue?: number | string;
 }
