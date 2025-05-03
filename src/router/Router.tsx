@@ -21,6 +21,7 @@ import DialogPage from '../pages/introduction/components/dialog/DialogPage';
 import CustomFilterPage from '../pages/introduction/customComponents/customFilter/CustomFilterPage';
 import CustomTablePage from '../pages/introduction/customComponents/table/CustomTablePage';
 import FullFeatureAgGridPage from '../pages/introduction/customComponents/agGrid/fullFeatureAgGrid/FullFeatureAgGridPage';
+import AgListGridPage from '../pages/introduction/customComponents/agGrid/listAgGrid/AgListGridPage';
 import TextEditorPage from '../pages/introduction/customComponents/textEditor/TextEditorPage';
 // Custom Components Introduction
 import OrderProjectPage from '../pages/introduction/simpleProjects/orderProject/OrderProjectPage';
@@ -203,6 +204,16 @@ const customComponentsIntroductionRouter = [
       <Guard routeKey={allRoutes.INTRODUCTION_FULL_FEATURE_AG_GRID_PAGE.key}>
         <DefaultLayout>
           <FullFeatureAgGridPage />
+        </DefaultLayout>
+      </Guard>
+    ),
+  },
+  {
+    path: allRoutes.INTRODUCTION_AG_LIST_GRID_PAGE.path,
+    element: (
+      <Guard routeKey={allRoutes.INTRODUCTION_AG_LIST_GRID_PAGE.key}>
+        <DefaultLayout>
+          <AgListGridPage />
         </DefaultLayout>
       </Guard>
     ),

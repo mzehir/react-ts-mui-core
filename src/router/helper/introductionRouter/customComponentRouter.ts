@@ -9,6 +9,7 @@ type CustomComponentRouterItems = {
   INTRODUCTION_CUSTOM_FILTER_PAGE: RouterItem;
   INTRODUCTION_CUSTOM_TABLE_PAGE: RouterItem;
   INTRODUCTION_FULL_FEATURE_AG_GRID_PAGE: RouterItem;
+  INTRODUCTION_AG_LIST_GRID_PAGE: RouterItem;
   INTRODUCTION_TEXT_EDITOR_PAGE: RouterItem;
   [key: string]: RouterItem;
 };
@@ -43,6 +44,14 @@ export const CUSTOM_COMPONENT_ROUTER_ITEMS: CustomComponentRouterItems = {
     key: 'INTRODUCTION_FULL_FEATURE_AG_GRID_PAGE',
     label: 'introductionRoutes.fullFeatureAgGrid',
     path: '/introduction-full-feature-ag-grid-component',
+    icon: Grid4x4Icon,
+  },
+  INTRODUCTION_AG_LIST_GRID_PAGE: {
+    whoCanSeeForPage: ['admin'],
+    parentKey: 'CUSTOM_COMPONENT_ROUTER_ITEMS',
+    key: 'INTRODUCTION_AG_LIST_GRID_PAGE',
+    label: 'introductionRoutes.agGridListGrid',
+    path: '/introduction-ag-list-grid-component',
     icon: Grid4x4Icon,
   },
   INTRODUCTION_TEXT_EDITOR_PAGE: {
