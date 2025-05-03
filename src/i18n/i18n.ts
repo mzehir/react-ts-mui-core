@@ -11,6 +11,7 @@ import enRoutes from './locales/en/routes.json';
 // introduction
 import enIntroductionRoutes from './locales/en/introduction/routes.json';
 import enIntroductionAGGrid from './locales/en/introduction/agGrid.json';
+import enIntroduction from './locales/en/introduction/other.json';
 
 import tr from './locales/tr.json';
 import trComponent from './locales/tr/component.json';
@@ -22,6 +23,7 @@ import trRoutes from './locales/tr/routes.json';
 // introduction
 import trIntroductionRoutes from './locales/tr/introduction/routes.json';
 import trIntroductionAGGrid from './locales/tr/introduction/agGrid.json';
+import trIntroduction from './locales/tr/introduction/other.json';
 
 import de from './locales/de.json';
 
@@ -38,6 +40,7 @@ const resources = {
       // introduction
       introductionRoutes: enIntroductionRoutes,
       introductionAgGrid: enIntroductionAGGrid,
+      introduction: enIntroduction,
     },
   },
   tr: {
@@ -52,6 +55,7 @@ const resources = {
       // introduction
       introductionRoutes: trIntroductionRoutes,
       introductionAgGrid: trIntroductionAGGrid,
+      introduction: trIntroduction,
     },
   },
   de: {
