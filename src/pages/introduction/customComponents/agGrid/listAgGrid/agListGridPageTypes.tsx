@@ -170,6 +170,28 @@ export const employeeColumns: ColumnType[] = [
     headerName: 'introduction.salary',
     width: 150,
     valueFormatterType: 'currencyFormatter',
+    customFilter: {
+      name: 'salary',
+      componentType: 'numberColumnFilter',
+      componentProps: {
+        initialFilterValue: 145,
+        defaultOption: 'equals',
+        filterOptions: [
+          'equals',
+          'notEqual',
+          'lessThan',
+          'lessThanOrEqual',
+          'greaterThan',
+          'greaterThanOrEqual',
+          'inRange',
+          'blank',
+          'notBlank',
+        ],
+        filterPlaceholder: 'Filtrele',
+        maxNumConditions: 1,
+        buttons: ['apply', 'clear'],
+      },
+    },
   },
   {
     field: 'status',

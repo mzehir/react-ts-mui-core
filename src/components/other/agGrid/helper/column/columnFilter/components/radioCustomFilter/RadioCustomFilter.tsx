@@ -47,6 +47,7 @@ const RadioCustomFilterComp: React.FC<CustomFilterProps> = (props) => {
     props.onModelChange({
       type: 'equals',
       filter: selectedValue,
+      filterType: 'radio',
     });
   };
 

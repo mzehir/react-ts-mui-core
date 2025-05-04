@@ -60,7 +60,7 @@ type DefaultOption =
  * Kullanıcının seçim yapabileceği filtre türlerinin listesi.
  * Örn: sadece 'lessThan' ve 'greaterThanOrEqual' sunmak istiyorsan burada belirtirsin.
  */
-type FilterOptions =
+export type FilterOptions =
   | 'equals'
   | 'notEqual'
   | 'lessThan'

@@ -1,4 +1,4 @@
-import { FilterModel, ICellRendererParams } from 'ag-grid-community';
+import { ICellRendererParams } from 'ag-grid-community';
 import { ColumnType } from '../../helper/column/columnType';
 import { OperationColumnItemFields } from './agListGridTypes';
 import { agListGridPrepareColumn } from './agListGridMethods';
@@ -7,6 +7,7 @@ import { Stack } from '@mui/material';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { ColumnFilterModel } from '../../helper/column/columnFilter/columnFilterParams';
 
 export const prepareOperationColumn = (
   onView?: (row: unknown) => void,
@@ -131,7 +132,7 @@ export const prepareInitialFilterModel = (columns: ColumnType[]) => {
   }
 };
 
-export const prepareRequestDtoFilters = (filterModel: FilterModel) => {
+export const prepareRequestDtoFilters = (filterModel: ColumnFilterModel) => {
   let requestDtoFilter = {};
   const filterModelKeys = Object.keys(filterModel);
 
@@ -162,5 +163,6 @@ export const prepareRequestDtoFilters = (filterModel: FilterModel) => {
     }
   }
 
+  console.log(requestDtoFilter);
   return requestDtoFilter;
 };

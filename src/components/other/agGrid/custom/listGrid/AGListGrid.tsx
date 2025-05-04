@@ -11,6 +11,7 @@ import {
 } from './agListGridHelper';
 import AgGridComp from '../../base/AgGrid';
 import BoxComp from '../../../../base/box/Box';
+import { ColumnFilterModel } from '../../helper/column/columnFilter/columnFilterParams';
 
 const AGListGridComp = ({
   columns,
@@ -85,7 +86,11 @@ const AGListGridComp = ({
           rowCount: totalRowCount,
           getRows: async (rowParams) => {
             const filterModel = gridParams.api.getFilterModel();
-            const requestFilterDto = Object.keys(filterModel).length > 0 ? prepareRequestDtoFilters(filterModel) : {};
+
+            console.log(filterModel);
+
+            const requestFilterDto =
+              Object.keys(filterModel).length > 0 ? prepareRequestDtoFilters(filterModel as ColumnFilterModel) : {};
 
             const { data: pageData } = await triggerGetEmployees({
               maxResultCount: (rowParams.endRow - rowParams.startRow).toString(),

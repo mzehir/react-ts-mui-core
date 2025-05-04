@@ -28,7 +28,7 @@ type DefaultOption = 'equals';
  * Kullanıcının seçim yapabileceği filtre türlerinin listesi.
  * Örn: sadece 'contains' ve 'startsWith' sunmak istiyorsan burada belirtirsin.
  */
-type FilterOptions = 'equals';
+export type FilterOptions = 'equals';
 
 /**
  * true verilirse filtre readonly olur, kullanıcı düzenleme yapamaz.

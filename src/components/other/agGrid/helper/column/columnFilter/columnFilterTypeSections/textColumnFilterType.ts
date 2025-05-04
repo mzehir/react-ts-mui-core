@@ -62,7 +62,7 @@ type DefaultOption =
  * Kullanıcının seçim yapabileceği filtre türlerinin listesi.
  * Örn: sadece 'contains' ve 'startsWith' sunmak istiyorsan burada belirtirsin.
  */
-type FilterOptions =
+export type FilterOptions =
   | 'equals'
   | 'notEqual'
   | 'contains'

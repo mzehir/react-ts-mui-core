@@ -58,7 +58,7 @@ type DefaultOption = 'equals' | 'notEqual' | 'lessThan' | 'greaterThan' | 'inRan
  * Kullanıcının seçebileceği filtre türleri listesi.
  * 'equals', 'notEqual', 'greaterThan', 'inRange', vb.
  */
-type FilterOptions = 'equals' | 'notEqual' | 'lessThan' | 'greaterThan' | 'inRange' | 'blank' | 'notBlank';
+export type FilterOptions = 'equals' | 'notEqual' | 'lessThan' | 'greaterThan' | 'inRange' | 'blank' | 'notBlank';
 
 /**
  * Tarih filtresi için input kutusunun placeholder (örnek metin) değeri.
