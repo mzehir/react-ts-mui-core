@@ -87,8 +87,6 @@ const AGListGridComp = ({
           getRows: async (rowParams) => {
             const filterModel = gridParams.api.getFilterModel();
 
-            console.log(filterModel);
-
             const requestFilterDto =
               Object.keys(filterModel).length > 0 ? prepareRequestDtoFilters(filterModel as ColumnFilterModel) : {};
 
@@ -102,11 +100,7 @@ const AGListGridComp = ({
               throw new Error('Invalid data format received from API');
             }
 
-            if (!pageData?.data?.totalCount) {
-              throw new Error('Total count not available in initial response');
-            }
-
-            totalRowCount !== pageData?.data?.totalCount && setTotalRowCount(pageData?.data?.totalCount);
+            totalRowCount !== pageData?.data?.totalCount && setTotalRowCount(pageData?.data?.totalCount ?? 0);
 
             const rowsThisPage = pageData.data.items;
             const lastRow =
