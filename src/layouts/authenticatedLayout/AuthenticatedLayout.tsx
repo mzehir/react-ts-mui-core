@@ -1,10 +1,10 @@
 import React from 'react';
-import { contentSpacing, drawerWidth } from './defaultLayoutHelper';
-import BoxComp from '../components/base/box/Box';
-import CustomAppBar from '../components/custom/navbar/Navbar';
-import Sidebar from '../components/custom/sidebar/Sidebar';
-import Footer from '../components/custom/footer/Footer';
-import GlobalStyles from '../GlobalStyle';
+import { contentSpacing, drawerWidth } from './authenticatedLayoutHelper';
+import BoxComp from '../../components/base/box/Box';
+import CustomAppBar from '../../components/custom/navbar/Navbar';
+import Sidebar from '../../components/custom/sidebar/Sidebar';
+import Footer from '../../components/custom/footer/Footer';
+import GlobalStyles from '../../GlobalStyle';
 import CssBaseline from '@mui/material/CssBaseline';
 import { useMediaQuery } from '@mui/material';
 import { styled, useTheme } from '@mui/material/styles';
@@ -42,7 +42,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-export default function DefaultLayout({ children }: { children: React.ReactNode }) {
+export default function AuthenticatedLayout({ children }: { children: React.ReactNode }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [mobileScreenActive, setMobileScreenActive] = React.useState(false);

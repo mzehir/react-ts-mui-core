@@ -1,9 +1,9 @@
 import React from 'react';
-import BoxComp from '../components/base/box/Box';
-import GlobalStyle from '../GlobalStyle';
+import BoxComp from '../../components/base/box/Box';
+import GlobalStyle from '../../GlobalStyle';
 import { CssBaseline } from '@mui/material';
 
-export default function AuthLayout({ children }: { children: React.ReactNode }) {
+export default function UnauthenticatedLayout({ children }: { children: React.ReactNode }) {
   return (
     <BoxComp
       display="flex"

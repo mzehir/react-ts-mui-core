@@ -1,6 +1,6 @@
 import React from 'react';
 import { FooterProps, StyledAppBarProps } from './footerHelper';
-import { contentSpacing, drawerWidth } from '../../../layouts/defaultLayoutHelper';
+import { contentSpacing, drawerWidth } from '../../../layouts/authenticatedLayout/authenticatedLayoutHelper';
 import BoxComp from '../../base/box/Box';
 import TypographyComp from '../../base/typography/Typography';
 import { AppBar as MuiAppBar, Toolbar } from '@mui/material';

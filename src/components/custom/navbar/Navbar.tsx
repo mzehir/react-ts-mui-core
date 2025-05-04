@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavbarProps, StyledAppBarProps } from './navbarHelper';
-import { contentSpacing, drawerWidth } from '../../../layouts/defaultLayoutHelper';
+import { contentSpacing, drawerWidth } from '../../../layouts/authenticatedLayout/authenticatedLayoutHelper';
 import SearchbarField from '../textFields/SearchbarField';
 import RightSection from './section/RightSection';
 import BoxComp from '../../base/box/Box';

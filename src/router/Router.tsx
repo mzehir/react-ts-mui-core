@@ -47,8 +47,8 @@ import GuestPage from '../pages/introduction/routerByUserType/GuestPage';
 // Guard
 import Guard from '../guards/Guard';
 // Layout
-import DefaultLayout from '../layouts/DefaultLayout';
-import AuthLayout from '../layouts/AuthLayout';
+import AuthenticatedLayout from '../layouts/authenticatedLayout/AuthenticatedLayout';
+import UnauthenticatedLayout from '../layouts/unauthenticatedLayout/UnauthenticatedLayout';
 
 const allRoutes = prepareAllRoutes();
 
@@ -57,9 +57,9 @@ const componentsIntroductionRouter = [
     path: allRoutes.INTRODUCTION_TYPOGRAPHY_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.INTRODUCTION_TYPOGRAPHY_PAGE.key}>
-        <DefaultLayout>
+        <AuthenticatedLayout>
           <TypographyPage />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       </Guard>
     ),
   },
@@ -67,9 +67,9 @@ const componentsIntroductionRouter = [
     path: allRoutes.INTRODUCTION_BUTTON_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.INTRODUCTION_BUTTON_PAGE.key}>
-        <DefaultLayout>
+        <AuthenticatedLayout>
           <ButtonPage />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       </Guard>
     ),
   },
@@ -77,9 +77,9 @@ const componentsIntroductionRouter = [
     path: allRoutes.INTRODUCTION_CHECKBOX_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.INTRODUCTION_CHECKBOX_PAGE.key}>
-        <DefaultLayout>
+        <AuthenticatedLayout>
           <CheckboxPage />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       </Guard>
     ),
   },
@@ -87,9 +87,9 @@ const componentsIntroductionRouter = [
     path: allRoutes.INTRODUCTION_RADIO_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.INTRODUCTION_RADIO_PAGE.key}>
-        <DefaultLayout>
+        <AuthenticatedLayout>
           <RadioPage />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       </Guard>
     ),
   },
@@ -97,9 +97,9 @@ const componentsIntroductionRouter = [
     path: allRoutes.INTRODUCTION_ICON_BUTTON_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.INTRODUCTION_ICON_BUTTON_PAGE.key}>
-        <DefaultLayout>
+        <AuthenticatedLayout>
           <IconButtonPage />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       </Guard>
     ),
   },
@@ -107,9 +107,9 @@ const componentsIntroductionRouter = [
     path: allRoutes.INTRODUCTION_TEXTFIELD_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.INTRODUCTION_TEXTFIELD_PAGE.key}>
-        <DefaultLayout>
+        <AuthenticatedLayout>
           <TextFieldPage />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       </Guard>
     ),
   },
@@ -117,9 +117,9 @@ const componentsIntroductionRouter = [
     path: allRoutes.INTRODUCTION_DATEPICKER_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.INTRODUCTION_DATEPICKER_PAGE.key}>
-        <DefaultLayout>
+        <AuthenticatedLayout>
           <DatePickerPage />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       </Guard>
     ),
   },
@@ -127,9 +127,9 @@ const componentsIntroductionRouter = [
     path: allRoutes.INTRODUCTION_SELECT_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.INTRODUCTION_SELECT_PAGE.key}>
-        <DefaultLayout>
+        <AuthenticatedLayout>
           <SelectPage />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       </Guard>
     ),
   },
@@ -137,9 +137,9 @@ const componentsIntroductionRouter = [
     path: allRoutes.INTRODUCTION_ASYNC_SELECT_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.INTRODUCTION_ASYNC_SELECT_PAGE.key}>
-        <DefaultLayout>
+        <AuthenticatedLayout>
           <AsyncSelectPage />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       </Guard>
     ),
   },
@@ -147,9 +147,9 @@ const componentsIntroductionRouter = [
     path: allRoutes.INTRODUCTION_ALERT_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.INTRODUCTION_ALERT_PAGE.key}>
-        <DefaultLayout>
+        <AuthenticatedLayout>
           <AlertPage />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       </Guard>
     ),
   },
@@ -157,9 +157,9 @@ const componentsIntroductionRouter = [
     path: allRoutes.INTRODUCTION_TOASTIFY_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.INTRODUCTION_TOASTIFY_PAGE.key}>
-        <DefaultLayout>
+        <AuthenticatedLayout>
           <ToastifyPage />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       </Guard>
     ),
   },
@@ -168,9 +168,9 @@ const componentsIntroductionRouter = [
     path: allRoutes.INTRODUCTION_DIALOG_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.INTRODUCTION_DIALOG_PAGE.key}>
-        <DefaultLayout>
+        <AuthenticatedLayout>
           <DialogPage />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       </Guard>
     ),
   },
@@ -181,9 +181,9 @@ const customComponentsIntroductionRouter = [
     path: allRoutes.INTRODUCTION_CUSTOM_FILTER_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.INTRODUCTION_CUSTOM_FILTER_PAGE.key}>
-        <DefaultLayout>
+        <AuthenticatedLayout>
           <CustomFilterPage />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       </Guard>
     ),
   },
@@ -191,9 +191,9 @@ const customComponentsIntroductionRouter = [
     path: allRoutes.INTRODUCTION_CUSTOM_TABLE_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.INTRODUCTION_CUSTOM_TABLE_PAGE.key}>
-        <DefaultLayout>
+        <AuthenticatedLayout>
           <CustomTablePage />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       </Guard>
     ),
   },
@@ -201,9 +201,9 @@ const customComponentsIntroductionRouter = [
     path: allRoutes.INTRODUCTION_AG_LIST_GRID_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.INTRODUCTION_AG_LIST_GRID_PAGE.key}>
-        <DefaultLayout>
+        <AuthenticatedLayout>
           <AgListGridPage />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       </Guard>
     ),
   },
@@ -211,9 +211,9 @@ const customComponentsIntroductionRouter = [
     path: allRoutes.INTRODUCTION_TEXT_EDITOR_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.INTRODUCTION_TEXT_EDITOR_PAGE.key}>
-        <DefaultLayout>
+        <AuthenticatedLayout>
           <TextEditorPage />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       </Guard>
     ),
   },
@@ -224,9 +224,9 @@ const simpleProjectsIntroductionRouter = [
     path: allRoutes.INTRODUCTION_ORDER_PROJECT_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.INTRODUCTION_ORDER_PROJECT_PAGE.key}>
-        <DefaultLayout>
+        <AuthenticatedLayout>
           <OrderProjectPage />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       </Guard>
     ),
   },
@@ -237,9 +237,9 @@ const reduxIntroductionRouter = [
     path: allRoutes.INTRODUCTION_REDUX_STANDARD_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.INTRODUCTION_REDUX_STANDARD_PAGE.key}>
-        <DefaultLayout>
+        <AuthenticatedLayout>
           <ReduxStandardExamp />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       </Guard>
     ),
   },
@@ -247,9 +247,9 @@ const reduxIntroductionRouter = [
     path: allRoutes.INTRODUCTION_REDUX_QUERY_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.INTRODUCTION_REDUX_QUERY_PAGE.key}>
-        <DefaultLayout>
+        <AuthenticatedLayout>
           <RTKApiExamp />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       </Guard>
     ),
   },
@@ -260,9 +260,9 @@ const rhfIntroductionRouter = [
     path: allRoutes.INTRODUCTION_RHF_STANDARD_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.INTRODUCTION_RHF_STANDARD_PAGE.key}>
-        <DefaultLayout>
+        <AuthenticatedLayout>
           <RhfStandardExamp />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       </Guard>
     ),
   },
@@ -273,9 +273,9 @@ const authRouter = [
     path: allRoutes.SIGN_UP.path,
     element: (
       <Guard routeKey={allRoutes.SIGN_UP.key}>
-        <AuthLayout>
+        <UnauthenticatedLayout>
           <SignUpPage />
-        </AuthLayout>
+        </UnauthenticatedLayout>
       </Guard>
     ),
   },
@@ -283,9 +283,9 @@ const authRouter = [
     path: allRoutes.SIGN_IN.path,
     element: (
       <Guard routeKey={allRoutes.SIGN_IN.key}>
-        <AuthLayout>
+        <UnauthenticatedLayout>
           <SignInPage />
-        </AuthLayout>
+        </UnauthenticatedLayout>
       </Guard>
     ),
   },
@@ -293,9 +293,9 @@ const authRouter = [
     path: allRoutes.VERIFY_SIGN_IN.path,
     element: (
       <Guard routeKey={allRoutes.VERIFY_SIGN_IN.key}>
-        <AuthLayout>
+        <UnauthenticatedLayout>
           <VerifySignInPage />
-        </AuthLayout>
+        </UnauthenticatedLayout>
       </Guard>
     ),
   },
@@ -303,9 +303,9 @@ const authRouter = [
     path: allRoutes.FORGOT_PASSWORD.path,
     element: (
       <Guard routeKey={allRoutes.FORGOT_PASSWORD.key}>
-        <AuthLayout>
+        <UnauthenticatedLayout>
           <ForgotPasswordPage />
-        </AuthLayout>
+        </UnauthenticatedLayout>
       </Guard>
     ),
   },
@@ -313,9 +313,9 @@ const authRouter = [
     path: allRoutes.RESET_PASSWORD.path,
     element: (
       <Guard routeKey={allRoutes.RESET_PASSWORD.key}>
-        <AuthLayout>
+        <UnauthenticatedLayout>
           <ResetPasswordPage />
-        </AuthLayout>
+        </UnauthenticatedLayout>
       </Guard>
     ),
   },
@@ -326,9 +326,9 @@ const accessErrorRouter = [
     path: allRoutes.NOT_FOUND.path,
     element: (
       <Guard routeKey={allRoutes.NOT_FOUND.key}>
-        <AuthLayout>
+        <UnauthenticatedLayout>
           <NotFoundPage />
-        </AuthLayout>
+        </UnauthenticatedLayout>
       </Guard>
     ),
   },
@@ -336,9 +336,9 @@ const accessErrorRouter = [
     path: allRoutes.SERVER_ERROR.path,
     element: (
       <Guard routeKey={allRoutes.SERVER_ERROR.key}>
-        <AuthLayout>
+        <UnauthenticatedLayout>
           <ServerErrorPage />
-        </AuthLayout>
+        </UnauthenticatedLayout>
       </Guard>
     ),
   },
@@ -346,9 +346,9 @@ const accessErrorRouter = [
     path: allRoutes.FORBIDDEN.path,
     element: (
       <Guard routeKey={allRoutes.FORBIDDEN.key}>
-        <AuthLayout>
+        <UnauthenticatedLayout>
           <ForbiddenPage />
-        </AuthLayout>
+        </UnauthenticatedLayout>
       </Guard>
     ),
   },
@@ -359,9 +359,9 @@ const routerByUserType = [
     path: allRoutes.INTRODUCTION_TEACHER_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.INTRODUCTION_TEACHER_PAGE.key}>
-        <DefaultLayout>
+        <AuthenticatedLayout>
           <TeacherPage />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       </Guard>
     ),
   },
@@ -369,9 +369,9 @@ const routerByUserType = [
     path: allRoutes.INTRODUCTION_STUDENT_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.INTRODUCTION_STUDENT_PAGE.key}>
-        <DefaultLayout>
+        <AuthenticatedLayout>
           <StudentPage />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       </Guard>
     ),
   },
@@ -379,9 +379,9 @@ const routerByUserType = [
     path: allRoutes.INTRODUCTION_GUEST_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.INTRODUCTION_GUEST_PAGE.key}>
-        <AuthLayout>
+        <UnauthenticatedLayout>
           <GuestPage />
-        </AuthLayout>
+        </UnauthenticatedLayout>
       </Guard>
     ),
   },
@@ -392,25 +392,25 @@ const otherRouter = [
     path: allRoutes.DASHBOARD_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.DASHBOARD_PAGE.key}>
-        <DefaultLayout>
+        <AuthenticatedLayout>
           <IntroDashboardPage />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       </Guard>
     ),
     // errorElement: <ErrorPage />,
     errorElement: (
-      <AuthLayout>
+      <UnauthenticatedLayout>
         <NotFoundPage />
-      </AuthLayout>
+      </UnauthenticatedLayout>
     ),
   },
   {
     path: allRoutes.PRICING_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.PRICING_PAGE.key}>
-        <DefaultLayout>
+        <AuthenticatedLayout>
           <IntroPricingPage />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       </Guard>
     ),
   },
@@ -418,9 +418,9 @@ const otherRouter = [
     path: allRoutes.CONTACT_PAGE.path,
     element: (
       <Guard routeKey={allRoutes.CONTACT_PAGE.key}>
-        <DefaultLayout>
+        <AuthenticatedLayout>
           <IntroContactPage />
-        </DefaultLayout>
+        </AuthenticatedLayout>
       </Guard>
     ),
   },
