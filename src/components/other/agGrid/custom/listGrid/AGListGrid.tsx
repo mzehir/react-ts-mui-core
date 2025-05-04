@@ -85,10 +85,8 @@ const AGListGridComp = ({
         const dataSource: IDatasource = {
           rowCount: totalRowCount,
           getRows: async (rowParams) => {
-            const filterModel = gridParams.api.getFilterModel();
-
-            const requestFilterDto =
-              Object.keys(filterModel).length > 0 ? prepareRequestDtoFilters(filterModel as ColumnFilterModel) : {};
+            const filterModel: ColumnFilterModel = gridParams.api.getFilterModel();
+            const requestFilterDto = Object.keys(filterModel).length > 0 ? prepareRequestDtoFilters(filterModel) : {};
 
             const { data: pageData } = await triggerGetEmployees({
               maxResultCount: (rowParams.endRow - rowParams.startRow).toString(),

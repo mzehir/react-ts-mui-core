@@ -132,6 +132,7 @@ export const prepareInitialFilterModel = (columns: ColumnType[]) => {
   }
 };
 
+// Bu methodun dönüş tipi, bu methodun bağlı olduğu gridin istek attığı endPointler mantığına göre ayarlanacak.
 export const prepareRequestDtoFilters = (filterModel: ColumnFilterModel) => {
   let requestDtoFilter = {};
   const filterModelKeys = Object.keys(filterModel);
