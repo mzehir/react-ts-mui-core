@@ -7,7 +7,7 @@ import ViewOrder from './sections/ViewOrder';
 import { formatCurrency } from '../../../../utils/methods/format';
 import { formatPhoneNumber } from '../../../../utils/locale/phoneFormats';
 import { isDateInRange, stringToDayjsDate } from '../../../../utils/locale/dateFormats';
-import DefaultPageLayout from '../../../../layouts/DefaultPageLayout';
+import ContentFitLayout from '../../../../layouts/pageLayouts/ContentFitLayout';
 import CustomTable from '../../../../components/custom/table/CustomTable';
 import { Cell } from '../../../../components/custom/table/customTableTypes';
 import CustomFilter from '../../../../components/custom/filter/CustomFilter';
@@ -606,7 +606,7 @@ const OrderProjectPage: React.FC = () => {
   }, [orders]);
 
   return (
-    <DefaultPageLayout>
+    <ContentFitLayout>
       <DividerComp>
         <TypographyComp variant="h2" gutterBottom display="inline">
           introductionRoutes.orderProject
@@ -674,7 +674,7 @@ const OrderProjectPage: React.FC = () => {
       {viewOrderOpen && viewOrderData && (
         <ViewOrder data={viewOrderData} open={viewOrderOpen} setOpen={setViewOrderOpen} />
       )}
-    </DefaultPageLayout>
+    </ContentFitLayout>
   );
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import BoxComp from '../components/base/box/Box';
+import BoxComp from '../../components/base/box/Box';
 
 interface PageLayoutProps {
   children: React.ReactNode;
@@ -12,7 +12,7 @@ interface ToolbarMixin {
   [key: string]: { minHeight?: number } | number;
 }
 
-const DefaultPageLayout: React.FC<PageLayoutProps> = ({ children }) => {
+const ContentFitLayout: React.FC<PageLayoutProps> = ({ children }) => {
   const theme = useTheme();
   const toolbar = theme.mixins.toolbar as ToolbarMixin;
   const isLargeScreen = useMediaQuery(theme.breakpoints.up('sm'));
@@ -34,4 +34,4 @@ const DefaultPageLayout: React.FC<PageLayoutProps> = ({ children }) => {
   );
 };
 
-export default DefaultPageLayout;
+export default ContentFitLayout;
