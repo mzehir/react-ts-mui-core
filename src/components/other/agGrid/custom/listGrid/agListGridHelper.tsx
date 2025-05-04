@@ -163,6 +163,5 @@ export const prepareRequestDtoFilters = (filterModel: ColumnFilterModel) => {
     }
   }
 
-  console.log(requestDtoFilter);
   return requestDtoFilter;
 };
