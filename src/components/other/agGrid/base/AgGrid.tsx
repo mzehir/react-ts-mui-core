@@ -1,12 +1,12 @@
 import React from 'react';
-import eventBus from '../../../../utils/eventBus/eventBusInstance';
-import { useTheme } from '@mui/material/styles';
 import useLanguageContext from '../../../../hooks/useLanguageContext';
 import { Language } from '../../../../utils/enums/languages';
+import eventBus from '../../../../utils/eventBus/eventBusInstance';
 import { getAgGridLocaleText } from '../../../../utils/locale/agGridLocales';
 import { AgGridCompProps, agGridCompDefaultProps } from './agGridHelper';
 import { AgGridReact } from 'ag-grid-react';
 import { FilterOpenedEvent } from 'ag-grid-community';
+import { useTheme } from '@mui/material/styles';
 
 interface GridThemeParams {
   rowBorder?: { style: string; width: number };
