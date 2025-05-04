@@ -8,7 +8,7 @@ import TypographyComp from '../../../../components/base/typography/Typography';
 import DividerComp from '../../../../components/base/divider/Divider';
 import IconButtonComp from '../../../../components/base/iconButton/IconButton';
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
-import TinymceComp from '../../../../components/custom/tinymce/Tinymce';
+import TinymceComp from '../../../../components/other/tinymce/Tinymce';
 
 const CustomIconButton = styled(IconButtonComp)`
   cursor: default;

@@ -1,12 +1,12 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import CustomController from '../../../../../components/reactHookForm/controller/CustomController';
+import CustomController from '../../../../../components/other/reactHookForm/controller/CustomController';
 import {
   BootstrapDialog,
   BootstrapDialogActions,
   BootstrapDialogContent,
   BootstrapDialogTitle,
-} from '../../../../../components/custom/dialog/BootstrapDialog';
+} from '../../../../../components/custom/dialogs/BootstrapDialog';
 import BoxComp from '../../../../../components/base/box/Box';
 import CancelButton from '../../../../../components/custom/buttons/CancelButton';
 import SaveButton from '../../../../../components/custom/buttons/SaveButton';

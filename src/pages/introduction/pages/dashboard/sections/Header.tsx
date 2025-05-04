@@ -7,7 +7,7 @@ import CardComp from '../../../../../components/base/card/Card';
 import CardHeaderComp from '../../../../../components/base/cardHeader/CardHeader';
 import CardContentComp from '../../../../../components/base/cardContent/CardContent';
 import TypographyComp from '../../../../../components/base/typography/Typography';
-import SliderComp from '../../../../../components/custom/reactSlick/Slider';
+import SliderComp from '../../../../../components/other/reactSlick/Slider';
 import CampaignIcon from '@mui/icons-material/Campaign';
 import { ReactComponent as DefaultLogo } from '../../../../../assets/app/defaultLogo.svg';
 

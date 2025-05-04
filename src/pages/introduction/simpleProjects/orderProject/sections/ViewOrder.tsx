@@ -1,13 +1,13 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { OrderType } from '../orderProjectPageHelper';
-import CustomController from '../../../../../components/reactHookForm/controller/CustomController';
+import CustomController from '../../../../../components/other/reactHookForm/controller/CustomController';
 import {
   BootstrapDialog,
   BootstrapDialogActions,
   BootstrapDialogContent,
   BootstrapDialogTitle,
-} from '../../../../../components/custom/dialog/BootstrapDialog';
+} from '../../../../../components/custom/dialogs/BootstrapDialog';
 import BoxComp from '../../../../../components/base/box/Box';
 import ButtonComp from '../../../../../components/base/button/Button';
 import { Item as SelectItem } from '../../../../../components/base/select/selectHelper';

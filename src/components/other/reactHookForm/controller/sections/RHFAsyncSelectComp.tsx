@@ -1,12 +1,12 @@
 import React from 'react';
-import FormControlComp from '../../../base/formControl/FormControl';
-import FormHelperTextComp from '../../../base/formHelperText/FormHelperText';
-import { Item as SelectItem } from '../../../base/select/selectHelper';
-import SelectComp from '../../../base/select/Select';
-import InputLabelComp from '../../../base/inputLabel/InputLabel';
+import FormControlComp from '../../../../base/formControl/FormControl';
+import FormHelperTextComp from '../../../../base/formHelperText/FormHelperText';
+import { Item as SelectItem } from '../../../../custom/selects/asyncSelectHelper';
+import AsyncSelectComp from '../../../../custom/selects/AsyncSelect';
+import InputLabelComp from '../../../../base/inputLabel/InputLabel';
 import { SelectChangeEvent } from '@mui/material';
 
-interface RHFSelectCompProps {
+interface RHFAsyncSelectCompProps {
   // name: string;
   onChange: (event: SelectChangeEvent<unknown>, child: React.ReactNode) => void;
   value: string | number;
@@ -15,15 +15,16 @@ interface RHFSelectCompProps {
   helperText?: string;
   isLabelTranslation?: boolean;
   isHelperTextTranslation?: boolean;
-  isItemTextTranslation?: boolean;
   error?: boolean;
   disabled?: boolean;
   required?: boolean;
-  items: SelectItem[];
+  shouldFetchOnEveryOpenMenu?: boolean;
+  fetchItemsData: () => Promise<SelectItem[]>;
+  fetchValueItemsData: (value: unknown, multiple: boolean) => Promise<SelectItem[]>;
+  isSearhAndFilter?: boolean;
 }
 
-const RHFSelectComp: React.FC<RHFSelectCompProps> = ({
-  // name,
+const RHFAsyncSelectComp: React.FC<RHFAsyncSelectCompProps> = ({
   onChange,
   value,
   label,
@@ -31,23 +32,27 @@ const RHFSelectComp: React.FC<RHFSelectCompProps> = ({
   helperText,
   isLabelTranslation,
   isHelperTextTranslation,
-  isItemTextTranslation,
   error,
   disabled,
   required,
-  items,
+  shouldFetchOnEveryOpenMenu,
+  fetchItemsData,
+  fetchValueItemsData,
+  isSearhAndFilter,
 }) => {
   return (
     <FormControlComp error={error} disabled={disabled} required={required}>
       <InputLabelComp isTranslation={isLabelTranslation}>{label}</InputLabelComp>
-      <SelectComp
+      <AsyncSelectComp
         label={label}
+        shouldFetchOnEveryOpenMenu={shouldFetchOnEveryOpenMenu}
+        fetchItemsData={fetchItemsData}
         multiple={multiple}
-        items={items}
         value={value}
+        fetchValueItemsData={(value) => fetchValueItemsData(value, multiple ?? false)}
+        isSearhAndFilter={isSearhAndFilter}
         onChange={onChange}
         isLabelTranslation={isLabelTranslation}
-        isItemTranslation={isItemTextTranslation}
       />
       {error && helperText && (
         <FormHelperTextComp isTranslation={isHelperTextTranslation} sx={{ m: 0 }}>
@@ -58,4 +63,4 @@ const RHFSelectComp: React.FC<RHFSelectCompProps> = ({
   );
 };
 
-export default RHFSelectComp;
+export default RHFAsyncSelectComp;

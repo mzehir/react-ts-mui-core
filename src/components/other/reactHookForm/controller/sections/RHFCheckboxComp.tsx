@@ -1,8 +1,8 @@
 import React from 'react';
-import FormControlComp from '../../../base/formControl/FormControl';
-import FormControlLabelComp from '../../../base/formControlLabel/FormControlLabel';
-import FormHelperTextComp from '../../../base/formHelperText/FormHelperText';
-import CheckboxComp from '../../../base/checkbox/Checkbox';
+import FormControlComp from '../../../../base/formControl/FormControl';
+import FormControlLabelComp from '../../../../base/formControlLabel/FormControlLabel';
+import FormHelperTextComp from '../../../../base/formHelperText/FormHelperText';
+import CheckboxComp from '../../../../base/checkbox/Checkbox';
 
 interface RHFCheckboxCompProps {
   // name: string;

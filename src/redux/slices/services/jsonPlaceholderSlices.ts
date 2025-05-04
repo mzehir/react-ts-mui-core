@@ -10,8 +10,8 @@ import {
   updatePostRequestDto,
   updatePostResponseDto,
 } from './jsonPlaceholderDto';
-import { Toastify } from '../../../components/custom/toastify/Toastify';
-import { ToastCompProps } from '../../../components/custom/toastify/toastifyHelper';
+import { Toastify } from '../../../components/other/toastify/Toastify';
+import { ToastCompProps } from '../../../components/other/toastify/toastifyHelper';
 
 const baseUrl = 'https://jsonplaceholder.typicode.com';
 const defaultContentType = 'application/json; charset=UTF-8';

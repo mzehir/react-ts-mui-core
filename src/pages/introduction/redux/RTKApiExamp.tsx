@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import CustomController from '../../../components/reactHookForm/controller/CustomController';
+import CustomController from '../../../components/other/reactHookForm/controller/CustomController';
 import {
   useCreatePostMutation,
   useDeletePostMutation,
@@ -24,7 +24,7 @@ import {
   BootstrapDialogActions,
   BootstrapDialogContent,
   BootstrapDialogTitle,
-} from '../../../components/custom/dialog/BootstrapDialog';
+} from '../../../components/custom/dialogs/BootstrapDialog';
 import AlertComp from '../../../components/base/alert/Alert';
 import SaveButton from '../../../components/custom/buttons/SaveButton';
 import CancelButton from '../../../components/custom/buttons/CancelButton';

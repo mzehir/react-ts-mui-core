@@ -6,7 +6,7 @@ import {
   BootstrapDialogActions,
   BootstrapDialogContent,
   BootstrapDialogTitle,
-} from '../../../../../../components/custom/dialog/BootstrapDialog';
+} from '../../../../../../components/custom/dialogs/BootstrapDialog';
 
 interface BasicsDialogProps {
   open: boolean;

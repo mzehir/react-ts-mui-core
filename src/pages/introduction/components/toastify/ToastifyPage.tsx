@@ -16,8 +16,8 @@ import { Item as SelectItem } from '../../../../components/base/select/selectHel
 import { SelectChangeEvent } from '@mui/material';
 import CheckboxComp from '../../../../components/base/checkbox/Checkbox';
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
-import { Toastify } from '../../../../components/custom/toastify/Toastify';
-import { ToastCompProps } from '../../../../components/custom/toastify/toastifyHelper';
+import { Toastify } from '../../../../components/other/toastify/Toastify';
+import { ToastCompProps } from '../../../../components/other/toastify/toastifyHelper';
 
 const runToast = (props: ToastCompProps) => {
   Toastify({

@@ -1,10 +1,10 @@
 import React from 'react';
-import FormControlComp from '../../../base/formControl/FormControl';
-import FormControlLabelComp from '../../../base/formControlLabel/FormControlLabel';
-import FormHelperTextComp from '../../../base/formHelperText/FormHelperText';
-import RadioGroupComp from '../../../base/radioGroup/RadioGroup';
-import RadioComp from '../../../base/radio/Radio';
-import FormLabelComp from '../../../base/formLabel/FormLabel';
+import FormControlComp from '../../../../base/formControl/FormControl';
+import FormControlLabelComp from '../../../../base/formControlLabel/FormControlLabel';
+import FormHelperTextComp from '../../../../base/formHelperText/FormHelperText';
+import RadioGroupComp from '../../../../base/radioGroup/RadioGroup';
+import RadioComp from '../../../../base/radio/Radio';
+import FormLabelComp from '../../../../base/formLabel/FormLabel';
 
 export interface RHFRadioGroupCompItemProp {
   label: string;

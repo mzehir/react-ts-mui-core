@@ -6,7 +6,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { prepareAllRoutes } from '../../../../router/routerConstant';
 import fakeUsersData from '../../../../db/users.json';
-import CustomController from '../../../../components/reactHookForm/controller/CustomController';
+import CustomController from '../../../../components/other/reactHookForm/controller/CustomController';
 import { schema, defaultValues, FormValues } from '../helper';
 import BoxComp from '../../../../components/base/box/Box';
 import ButtonComp from '../../../../components/base/button/Button';

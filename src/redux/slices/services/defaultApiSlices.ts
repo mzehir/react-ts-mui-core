@@ -2,8 +2,8 @@ import { BaseQueryApi, FetchArgs, createApi, fetchBaseQuery } from '@reduxjs/too
 import { RootState } from '../../store';
 import { setAuthFields } from '../authSlice';
 import { ApiResponseDto, SignInResponseDto, VerifySignInResponseDto } from './defaultApiDto';
-import { Toastify } from '../../../components/custom/toastify/Toastify';
-import { ToastCompProps } from '../../../components/custom/toastify/toastifyHelper';
+import { Toastify } from '../../../components/other/toastify/Toastify';
+import { ToastCompProps } from '../../../components/other/toastify/toastifyHelper';
 
 const baseUrl = 'http://185.210.93.207:8080/admin';
 const defaultContentType = 'application/json; charset=UTF-8';
