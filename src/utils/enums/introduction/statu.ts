@@ -1,0 +1,6 @@
+export enum Status {
+  ACTIVE = 'ACTIVE',
+  ON_LEAVE = 'ON_LEAVE',
+  RESIGNED = 'RESIGNED',
+  TERMINATED = 'TERMINATED',
+}

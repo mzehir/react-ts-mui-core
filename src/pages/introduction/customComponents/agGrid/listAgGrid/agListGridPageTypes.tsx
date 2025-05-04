@@ -1,12 +1,10 @@
 import { CustomCellRendererProps } from 'ag-grid-react';
 import { ColumnType } from '../../../../../components/other/agGrid/helper/column/columnType';
-import {
-  Department,
-  Gender,
-  PerformanceRating,
-  Position,
-  Status,
-} from '../../../../../redux/slices/services/introductionApiDto';
+import { Gender } from '../../../../../utils/enums/introduction/gender';
+import { Department } from '../../../../../utils/enums/introduction/department';
+import { Position } from '../../../../../utils/enums/introduction/position';
+import { Status } from '../../../../../utils/enums/introduction/statu';
+import { PerformanceRating } from '../../../../../utils/enums/introduction/performanceRating';
 import { getDateFormat } from '../../../../../utils/locale/dateFormats';
 import RatingComp from '../../../../../components/base/rating/Rating';
 import BoxComp from '../../../../../components/base/box/Box';

@@ -1,45 +1,8 @@
-export enum Gender {
-  MALE = 'MALE',
-  FEMALE = 'FEMALE',
-}
-
-export enum Department {
-  IT = 'IT',
-  HR = 'HR',
-  FINANCE = 'FINANCE',
-  MARKETING = 'MARKETING',
-  SALES = 'SALES',
-  OPERATIONS = 'OPERATIONS',
-  CUSTOMER_SERVICE = 'CUSTOMER_SERVICE',
-}
-
-export enum Position {
-  JUNIOR_DEVELOPER = 'JUNIOR_DEVELOPER',
-  SENIOR_DEVELOPER = 'SENIOR_DEVELOPER',
-  TEAM_LEAD = 'TEAM_LEAD',
-  MANAGER = 'MANAGER',
-  DIRECTOR = 'DIRECTOR',
-  CEO = 'CEO',
-  HR_SPECIALIST = 'HR_SPECIALIST',
-  ACCOUNTANT = 'ACCOUNTANT',
-  MARKETING_SPECIALIST = 'MARKETING_SPECIALIST',
-  SALES_REPRESENTATIVE = 'SALES_REPRESENTATIVE',
-}
-
-export enum Status {
-  ACTIVE = 'ACTIVE',
-  ON_LEAVE = 'ON_LEAVE',
-  RESIGNED = 'RESIGNED',
-  TERMINATED = 'TERMINATED',
-}
-
-export enum PerformanceRating {
-  EXCELLENT = 'EXCELLENT',
-  GOOD = 'GOOD',
-  AVERAGE = 'AVERAGE',
-  BELOW_AVERAGE = 'BELOW_AVERAGE',
-  POOR = 'POOR',
-}
+import { Department } from '../../../utils/enums/introduction/department';
+import { Gender } from '../../../utils/enums/introduction/gender';
+import { PerformanceRating } from '../../../utils/enums/introduction/performanceRating';
+import { Position } from '../../../utils/enums/introduction/position';
+import { Status } from '../../../utils/enums/introduction/statu';
 
 export interface EmployeeRowType {
   id: number;
