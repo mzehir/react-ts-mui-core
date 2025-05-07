@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { defaultApi } from './slices/services/defaultApiSlices';
 import { jsonPlaceholderApi } from './slices/services/jsonPlaceholderSlices';
-import { introductionApi } from './slices/services/introductionApiSlices';
+import { introductionApi } from './slices/services/introduction/introductionApiSlices';
 import counterReducer from './slices/counterSlice';
 import authReducer from './slices/authSlice';
 

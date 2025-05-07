@@ -1,6 +1,6 @@
 import { BaseQueryApi, FetchArgs, createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Toastify } from '../../../components/other/toastify/Toastify';
-import { ToastCompProps } from '../../../components/other/toastify/toastifyHelper';
+import { Toastify } from '../../../../components/other/toastify/Toastify';
+import { ToastCompProps } from '../../../../components/other/toastify/toastifyHelper';
 import { employeesRequestDto, employeesResponseDto } from './introductionApiDto';
 
 const baseUrl = 'http://localhost:3000/api';
