@@ -1,7 +1,7 @@
 import { Control, FieldValues, Path } from 'react-hook-form';
 import { RHFRadioGroupCompItemProp } from './sections/RHFRadioGroupComp';
-import { Item as SelectItem } from '../../base/select/selectHelper';
-import { Item as AsyncSelectItem } from '../../custom/selects/asyncSelectHelper';
+import { Item as SelectItem } from '../../../base/select/selectHelper';
+import { Item as AsyncSelectItem } from '../../../custom/selects/asyncSelectHelper';
 
 export type componentFields =
   | {
