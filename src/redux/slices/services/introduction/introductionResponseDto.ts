@@ -41,9 +41,41 @@ export type BirthDateFilter =
 
 // --------------------------------------------
 
+interface InRangeFilterValue {
+  min: number | string;
+  max: number | string;
+}
+
+export type TFilterParams =
+  // 🔤 Equality for Text/Number/Date
+  | {
+      filterType: 'equals' | 'notEqual' | 'contains' | 'notContains' | 'startsWith' | 'endsWith';
+      filterKey: string;
+      filterValue: string | number;
+    }
+  // 🔢 Comparisons
+  | {
+      filterType: 'lessThan' | 'lessThanOrEqual' | 'greaterThan' | 'greaterThanOrEqual';
+      filterKey: string;
+      filterValue: number | string;
+    }
+  // 📅 Range Filter
+  | {
+      filterType: 'inRange';
+      filterKey: string;
+      filterValue: InRangeFilterValue;
+    }
+  // ⬜ Blank/Not Blank Checks
+  | {
+      filterType: 'blank' | 'notBlank';
+      filterKey: string;
+      filterValue?: null;
+    };
+
 export interface employeesRequestDto {
   maxResultCount: string;
   skipCount: string;
+  filterParams?: TFilterParams[];
   name?: INameRequest;
   gender?: IGenderRequest;
   birthDate?: BirthDateFilter;
