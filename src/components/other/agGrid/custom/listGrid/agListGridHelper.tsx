@@ -145,42 +145,7 @@ export const prepareInitialFilterModel = (columns: ColumnType[]) => {
 };
 
 // Bu methodun dönüş tipi, bu methodun bağlı olduğu gridin istek attığı endPointler mantığına göre ayarlanacak.
-export const prepareRequestDtoFilters = (filterModel: ColumnFilterModel) => {
-  let requestDtoFilter = {};
-  const filterModelKeys = Object.keys(filterModel);
-
-  for (let i = 0; i < filterModelKeys.length; i++) {
-    const key = filterModelKeys[i];
-    if (filterModel[key].filterType === 'date') {
-      requestDtoFilter = {
-        ...requestDtoFilter,
-        [key]: {
-          type: filterModel[key].type,
-          ...(filterModel[key].type === 'inRange'
-            ? {
-                value: { dateFrom: filterModel[key].dateFrom, dateTo: filterModel[key].dateTo },
-              }
-            : {
-                value: filterModel[key].dateFrom,
-              }),
-        },
-      };
-    } else {
-      requestDtoFilter = {
-        ...requestDtoFilter,
-        [key]: {
-          type: filterModel[key].type,
-          value: filterModel[key].filter,
-        },
-      };
-    }
-  }
-
-  return requestDtoFilter;
-};
-
-// Bu methodun dönüş tipi, bu methodun bağlı olduğu gridin istek attığı endPointler mantığına göre ayarlanacak.
-export const prepareRequestDtoFilters2 = (filterModel: ColumnFilterModel): TFilterParams[] => {
+export const prepareRequestDtoFilters = (filterModel: ColumnFilterModel): TFilterParams[] => {
   const filterModelKeys = Object.keys(filterModel);
   const requestDtoFilters: TFilterParams[] = [];
 

@@ -76,7 +76,7 @@ export interface employeesRequestDto {
   maxResultCount: string;
   skipCount: string;
   filterParams?: TFilterParams[];
-  name?: INameRequest;
-  gender?: IGenderRequest;
-  birthDate?: BirthDateFilter;
+  // name?: INameRequest;
+  // gender?: IGenderRequest;
+  // birthDate?: BirthDateFilter;
 }

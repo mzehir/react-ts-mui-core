@@ -87,12 +87,12 @@ const AGListGridComp = ({
           rowCount: totalRowCount,
           getRows: async (rowParams) => {
             const filterModel: ColumnFilterModel = gridParams.api.getFilterModel();
-            const requestFilterDto = Object.keys(filterModel).length > 0 ? prepareRequestDtoFilters(filterModel) : {};
+            const requestFilterDto = Object.keys(filterModel).length > 0 ? prepareRequestDtoFilters(filterModel) : [];
 
             const { data: pageData } = await triggerGetEmployees({
               maxResultCount: (rowParams.endRow - rowParams.startRow).toString(),
               skipCount: rowParams.startRow.toString(),
-              ...requestFilterDto,
+              filterParams: requestFilterDto,
             });
 
             if (!pageData?.data?.items || !Array.isArray(pageData.data.items)) {

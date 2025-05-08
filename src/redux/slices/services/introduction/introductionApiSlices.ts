@@ -55,23 +55,56 @@ export const introductionApi = createApi({
   baseQuery: baseQuery,
   endpoints: (builder) => ({
     getEmployees: builder.query<employeesResponseDto, employeesRequestDto>({
-      query: ({ maxResultCount, skipCount, name, gender, birthDate }) => {
+      query: ({ maxResultCount, skipCount, filterParams }) => {
         // Base URL oluştur
         let url = `/employees?maxResultCount=${maxResultCount}&skipCount=${skipCount}`;
 
-        // Eğer name filtresi varsa, JSON string olarak ekle
-        if (name) {
-          url += `&name=${encodeURIComponent(JSON.stringify(name))}`;
-        }
-
-        // Eğer gender filtresi varsa, JSON string olarak ekle
-        if (gender) {
-          url += `&gender=${encodeURIComponent(JSON.stringify(gender))}`;
-        }
-
-        // Eğer birthDate filtresi varsa, JSON string olarak ekle
-        if (birthDate) {
-          url += `&birthDate=${encodeURIComponent(JSON.stringify(birthDate))}`;
+        if (filterParams && filterParams.length > 0) {
+          for (let i = 0; i < filterParams.length; i++) {
+            const filterParam = filterParams[i];
+            const { filterType, filterKey, filterValue } = filterParam;
+            if (
+              filterType === 'equals' ||
+              filterType === 'notEqual' ||
+              filterType === 'contains' ||
+              filterType === 'notContains' ||
+              filterType === 'startsWith' ||
+              filterType === 'endsWith'
+            ) {
+              url += `&${filterKey}=${encodeURIComponent(
+                JSON.stringify({
+                  type: filterType,
+                  value: filterValue,
+                }),
+              )}`;
+            } else if (
+              filterType === 'lessThan' ||
+              filterType === 'lessThanOrEqual' ||
+              filterType === 'greaterThan' ||
+              filterType === 'greaterThanOrEqual'
+            ) {
+              url += `&${filterKey}=${encodeURIComponent(
+                JSON.stringify({
+                  type: filterType,
+                  value: filterValue,
+                }),
+              )}`;
+            } else if (filterType === 'inRange') {
+              url += `&${filterKey}=${encodeURIComponent(
+                JSON.stringify({
+                  type: filterType,
+                  min: filterValue.min,
+                  max: filterValue.max,
+                }),
+              )}`;
+            } else if (filterType === 'blank' || filterType === 'notBlank') {
+              url += `&${filterKey}=${encodeURIComponent(
+                JSON.stringify({
+                  type: filterType,
+                }),
+              )}`;
+            }
+          }
         }
 
         return url;
