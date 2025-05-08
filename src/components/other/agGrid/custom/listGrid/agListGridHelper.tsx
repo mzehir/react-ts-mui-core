@@ -8,6 +8,7 @@ import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { ColumnFilterModel } from '../../helper/column/columnFilter/columnFilterParams';
+import { TFilterParams } from '../../../../../redux/slices/services/introduction/introductionRequestDto';
 
 export const prepareOperationColumn = (
   onView?: (row: unknown) => void,
@@ -105,6 +106,7 @@ export const prepareColumns = (
 interface FilterModelItem {
   type: string;
   filter: string | number | boolean;
+  filterType: 'text' | 'number' | 'date' | 'radio';
 }
 
 export const prepareInitialFilterModel = (columns: ColumnType[]) => {
@@ -121,6 +123,16 @@ export const prepareInitialFilterModel = (columns: ColumnType[]) => {
         acc[fieldName] = {
           type: defaultOption,
           filter: initialFilterValue,
+          filterType:
+            column.customFilter?.componentType === 'textColumnFilter'
+              ? 'text'
+              : column.customFilter?.componentType === 'numberColumnFilter'
+                ? 'number'
+                : column.customFilter?.componentType === 'dateColumnFilter'
+                  ? 'date'
+                  : column.customFilter?.componentType === 'radioCustomFilter'
+                    ? 'radio'
+                    : 'text',
         };
       }
       return acc;
@@ -165,4 +177,107 @@ export const prepareRequestDtoFilters = (filterModel: ColumnFilterModel) => {
   }
 
   return requestDtoFilter;
+};
+
+// Bu methodun dönüş tipi, bu methodun bağlı olduğu gridin istek attığı endPointler mantığına göre ayarlanacak.
+export const prepareRequestDtoFilters2 = (filterModel: ColumnFilterModel): TFilterParams[] => {
+  const filterModelKeys = Object.keys(filterModel);
+  const requestDtoFilters: TFilterParams[] = [];
+
+  console.log(filterModel);
+
+  for (let i = 0; i < filterModelKeys.length; i++) {
+    const key = filterModelKeys[i];
+    const filterItem = filterModel[key];
+
+    switch (filterItem.filterType) {
+      case 'text':
+        if (filterItem.type === 'blank' || filterItem.type === 'notBlank') {
+          requestDtoFilters.push({
+            filterType: filterItem.type,
+            filterKey: key,
+            filterValue: null,
+          });
+        } else {
+          requestDtoFilters.push({
+            filterType: filterItem.type as
+              | 'equals'
+              | 'notEqual'
+              | 'contains'
+              | 'notContains'
+              | 'startsWith'
+              | 'endsWith',
+            filterKey: key,
+            filterValue: filterItem.filter as string,
+          });
+        }
+        break;
+
+      case 'number':
+        if (filterItem.type === 'blank' || filterItem.type === 'notBlank') {
+          requestDtoFilters.push({
+            filterType: filterItem.type,
+            filterKey: key,
+            filterValue: null,
+          });
+        } else if (filterItem.type === 'inRange') {
+          requestDtoFilters.push({
+            filterType: 'inRange',
+            filterKey: key,
+            filterValue: {
+              min: filterItem.filter || '',
+              max: filterItem.filterTo || '',
+            },
+          });
+        } else {
+          requestDtoFilters.push({
+            filterType: filterItem.type as
+              | 'equals'
+              | 'notEqual'
+              | 'lessThan'
+              | 'lessThanOrEqual'
+              | 'greaterThan'
+              | 'greaterThanOrEqual',
+            filterKey: key,
+            filterValue: filterItem.filter as number,
+          });
+        }
+        break;
+
+      case 'date':
+        if (filterItem.type === 'blank' || filterItem.type === 'notBlank') {
+          requestDtoFilters.push({
+            filterType: filterItem.type,
+            filterKey: key,
+            filterValue: null,
+          });
+        } else if (filterItem.type === 'inRange') {
+          requestDtoFilters.push({
+            filterType: 'inRange',
+            filterKey: key,
+            filterValue: {
+              min: filterItem.dateFrom || '',
+              max: filterItem.dateTo || '',
+            },
+          });
+        } else {
+          requestDtoFilters.push({
+            filterType: filterItem.type as 'equals' | 'notEqual' | 'lessThan' | 'greaterThan',
+            filterKey: key,
+            filterValue: filterItem.dateFrom || '',
+          });
+        }
+        break;
+
+      case 'radio':
+        requestDtoFilters.push({
+          filterType: 'equals',
+          filterKey: key,
+          filterValue: filterItem.filter as string,
+        });
+        break;
+    }
+  }
+
+  return requestDtoFilters;
 };

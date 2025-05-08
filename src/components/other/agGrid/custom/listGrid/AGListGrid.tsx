@@ -69,6 +69,7 @@ const AGListGridComp = ({
           matchedColumnFilterInstance?.setModel({
             type: initialFilterModel[columnName]?.type,
             filter: initialFilterModel[columnName]?.filter,
+            filterType: initialFilterModel[columnName]?.filterType,
           });
         }
       }

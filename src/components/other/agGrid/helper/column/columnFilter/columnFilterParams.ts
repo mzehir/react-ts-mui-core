@@ -13,6 +13,7 @@ interface NumberColumnFilter {
   type: NumberFilterOptions;
   filterType: 'number';
   filter: number | null | undefined;
+  filterTo: number | null | undefined;
 }
 
 interface DateColumnFilter {
