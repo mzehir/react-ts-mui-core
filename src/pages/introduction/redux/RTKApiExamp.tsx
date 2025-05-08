@@ -9,8 +9,8 @@ import {
   useGetPostsQuery,
   usePatchPostMutation,
   useUpdatePostMutation,
-} from '../../../redux/slices/services/jsonPlaceholderSlices';
-import { getPostsResponseDto } from '../../../redux/slices/services/jsonPlaceholderDto';
+} from '../../../redux/slices/services/introduction/jsonPlaceholder/jsonPlaceholderSlice';
+import { getPostsResponseDto } from '../../../redux/slices/services/introduction/jsonPlaceholder/jsonPlaceholderDto';
 import IconButtonComp from '../../../components/base/iconButton/IconButton';
 import DividerComp from '../../../components/base/divider/Divider';
 import TypographyComp from '../../../components/base/typography/Typography';

@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { api } from './slices/apiSlice';
-import { jsonPlaceholderApi } from './slices/services/jsonPlaceholderSlices';
+import { jsonPlaceholderApi } from './slices/services/introduction/jsonPlaceholder/jsonPlaceholderSlice';
 import { introductionApi } from './slices/services/introduction/introductionApiSlices';
 import counterReducer from './slices/counterSlice';
 import authReducer from './slices/authSlice';
