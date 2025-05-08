@@ -184,8 +184,6 @@ export const prepareRequestDtoFilters2 = (filterModel: ColumnFilterModel): TFilt
   const filterModelKeys = Object.keys(filterModel);
   const requestDtoFilters: TFilterParams[] = [];
 
-  console.log(filterModel);
-
   for (let i = 0; i < filterModelKeys.length; i++) {
     const key = filterModelKeys[i];
     const filterItem = filterModel[key];
