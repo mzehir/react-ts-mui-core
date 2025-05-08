@@ -1,13 +1,5 @@
-import { UserType } from '../../../utils/enums/userTypes';
+import { UserType } from '../../../../utils/enums/userTypes';
 
-export interface ApiResponseDto<T> {
-  timestamp: string;
-  success: boolean;
-  data: T;
-  message: string;
-  errorCode: number;
-}
-//! Auth DTO
 export interface SignInResponseDto {
   token: string;
 }
