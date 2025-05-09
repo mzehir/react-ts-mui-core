@@ -1,7 +1,7 @@
 import { BaseQueryApi, FetchArgs, createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { RootState } from '../store';
 import { ApiSliceExtraOptions, ApiSliceResponseDto } from './apiSliceHelper/defaultTypes';
-import { apiSlicesBaseUrl, apiSlicesDefaultContentType } from './apiSliceHelper/defaultConstant';
+import { apiSliceBaseUrl, apiSliceDefaultContentType } from './apiSliceHelper/defaultConstant';
 import { apiSliceRunToast } from './apiSliceHelper/defaultMethods';
 import { ApiErros } from '../../utils/enums/apiErrors';
 import { usersEndpoint } from './services/users/usersEndpoint';
@@ -9,7 +9,7 @@ import { usersEndpoint } from './services/users/usersEndpoint';
 const baseQuery = async (args: string | FetchArgs, api: BaseQueryApi, extraOptions: ApiSliceExtraOptions = {}) => {
   try {
     const baseQueryConfig = fetchBaseQuery({
-      baseUrl: apiSlicesBaseUrl,
+      baseUrl: apiSliceBaseUrl,
       prepareHeaders: (headers, { getState }) => {
         const token = (getState() as RootState).auth.token;
 
@@ -18,7 +18,7 @@ const baseQuery = async (args: string | FetchArgs, api: BaseQueryApi, extraOptio
         }
 
         if (extraOptions.headersContentType !== 'none') {
-          headers.set('Content-Type', apiSlicesDefaultContentType);
+          headers.set('Content-Type', apiSliceDefaultContentType);
         }
         return headers;
       },
