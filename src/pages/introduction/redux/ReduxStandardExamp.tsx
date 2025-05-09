@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store';
-import { increment, decrement, incrementByAmount } from '../../../redux/slices/counterSlice';
+import { increment, decrement, incrementByAmount } from '../../../redux/slices/introductionSlices/counterSlice';
 import { styled } from '@mui/material/styles';
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 import IconButtonComp from '../../../components/base/iconButton/IconButton';
