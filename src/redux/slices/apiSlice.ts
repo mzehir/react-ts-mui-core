@@ -3,7 +3,7 @@ import { RootState } from '../store';
 import { ApiSliceExtraOptions, ApiSliceResponseDto } from './apiSliceHelper/defaultTypes';
 import { apiSlicesBaseUrl, apiSlicesDefaultContentType } from './apiSliceHelper/defaultConstant';
 import { apiSliceRunToast } from './apiSliceHelper/defaultMethods';
-// import { ApiErros } from '../../../utils/enums/apiErrors';
+import { ApiErros } from '../../utils/enums/apiErrors';
 import { usersEndpoint } from './services/users/usersEndpoint';
 
 const baseQuery = async (args: string | FetchArgs, api: BaseQueryApi, extraOptions: ApiSliceExtraOptions = {}) => {
