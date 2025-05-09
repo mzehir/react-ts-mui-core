@@ -1,8 +1,9 @@
 import { BaseQueryApi, FetchArgs, createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Toastify } from '../../../../components/other/toastify/Toastify';
-import { ToastCompProps } from '../../../../components/other/toastify/toastifyHelper';
+import { Toastify } from '../../../../../components/other/toastify/Toastify';
+import { ToastCompProps } from '../../../../../components/other/toastify/toastifyHelper';
 import { employeesRequestDto } from './introductionRequestDto';
 import { employeesResponseDto } from './introductionResponseDto';
+import { apiSliceGetMethodRequestFilterPrepare } from '../../../apiSliceHelper/helperMethods';
 
 const baseUrl = 'http://localhost:3000/api';
 const defaultContentType = 'application/json; charset=UTF-8';
@@ -56,58 +57,17 @@ export const introductionApi = createApi({
   endpoints: (builder) => ({
     getEmployees: builder.query<employeesResponseDto, employeesRequestDto>({
       query: ({ maxResultCount, skipCount, filterParams }) => {
-        // Base URL oluştur
+        const method = 'GET';
         let url = `/employees?maxResultCount=${maxResultCount}&skipCount=${skipCount}`;
 
         if (filterParams && filterParams.length > 0) {
-          for (let i = 0; i < filterParams.length; i++) {
-            const filterParam = filterParams[i];
-            const { filterType, filterKey, filterValue } = filterParam;
-            if (
-              filterType === 'equals' ||
-              filterType === 'notEqual' ||
-              filterType === 'contains' ||
-              filterType === 'notContains' ||
-              filterType === 'startsWith' ||
-              filterType === 'endsWith'
-            ) {
-              url += `&${filterKey}=${encodeURIComponent(
-                JSON.stringify({
-                  type: filterType,
-                  value: filterValue,
-                }),
-              )}`;
-            } else if (
-              filterType === 'lessThan' ||
-              filterType === 'lessThanOrEqual' ||
-              filterType === 'greaterThan' ||
-              filterType === 'greaterThanOrEqual'
-            ) {
-              url += `&${filterKey}=${encodeURIComponent(
-                JSON.stringify({
-                  type: filterType,
-                  value: filterValue,
-                }),
-              )}`;
-            } else if (filterType === 'inRange') {
-              url += `&${filterKey}=${encodeURIComponent(
-                JSON.stringify({
-                  type: filterType,
-                  min: filterValue.min,
-                  max: filterValue.max,
-                }),
-              )}`;
-            } else if (filterType === 'blank' || filterType === 'notBlank') {
-              url += `&${filterKey}=${encodeURIComponent(
-                JSON.stringify({
-                  type: filterType,
-                }),
-              )}`;
-            }
-          }
+          url = apiSliceGetMethodRequestFilterPrepare(url, filterParams);
         }
 
-        return url;
+        return {
+          method: method,
+          url: url,
+        };
       },
       extraOptions: {
         headersContentType: 'none',

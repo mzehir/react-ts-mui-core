@@ -1,8 +1,8 @@
-import { Department } from '../../../../utils/enums/introduction/department';
-import { Gender } from '../../../../utils/enums/introduction/gender';
-import { PerformanceRating } from '../../../../utils/enums/introduction/performanceRating';
-import { Position } from '../../../../utils/enums/introduction/position';
-import { Status } from '../../../../utils/enums/introduction/statu';
+import { Department } from '../../../../../utils/enums/introduction/department';
+import { Gender } from '../../../../../utils/enums/introduction/gender';
+import { PerformanceRating } from '../../../../../utils/enums/introduction/performanceRating';
+import { Position } from '../../../../../utils/enums/introduction/position';
+import { Status } from '../../../../../utils/enums/introduction/statu';
 
 export interface EmployeeRowType {
   id: number;

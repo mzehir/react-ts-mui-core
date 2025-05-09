@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLazyGetEmployeesQuery } from '../../../../../redux/slices/services/introduction/introductionApiSlices';
+import { useLazyGetEmployeesQuery } from '../../../../../redux/slices/services/introduction/custom/introductionApiSlices';
 import AGListGridComp from '../../../../../components/other/agGrid/custom/listGrid/AGListGrid';
 import DividerComp from '../../../../../components/base/divider/Divider';
 import TypographyComp from '../../../../../components/base/typography/Typography';

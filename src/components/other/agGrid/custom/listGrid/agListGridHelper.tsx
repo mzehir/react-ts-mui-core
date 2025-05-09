@@ -2,13 +2,15 @@ import { ICellRendererParams } from 'ag-grid-community';
 import { ColumnType } from '../../helper/column/columnType';
 import { OperationColumnItemFields } from './agListGridTypes';
 import { agListGridPrepareColumn } from './agListGridMethods';
+
+import { ColumnFilterModel } from '../../helper/column/columnFilter/columnFilterParams';
+import { ApiSliceGetMethodRequestFilterParams } from '../../../../../redux/slices/apiSliceHelper/helperTypes';
+
 import IconButtonComp from '../../../../base/iconButton/IconButton';
 import { Stack } from '@mui/material';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { ColumnFilterModel } from '../../helper/column/columnFilter/columnFilterParams';
-import { TFilterParams } from '../../../../../redux/slices/services/introduction/introductionRequestDto';
 
 export const prepareOperationColumn = (
   onView?: (row: unknown) => void,
@@ -144,10 +146,12 @@ export const prepareInitialFilterModel = (columns: ColumnType[]) => {
   }
 };
 
-// Bu methodun dönüş tipi, bu methodun bağlı olduğu gridin istek attığı endPointler mantığına göre ayarlanacak.
-export const prepareRequestDtoFilters = (filterModel: ColumnFilterModel): TFilterParams[] => {
+// The return type of this method should be structured according to the filter format expected by the API endpoint in use.
+// The `ApiSliceGetMethodRequestFilterParams` type is provided as an example,
+// but it should be customized based on the backend logic of the developer using this project.
+export const prepareRequestDtoFilters = (filterModel: ColumnFilterModel): ApiSliceGetMethodRequestFilterParams[] => {
   const filterModelKeys = Object.keys(filterModel);
-  const requestDtoFilters: TFilterParams[] = [];
+  const requestDtoFilters: ApiSliceGetMethodRequestFilterParams[] = [];
 
   for (let i = 0; i < filterModelKeys.length; i++) {
     const key = filterModelKeys[i];

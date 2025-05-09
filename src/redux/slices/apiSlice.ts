@@ -1,43 +1,15 @@
 import { BaseQueryApi, FetchArgs, createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { RootState } from '../store';
-import { Toastify } from '../../components/other/toastify/Toastify';
-import { ToastCompProps } from '../../components/other/toastify/toastifyHelper';
+import { ApiSliceExtraOptions, ApiSliceResponseDto } from './apiSliceHelper/defaultTypes';
+import { apiSlicesBaseUrl, apiSlicesDefaultContentType } from './apiSliceHelper/defaultConstant';
+import { apiSliceRunToast } from './apiSliceHelper/defaultMethods';
 // import { ApiErros } from '../../../utils/enums/apiErrors';
 import { usersEndpoint } from './services/users/usersEndpoint';
 
-const baseUrl = 'http://185.210.93.207:8080/admin';
-const defaultContentType = 'application/json; charset=UTF-8';
-
-interface EndpointMessage {
-  successMessage?: string;
-  errorMessage?: string;
-}
-
-interface ExtraOptions {
-  headersContentType?: 'none' | 'custom';
-  messages?: EndpointMessage;
-}
-
-interface ApiResponseDto<T> {
-  timestamp: string;
-  success: boolean;
-  data: T;
-  message: string;
-  errorCode: number;
-}
-
-const runToast = (props: ToastCompProps) => {
-  Toastify({
-    ...props,
-    isTranslation: true,
-    theme: 'colored',
-  });
-};
-
-const baseQuery = async (args: string | FetchArgs, api: BaseQueryApi, extraOptions: ExtraOptions = {}) => {
+const baseQuery = async (args: string | FetchArgs, api: BaseQueryApi, extraOptions: ApiSliceExtraOptions = {}) => {
   try {
     const baseQueryConfig = fetchBaseQuery({
-      baseUrl,
+      baseUrl: apiSlicesBaseUrl,
       prepareHeaders: (headers, { getState }) => {
         const token = (getState() as RootState).auth.token;
 
@@ -46,7 +18,7 @@ const baseQuery = async (args: string | FetchArgs, api: BaseQueryApi, extraOptio
         }
 
         if (extraOptions.headersContentType !== 'none') {
-          headers.set('Content-Type', defaultContentType);
+          headers.set('Content-Type', apiSlicesDefaultContentType);
         }
         return headers;
       },
@@ -58,21 +30,21 @@ const baseQuery = async (args: string | FetchArgs, api: BaseQueryApi, extraOptio
       const errorCode: number = result?.error?.data?.errorCode;
 
       //@ts-expect-error daha sonra tip düzeltmeleri yapılacak.
-      runToast({ type: 'error', message: ApiErros[errorCode]?.message || 'Error' }); // i18n yapılandırması eklenecek.
+      apiSliceRunToast({ type: 'error', message: ApiErros[errorCode]?.message || 'Error' }); // i18n yapılandırması eklenecek.
       if (extraOptions?.messages?.errorMessage) {
-        runToast({ type: 'error', message: extraOptions.messages.errorMessage || 'Error' }); // i18n yapılandırması eklenecek.
+        apiSliceRunToast({ type: 'error', message: extraOptions.messages.errorMessage || 'Error' }); // i18n yapılandırması eklenecek.
       }
       return result;
     }
 
-    const apiResponse = result.data as ApiResponseDto<unknown>;
+    const apiResponse = result.data as ApiSliceResponseDto<unknown>;
     if (!apiResponse.success) {
       const errorCode: number = apiResponse.errorCode;
 
       //@ts-expect-error daha sonra tip düzeltmeleri yapılacak.
-      runToast({ type: 'error', message: ApiErros[errorCode]?.message || 'Unknown Error' }); // i18n yapılandırması eklenecek
+      apiSliceRunToast({ type: 'error', message: ApiErros[errorCode]?.message || 'Unknown Error' }); // i18n yapılandırması eklenecek
       if (extraOptions?.messages?.errorMessage) {
-        runToast({ type: 'error', message: extraOptions.messages.errorMessage || 'Error' }); // i18n yapılandırması eklenecek.
+        apiSliceRunToast({ type: 'error', message: extraOptions.messages.errorMessage || 'Error' }); // i18n yapılandırması eklenecek.
       }
 
       return {
@@ -84,15 +56,15 @@ const baseQuery = async (args: string | FetchArgs, api: BaseQueryApi, extraOptio
     }
 
     if (extraOptions?.messages?.successMessage) {
-      runToast({ type: 'success', message: extraOptions.messages.successMessage });
+      apiSliceRunToast({ type: 'success', message: extraOptions.messages.successMessage });
     }
     return {
       data: apiResponse.data,
     };
   } catch (error) {
-    runToast({ type: 'error', message: 'Bilinmeyen bir hata oluştu!' }); // i18n yapılandırması eklenecek
+    apiSliceRunToast({ type: 'error', message: 'Bilinmeyen bir hata oluştu!' }); // i18n yapılandırması eklenecek
     if (extraOptions?.messages?.errorMessage) {
-      runToast({ type: 'error', message: extraOptions.messages.errorMessage || 'Error' }); // i18n yapılandırması eklenecek.
+      apiSliceRunToast({ type: 'error', message: extraOptions.messages.errorMessage || 'Error' }); // i18n yapılandırması eklenecek.
     }
     return { error: { status: 'FETCH_ERROR', error: error } };
   }
