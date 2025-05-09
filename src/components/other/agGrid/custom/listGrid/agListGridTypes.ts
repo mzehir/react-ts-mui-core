@@ -1,8 +1,10 @@
 import { ReactNode } from 'react';
 import { IconButtonColor } from '../../../../base/iconButton/iconButtonHelper';
 import { ColumnType } from '../../helper/column/columnType';
-import { employeesRequestDto } from '../../../../../redux/slices/services/introduction/custom/introductionRequestDto';
-import { employeesResponseDto } from '../../../../../redux/slices/services/introduction/custom/introductionResponseDto';
+import {
+  ApiSliceGetMethodRequestDto,
+  ApiSliceGetMethodResponseDto,
+} from '../../../../../redux/slices/apiSliceHelper/helperTypes';
 
 export interface GridCacheSettings {
   maxConcurrentDatasourceRequests?: number; // Api'ye aynı anda yapılabilecek maksimum istek sayısı
@@ -44,5 +46,5 @@ export interface AgListGridProps {
   onDelete?: (row: unknown) => void;
   operationItems?: OperationColumnItemFields[];
   gridCacheSettings?: GridCacheSettings;
-  triggerGetList: (params: employeesRequestDto) => Promise<{ data?: employeesResponseDto }>;
+  triggerGetList: (params: ApiSliceGetMethodRequestDto) => Promise<{ data?: ApiSliceGetMethodResponseDto }>;
 }

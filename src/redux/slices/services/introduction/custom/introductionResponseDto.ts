@@ -1,10 +1,11 @@
+import { ApiSliceGetMethodResponseDto } from '../../../apiSliceHelper/helperTypes';
 import { Department } from '../../../../../utils/enums/introduction/department';
 import { Gender } from '../../../../../utils/enums/introduction/gender';
 import { PerformanceRating } from '../../../../../utils/enums/introduction/performanceRating';
 import { Position } from '../../../../../utils/enums/introduction/position';
 import { Status } from '../../../../../utils/enums/introduction/statu';
 
-export interface EmployeeRowType {
+interface EmployeeRowType {
   id: number;
   name: string;
   surname: string;
@@ -21,9 +22,4 @@ export interface EmployeeRowType {
   performanceRating: PerformanceRating;
 }
 
-export interface employeesResponseDto {
-  data: {
-    items: EmployeeRowType[];
-    totalCount: number;
-  };
-}
+export type employeesResponseDto = ApiSliceGetMethodResponseDto<EmployeeRowType>;
