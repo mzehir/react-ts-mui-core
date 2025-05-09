@@ -25,7 +25,7 @@ const AgListGridPage: React.FC = () => {
         onView={(row: unknown) => console.log('View clicked for:', row)}
         onEdit={(row: unknown) => console.log('Edit clicked for:', row)}
         onDelete={(row: unknown) => console.log('Delete clicked for:', row)}
-        triggerGetEmployees={triggerGetEmployees}
+        triggerGetList={triggerGetEmployees}
         operationItems={[
           {
             type: 'iconButton',

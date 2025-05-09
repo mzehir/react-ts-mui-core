@@ -20,7 +20,7 @@ const AGListGridComp = ({
   onDelete,
   operationItems,
   gridCacheSettings,
-  triggerGetEmployees,
+  triggerGetList,
 }: AgListGridProps) => {
   const { translate } = useLanguageContext();
   const [totalRowCount, setTotalRowCount] = React.useState<number>(1000);
@@ -89,7 +89,7 @@ const AGListGridComp = ({
             const filterModel: ColumnFilterModel = gridParams.api.getFilterModel();
             const requestFilterDto = Object.keys(filterModel).length > 0 ? prepareRequestDtoFilters(filterModel) : [];
 
-            const { data: pageData } = await triggerGetEmployees({
+            const { data: pageData } = await triggerGetList({
               maxResultCount: (rowParams.endRow - rowParams.startRow).toString(),
               skipCount: rowParams.startRow.toString(),
               filterParams: requestFilterDto,
@@ -116,7 +116,7 @@ const AGListGridComp = ({
         console.error('Error initializing grid:', error);
       }
     },
-    [triggerGetEmployees, totalRowCount, columns],
+    [triggerGetList, totalRowCount, columns],
   );
 
   return (

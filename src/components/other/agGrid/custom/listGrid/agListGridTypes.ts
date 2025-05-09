@@ -44,5 +44,5 @@ export interface AgListGridProps {
   onDelete?: (row: unknown) => void;
   operationItems?: OperationColumnItemFields[];
   gridCacheSettings?: GridCacheSettings;
-  triggerGetEmployees: (params: employeesRequestDto) => Promise<{ data?: employeesResponseDto }>;
+  triggerGetList: (params: employeesRequestDto) => Promise<{ data?: employeesResponseDto }>;
 }
