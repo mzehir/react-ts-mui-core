@@ -159,6 +159,11 @@ type NumAlwaysVisibleConditions = number;
  */
 type ReadOnly = boolean;
 
+interface InitialFilterFieldsType {
+  dateFrom: string; // Start value
+  dateTo: string; // End value
+}
+
 export interface DateColumnFilterParams {
   browserDatePicker?: BrowserDatePicker;
   buttons?: Buttons[];
@@ -185,5 +190,6 @@ export interface DateColumnFilterParams {
   numAlwaysVisibleConditions?: NumAlwaysVisibleConditions;
   readOnly?: ReadOnly;
   // extra props
+  initialFilterFields?: InitialFilterFieldsType;
   initialFilterValue?: string;
 }

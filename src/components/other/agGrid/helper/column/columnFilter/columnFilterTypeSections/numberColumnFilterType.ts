@@ -144,6 +144,11 @@ type NumberParser = (text: string | null) => number | null;
  */
 type ReadOnly = boolean;
 
+interface InitialFilterFieldsType {
+  filter: number | string; // Start value
+  filterTo: number | string; // End value
+}
+
 export interface NumberColumnFilterParams {
   allowedCharPattern?: AllowedCharPattern;
   buttons?: Buttons[];
@@ -165,5 +170,6 @@ export interface NumberColumnFilterParams {
   numberParser?: NumberParser;
   readOnly?: ReadOnly;
   // extra props
+  initialFilterFields?: InitialFilterFieldsType;
   initialFilterValue?: number | string;
 }

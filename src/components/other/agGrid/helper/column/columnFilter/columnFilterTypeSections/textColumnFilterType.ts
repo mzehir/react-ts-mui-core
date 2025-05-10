@@ -126,6 +126,10 @@ type TextMatcher = (params: unknown) => boolean;
  */
 type TrimInput = boolean;
 
+interface InitialFilterFieldsType {
+  filter: string; // Value
+}
+
 export interface TextColumnFilterParams {
   buttons?: Buttons[];
   caseSensitive?: CaseSensitive;
@@ -142,5 +146,6 @@ export interface TextColumnFilterParams {
   textMatcher?: TextMatcher;
   trimInput?: TrimInput;
   // extra props
+  initialFilterFields?: InitialFilterFieldsType;
   initialFilterValue?: string;
 }

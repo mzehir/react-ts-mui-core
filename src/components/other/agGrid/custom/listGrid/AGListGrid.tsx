@@ -87,6 +87,8 @@ const AGListGridComp = ({
           rowCount: totalRowCount,
           getRows: async (rowParams) => {
             const filterModel: ColumnFilterModel = gridParams.api.getFilterModel();
+            console.log(filterModel);
+
             const requestFilterDto = Object.keys(filterModel).length > 0 ? prepareRequestDtoFilters(filterModel) : [];
 
             const { data: pageData } = await triggerGetList({

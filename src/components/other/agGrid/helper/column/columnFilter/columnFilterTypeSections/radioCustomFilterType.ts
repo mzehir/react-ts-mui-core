@@ -44,6 +44,10 @@ export interface RadioCustomFilterItemParams {
   disabled?: boolean;
 }
 
+interface InitialFilterFieldsType {
+  filter: string | number; // Value
+}
+
 export interface RadioCustomFilterParams {
   buttons?: Buttons[];
   closeOnApply?: CloseOnApply;
@@ -51,6 +55,7 @@ export interface RadioCustomFilterParams {
   filterOptions?: FilterOptions[];
   readOnly?: ReadOnly;
   // extra props
+  initialFilterFields?: InitialFilterFieldsType;
   initialFilterValue?: string | number;
   label: string;
   isLabelTranslation?: boolean;

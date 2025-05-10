@@ -5,7 +5,7 @@ import { Department } from '../../../../../utils/enums/introduction/department';
 import { Position } from '../../../../../utils/enums/introduction/position';
 import { Status } from '../../../../../utils/enums/introduction/statu';
 import { PerformanceRating } from '../../../../../utils/enums/introduction/performanceRating';
-// import { getDateFormat } from '../../../../../utils/locale/dateFormats';
+import { getDateFormat } from '../../../../../utils/locale/dateFormats';
 import RatingComp from '../../../../../components/base/rating/Rating';
 import BoxComp from '../../../../../components/base/box/Box';
 import TypographyComp from '../../../../../components/base/typography/Typography';
@@ -31,6 +31,9 @@ export const employeeColumns: ColumnType[] = [
       name: 'name',
       componentType: 'textColumnFilter',
       componentProps: {
+        initialFilterFields: {
+          filter: 'Ahmet',
+        },
         initialFilterValue: 'Mehmet',
         defaultOption: 'equals',
         filterOptions: ['equals', 'notEqual', 'contains', 'notContains', 'startsWith', 'endsWith', 'blank', 'notBlank'],
@@ -61,6 +64,9 @@ export const employeeColumns: ColumnType[] = [
       name: 'gender',
       componentType: 'radioCustomFilter',
       componentProps: {
+        initialFilterFields: {
+          filter: 'FEMALE',
+        },
         initialFilterValue: 'MALE',
         defaultOption: 'equals',
         filterOptions: ['equals'],
@@ -79,21 +85,26 @@ export const employeeColumns: ColumnType[] = [
     cellDataType: 'text',
     headerName: 'introduction.birthDate',
     width: 150,
-    // customFilter: {
-    //   name: 'name',
-    //   componentType: 'dateColumnFilter',
-    //   componentProps: {
-    //     defaultOption: 'equals',
-    //     filterOptions: ['equals', 'notEqual', 'lessThan', 'greaterThan', 'inRange', 'blank', 'notBlank'],
-    //     filterPlaceholder: 'Filtrele',
-    //     maxNumConditions: 1,
-    //     buttons: ['apply', 'clear'],
-    //     //
-    //     minValidYear: 1900,
-    //     maxValidYear: 2500,
-    //     inRangeFloatingFilterDateFormat: getDateFormat(),
-    //   },
-    // },
+    customFilter: {
+      name: 'name',
+      componentType: 'dateColumnFilter',
+      componentProps: {
+        initialFilterFields: {
+          dateFrom: '1992-02-14 00:00:00',
+          dateTo: '2025-05-31 00:00:00',
+        },
+        initialFilterValue: '2025-05-10 00:00:00',
+        defaultOption: 'equals',
+        filterOptions: ['equals', 'notEqual', 'lessThan', 'greaterThan', 'inRange', 'blank', 'notBlank'],
+        filterPlaceholder: 'Filtrele',
+        maxNumConditions: 1,
+        buttons: ['apply', 'clear'],
+        //
+        minValidYear: 1900,
+        maxValidYear: 2500,
+        inRangeFloatingFilterDateFormat: getDateFormat(),
+      },
+    },
   },
   {
     field: 'phone',
@@ -174,6 +185,10 @@ export const employeeColumns: ColumnType[] = [
       name: 'salary',
       componentType: 'numberColumnFilter',
       componentProps: {
+        initialFilterFields: {
+          filter: 145,
+          filterTo: 255,
+        },
         initialFilterValue: 145,
         defaultOption: 'equals',
         filterOptions: [
