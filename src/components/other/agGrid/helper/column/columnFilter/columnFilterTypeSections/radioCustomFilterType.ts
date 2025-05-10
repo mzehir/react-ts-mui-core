@@ -56,7 +56,6 @@ export interface RadioCustomFilterParams {
   readOnly?: ReadOnly;
   // extra props
   initialFilterFields?: InitialFilterFieldsType;
-  initialFilterValue?: string | number;
   label: string;
   isLabelTranslation?: boolean;
   items: RadioCustomFilterItemParams[];

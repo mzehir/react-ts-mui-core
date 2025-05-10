@@ -191,5 +191,4 @@ export interface DateColumnFilterParams {
   readOnly?: ReadOnly;
   // extra props
   initialFilterFields?: InitialFilterFieldsType;
-  initialFilterValue?: string;
 }

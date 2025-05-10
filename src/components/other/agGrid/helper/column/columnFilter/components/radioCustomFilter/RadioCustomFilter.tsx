@@ -60,9 +60,9 @@ const RadioCustomFilterComp: React.FC<CustomFilterProps> = (props) => {
   }, [initialValue]);
 
   React.useEffect(() => {
-    if (props.colDef?.filterParams?.initialFilterValue) {
-      setInitialValue(props.colDef?.filterParams?.initialFilterValue);
-      setSelectedValue(props.colDef?.filterParams?.initialFilterValue);
+    if (props.colDef?.filterParams?.initialFilterFields?.filter) {
+      setInitialValue(props.colDef?.filterParams?.initialFilterFields?.filter);
+      setSelectedValue(props.colDef?.filterParams?.initialFilterFields?.filter);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

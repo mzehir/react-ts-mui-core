@@ -1,17 +1,13 @@
 import React from 'react';
 import useLanguageContext from '../../../../../hooks/useLanguageContext';
-import { GridReadyEvent, IDatasource } from 'ag-grid-community';
-import { ColumnType } from '../../helper/column/columnType';
 import { AgListGridProps } from './agListGridTypes';
-import {
-  prepareOperationColumn,
-  prepareColumns,
-  prepareInitialFilterModel,
-  prepareRequestDtoFilters,
-} from './agListGridHelper';
+import { prepareOperationColumn, prepareColumns } from './agListGridHelper';
+import { ColumnFilterModel } from '../../helper/column/columnFilter/columnFilterParams';
+import { setLisGridInitialFilters } from './helper/agListGridInitialFilterHelper';
+import { transformAgListGridFiltersForRequest } from './helper/transformAgListGridFiltersForRequest';
+import { GridReadyEvent, IDatasource } from 'ag-grid-community';
 import AgGridComp from '../../base/AgGrid';
 import BoxComp from '../../../../base/box/Box';
-import { ColumnFilterModel } from '../../helper/column/columnFilter/columnFilterParams';
 
 const AGListGridComp = ({
   columns,
@@ -55,41 +51,17 @@ const AGListGridComp = ({
     [columns, translate, operationColumn],
   );
 
-  const setGridInitialFilters = async (gridParams: GridReadyEvent, columns: ColumnType[]) => {
-    const initialFilterModel = prepareInitialFilterModel(columns);
-
-    if (Object.keys(initialFilterModel).length > 0) {
-      const initialFilterModelKeys = Object.keys(initialFilterModel);
-
-      for (let i = 0; i < initialFilterModelKeys.length; i++) {
-        const columnName = initialFilterModelKeys[i];
-        const matchedColumnFilterInstance = await gridParams.api.getColumnFilterInstance(columnName);
-
-        if (matchedColumnFilterInstance) {
-          matchedColumnFilterInstance?.setModel({
-            type: initialFilterModel[columnName]?.type,
-            filter: initialFilterModel[columnName]?.filter,
-            filterType: initialFilterModel[columnName]?.filterType,
-          });
-        }
-      }
-
-      gridParams.api.onFilterChanged();
-    }
-  };
-
   const onGridReady = React.useCallback(
     async (gridParams: GridReadyEvent) => {
-      await setGridInitialFilters(gridParams, columns);
+      await setLisGridInitialFilters(gridParams, columns);
 
       try {
         const dataSource: IDatasource = {
           rowCount: totalRowCount,
           getRows: async (rowParams) => {
             const filterModel: ColumnFilterModel = gridParams.api.getFilterModel();
-            console.log(filterModel);
-
-            const requestFilterDto = Object.keys(filterModel).length > 0 ? prepareRequestDtoFilters(filterModel) : [];
+            const requestFilterDto =
+              Object.keys(filterModel).length > 0 ? transformAgListGridFiltersForRequest(filterModel) : [];
 
             const { data: pageData } = await triggerGetList({
               maxResultCount: (rowParams.endRow - rowParams.startRow).toString(),

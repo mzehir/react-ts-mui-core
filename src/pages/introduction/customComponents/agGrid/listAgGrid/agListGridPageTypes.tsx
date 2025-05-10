@@ -32,9 +32,8 @@ export const employeeColumns: ColumnType[] = [
       componentType: 'textColumnFilter',
       componentProps: {
         initialFilterFields: {
-          filter: 'Ahmet',
+          filter: 'Mehmet',
         },
-        initialFilterValue: 'Mehmet',
         defaultOption: 'equals',
         filterOptions: ['equals', 'notEqual', 'contains', 'notContains', 'startsWith', 'endsWith', 'blank', 'notBlank'],
         filterPlaceholder: 'Filtrele',
@@ -65,9 +64,8 @@ export const employeeColumns: ColumnType[] = [
       componentType: 'radioCustomFilter',
       componentProps: {
         initialFilterFields: {
-          filter: 'FEMALE',
+          filter: 'MALE',
         },
-        initialFilterValue: 'MALE',
         defaultOption: 'equals',
         filterOptions: ['equals'],
         label: 'introductionAgGrid.chooseAGender',
@@ -89,12 +87,11 @@ export const employeeColumns: ColumnType[] = [
       name: 'name',
       componentType: 'dateColumnFilter',
       componentProps: {
-        initialFilterFields: {
-          dateFrom: '1992-02-14 00:00:00',
-          dateTo: '2025-05-31 00:00:00',
-        },
-        initialFilterValue: '2025-05-10 00:00:00',
-        defaultOption: 'equals',
+        // initialFilterFields: {
+        //   dateFrom: '1992-02-14 00:00:00',
+        //   dateTo: '2025-05-31 00:00:00',
+        // },
+        defaultOption: 'inRange',
         filterOptions: ['equals', 'notEqual', 'lessThan', 'greaterThan', 'inRange', 'blank', 'notBlank'],
         filterPlaceholder: 'Filtrele',
         maxNumConditions: 1,
@@ -185,12 +182,11 @@ export const employeeColumns: ColumnType[] = [
       name: 'salary',
       componentType: 'numberColumnFilter',
       componentProps: {
-        initialFilterFields: {
-          filter: 145,
-          filterTo: 255,
-        },
-        initialFilterValue: 145,
-        defaultOption: 'equals',
+        // initialFilterFields: {
+        //   filter: 145,
+        //   filterTo: 255,
+        // },
+        defaultOption: 'inRange',
         filterOptions: [
           'equals',
           'notEqual',

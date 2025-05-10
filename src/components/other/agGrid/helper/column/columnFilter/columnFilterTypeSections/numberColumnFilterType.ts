@@ -171,5 +171,4 @@ export interface NumberColumnFilterParams {
   readOnly?: ReadOnly;
   // extra props
   initialFilterFields?: InitialFilterFieldsType;
-  initialFilterValue?: number | string;
 }

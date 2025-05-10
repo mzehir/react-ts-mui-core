@@ -147,5 +147,4 @@ export interface TextColumnFilterParams {
   trimInput?: TrimInput;
   // extra props
   initialFilterFields?: InitialFilterFieldsType;
-  initialFilterValue?: string;
 }
