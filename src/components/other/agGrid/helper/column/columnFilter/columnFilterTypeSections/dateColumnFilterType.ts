@@ -160,8 +160,8 @@ type NumAlwaysVisibleConditions = number;
 type ReadOnly = boolean;
 
 interface InitialFilterFieldsType {
-  dateFrom: string; // Start value
-  dateTo?: string; // End value
+  dateFrom: string; // Start value => examp => 1990-02-14 00:00:00
+  dateTo?: string; // End value => examp => 1997-12-31 00:00:00
 }
 
 export interface DateColumnFilterParams {

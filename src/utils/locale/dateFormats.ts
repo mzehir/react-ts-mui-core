@@ -55,3 +55,14 @@ export const isDateInRange = (
 
   return isAfterOrSameStart && isBeforeOrSameEnd;
 };
+
+/**
+ * Extracts only the date part (YYYY-MM-DD) from a datetime string in "YYYY-MM-DD HH:mm:ss" format.
+ * @param datetimeStr - Example: "1990-02-14 00:00:00"
+ * @returns The date part only: "1990-02-14"
+ */
+export function extractDatePart(datetimeStr: string): string {
+  if (!datetimeStr) return '';
+  const parts = datetimeStr.split(' ');
+  return parts[0] || '';
+}

@@ -1,5 +1,6 @@
 import { ApiSliceGetMethodRequestFilterParams } from '../../../../../../redux/slices/apiSliceHelper/helperTypes';
 import { ColumnFilterModel } from '../../../helper/column/columnFilter/columnFilterParams';
+import { extractDatePart } from '../../../../../../utils/locale/dateFormats';
 
 // The return type of this method should be structured according to the filter format expected by the API endpoint in use.
 // The `ApiSliceGetMethodRequestFilterParams` type is provided as an example,
@@ -76,19 +77,24 @@ export const transformAgListGridFiltersForRequest = (
             filterValue: null,
           });
         } else if (filterItem.type === 'inRange') {
+          const _min = extractDatePart(filterItem.dateFrom as string) ?? ''; // Should be adjusted according to backend's expected date range format
+          const _max = extractDatePart(filterItem.dateTo as string) ?? ''; // Should be adjusted according to backend's expected date range format
+
           requestDtoFilters.push({
             filterType: 'inRange',
             filterKey: key,
             filterValue: {
-              min: filterItem.dateFrom || '',
-              max: filterItem.dateTo || '',
+              min: _min,
+              max: _max,
             },
           });
         } else {
+          const _dateFrom = extractDatePart(filterItem.dateFrom as string) ?? ''; // Should be adjusted according to backend's expected single date format
+
           requestDtoFilters.push({
             filterType: filterItem.type as 'equals' | 'notEqual' | 'lessThan' | 'greaterThan',
             filterKey: key,
-            filterValue: filterItem.dateFrom || '',
+            filterValue: _dateFrom,
           });
         }
         break;

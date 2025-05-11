@@ -5,7 +5,6 @@ import { Department } from '../../../../../utils/enums/introduction/department';
 import { Position } from '../../../../../utils/enums/introduction/position';
 import { Status } from '../../../../../utils/enums/introduction/statu';
 import { PerformanceRating } from '../../../../../utils/enums/introduction/performanceRating';
-import { getDateFormat } from '../../../../../utils/locale/dateFormats';
 import RatingComp from '../../../../../components/base/rating/Rating';
 import BoxComp from '../../../../../components/base/box/Box';
 import TypographyComp from '../../../../../components/base/typography/Typography';
@@ -80,17 +79,18 @@ export const employeeColumns: ColumnType[] = [
   { field: 'age', cellDataType: 'text', headerName: 'introduction.age', width: 150 },
   {
     field: 'birthDate',
-    cellDataType: 'text',
+    cellDataType: 'dateString',
     headerName: 'introduction.birthDate',
     width: 150,
+    valueFormatterType: 'dateStringFormatter',
     customFilter: {
       name: 'name',
       componentType: 'dateColumnFilter',
       componentProps: {
-        // initialFilterFields: {
-        //   dateFrom: '1992-02-14 00:00:00',
-        //   dateTo: '2025-05-31 00:00:00',
-        // },
+        initialFilterFields: {
+          dateFrom: '1990-02-14 00:00:00',
+          dateTo: '1997-12-31 00:00:00',
+        },
         defaultOption: 'inRange',
         filterOptions: ['equals', 'notEqual', 'lessThan', 'greaterThan', 'inRange', 'blank', 'notBlank'],
         filterPlaceholder: 'Filtrele',
@@ -99,7 +99,6 @@ export const employeeColumns: ColumnType[] = [
         //
         minValidYear: 1900,
         maxValidYear: 2500,
-        inRangeFloatingFilterDateFormat: getDateFormat(),
       },
     },
   },
@@ -178,31 +177,31 @@ export const employeeColumns: ColumnType[] = [
     headerName: 'introduction.salary',
     width: 150,
     valueFormatterType: 'currencyFormatter',
-    customFilter: {
-      name: 'salary',
-      componentType: 'numberColumnFilter',
-      componentProps: {
-        // initialFilterFields: {
-        //   filter: 145,
-        //   filterTo: 255,
-        // },
-        defaultOption: 'inRange',
-        filterOptions: [
-          'equals',
-          'notEqual',
-          'lessThan',
-          'lessThanOrEqual',
-          'greaterThan',
-          'greaterThanOrEqual',
-          'inRange',
-          'blank',
-          'notBlank',
-        ],
-        filterPlaceholder: 'Filtrele',
-        maxNumConditions: 1,
-        buttons: ['apply', 'clear'],
-      },
-    },
+    // customFilter: {
+    //   name: 'salary',
+    //   componentType: 'numberColumnFilter',
+    //   componentProps: {
+    //     // initialFilterFields: {
+    //     //   filter: 145,
+    //     //   filterTo: 255,
+    //     // },
+    //     defaultOption: 'inRange',
+    //     filterOptions: [
+    //       'equals',
+    //       'notEqual',
+    //       'lessThan',
+    //       'lessThanOrEqual',
+    //       'greaterThan',
+    //       'greaterThanOrEqual',
+    //       'inRange',
+    //       'blank',
+    //       'notBlank',
+    //     ],
+    //     filterPlaceholder: 'Filtrele',
+    //     maxNumConditions: 1,
+    //     buttons: ['apply', 'clear'],
+    //   },
+    // },
   },
   {
     field: 'status',
