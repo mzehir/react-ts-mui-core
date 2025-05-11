@@ -59,6 +59,8 @@ const AGListGridComp = ({
         const dataSource: IDatasource = {
           rowCount: totalRowCount,
           getRows: async (rowParams) => {
+            gridParams.api.setGridOption('loading', true);
+
             const filterModel: ColumnFilterModel = gridParams.api.getFilterModel();
             const requestFilterDto =
               Object.keys(filterModel).length > 0 ? transformAgListGridFiltersForRequest(filterModel) : [];
@@ -68,6 +70,8 @@ const AGListGridComp = ({
               skipCount: rowParams.startRow.toString(),
               filterParams: requestFilterDto,
             });
+
+            gridParams.api.setGridOption('loading', false);
 
             if (!pageData?.data?.items || !Array.isArray(pageData.data.items)) {
               throw new Error('Invalid data format received from API');
@@ -80,6 +84,14 @@ const AGListGridComp = ({
               pageData.data.totalCount !== undefined && pageData.data.totalCount <= rowParams.endRow
                 ? pageData.data.totalCount
                 : -1;
+
+            setTimeout(() => {
+              if (rowsThisPage.length === 0) {
+                gridParams.api.showNoRowsOverlay();
+              } else {
+                gridParams.api.hideOverlay();
+              }
+            }, 0);
 
             rowParams.successCallback(rowsThisPage, lastRow);
           },
