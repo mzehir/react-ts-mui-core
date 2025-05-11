@@ -1,11 +1,18 @@
 import { ColDef, ValueFormatterParams } from 'ag-grid-community';
 import { ColumnFilterType } from './columnFilter/columnFilterType';
 
-type CellDataType = 'text' | 'number' | 'boolean' | 'date' | 'dateString' | 'object';
+type CellDataType =
+  | 'text'
+  | 'number'
+  | 'boolean'
+  | 'date' // example => JavaScript Date => new Date('2024-05-11')
+  | 'dateString' // example => ISO 8601 => 2024-05-11 || 11/05/2024
+  | 'object';
 
 type ValueFormatterType =
   | 'stringFormatter' // Basic text display or translation (e.g., using a translate function)
   | 'dateFormatter' // Formatting date values into a specific format (e.g., 26/04/2025 or 2025-04-26)
+  | 'dateStringFormatter' //...
   | 'phoneFormatter' // Formatting phone numbers into a standardized format (e.g., +90 (532) 123 45 67)
   | 'booleanFormatter' // Converting boolean values into a readable form (e.g., ✔️ / ❌, Yes / No)
   | 'currencyFormatter' // Displaying numbers in a currency format (e.g., $1,234.56 or ₺5.432,10)

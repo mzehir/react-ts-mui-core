@@ -4,6 +4,7 @@ import { ColumnFilterType, FilterType } from '../../helper/column/columnFilter/c
 import RadioCustomFilterComp from '../../helper/column/columnFilter/components/radioCustomFilter/RadioCustomFilter';
 import { formatPhoneNumber } from '../../../../../utils/locale/phoneFormats';
 import { formatCurrency, formatNumber } from '../../../../../utils/methods/format';
+import { configuredDayjs, getDateFormat } from '../../../../../utils/locale/dateFormats';
 
 export const agListGridPrepareColumn = (column: ColumnType, translate: (value: string) => string): ColumnType => {
   const _customFilter: ColumnFilterType | undefined | null = column.customFilter;
@@ -50,6 +51,8 @@ export const agListGridPrepareColumn = (column: ColumnType, translate: (value: s
                 }
               } else if (valueFormatterType === 'dateFormatter') {
                 //
+              } else if (valueFormatterType === 'dateStringFormatter') {
+                //
               } else if (valueFormatterType === 'phoneFormatter') {
                 //
               } else if (valueFormatterType === 'booleanFormatter') {
@@ -78,6 +81,9 @@ export const agListGridPrepareColumn = (column: ColumnType, translate: (value: s
                 //
               } else if (valueFormatterType === 'dateFormatter') {
                 //
+              } else if (valueFormatterType === 'dateStringFormatter') {
+                if (!params.value) return '';
+                return configuredDayjs(params.value).format(getDateFormat());
               } else if (valueFormatterType === 'phoneFormatter') {
                 const formattedValue = formatPhoneNumber(params.value as string);
                 return formattedValue;

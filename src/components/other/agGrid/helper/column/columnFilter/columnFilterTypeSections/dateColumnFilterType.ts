@@ -161,7 +161,7 @@ type ReadOnly = boolean;
 
 interface InitialFilterFieldsType {
   dateFrom: string; // Start value
-  dateTo: string; // End value
+  dateTo?: string; // End value
 }
 
 export interface DateColumnFilterParams {
