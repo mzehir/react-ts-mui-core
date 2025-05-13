@@ -5,12 +5,14 @@ import { prepareOperationColumn, prepareColumns } from './agListGridHelper';
 import { ColumnFilterModel } from '../../helper/column/columnFilter/columnFilterParams';
 import { setLisGridInitialFilters } from './helper/agListGridInitialFilterHelper';
 import { transformAgListGridFiltersForRequest } from './helper/transformAgListGridFiltersForRequest';
+import { AGGridAddButton } from '../../helper/buttons/AGGridAddButton';
 import { GridReadyEvent, IDatasource } from 'ag-grid-community';
 import AgGridComp from '../../base/AgGrid';
 import BoxComp from '../../../../base/box/Box';
 
 const AGListGridComp = ({
   columns,
+  addButtonProps,
   onView,
   onEdit,
   onDelete,
@@ -106,7 +108,29 @@ const AGListGridComp = ({
   );
 
   return (
-    <BoxComp sx={{ width: '100%', height: '80%' }}>
+    <BoxComp
+      display={'flex'}
+      flexDirection={'column'}
+      flexGrow={'1'}
+      overflow={'hidden'}
+      gap={'5px'}
+      style={{
+        width: '100%',
+        height: '100%',
+      }}
+    >
+      {addButtonProps && (
+        <BoxComp display={'flex'} justifyContent={'end'}>
+          <AGGridAddButton
+            text={addButtonProps.text}
+            icon={addButtonProps.icon}
+            onClick={(event) => {
+              addButtonProps.onClick(event);
+            }}
+          />
+        </BoxComp>
+      )}
+
       <AgGridComp
         rowModelType={'infinite'}
         columnDefs={columnDefs}

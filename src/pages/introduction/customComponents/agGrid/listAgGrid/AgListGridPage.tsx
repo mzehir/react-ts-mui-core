@@ -22,9 +22,14 @@ const AgListGridPage: React.FC = () => {
 
       <AGListGridComp
         columns={employeeColumns}
-        onView={(row: unknown) => console.log('View clicked for:', row)}
-        onEdit={(row: unknown) => console.log('Edit clicked for:', row)}
-        onDelete={(row: unknown) => console.log('Delete clicked for:', row)}
+        addButtonProps={{
+          onClick(event) {
+            console.log('clicked to add row:', event);
+          },
+        }}
+        onView={(row: unknown) => console.log('Clicked for viewing:', row)}
+        onEdit={(row: unknown) => console.log('Clicked for editing:', row)}
+        onDelete={(row: unknown) => console.log('Clicked for deletion:', row)}
         triggerGetList={triggerGetEmployees}
         operationItems={[
           {

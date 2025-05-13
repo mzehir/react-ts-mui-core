@@ -1,10 +1,11 @@
 import { ReactNode } from 'react';
-import { IconButtonColor } from '../../../../base/iconButton/iconButtonHelper';
-import { ColumnType } from '../../helper/column/columnType';
 import {
   ApiSliceGetMethodRequestDto,
   ApiSliceGetMethodResponseDto,
 } from '../../../../../redux/slices/apiSliceHelper/helperTypes';
+import { IconButtonColor } from '../../../../base/iconButton/iconButtonHelper';
+import { ColumnType } from '../../helper/column/columnType';
+import { IAGGridAddButtonProps } from '../../helper/buttons/AGGridAddButton';
 
 export interface GridCacheSettings {
   maxConcurrentDatasourceRequests?: number; // Api'ye aynı anda yapılabilecek maksimum istek sayısı
@@ -40,6 +41,7 @@ export type OperationColumnItemFields =
     };
 
 export interface AgListGridProps {
+  addButtonProps?: IAGGridAddButtonProps;
   columns: ColumnType[];
   onView?: (row: unknown) => void;
   onEdit?: (row: unknown) => void;

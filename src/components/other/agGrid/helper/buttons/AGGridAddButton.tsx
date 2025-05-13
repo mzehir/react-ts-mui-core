@@ -1,0 +1,32 @@
+import { ReactNode } from 'react';
+import ButtonComp from '../../../../base/button/Button';
+import AddIcon from '@mui/icons-material/Add';
+
+export interface IAGGridAddButtonProps {
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  fullWidth?: boolean;
+  text?: string;
+  icon?: ReactNode;
+}
+
+export const AGGridAddButton = ({
+  onClick,
+  fullWidth = false,
+  text = 'button.new',
+  icon = <AddIcon />,
+}: IAGGridAddButtonProps) => {
+  return (
+    <ButtonComp
+      fullWidth={fullWidth}
+      variant="contained"
+      color="primary"
+      startIcon={icon}
+      isTranslation={true}
+      onClick={(event) => {
+        onClick(event);
+      }}
+    >
+      {text}
+    </ButtonComp>
+  );
+};
