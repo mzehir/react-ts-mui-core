@@ -26,20 +26,31 @@ const RadioCustomFilterComp: React.FC<CustomFilterProps> = (props) => {
 
   const isEmpty = (val: unknown) => val === undefined || val === null || val === '';
 
+  const closePopupIfNeeded = () => {
+    if (props.colDef?.filterParams?.closeOnApply) props.api.hidePopupMenu();
+  };
+
   const handleApply = () => {
     const filterModel = props.api.getFilterModel();
     const field = props.colDef.field ?? '';
     const currentFilter = filterModel[field]?.filter;
 
     // If both the current filter and selected value are empty, do nothing
-    if (isEmpty(currentFilter) && isEmpty(selectedValue)) return;
+    if (isEmpty(currentFilter) && isEmpty(selectedValue)) {
+      closePopupIfNeeded();
+      return;
+    }
 
     // If the current filter and selected value are the same, do nothing
-    if (currentFilter === selectedValue) return;
+    if (currentFilter === selectedValue) {
+      closePopupIfNeeded();
+      return;
+    }
 
     // If the selected value is empty, clear the filter
     if (isEmpty(selectedValue)) {
       props.onModelChange(null);
+      closePopupIfNeeded();
       return;
     }
 
@@ -49,6 +60,7 @@ const RadioCustomFilterComp: React.FC<CustomFilterProps> = (props) => {
       filter: selectedValue,
       filterType: 'radio',
     });
+    closePopupIfNeeded();
   };
 
   React.useEffect(() => {

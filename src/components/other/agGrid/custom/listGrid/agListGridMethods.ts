@@ -110,7 +110,9 @@ export const agListGridPrepareColumn = (column: ColumnType, translate: (value: s
     ...(column.cellRenderer ? { cellRenderer: column.cellRenderer } : {}),
 
     ...(_filter !== undefined && _filter !== null ? { filter: _filter } : {}),
-    ...(_customFilter !== undefined && _customFilter !== null ? { filterParams: _customFilter.componentProps } : {}),
+    ...(_customFilter !== undefined && _customFilter !== null
+      ? { filterParams: { ..._customFilter.componentProps, closeOnApply: true } }
+      : {}),
   };
 
   return result;
