@@ -30,9 +30,9 @@ export const employeeColumns: ColumnType[] = [
       name: 'name',
       componentType: 'textColumnFilter',
       componentProps: {
-        initialFilterFields: {
-          filter: 'Mehmet',
-        },
+        // initialFilterFields: {
+        //   filter: 'Mehmet',
+        // },
         defaultOption: 'equals',
         filterOptions: ['equals', 'notEqual', 'contains', 'notContains', 'startsWith', 'endsWith', 'blank', 'notBlank'],
         filterPlaceholder: 'Filtrele',
@@ -62,9 +62,9 @@ export const employeeColumns: ColumnType[] = [
       name: 'gender',
       componentType: 'radioCustomFilter',
       componentProps: {
-        initialFilterFields: {
-          filter: 'MALE',
-        },
+        // initialFilterFields: {
+        //   filter: 'MALE',
+        // },
         defaultOption: 'equals',
         filterOptions: ['equals'],
         label: 'introductionAgGrid.chooseAGender',
@@ -87,10 +87,10 @@ export const employeeColumns: ColumnType[] = [
       name: 'name',
       componentType: 'dateColumnFilter',
       componentProps: {
-        initialFilterFields: {
-          dateFrom: '1990-02-14 00:00:00',
-          dateTo: '1997-12-31 00:00:00',
-        },
+        // initialFilterFields: {
+        //   dateFrom: '1990-02-14 00:00:00',
+        //   dateTo: '1997-12-31 00:00:00',
+        // },
         defaultOption: 'inRange',
         filterOptions: ['equals', 'notEqual', 'lessThan', 'greaterThan', 'inRange', 'blank', 'notBlank'],
         filterPlaceholder: 'Filtrele',
@@ -181,10 +181,10 @@ export const employeeColumns: ColumnType[] = [
       name: 'salary',
       componentType: 'numberColumnFilter',
       componentProps: {
-        initialFilterFields: {
-          filter: 50000,
-          filterTo: 75000,
-        },
+        // initialFilterFields: {
+        //   filter: 50000,
+        //   filterTo: 75000,
+        // },
         defaultOption: 'inRange',
         filterOptions: [
           'equals',

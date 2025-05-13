@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLazyGetEmployeesQuery } from '../../../../../redux/slices/services/introduction/custom/introductionApiSlices';
+import ContentFitLayout from '../../../../../layouts/pageLayouts/ContentFitLayout';
 import AGListGridComp from '../../../../../components/other/agGrid/custom/listGrid/AGListGrid';
 import DividerComp from '../../../../../components/base/divider/Divider';
 import TypographyComp from '../../../../../components/base/typography/Typography';
@@ -12,7 +13,7 @@ const AgListGridPage: React.FC = () => {
   const gridRef = React.useRef<AgGridReact>(null);
 
   return (
-    <>
+    <ContentFitLayout>
       <DividerComp>
         <TypographyComp variant="h2" gutterBottom display="inline">
           introduction.agListGridComponent
@@ -51,7 +52,7 @@ const AgListGridPage: React.FC = () => {
           cacheOverflowSize: 2,
         }}
       />
-    </>
+    </ContentFitLayout>
   );
 };
 
