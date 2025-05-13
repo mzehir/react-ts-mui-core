@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import useLanguageContext from '../../../../hooks/useLanguageContext';
 import { Language } from '../../../../utils/enums/languages';
 import eventBus from '../../../../utils/eventBus/eventBusInstance';
@@ -14,7 +14,7 @@ interface GridThemeParams {
   borderColor?: string;
 }
 
-const AgGridComp = (props: AgGridCompProps) => {
+const AgGridComp = forwardRef<AgGridReact, AgGridCompProps>((props, ref) => {
   const { verticalLine, horizontalLine, ...agGridProps } = { ...agGridCompDefaultProps, ...props };
 
   const theme = useTheme();
@@ -50,13 +50,14 @@ const AgGridComp = (props: AgGridCompProps) => {
 
   return (
     <AgGridReact
+      ref={ref}
       {...agGridProps}
       theme={gridTheme}
       localeText={getAgGridLocaleText(language as Language)}
       onFilterOpened={onFilterOpened}
     />
   );
-};
+});
 
 AgGridComp.displayName = 'AgGridComp';
 
