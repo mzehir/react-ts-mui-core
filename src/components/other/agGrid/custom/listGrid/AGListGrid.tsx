@@ -6,6 +6,7 @@ import { ColumnFilterModel } from '../../helper/column/columnFilter/columnFilter
 import { setLisGridInitialFilters } from './helper/agListGridInitialFilterHelper';
 import { transformAgListGridFiltersForRequest } from './helper/transformAgListGridFiltersForRequest';
 import { AGGridAddButton } from '../../helper/buttons/AGGridAddButton';
+import { disableFloatingInputs, waitForGridHeader } from './helper/agListGridDisableFloatingInputs';
 import { GridReadyEvent, IDatasource } from 'ag-grid-community';
 import { AgGridReact } from 'ag-grid-react';
 import AgGridComp from '../../base/AgGrid';
@@ -89,6 +90,10 @@ const AGListGridComp = forwardRef<AgGridReact, AgListGridProps>(
               }, 0);
 
               rowParams.successCallback(rowsThisPage, lastRow);
+
+              setTimeout(() => {
+                disableFloatingInputs();
+              }, 50);
             },
           };
 
@@ -99,6 +104,20 @@ const AGListGridComp = forwardRef<AgGridReact, AgListGridProps>(
       },
       [triggerGetList, totalRowCount, columns],
     );
+
+    const useDisableFloatingFilterInputs = () => {
+      React.useEffect(() => {
+        const observer = new MutationObserver(() => {
+          disableFloatingInputs();
+        });
+
+        waitForGridHeader(observer);
+
+        return () => observer.disconnect();
+      }, []);
+    };
+
+    useDisableFloatingFilterInputs();
 
     return (
       <BoxComp

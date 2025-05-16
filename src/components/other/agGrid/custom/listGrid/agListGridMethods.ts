@@ -1,7 +1,9 @@
 import { ValueFormatterParams } from 'ag-grid-community';
+import { CustomFloatingFilterProps } from 'ag-grid-react';
 import { ColumnType } from '../../helper/column/columnType';
 import { ColumnFilterType, FilterType } from '../../helper/column/columnFilter/columnFilterType';
 import RadioCustomFilterComp from '../../helper/column/columnFilter/components/radioCustomFilter/RadioCustomFilter';
+import RadioCustomFloatingFilterComp from '../../helper/column/columnFilter/components/radioCustomFloatingFilter/RadioCustomFloatingFilter';
 import { formatPhoneNumber } from '../../../../../utils/locale/phoneFormats';
 import { formatCurrency, formatNumber } from '../../../../../utils/methods/format';
 import { configuredDayjs, getDateFormat } from '../../../../../utils/locale/dateFormats';
@@ -9,6 +11,7 @@ import { configuredDayjs, getDateFormat } from '../../../../../utils/locale/date
 export const agListGridPrepareColumn = (column: ColumnType, translate: (value: string) => string): ColumnType => {
   const _customFilter: ColumnFilterType | undefined | null = column.customFilter;
   let _filter: FilterType | undefined | null = undefined;
+  let _floatingFilter: React.ComponentType<CustomFloatingFilterProps> | undefined | null = undefined;
 
   if (_customFilter) {
     if (_customFilter.componentType === 'textColumnFilter') {
@@ -19,6 +22,7 @@ export const agListGridPrepareColumn = (column: ColumnType, translate: (value: s
       _filter = 'agDateColumnFilter';
     } else if (_customFilter.componentType === 'radioCustomFilter') {
       _filter = RadioCustomFilterComp;
+      _floatingFilter = RadioCustomFloatingFilterComp;
     }
   }
 
@@ -113,6 +117,10 @@ export const agListGridPrepareColumn = (column: ColumnType, translate: (value: s
     ...(_customFilter !== undefined && _customFilter !== null
       ? { filterParams: { ..._customFilter.componentProps, closeOnApply: true } }
       : {}),
+
+    ...(!_floatingFilter
+      ? { floatingFilter: true, suppressFloatingFilterButton: true }
+      : { floatingFilter: true, suppressFloatingFilterButton: true, floatingFilterComponent: _floatingFilter }),
   };
 
   return result;
