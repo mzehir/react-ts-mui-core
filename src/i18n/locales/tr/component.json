@@ -14,5 +14,8 @@
   "customFilterSummaryCheckboxOpen": "Açık",
   "customFilterSummaryCheckboxClose": "Kapalı",
   "customFilterSummaryClearButton": "Temizle",
-  "customFilterSummaryFilterButton": "Filtrele"
+  "customFilterSummaryFilterButton": "Filtrele",
+
+  "readyMadeFiltersTitle": "Hızlı Filtreler",
+  "readyMadeFiltersClearFilterButtonText": "Filtreleri Kaldır"
 }

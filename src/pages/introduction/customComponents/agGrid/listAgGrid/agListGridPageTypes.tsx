@@ -11,6 +11,7 @@ import TypographyComp from '../../../../../components/base/typography/Typography
 import ChipComp from '../../../../../components/base/chip/Chip';
 import { ChipCompColor } from '../../../../../components/base/chip/chipHelper';
 import StarIcon from '@mui/icons-material/Star';
+import { ColumnFilterType } from '../../../../../components/other/agGrid/helper/column/columnFilter/columnFilterType';
 
 export const employeeColumns: ColumnType[] = [
   {
@@ -84,7 +85,7 @@ export const employeeColumns: ColumnType[] = [
     width: 200,
     valueFormatterType: 'dateStringFormatter',
     customFilter: {
-      name: 'name',
+      name: 'birthDate',
       componentType: 'dateColumnFilter',
       componentProps: {
         initialFilterFields: {
@@ -282,6 +283,90 @@ export const employeeColumns: ColumnType[] = [
           <TypographyComp>{performanceRatingLabel}</TypographyComp>
         </BoxComp>
       );
+    },
+  },
+];
+
+export const readyMadeFilters: ColumnFilterType[] = [
+  {
+    name: 'name',
+    componentType: 'textColumnFilter',
+    componentProps: {
+      initialFilterFields: {
+        filter: 'Ahmet',
+      },
+      defaultOption: 'equals',
+      filterPlaceholder: 'Sadece "Ahmet" isimli kullanıcıları göster',
+    },
+  },
+  {
+    name: 'name',
+    componentType: 'textColumnFilter',
+    componentProps: {
+      initialFilterFields: {
+        filter: 'Ayşe',
+      },
+      defaultOption: 'equals',
+      filterPlaceholder: 'Sadece "Ayşe" isimli kullanıcıları göster',
+    },
+  },
+  {
+    name: 'gender',
+    componentType: 'radioCustomFilter',
+    componentProps: {
+      initialFilterFields: {
+        filter: 'FEMALE',
+      },
+      defaultOption: 'equals',
+      label: 'Sadece "Kadın" kullanıcıları göster',
+      items: [],
+    },
+  },
+  {
+    name: 'birthDate',
+    componentType: 'dateColumnFilter',
+    componentProps: {
+      initialFilterFields: {
+        dateFrom: '1990-02-14 00:00:00',
+        dateTo: '1997-12-31 00:00:00',
+      },
+      defaultOption: 'inRange',
+      filterPlaceholder: 'Sadece "1990-02-14" - "1997-12-31" tarihleri arasında doğmuş kullanıcıları göster',
+    },
+  },
+  {
+    name: 'birthDate',
+    componentType: 'dateColumnFilter',
+    componentProps: {
+      initialFilterFields: {
+        dateFrom: '1990-02-14 00:00:00',
+      },
+      defaultOption: 'equals',
+      filterPlaceholder: 'Sadece "1990-02-14" tarihinde doğmuş kullanıcıları göster',
+    },
+  },
+  {
+    name: 'salary',
+    componentType: 'numberColumnFilter',
+    componentProps: {
+      initialFilterFields: {
+        filter: 50000,
+        filterTo: 75000,
+      },
+      defaultOption: 'inRange',
+      filterPlaceholder: 'Sadece "₺50.000" ve "₺75.000" fiyat bandı arasında maaş alan kullanıcıları göster',
+    },
+  },
+  {
+    name: 'salary',
+    componentType: 'numberColumnFilter',
+    componentProps: {
+      initialFilterFields: {
+        filter: 60000.45,
+        filterTo: 0,
+      },
+      defaultOption: 'equals',
+      filterPlaceholder: 'Sadece "₺60.000,45"  maaş alan kullanıcıları göster',
     },
   },
 ];

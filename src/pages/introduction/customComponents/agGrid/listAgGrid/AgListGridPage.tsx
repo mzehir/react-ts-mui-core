@@ -1,10 +1,11 @@
 import React from 'react';
 import { useLazyGetEmployeesQuery } from '../../../../../redux/slices/services/introduction/custom/introductionApiSlices';
 import ContentFitLayout from '../../../../../layouts/pageLayouts/ContentFitLayout';
+import ReadyMadeFilters from '../../../../../components/other/agGrid/helper/readyMadeFilters/ReadyMadeFilters';
 import AGListGridComp from '../../../../../components/other/agGrid/custom/listGrid/AGListGrid';
 import DividerComp from '../../../../../components/base/divider/Divider';
 import TypographyComp from '../../../../../components/base/typography/Typography';
-import { employeeColumns } from './agListGridPageTypes';
+import { employeeColumns, readyMadeFilters } from './agListGridPageTypes';
 import MoodIcon from '@mui/icons-material/Mood';
 import { AgGridReact } from 'ag-grid-react';
 
@@ -21,6 +22,9 @@ const AgListGridPage: React.FC = () => {
       </DividerComp>
 
       <br />
+
+      <ReadyMadeFilters readyMadeFilters={readyMadeFilters} gridRef={gridRef} />
+
       <br />
 
       <AGListGridComp

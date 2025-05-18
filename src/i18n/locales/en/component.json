@@ -14,5 +14,8 @@
   "customFilterSummaryCheckboxOpen": "Open",
   "customFilterSummaryCheckboxClose": "Close",
   "customFilterSummaryClearButton": "Clear",
-  "customFilterSummaryFilterButton": "Filter"
+  "customFilterSummaryFilterButton": "Filter",
+
+  "readyMadeFiltersTitle": "Quick Filters",
+  "readyMadeFiltersClearFilterButtonText": "Remove Filters"
 }
