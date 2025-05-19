@@ -1,3 +1,3 @@
-import { ApiSliceGetMethodRequestDto } from '../../../apiSliceHelper/helperTypes';
+import { ApiSliceGetListMethodRequestDto } from '../../../apiSliceHelper/getMethodsAndTypes/getList/getListRequestType';
 
-export interface employeesRequestDto extends ApiSliceGetMethodRequestDto {}
+export interface employeesRequestDto extends ApiSliceGetListMethodRequestDto {}

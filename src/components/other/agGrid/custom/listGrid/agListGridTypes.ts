@@ -1,8 +1,6 @@
 import { ReactNode } from 'react';
-import {
-  ApiSliceGetMethodRequestDto,
-  ApiSliceGetMethodResponseDto,
-} from '../../../../../redux/slices/apiSliceHelper/helperTypes';
+import { ApiSliceGetListMethodRequestDto } from '../../../../../redux/slices/apiSliceHelper/getMethodsAndTypes/getList/getListRequestType';
+import { ApiSliceGetListMethodResponseDto } from '../../../../../redux/slices/apiSliceHelper/getMethodsAndTypes/getList/getListResponseType';
 import { IconButtonColor } from '../../../../base/iconButton/iconButtonHelper';
 import { ColumnType } from '../../helper/column/columnType';
 import { IAGGridAddButtonProps } from '../../helper/buttons/AGGridAddButton';
@@ -48,5 +46,5 @@ export interface AgListGridProps {
   onDelete?: (row: unknown) => void;
   operationItems?: OperationColumnItemFields[];
   gridCacheSettings?: GridCacheSettings;
-  triggerGetList: (params: ApiSliceGetMethodRequestDto) => Promise<{ data?: ApiSliceGetMethodResponseDto }>;
+  triggerGetList: (params: ApiSliceGetListMethodRequestDto) => Promise<{ data?: ApiSliceGetListMethodResponseDto }>;
 }

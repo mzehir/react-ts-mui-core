@@ -1,15 +1,15 @@
-import { ApiSliceGetMethodRequestFilterParams } from '../../../../../../redux/slices/apiSliceHelper/helperTypes';
+import { ApiSliceGetListMethodRequestFilterParams } from '../../../../../../redux/slices/apiSliceHelper/getMethodsAndTypes/getList/getListRequestType';
 import { ColumnFilterModel } from '../../../helper/column/columnFilter/columnFilterParams';
 import { extractDatePart } from '../../../../../../utils/locale/dateFormats';
 
 // The return type of this method should be structured according to the filter format expected by the API endpoint in use.
-// The `ApiSliceGetMethodRequestFilterParams` type is provided as an example,
+// The `ApiSliceGetListMethodRequestFilterParams` type is provided as an example,
 // but it should be customized based on the backend logic of the developer using this project.
 export const transformAgListGridFiltersForRequest = (
   filterModel: ColumnFilterModel,
-): ApiSliceGetMethodRequestFilterParams[] => {
+): ApiSliceGetListMethodRequestFilterParams[] => {
   const filterModelKeys = Object.keys(filterModel);
-  const requestDtoFilters: ApiSliceGetMethodRequestFilterParams[] = [];
+  const requestDtoFilters: ApiSliceGetListMethodRequestFilterParams[] = [];
 
   for (let i = 0; i < filterModelKeys.length; i++) {
     const key = filterModelKeys[i];

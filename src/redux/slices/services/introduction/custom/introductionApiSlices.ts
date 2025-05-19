@@ -3,7 +3,7 @@ import { Toastify } from '../../../../../components/other/toastify/Toastify';
 import { ToastCompProps } from '../../../../../components/other/toastify/toastifyHelper';
 import { employeesRequestDto } from './introductionRequestDto';
 import { employeesResponseDto } from './introductionResponseDto';
-import { apiSliceGetMethodRequestFilterPrepare } from '../../../apiSliceHelper/helperMethods';
+import { apiSliceGetListMethodRequestFilterPrepare } from '../../../apiSliceHelper/getMethodsAndTypes/getList/getListHelperMethods';
 
 const baseUrl = 'http://localhost:3000/api';
 const defaultContentType = 'application/json; charset=UTF-8';
@@ -61,7 +61,7 @@ export const introductionApi = createApi({
         let url = `/employees?maxResultCount=${maxResultCount}&skipCount=${skipCount}`;
 
         if (filterParams && filterParams.length > 0) {
-          url = apiSliceGetMethodRequestFilterPrepare(url, filterParams);
+          url = apiSliceGetListMethodRequestFilterPrepare(url, filterParams);
         }
 
         return {

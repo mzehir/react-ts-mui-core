@@ -1,8 +1,8 @@
-import { ApiSliceGetMethodRequestFilterParams } from './helperTypes';
+import { ApiSliceGetListMethodRequestFilterParams } from './getListRequestType';
 
-export const apiSliceGetMethodRequestFilterPrepare = (
+export const apiSliceGetListMethodRequestFilterPrepare = (
   urlParams: string,
-  filterParams: ApiSliceGetMethodRequestFilterParams[],
+  filterParams: ApiSliceGetListMethodRequestFilterParams[],
 ): string => {
   let url = urlParams;
   for (let i = 0; i < filterParams.length; i++) {

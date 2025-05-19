@@ -1,4 +1,4 @@
-import { ApiSliceGetMethodResponseDto } from '../../../apiSliceHelper/helperTypes';
+import { ApiSliceGetListMethodResponseDto } from '../../../apiSliceHelper/getMethodsAndTypes/getList/getListResponseType';
 import { Department } from '../../../../../utils/enums/introduction/department';
 import { Gender } from '../../../../../utils/enums/introduction/gender';
 import { PerformanceRating } from '../../../../../utils/enums/introduction/performanceRating';
@@ -22,4 +22,4 @@ interface EmployeeRowType {
   performanceRating: PerformanceRating;
 }
 
-export type employeesResponseDto = ApiSliceGetMethodResponseDto<EmployeeRowType>;
+export type employeesResponseDto = ApiSliceGetListMethodResponseDto<EmployeeRowType>;
