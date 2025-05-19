@@ -6,7 +6,7 @@
   "language": "Dil",
   "pleaseChooseLanguage": "Lütfen bir dil seçiniz",
   "pleaseChooseTheme": "Lütfen bir tema seçiniz",
-  
+
   "signOut": "Çıkış Yap",
   "search": "Arama",
 
@@ -17,5 +17,14 @@
   "customFilterSummaryFilterButton": "Filtrele",
 
   "readyMadeFiltersTitle": "Hızlı Filtreler",
-  "readyMadeFiltersClearFilterButtonText": "Filtreleri Kaldır"
+  "readyMadeFiltersClearFilterButtonText": "Filtreleri Kaldır",
+
+  "id": "Id",
+  "summary": "Özet ",
+  "columnName": "Kolon Adı",
+  "minValue": "Minumum Değer",
+  "maxValue": "Maksimum Değer",
+  "averageValue": "Ortalama Değer",
+  "sumValue": "Toplam Değer",
+  "rowCount": "Satır Sayısı"
 }

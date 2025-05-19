@@ -6,7 +6,7 @@
   "language": "Language",
   "pleaseChooseLanguage": "Please choose a language",
   "pleaseChooseTheme": "Please choose a theme",
-  
+
   "signOut": "Sign Out",
   "search": "Search",
 
@@ -17,5 +17,14 @@
   "customFilterSummaryFilterButton": "Filter",
 
   "readyMadeFiltersTitle": "Quick Filters",
-  "readyMadeFiltersClearFilterButtonText": "Remove Filters"
+  "readyMadeFiltersClearFilterButtonText": "Remove Filters",
+
+  "id": "Id",
+  "summary": "Summary",
+  "columnName": "Column Name",
+  "minValue": "Minimum Value",
+  "maxValue": "Maximum Value",
+  "averageValue": "Average Value",
+  "sumValue": "Total Value",
+  "rowCount": "Row Count"
 }
