@@ -49,9 +49,13 @@ const AGListGridComp = forwardRef<AgGridReact, AgListGridProps>(
       [gridCacheSettings, totalRowCount],
     );
 
+    // const preparedMaxBlocksInCache = React.useMemo(() => {
+    //   return Math.ceil(preparedGridSettings.totalRowCount / preparedGridSettings.cacheBlockSize);
+    // }, [preparedGridSettings.totalRowCount, preparedGridSettings.cacheBlockSize]);
+
     const preparedMaxBlocksInCache = React.useMemo(() => {
-      return Math.ceil(preparedGridSettings.totalRowCount / preparedGridSettings.cacheBlockSize);
-    }, [preparedGridSettings.totalRowCount, preparedGridSettings.cacheBlockSize]);
+      return Math.ceil(1000 / preparedGridSettings.cacheBlockSize);
+    }, [preparedGridSettings.cacheBlockSize]);
 
     const operationColumn = React.useMemo(
       () => prepareOperationColumn(onView, onEdit, onDelete, operationItems),
