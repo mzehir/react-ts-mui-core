@@ -34,7 +34,9 @@ export const agListGridPrepareColumn = (column: ColumnType, translate: (value: s
     hide: column.hide,
     editable: column.editable ?? false,
     sortable: column.sortable ?? false,
+    minWidth: column.minWidth,
     width: column.width,
+    flex: column.flex,
     headerName: column.isHeaderCellTranslation === false ? column.headerName : translate(column.headerName as string),
     headerTooltip:
       column.isHeaderCellTranslation === false ? column.headerName : translate(column.headerName as string),

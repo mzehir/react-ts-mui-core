@@ -245,7 +245,8 @@ export const employeeColumns: ColumnType[] = [
     field: 'performanceRating',
     cellDataType: 'text',
     headerName: 'introduction.performanceRating',
-    width: 300,
+    minWidth: 300,
+    flex: 1,
     cellRenderer: (params: CustomCellRendererProps) => {
       const performanceRating: `${PerformanceRating}` = params.value;
       let performanceRatingLabel: string = '';
