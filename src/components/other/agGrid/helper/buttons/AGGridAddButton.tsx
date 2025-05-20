@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import ButtonComp from '../../../../base/button/Button';
 import AddIcon from '@mui/icons-material/Add';
+import SummarizeIcon from '@mui/icons-material/Summarize';
 
 export interface IAGGridAddButtonProps {
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -20,6 +21,35 @@ export const AGGridAddButton = ({
       fullWidth={fullWidth}
       variant="contained"
       color="primary"
+      startIcon={icon}
+      isTranslation={true}
+      onClick={(event) => {
+        onClick(event);
+      }}
+    >
+      {text}
+    </ButtonComp>
+  );
+};
+
+export interface IAGGridSummaryOpenButtonProps {
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  fullWidth?: boolean;
+  text?: string;
+  icon?: ReactNode;
+}
+
+export const AGGridSummaryOpenButton = ({
+  onClick,
+  fullWidth = false,
+  text = 'Özeti Aç',
+  icon = <SummarizeIcon />,
+}: IAGGridSummaryOpenButtonProps) => {
+  return (
+    <ButtonComp
+      fullWidth={fullWidth}
+      variant="contained"
+      color="success"
       startIcon={icon}
       isTranslation={true}
       onClick={(event) => {

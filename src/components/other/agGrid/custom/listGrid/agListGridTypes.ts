@@ -1,6 +1,8 @@
 import { ReactNode } from 'react';
 import { ApiSliceGetListMethodRequestDto } from '../../../../../redux/slices/apiSliceHelper/getMethodsAndTypes/getList/getListRequestType';
 import { ApiSliceGetListMethodResponseDto } from '../../../../../redux/slices/apiSliceHelper/getMethodsAndTypes/getList/getListResponseType';
+import { ApiSliceGetReportMethodRequestDto } from '../../../../../redux/slices/apiSliceHelper/getMethodsAndTypes/getReport/getReportRequestType';
+import { ApiSliceGetReportMethodResponseDto } from '../../../../../redux/slices/apiSliceHelper/getMethodsAndTypes/getReport/getReportResponseType';
 import { IconButtonColor } from '../../../../base/iconButton/iconButtonHelper';
 import { ColumnType } from '../../helper/column/columnType';
 import { IAGGridAddButtonProps } from '../../helper/buttons/AGGridAddButton';
@@ -47,4 +49,7 @@ export interface AgListGridProps {
   operationItems?: OperationColumnItemFields[];
   gridCacheSettings?: GridCacheSettings;
   triggerGetList: (params: ApiSliceGetListMethodRequestDto) => Promise<{ data?: ApiSliceGetListMethodResponseDto }>;
+  triggerGetReport: (
+    params: ApiSliceGetReportMethodRequestDto,
+  ) => Promise<{ data?: ApiSliceGetReportMethodResponseDto }>;
 }

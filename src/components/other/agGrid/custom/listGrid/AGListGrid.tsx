@@ -1,19 +1,34 @@
 import React, { forwardRef } from 'react';
 import useLanguageContext from '../../../../../hooks/useLanguageContext';
+import { ApiSliceGetListMethodRequestFilterParams } from '../../../../../redux/slices/apiSliceHelper/getMethodsAndTypes/getList/getListRequestType';
 import { AgListGridProps } from './agListGridTypes';
 import { prepareOperationColumn, prepareColumns } from './agListGridHelper';
 import { ColumnFilterModel } from '../../helper/column/columnFilter/columnFilterParams';
 import { setLisGridInitialFilters } from './helper/agListGridInitialFilterHelper';
 import { transformAgListGridFiltersForRequest } from './helper/transformAgListGridFiltersForRequest';
-import { AGGridAddButton } from '../../helper/buttons/AGGridAddButton';
+import { AGGridAddButton, AGGridSummaryOpenButton } from '../../helper/buttons/AGGridAddButton';
 import { disableFloatingInputs, waitForGridHeader } from './helper/agListGridDisableFloatingInputs';
+import AGSummaryGrid from '../summaryGrid/AGSummaryGrid';
 import { GridReadyEvent, IDatasource } from 'ag-grid-community';
 import { AgGridReact } from 'ag-grid-react';
 import AgGridComp from '../../base/AgGrid';
 import BoxComp from '../../../../base/box/Box';
 
 const AGListGridComp = forwardRef<AgGridReact, AgListGridProps>(
-  ({ columns, addButtonProps, onView, onEdit, onDelete, operationItems, gridCacheSettings, triggerGetList }, ref) => {
+  (
+    {
+      columns,
+      addButtonProps,
+      onView,
+      onEdit,
+      onDelete,
+      operationItems,
+      gridCacheSettings,
+      triggerGetList,
+      triggerGetReport,
+    },
+    ref,
+  ) => {
     const { translate } = useLanguageContext();
     const [totalRowCount, setTotalRowCount] = React.useState<number>(1000);
 
@@ -119,6 +134,9 @@ const AGListGridComp = forwardRef<AgGridReact, AgListGridProps>(
 
     useDisableFloatingFilterInputs();
 
+    const [summaryGridOpen, setSummaryGridOpen] = React.useState(false);
+    const [activeFilterModel, setActiveFilterModel] = React.useState<ApiSliceGetListMethodRequestFilterParams[]>([]);
+
     return (
       <BoxComp
         display={'flex'}
@@ -132,7 +150,20 @@ const AGListGridComp = forwardRef<AgGridReact, AgListGridProps>(
         }}
       >
         {addButtonProps && (
-          <BoxComp display={'flex'} justifyContent={'end'}>
+          <BoxComp display={'flex'} justifyContent={'end'} gap={'5px'}>
+            <AGGridSummaryOpenButton
+              onClick={() => {
+                // @ts-expect-error finalise ref as MutableRefObject
+                const filterModel = ref?.current?.api?.getFilterModel();
+
+                const requestFilterDto =
+                  Object.keys(filterModel).length > 0 ? transformAgListGridFiltersForRequest(filterModel) : [];
+
+                setActiveFilterModel(requestFilterDto);
+                setSummaryGridOpen(true);
+              }}
+            />
+
             <AGGridAddButton
               text={addButtonProps.text}
               icon={addButtonProps.icon}
@@ -155,6 +186,16 @@ const AGListGridComp = forwardRef<AgGridReact, AgListGridProps>(
           cacheOverflowSize={preparedGridSettings.cacheOverflowSize}
           rowBuffer={preparedGridSettings.rowBuffer}
         />
+
+        {summaryGridOpen && (
+          <AGSummaryGrid
+            open={summaryGridOpen}
+            setOpen={setSummaryGridOpen}
+            listGridColumnDefs={columnDefs}
+            triggerGetReport={triggerGetReport}
+            filters={activeFilterModel}
+          />
+        )}
       </BoxComp>
     );
   },
