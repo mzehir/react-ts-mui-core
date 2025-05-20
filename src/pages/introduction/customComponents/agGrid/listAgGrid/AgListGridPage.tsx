@@ -1,5 +1,8 @@
 import React from 'react';
-import { useLazyGetEmployeesQuery } from '../../../../../redux/slices/services/introduction/custom/introductionApiSlices';
+import {
+  useLazyGetEmployeesReportQuery,
+  useLazyGetEmployeesQuery,
+} from '../../../../../redux/slices/services/introduction/custom/introductionApiSlices';
 import ContentFitLayout from '../../../../../layouts/pageLayouts/ContentFitLayout';
 import ReadyMadeFilters from '../../../../../components/other/agGrid/helper/readyMadeFilters/ReadyMadeFilters';
 import AGListGridComp from '../../../../../components/other/agGrid/custom/listGrid/AGListGrid';
@@ -11,6 +14,8 @@ import { AgGridReact } from 'ag-grid-react';
 
 const AgListGridPage: React.FC = () => {
   const [triggerGetEmployees] = useLazyGetEmployeesQuery();
+  const [triggerGetEmployeesReport] = useLazyGetEmployeesReportQuery();
+
   const gridRef = React.useRef<AgGridReact>(null);
 
   return (
@@ -40,6 +45,7 @@ const AgListGridPage: React.FC = () => {
         onEdit={(row: unknown) => console.log('Clicked for editing:', row)}
         onDelete={(row: unknown) => console.log('Clicked for deletion:', row)}
         triggerGetList={triggerGetEmployees}
+        triggerGetReport={triggerGetEmployeesReport}
         operationItems={[
           {
             type: 'iconButton',

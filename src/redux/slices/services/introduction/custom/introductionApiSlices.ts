@@ -1,9 +1,10 @@
 import { BaseQueryApi, FetchArgs, createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Toastify } from '../../../../../components/other/toastify/Toastify';
 import { ToastCompProps } from '../../../../../components/other/toastify/toastifyHelper';
-import { employeesRequestDto } from './introductionRequestDto';
-import { employeesResponseDto } from './introductionResponseDto';
+import { employeesReportRequestDto, employeesRequestDto } from './introductionRequestDto';
+import { employeesReportResponseDto, employeesResponseDto } from './introductionResponseDto';
 import { apiSliceGetListMethodRequestFilterPrepare } from '../../../apiSliceHelper/getMethodsAndTypes/getList/getListHelperMethods';
+import { apiSliceGetReportMethodRequestFilterPrepare } from '../../../apiSliceHelper/getMethodsAndTypes/getReport/getReportHelperMethods';
 
 const baseUrl = 'http://localhost:3000/api';
 const defaultContentType = 'application/json; charset=UTF-8';
@@ -77,7 +78,34 @@ export const introductionApi = createApi({
         },
       },
     }),
+    getEmployeesReport: builder.query<employeesReportResponseDto, employeesReportRequestDto>({
+      query: ({ filterParams }) => {
+        const method = 'GET';
+        let url = `/employeesReport`;
+
+        if (filterParams && filterParams.length > 0) {
+          url = apiSliceGetReportMethodRequestFilterPrepare(url, filterParams);
+        }
+
+        return {
+          method: method,
+          url: url,
+        };
+      },
+      extraOptions: {
+        headersContentType: 'none',
+        messages: {
+          successMessage: 'introduction.fetchPostsByIdSuccess',
+          errorMessage: 'introduction.fetchPostsByIdFailure',
+        },
+      },
+    }),
   }),
 });
 
-export const { useGetEmployeesQuery, useLazyGetEmployeesQuery } = introductionApi;
+export const {
+  useGetEmployeesQuery,
+  useLazyGetEmployeesQuery,
+  useGetEmployeesReportQuery,
+  useLazyGetEmployeesReportQuery,
+} = introductionApi;

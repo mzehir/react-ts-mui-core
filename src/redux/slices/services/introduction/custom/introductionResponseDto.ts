@@ -23,3 +23,15 @@ interface EmployeeRowType {
 }
 
 export type employeesResponseDto = ApiSliceGetListMethodResponseDto<EmployeeRowType>;
+
+export interface EmployeeReportRowType {
+  id: number;
+  columnName: string;
+  minValue: number;
+  maxValue: number;
+  averageValue: number;
+  sumValue: number;
+  rowCount: number;
+}
+
+export type employeesReportResponseDto = ApiSliceGetListMethodResponseDto<EmployeeReportRowType>;
