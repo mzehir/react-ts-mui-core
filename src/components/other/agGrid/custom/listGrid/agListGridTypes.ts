@@ -42,6 +42,7 @@ export type OperationColumnItemFields =
 
 export interface AgListGridProps {
   addButtonProps?: IAGGridAddButtonProps;
+  isSummary?: boolean;
   columns: ColumnType[];
   onView?: (row: unknown) => void;
   onEdit?: (row: unknown) => void;

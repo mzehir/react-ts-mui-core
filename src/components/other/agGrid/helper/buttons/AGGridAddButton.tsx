@@ -42,7 +42,7 @@ export interface IAGGridSummaryOpenButtonProps {
 export const AGGridSummaryOpenButton = ({
   onClick,
   fullWidth = false,
-  text = 'Özeti Aç',
+  text = 'button.showSummary',
   icon = <SummarizeIcon />,
 }: IAGGridSummaryOpenButtonProps) => {
   return (

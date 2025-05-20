@@ -41,6 +41,7 @@ const AgListGridPage: React.FC = () => {
             console.log(gridRef.current);
           },
         }}
+        isSummary={true}
         onView={(row: unknown) => console.log('Clicked for viewing:', row)}
         onEdit={(row: unknown) => console.log('Clicked for editing:', row)}
         onDelete={(row: unknown) => console.log('Clicked for deletion:', row)}

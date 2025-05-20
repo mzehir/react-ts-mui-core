@@ -19,6 +19,7 @@ const AGListGridComp = forwardRef<AgGridReact, AgListGridProps>(
     {
       columns,
       addButtonProps,
+      isSummary,
       onView,
       onEdit,
       onDelete,
@@ -149,28 +150,32 @@ const AGListGridComp = forwardRef<AgGridReact, AgListGridProps>(
           height: '100%',
         }}
       >
-        {addButtonProps && (
+        {(addButtonProps || isSummary) && (
           <BoxComp display={'flex'} justifyContent={'end'} gap={'5px'}>
-            <AGGridSummaryOpenButton
-              onClick={() => {
-                // @ts-expect-error finalise ref as MutableRefObject
-                const filterModel = ref?.current?.api?.getFilterModel();
+            {isSummary && (
+              <AGGridSummaryOpenButton
+                onClick={() => {
+                  // @ts-expect-error finalise ref as MutableRefObject
+                  const filterModel = ref?.current?.api?.getFilterModel();
 
-                const requestFilterDto =
-                  Object.keys(filterModel).length > 0 ? transformAgListGridFiltersForRequest(filterModel) : [];
+                  const requestFilterDto =
+                    Object.keys(filterModel).length > 0 ? transformAgListGridFiltersForRequest(filterModel) : [];
 
-                setActiveFilterModel(requestFilterDto);
-                setSummaryGridOpen(true);
-              }}
-            />
+                  setActiveFilterModel(requestFilterDto);
+                  setSummaryGridOpen(true);
+                }}
+              />
+            )}
 
-            <AGGridAddButton
-              text={addButtonProps.text}
-              icon={addButtonProps.icon}
-              onClick={(event) => {
-                addButtonProps.onClick(event);
-              }}
-            />
+            {addButtonProps && (
+              <AGGridAddButton
+                text={addButtonProps.text}
+                icon={addButtonProps.icon}
+                onClick={(event) => {
+                  addButtonProps.onClick(event);
+                }}
+              />
+            )}
           </BoxComp>
         )}
 
@@ -187,7 +192,7 @@ const AGListGridComp = forwardRef<AgGridReact, AgListGridProps>(
           rowBuffer={preparedGridSettings.rowBuffer}
         />
 
-        {summaryGridOpen && (
+        {summaryGridOpen && isSummary && (
           <AGSummaryGrid
             open={summaryGridOpen}
             setOpen={setSummaryGridOpen}
