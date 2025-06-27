@@ -1,16 +1,18 @@
 import { UserType } from '../utils/enums/userTypes';
+
 import { COMPONENT_ROUTER, COMPONENT_ROUTER_ITEMS } from './helper/introductionRouter/componentRouter';
 import {
   CUSTOM_COMPONENT_ROUTER,
   CUSTOM_COMPONENT_ROUTER_ITEMS,
 } from './helper/introductionRouter/customComponentRouter';
+import { SIMPLE_PROJECT_ROUTER, SIMPLE_PROJECT_ROUTER_ITEMS } from './helper/introductionRouter/simpleProjectsRouter';
 import { REDUX_ROUTER, REDUX_ROUTER_ITEMS } from './helper/introductionRouter/reduxRouter';
 import { RHF_ROUTER, RHF_ROUTER_ITEMS } from './helper/introductionRouter/reactHookFormRouter';
-import { AUTH_ROUTER, AUTH_ROUTER_ITEMS } from './helper/authRouter';
-import { ACCESS_ERRORS_ROUTER, ACCESS_ERRORS_ROUTER_ITEMS } from './helper/accessErrorsRouter';
 import { ROUTER_BY_USER_TYPE, ROUTER_BY_USER_TYPE_ITEMS } from './helper/introductionRouter/routerByUserType';
 import { OTHER_ROUTER_ITEMS } from './helper/otherRouter';
-import { SIMPLE_PROJECT_ROUTER, SIMPLE_PROJECT_ROUTER_ITEMS } from './helper/introductionRouter/simpleProjectsRouter';
+
+import { AUTH_ROUTER, AUTH_ROUTER_ITEMS } from './helper/authRouter';
+import { ACCESS_ERRORS_ROUTER, ACCESS_ERRORS_ROUTER_ITEMS } from './helper/accessErrorsRouter';
 
 export interface RouterItem {
   whoCanSeeForSidebar?: UserType[];

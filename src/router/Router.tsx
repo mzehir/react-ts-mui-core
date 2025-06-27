@@ -1,9 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { prepareAllRoutes } from './routerConstant';
+
 // Pages Introduction
 import IntroDashboardPage from '../pages/introduction/pages/dashboard/IntroDashboard';
 import IntroPricingPage from '../pages/introduction/pages/pricing/IntroPricing';
 import IntroContactPage from '../pages/introduction/pages/contact/IntroContact';
+// Pages Introduction
+
 // Components Introduction
 import TypographyPage from '../pages/introduction/components/typography/TypographyPage';
 import ButtonPage from '../pages/introduction/components/button/ButtonPage';
@@ -17,18 +20,34 @@ import ToastifyPage from '../pages/introduction/components/toastify/ToastifyPage
 import TextFieldPage from '../pages/introduction/components/textField/TextFieldPage';
 import DatePickerPage from '../pages/introduction/components/datePicker/DatePickerPage';
 import DialogPage from '../pages/introduction/components/dialog/DialogPage';
+// Components Introduction
+
 // Custom Components Introduction
 import CustomFilterPage from '../pages/introduction/customComponents/customFilter/CustomFilterPage';
 import CustomTablePage from '../pages/introduction/customComponents/table/CustomTablePage';
 import AgListGridPage from '../pages/introduction/customComponents/agGrid/listAgGrid/AgListGridPage';
 import TextEditorPage from '../pages/introduction/customComponents/textEditor/TextEditorPage';
 // Custom Components Introduction
+
+// Simple Project Introduction
 import OrderProjectPage from '../pages/introduction/simpleProjects/orderProject/OrderProjectPage';
+// Simple Project Introduction
+
 // Redux Introduction
 import ReduxStandardExamp from '../pages/introduction/redux/ReduxStandardExamp';
 import RTKApiExamp from '../pages/introduction/redux/RTKApiExamp';
+// Redux Introduction
+
 // RHF Introduction
 import RhfStandardExamp from '../pages/introduction/rhf/RhfStandardExamp';
+// RHF Introduction
+
+// Router By User Type Introduction
+import TeacherPage from '../pages/introduction/routerByUserType/TeacherPage';
+import StudentPage from '../pages/introduction/routerByUserType/StudentPage';
+import GuestPage from '../pages/introduction/routerByUserType/GuestPage';
+// Router By User Type Introduction
+
 // Auth
 import SignUpPage from '../pages/auth/signUp/SignUp';
 import SignInPage from '../pages/auth/signIn/SignIn';
@@ -40,10 +59,7 @@ import NotFoundPage from '../pages/auth/NotFoundPage';
 import ServerErrorPage from '../pages/auth/ServerErrorPage';
 import ForbiddenPage from '../pages/auth/ForbiddenPage';
 //// import ErrorPage from '../pages/auth/ErrorPage';
-// Router By User Type
-import TeacherPage from '../pages/introduction/routerByUserType/TeacherPage';
-import StudentPage from '../pages/introduction/routerByUserType/StudentPage';
-import GuestPage from '../pages/introduction/routerByUserType/GuestPage';
+
 // Guard
 import Guard from '../guards/Guard';
 // Layout
@@ -268,6 +284,78 @@ const rhfIntroductionRouter = [
   },
 ];
 
+const routerByUserTypeIntroductionRouter = [
+  {
+    path: allRoutes.INTRODUCTION_TEACHER_PAGE.path,
+    element: (
+      <Guard routeKey={allRoutes.INTRODUCTION_TEACHER_PAGE.key}>
+        <AuthenticatedLayout>
+          <TeacherPage />
+        </AuthenticatedLayout>
+      </Guard>
+    ),
+  },
+  {
+    path: allRoutes.INTRODUCTION_STUDENT_PAGE.path,
+    element: (
+      <Guard routeKey={allRoutes.INTRODUCTION_STUDENT_PAGE.key}>
+        <AuthenticatedLayout>
+          <StudentPage />
+        </AuthenticatedLayout>
+      </Guard>
+    ),
+  },
+  {
+    path: allRoutes.INTRODUCTION_GUEST_PAGE.path,
+    element: (
+      <Guard routeKey={allRoutes.INTRODUCTION_GUEST_PAGE.key}>
+        <UnauthenticatedLayout>
+          <GuestPage />
+        </UnauthenticatedLayout>
+      </Guard>
+    ),
+  },
+];
+
+const otherIntroductionRouter = [
+  {
+    path: allRoutes.DASHBOARD_PAGE.path,
+    element: (
+      <Guard routeKey={allRoutes.DASHBOARD_PAGE.key}>
+        <AuthenticatedLayout>
+          <IntroDashboardPage />
+        </AuthenticatedLayout>
+      </Guard>
+    ),
+    // errorElement: <ErrorPage />,
+    errorElement: (
+      <UnauthenticatedLayout>
+        <NotFoundPage />
+      </UnauthenticatedLayout>
+    ),
+  },
+  {
+    path: allRoutes.PRICING_PAGE.path,
+    element: (
+      <Guard routeKey={allRoutes.PRICING_PAGE.key}>
+        <AuthenticatedLayout>
+          <IntroPricingPage />
+        </AuthenticatedLayout>
+      </Guard>
+    ),
+  },
+  {
+    path: allRoutes.CONTACT_PAGE.path,
+    element: (
+      <Guard routeKey={allRoutes.CONTACT_PAGE.key}>
+        <AuthenticatedLayout>
+          <IntroContactPage />
+        </AuthenticatedLayout>
+      </Guard>
+    ),
+  },
+];
+
 const authRouter = [
   {
     path: allRoutes.SIGN_UP.path,
@@ -354,77 +442,24 @@ const accessErrorRouter = [
   },
 ];
 
-const routerByUserType = [
-  {
-    path: allRoutes.INTRODUCTION_TEACHER_PAGE.path,
-    element: (
-      <Guard routeKey={allRoutes.INTRODUCTION_TEACHER_PAGE.key}>
-        <AuthenticatedLayout>
-          <TeacherPage />
-        </AuthenticatedLayout>
-      </Guard>
-    ),
-  },
-  {
-    path: allRoutes.INTRODUCTION_STUDENT_PAGE.path,
-    element: (
-      <Guard routeKey={allRoutes.INTRODUCTION_STUDENT_PAGE.key}>
-        <AuthenticatedLayout>
-          <StudentPage />
-        </AuthenticatedLayout>
-      </Guard>
-    ),
-  },
-  {
-    path: allRoutes.INTRODUCTION_GUEST_PAGE.path,
-    element: (
-      <Guard routeKey={allRoutes.INTRODUCTION_GUEST_PAGE.key}>
-        <UnauthenticatedLayout>
-          <GuestPage />
-        </UnauthenticatedLayout>
-      </Guard>
-    ),
-  },
-];
-
-const otherRouter = [
-  {
-    path: allRoutes.DASHBOARD_PAGE.path,
-    element: (
-      <Guard routeKey={allRoutes.DASHBOARD_PAGE.key}>
-        <AuthenticatedLayout>
-          <IntroDashboardPage />
-        </AuthenticatedLayout>
-      </Guard>
-    ),
-    // errorElement: <ErrorPage />,
-    errorElement: (
-      <UnauthenticatedLayout>
-        <NotFoundPage />
-      </UnauthenticatedLayout>
-    ),
-  },
-  {
-    path: allRoutes.PRICING_PAGE.path,
-    element: (
-      <Guard routeKey={allRoutes.PRICING_PAGE.key}>
-        <AuthenticatedLayout>
-          <IntroPricingPage />
-        </AuthenticatedLayout>
-      </Guard>
-    ),
-  },
-  {
-    path: allRoutes.CONTACT_PAGE.path,
-    element: (
-      <Guard routeKey={allRoutes.CONTACT_PAGE.key}>
-        <AuthenticatedLayout>
-          <IntroContactPage />
-        </AuthenticatedLayout>
-      </Guard>
-    ),
-  },
-];
+// const otherRouter = [
+//   {
+//     path: '/',
+//     element: (
+//       <Guard routeKey={allRoutes.DASHBOARD_PAGE.key}>
+//         <AuthenticatedLayout>
+//           <div>Dashboard Page</div>
+//         </AuthenticatedLayout>
+//       </Guard>
+//     ),
+//     // errorElement: <ErrorPage />,
+//     errorElement: (
+//       <UnauthenticatedLayout>
+//         <NotFoundPage />
+//       </UnauthenticatedLayout>
+//     ),
+//   },
+// ];
 
 export const router = createBrowserRouter([
   ...componentsIntroductionRouter,
@@ -432,8 +467,9 @@ export const router = createBrowserRouter([
   ...simpleProjectsIntroductionRouter,
   ...reduxIntroductionRouter,
   ...rhfIntroductionRouter,
-  ...otherRouter,
+  ...routerByUserTypeIntroductionRouter,
+  ...otherIntroductionRouter,
   ...authRouter,
   ...accessErrorRouter,
-  ...routerByUserType,
+  // ...otherRouter,
 ]);
