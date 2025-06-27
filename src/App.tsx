@@ -11,26 +11,27 @@ import createTheme from './theme/index';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './router/Router';
 
+import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
-import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 // Register AG Grid modules
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 function App() {
-  const dispatch = useDispatch();
-  const userFields: AuthState | null = localStorageGetItem('userFields');
   const { theme } = useThemeContext();
+  const dispatch = useDispatch();
+
+  const userFields: AuthState | null = localStorageGetItem('userFields');
 
   const [sessionControlCompleted, setSessionControlCompleted] = React.useState(false);
 
