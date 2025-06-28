@@ -1,11 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { prepareAllRoutes } from './routerConstant';
 
+//! 001 Start: Imports that must be deleted to start a project
 // Pages Introduction
 import IntroDashboardPage from '../pages/introduction/pages/dashboard/IntroDashboard';
 import IntroPricingPage from '../pages/introduction/pages/pricing/IntroPricing';
 import IntroContactPage from '../pages/introduction/pages/contact/IntroContact';
-// Pages Introduction
 
 // Components Introduction
 import TypographyPage from '../pages/introduction/components/typography/TypographyPage';
@@ -20,33 +20,28 @@ import ToastifyPage from '../pages/introduction/components/toastify/ToastifyPage
 import TextFieldPage from '../pages/introduction/components/textField/TextFieldPage';
 import DatePickerPage from '../pages/introduction/components/datePicker/DatePickerPage';
 import DialogPage from '../pages/introduction/components/dialog/DialogPage';
-// Components Introduction
 
 // Custom Components Introduction
 import CustomFilterPage from '../pages/introduction/customComponents/customFilter/CustomFilterPage';
 import CustomTablePage from '../pages/introduction/customComponents/table/CustomTablePage';
 import AgListGridPage from '../pages/introduction/customComponents/agGrid/listAgGrid/AgListGridPage';
 import TextEditorPage from '../pages/introduction/customComponents/textEditor/TextEditorPage';
-// Custom Components Introduction
 
 // Simple Project Introduction
 import OrderProjectPage from '../pages/introduction/simpleProjects/orderProject/OrderProjectPage';
-// Simple Project Introduction
 
 // Redux Introduction
 import ReduxStandardExamp from '../pages/introduction/redux/ReduxStandardExamp';
 import RTKApiExamp from '../pages/introduction/redux/RTKApiExamp';
-// Redux Introduction
 
 // RHF Introduction
 import RhfStandardExamp from '../pages/introduction/rhf/RhfStandardExamp';
-// RHF Introduction
 
 // Router By User Type Introduction
 import TeacherPage from '../pages/introduction/routerByUserType/TeacherPage';
 import StudentPage from '../pages/introduction/routerByUserType/StudentPage';
 import GuestPage from '../pages/introduction/routerByUserType/GuestPage';
-// Router By User Type Introduction
+//! 001 Finish: Imports that must be deleted to start a project
 
 // Auth
 import SignUpPage from '../pages/auth/signUp/SignUp';
@@ -68,6 +63,7 @@ import UnauthenticatedLayout from '../layouts/unauthenticatedLayout/Unauthentica
 
 const allRoutes = prepareAllRoutes();
 
+//! 002 Start: Definitions that must be deleted to start a project
 const componentsIntroductionRouter = [
   {
     path: allRoutes.INTRODUCTION_TYPOGRAPHY_PAGE.path,
@@ -355,6 +351,7 @@ const otherIntroductionRouter = [
     ),
   },
 ];
+//! 002 Finish: Definitions that must be deleted to start a project
 
 const authRouter = [
   {
@@ -442,6 +439,7 @@ const accessErrorRouter = [
   },
 ];
 
+//! 003 Start: Definitions that must be activated to start a project
 // const otherRouter = [
 //   {
 //     path: '/',
@@ -452,7 +450,7 @@ const accessErrorRouter = [
 //         </AuthenticatedLayout>
 //       </Guard>
 //     ),
-//     // errorElement: <ErrorPage />,
+
 //     errorElement: (
 //       <UnauthenticatedLayout>
 //         <NotFoundPage />
@@ -460,8 +458,10 @@ const accessErrorRouter = [
 //     ),
 //   },
 // ];
+//! 003 Finish: Definitions that must be activated to start a project
 
 export const router = createBrowserRouter([
+  //! 004 Start: Rows to be deleted to start a project
   ...componentsIntroductionRouter,
   ...customComponentsIntroductionRouter,
   ...simpleProjectsIntroductionRouter,
@@ -469,7 +469,12 @@ export const router = createBrowserRouter([
   ...rhfIntroductionRouter,
   ...routerByUserTypeIntroductionRouter,
   ...otherIntroductionRouter,
+  //! 004 Finish: Rows to be deleted to start a project
+
   ...authRouter,
   ...accessErrorRouter,
+
+  //! 005 Start:  Rows that must be activated to start a project
   // ...otherRouter,
+  //! 005 Finisj:  Rows that must be activated to start a project
 ]);
