@@ -8,6 +8,7 @@
     g- /src/redux/slices/introductionSlices
     h- /src/redux/slices/services/introduction
     i- /src/utils/enums/introduction
+    j- /src/assets/other
 
 2- Silinmesi gereken dosyalar
     a- /package-lock.json
@@ -58,6 +59,6 @@
     f- /src/pages/auth/signIn/SignIn.tsx
         - '//! 001 Start: Imports that must be deleted to start a project' ile '//! 001 Finish: Imports that must be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
 
-        - '//! 002 Start: Rows to be deleted to start a project' ile '//! 002 Finish: Rows to be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
+        - '{/* //! 002 Start: Rows to be deleted to start a project */}' ile '{/* //! 002 Finish: Rows to be deleted to start a project */} yorum satırı arasındaki tüm satırlar silinmelidir.
 
         - '//! 003 Start: Definitions that must be deleted to start a project' ile '//! 003 Finish: Definitions that must be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.

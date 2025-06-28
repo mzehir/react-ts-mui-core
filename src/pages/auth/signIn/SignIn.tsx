@@ -42,10 +42,10 @@ const SignUpPage: React.FC = () => {
 
         <FooterSection />
       </Wrapper>
-      //! 002 Start: Rows to be deleted to start a project
+      {/* //! 002 Start: Rows to be deleted to start a project */}
       <br />
       <FakeUsersSection />
-      //! 002 Finish: Rows to be deleted to start a project
+      {/* //! 002 Finish: Rows to be deleted to start a project */}
     </React.Fragment>
   );
 };
