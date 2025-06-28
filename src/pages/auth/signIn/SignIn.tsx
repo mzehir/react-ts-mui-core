@@ -1,20 +1,22 @@
 import React, { useEffect } from 'react';
-import styled from '@emotion/styled';
+import { useNavigate } from 'react-router-dom';
+import { AuthState } from '../../../redux/slices/authSlice';
+import { prepareAllRoutes } from '../../../router/routerConstant';
 import LogoSection from './sections/Logo';
 import HeaderSection from './sections/Header';
 import BodySection from './sections/Body';
 import FooterSection from './sections/Footer';
 import PaperComp from '../../../components/base/paper/Paper';
 import AlertComp from '../../../components/base/alert/Alert';
-import fakeUsersData from '../../../db/users.json';
-import { AuthState } from '../../../redux/slices/authSlice';
 import GridComp from '../../../components/base/grid/Grid';
 import TypographyComp from '../../../components/base/typography/Typography';
 import BoxComp from '../../../components/base/box/Box';
-import { isTheAppInPromotion } from '../../../appSettings';
-import { useNavigate } from 'react-router-dom';
-import { prepareAllRoutes } from '../../../router/routerConstant';
 import LinkComp from '../../../components/base/link/Link';
+import styled from '@emotion/styled';
+
+//! 001 Start: Imports that must be deleted to start a project
+import fakeUsersData from '../../../db/users.json';
+//! 001 Finish: Imports that must be deleted to start a project
 
 const Wrapper = styled(PaperComp)`
   width: 100%;
@@ -29,7 +31,6 @@ const SignUpPage: React.FC = () => {
   return (
     <React.Fragment>
       <LogoSection />
-
       <Wrapper>
         <HeaderSection />
 
@@ -41,16 +42,17 @@ const SignUpPage: React.FC = () => {
 
         <FooterSection />
       </Wrapper>
-
+      //! 002 Start: Rows to be deleted to start a project
       <br />
-
-      {isTheAppInPromotion && <FakeUsersSection />}
+      <FakeUsersSection />
+      //! 002 Finish: Rows to be deleted to start a project
     </React.Fragment>
   );
 };
 
 export default SignUpPage;
 
+//! 003 Start: Definitions that must be deleted to start a project
 const FakeUsersSection: React.FC = () => {
   const navigate = useNavigate();
   const allRoutes = prepareAllRoutes();
@@ -165,3 +167,4 @@ const FakeUsersSection: React.FC = () => {
     </BoxComp>
   );
 };
+//! 003 Finish: Definitions that must be deleted to start a project
