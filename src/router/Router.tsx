@@ -474,7 +474,7 @@ export const router = createBrowserRouter([
   ...authRouter,
   ...accessErrorRouter,
 
-  //! 005 Start:  Rows that must be activated to start a project
+  //! 005 Start: Rows that must be activated to start a project
   // ...otherRouter,
-  //! 005 Finisj:  Rows that must be activated to start a project
+  //! 005 Finish: Rows that must be activated to start a project
 ]);
