@@ -1,9 +1,9 @@
 /* eslint-disable */
 
 const fs = require('fs');
-const { logSuccess, logError, logWarning, logInfo } = require('../utils/logger');
-const { confirmQuestion } = require('../utils/prompts');
-const { directoriesToDelete, filesToDelete } = require('../config/paths');
+const { logSuccess, logError, logWarning, logInfo } = require('../utils/logger.cjs');
+const { confirmQuestion } = require('../utils/prompts.cjs');
+const { directoriesToDelete, filesToDelete } = require('../config/paths.cjs');
 
 // Klasörleri kontrol etme fonksiyonu
 function checkDirectories() {

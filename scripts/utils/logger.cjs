@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-const colors = require('./colors');
+const colors = require('./colors.cjs');
 
 function log(message, color = 'reset') {
   console.log(`${colors[color]}${message}${colors.reset}`);

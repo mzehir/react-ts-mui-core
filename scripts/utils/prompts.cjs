@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 const readline = require('readline');
-const { log, logInfo, logWarning, logError } = require('./logger');
+const { log, logInfo, logWarning, logError } = require('./logger.cjs');
 
 // Readline interface oluştur
 const rl = readline.createInterface({

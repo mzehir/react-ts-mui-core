@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 /* eslint-disable */
 
-const { log, logSuccess, logError, logInfo } = require('./utils/logger');
-const { deleteDirectories, deleteFiles } = require('./operations/deleteOperations');
-const { editFiles } = require('./operations/editOperations');
-const { selectLanguage, closeInterface } = require('./utils/prompts');
-const languages = require('./utils/languages');
+const { log, logSuccess, logError, logInfo } = require('./utils/logger.cjs');
+const { deleteDirectories, deleteFiles } = require('./operations/deleteOperations.cjs');
+const { editFiles } = require('./operations/editOperations.cjs');
+const { selectLanguage, closeInterface } = require('./utils/prompts.cjs');
+const languages = require('./utils/languages.cjs');
 
 // Ana temizlik fonksiyonu
 async function cleanupProject() {

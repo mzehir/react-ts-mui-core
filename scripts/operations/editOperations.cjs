@@ -1,9 +1,9 @@
 /* eslint-disable */
 
 const fs = require('fs');
-const { logInfo, logSuccess, logError, logWarning } = require('../utils/logger');
-const { confirmQuestion, getTextInput } = require('../utils/prompts');
-const { filesToEdit } = require('../config/paths');
+const { logInfo, logSuccess, logError, logWarning } = require('../utils/logger.cjs');
+const { confirmQuestion, getTextInput } = require('../utils/prompts.cjs');
+const { filesToEdit } = require('../config/paths.cjs');
 
 // .env dosyasını düzenleme
 async function editEnvFile(lang, texts) {
