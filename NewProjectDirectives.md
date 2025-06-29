@@ -19,57 +19,57 @@
     b- /package.json
         - "name": "dev-starter", => Bu satırdaki proje adı güncellenmelidir.
 
-    c- /src/router/Router.tsx
-        - '//! 001 Start: Imports that must be deleted to start a project' ile '//! 001 Finish: Imports that must be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
-
-        - '//! 002 Start: Definitions that must be deleted to start a project' ile '//! 002 Finish: Definitions that must be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
-
-        - '//! 003 Start: Definitions that must be activated to start a project' ile '//! 003 Finish: Definitions that must be activated to start a project' yorum satırı arasındaki tüm satırlar aktif edilmelidir.
-
-        - '//! 004 Start: Rows to be deleted to start a project' ile '//! 004 Finish: Rows to be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
-
-        - '//! 005 Start: Rows that must be activated to start a project' ile '//! 005 Finish: Rows that must be activated to start a project' yorum satırı arasındaki tüm satırlar aktif edilmelidir.
-
-    d- /src/router/routerConstant.ts
-        - '//! 001 Start: Imports that must be deleted to start a project' ile '//! 001 Finish: Imports that must be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
-
-        - '//! 002 Start: Imports that must be activated to start a project' ile '//! 002 Finish: Imports that must be activated to start a project' yorum satırı arasındaki tüm satırlar aktif edilmelidir.
-
-        - '//! 003 Start: Rows to be deleted to start a project' ile '//! 003 Finish: Rows to be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
-
-        - '//! 004 Start: Rows that must be activated to start a project' ile '//! 004 Finish: Rows that must be activated to start a project' yorum satırı arasındaki tüm satırlar aktif edilmelidir.
-
-        - '//! 005 Start: Rows to be deleted to start a project' ile '//! 005 Finish: Rows to be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
-
-        - '//! 006 Start: Rows that must be activated to start a project' ile '//! 006 Finish: Rows that must be activated to start a project' yorum satırı arasındaki tüm satırlar aktif edilmelidir.
-
-    e- /src/redux/store.ts
-        - '//! 001 Start: Imports that must be deleted to start a project' ile '//! 001 Finish: Imports that must be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
-
-        - '//! 002 Start: Rows to be deleted to start a project' ile '//! 002 Finish: Rows to be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
-
-        - '//! 003 Start: Definitions that must be deleted to start a project' ile '//! 003 Finish: Definitions that must be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
-
-        - '//! 004 Start: Definitions that must be activated to start a project' ile '//! 004 Finish: Definitions that must be activated to start a project' yorum satırı arasındaki tüm satırlar aktif edilmelidir.
-
-    f- /src/pages/auth/signIn/SignIn.tsx
-        - '//! 001 Start: Imports that must be deleted to start a project' ile '//! 001 Finish: Imports that must be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
-
-        - '{/* //! 002 Start: Rows to be deleted to start a project */}' ile '{/* //! 002 Finish: Rows to be deleted to start a project */} yorum satırı arasındaki tüm satırlar silinmelidir.
-
-        - '//! 003 Start: Definitions that must be deleted to start a project' ile '//! 003 Finish: Definitions that must be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
-
-    g- /src/db/users.json
+    c- /src/db/users.json
         - Bu dosyadaki array içerisinde yer alan üç objeden son ikisi silinmelidir. Yani "userType": "admin", olan obje silinmemelidir, diğer objeler silinmelidir.
+
+    d- /src/router/Router.tsx
+        - '//! 001DeletedStart' ile '//! 001DeletedFinish' yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+
+        - '//! 002DeletedStart' ile '//! 002DeletedFinish' yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+
+        - '//! 003ActivatedStart' ile '//! 003ActivatedFinish' yorum satırları arasındaki tüm satırlar aktif edilmelidir ve bu satırlar silinmelidir.
+
+        - '//! 004DeletedStart' ile '//! 004DeletedFinish' yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+
+        - '//! 005ActivatedStart' ile '//! 005ActivatedFinish' yorum satırları arasındaki tüm satırlar aktif edilmelidir ve bu satırlar silinmelidir.
+
+    e- /src/router/routerConstant.ts
+        - '//! 001DeletedStart' ile '//! 001DeletedFinish' yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+
+        - '//! 002ActivatedStart' ile '//! 002ActivatedFinish' yorum satırları arasındaki tüm satırlar aktif edilmelidir ve bu satırlar silinmelidir.
+
+        - '//! 003DeletedStart' ile '//! 003DeletedFinish' yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+
+        - '//! 004ActivatedStart' ile '//! 004ActivatedFinish' yorum satırları arasındaki tüm satırlar aktif edilmelidir ve bu satırlar silinmelidir.
+
+        - '//! 005DeletedStart' ile '//! 005DeletedFinish' yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+
+        - '//! 006ActivatedStart' ile '//! 006ActivatedFinish' yorum satırları arasındaki tüm satırlar aktif edilmelidir ve bu satırlar silinmelidir.
+
+    f- /src/redux/store.ts
+        - '//! 001DeletedStart' ile '//! 001DeletedFinish' yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+
+        - '//! 002DeletedStart' ile '//! 002DeletedFinish' yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+
+        - '//! 003DeletedStart' ile '//! 003DeletedFinish' yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+
+        - '//! 004ActivatedStart' ile '//! 004ActivatedFinish' yorum satırları arasındaki tüm satırlar aktif edilmelidir ve bu satırlar silinmelidir.
+
+    g- /src/pages/auth/signIn/SignIn.tsx
+        - '//! 001DeletedStart' ile '//! 001DeletedFinish' yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+
+        - '{/* //! 002DeletedStart */}' ile '{/* //! 002DeletedFinish */} yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+
+        - '//! 003DeletedStart' ile '//! 003DeletedFinish' yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
     
     h- /src/utils/enums/userTypes.ts
-        - '//! 001 Start: Rows to be deleted to start a project' ile '//! 001 Finish: Rows to be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
+        - '//! 001DeletedStart' ile '//! 001DeletedFinish' yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
 
     i- /src/i18n/i18n.ts
-        - '//! 001 Start: Imports that must be deleted to start a project' ile '//! 001 Finish: Imports that must be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
+        - '//! 001DeletedStart' ile '//! 001DeletedFinish' yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
 
-        - '//! 002 Start: Imports that must be deleted to start a project' ile '//! 002 Finish: Imports that must be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
+        - '//! 002DeletedStart' ile '//! 002DeletedFinish' yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
 
-        - '//! 003 Start: Rows to be deleted to start a project' ile '//! 003 Finish: Rows to be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
+        - '//! 003DeletedStart' ile '//! 003DeletedFinish' yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
 
-        - '//! 004 Start: Rows to be deleted to start a project' ile '//! 004 Finish: Rows to be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
+        - '//! 004DeletedStart' ile '//! 004DeletedFinish' yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.

@@ -14,9 +14,9 @@ import BoxComp from '../../../components/base/box/Box';
 import LinkComp from '../../../components/base/link/Link';
 import styled from '@emotion/styled';
 
-//! 001 Start: Imports that must be deleted to start a project
+//! 001DeletedStart
 import fakeUsersData from '../../../db/users.json';
-//! 001 Finish: Imports that must be deleted to start a project
+//! 001DeletedFinish
 
 const Wrapper = styled(PaperComp)`
   width: 100%;
@@ -42,17 +42,17 @@ const SignUpPage: React.FC = () => {
 
         <FooterSection />
       </Wrapper>
-      {/* //! 002 Start: Rows to be deleted to start a project */}
+      {/* //! 002DeletedStart */}
       <br />
       <FakeUsersSection />
-      {/* //! 002 Finish: Rows to be deleted to start a project */}
+      {/* //! 002DeletedFinish */}
     </React.Fragment>
   );
 };
 
 export default SignUpPage;
 
-//! 003 Start: Definitions that must be deleted to start a project
+//! 003DeletedStart
 const FakeUsersSection: React.FC = () => {
   const navigate = useNavigate();
   const allRoutes = prepareAllRoutes();
@@ -167,4 +167,4 @@ const FakeUsersSection: React.FC = () => {
     </BoxComp>
   );
 };
-//! 003 Finish: Definitions that must be deleted to start a project
+//! 003DeletedFinish

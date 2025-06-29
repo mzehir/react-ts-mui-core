@@ -1,6 +1,6 @@
 import { UserType } from '../utils/enums/userTypes';
 
-//! 001 Start: Imports that must be deleted to start a project
+//! 001DeletedStart
 import { COMPONENT_ROUTER, COMPONENT_ROUTER_ITEMS } from './helper/introductionRouter/componentRouter';
 import {
   CUSTOM_COMPONENT_ROUTER,
@@ -11,14 +11,14 @@ import { REDUX_ROUTER, REDUX_ROUTER_ITEMS } from './helper/introductionRouter/re
 import { RHF_ROUTER, RHF_ROUTER_ITEMS } from './helper/introductionRouter/reactHookFormRouter';
 import { ROUTER_BY_USER_TYPE, ROUTER_BY_USER_TYPE_ITEMS } from './helper/introductionRouter/routerByUserType';
 import { OTHER_ROUTER_ITEMS as INTRO_OTHER_ROUTER_ITEMS } from './helper/introductionRouter/otherRouter';
-//! 001 Finish: Imports that must be deleted to start a project
+//! 001DeletedFinish
 
 import { AUTH_ROUTER, AUTH_ROUTER_ITEMS } from './helper/authRouter';
 import { ACCESS_ERRORS_ROUTER, ACCESS_ERRORS_ROUTER_ITEMS } from './helper/accessErrorsRouter';
 
-//! 002 Start: Imports that must be activated to start a project
+//! 002ActivatedStart
 // import { OTHER_ROUTER_ITEMS } from './helper/otherRouter';
-//! 002 Finish: Imports that must be activated to start a project
+//! 002ActivatedFinish
 
 export interface RouterItem {
   whoCanSeeForSidebar?: UserType[];
@@ -41,7 +41,7 @@ export interface RouterWrapper {
 
 export const prepareAllRoutes = () => {
   const obj = {
-    //! 003 Start: Rows to be deleted to start a project
+    //! 003DeletedStart
     ...COMPONENT_ROUTER_ITEMS,
     ...CUSTOM_COMPONENT_ROUTER_ITEMS,
     ...SIMPLE_PROJECT_ROUTER_ITEMS,
@@ -49,14 +49,14 @@ export const prepareAllRoutes = () => {
     ...RHF_ROUTER_ITEMS,
     ...ROUTER_BY_USER_TYPE_ITEMS,
     ...INTRO_OTHER_ROUTER_ITEMS,
-    //! 003 Finish: Rows to be deleted to start a project
+    //! 003DeletedFinish
 
     ...AUTH_ROUTER_ITEMS,
     ...ACCESS_ERRORS_ROUTER_ITEMS,
 
-    //! 004 Start: Rows that must be activated to start a project
+    //! 004ActivatedStart
     // ...OTHER_ROUTER_ITEMS,
-    //! 004 Finish: Rows that must be activated to start a project
+    //! 004ActivatedFinish
   };
 
   return obj;
@@ -65,7 +65,7 @@ export const prepareAllRoutes = () => {
 export const prepareRoutesForSidebar = (userType: UserType): (RouterWrapper | RouterItem)[] => {
   const arr: (RouterWrapper | RouterItem)[] = [];
 
-  //! 005 Start: Rows to be deleted to start a project
+  //! 005DeletedStart
   const INTRO_OTHER_ROUTER_ITEMS_KEYS = Object.keys(INTRO_OTHER_ROUTER_ITEMS);
 
   if (COMPONENT_ROUTER.whoCanSeeForSidebar.includes(userType)) {
@@ -122,9 +122,9 @@ export const prepareRoutesForSidebar = (userType: UserType): (RouterWrapper | Ro
       }
     }
   }
-  //! 005 Finish: Rows to be deleted to start a project
+  //! 005DeletedFinish
 
-  //! 006 Start: Rows that must be activated to start a project
+  //! 006ActivatedStart
   // const OTHER_ROUTER_ITEMS_KEYS = Object.keys(OTHER_ROUTER_ITEMS);
   // for (let i = 0; i < OTHER_ROUTER_ITEMS_KEYS.length; i++) {
   //   if (OTHER_ROUTER_ITEMS[OTHER_ROUTER_ITEMS_KEYS[i]].whoCanSeeForSidebar?.includes(userType)) {
@@ -136,7 +136,7 @@ export const prepareRoutesForSidebar = (userType: UserType): (RouterWrapper | Ro
   //     }
   //   }
   // }
-  //! 006 Finish: Rows that must be activated to start a project
+  //! 006ActivatedFinish
 
   return arr;
 };

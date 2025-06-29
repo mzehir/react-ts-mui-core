@@ -10,11 +10,11 @@ import enValidationWarnings from './locales/en/validationWarnings.json';
 import _enValidationWarnings from './locales/en/_validationWarnings.json';
 import enRoutes from './locales/en/routes.json';
 
-//! 001 Start: Imports that must be deleted to start a project
+//! 001DeletedStart
 import enIntroductionRoutes from './locales/en/introduction/routes.json';
 import enIntroductionAGGrid from './locales/en/introduction/agGrid.json';
 import enIntroduction from './locales/en/introduction/other.json';
-//! 001 Finish: Imports that must be deleted to start a project
+//! 001DeletedFinish
 
 // tr translation
 import tr from './locales/tr.json';
@@ -25,11 +25,11 @@ import trValidationWarnings from './locales/tr/validationWarnings.json';
 import _trValidationWarnings from './locales/tr/_validationWarnings.json';
 import trRoutes from './locales/tr/routes.json';
 
-//! 002 Start: Imports that must be deleted to start a project
+//! 002DeletedStart
 import trIntroductionRoutes from './locales/tr/introduction/routes.json';
 import trIntroductionAGGrid from './locales/tr/introduction/agGrid.json';
 import trIntroduction from './locales/tr/introduction/other.json';
-//! 002 Finish: Imports that must be deleted to start a project
+//! 002DeletedFinish
 
 // de translation
 import de from './locales/de.json';
@@ -45,11 +45,11 @@ const resources = {
       _validationWarnings: _enValidationWarnings,
       routes: enRoutes,
 
-      //! 003 Start: Rows to be deleted to start a project
+      //! 003DeletedStart
       introductionRoutes: enIntroductionRoutes,
       introductionAgGrid: enIntroductionAGGrid,
       introduction: enIntroduction,
-      //! 003 Finish: Rows to be deleted to start a project
+      //! 003DeletedFinish
     },
   },
   tr: {
@@ -62,11 +62,11 @@ const resources = {
       _validationWarnings: _trValidationWarnings,
       routes: trRoutes,
 
-      //! 004 Start: Rows to be deleted to start a project
+      //! 004DeletedStart
       introductionRoutes: trIntroductionRoutes,
       introductionAgGrid: trIntroductionAGGrid,
       introduction: trIntroduction,
-      //! 004 Finish: Rows to be deleted to start a project
+      //! 004DeletedFinish
     },
   },
   de: {

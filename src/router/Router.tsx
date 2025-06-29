@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { prepareAllRoutes } from './routerConstant';
 
-//! 001 Start: Imports that must be deleted to start a project
+//! 001DeletedStart
 // Pages Introduction
 import IntroDashboardPage from '../pages/introduction/pages/dashboard/IntroDashboard';
 import IntroPricingPage from '../pages/introduction/pages/pricing/IntroPricing';
@@ -41,7 +41,7 @@ import RhfStandardExamp from '../pages/introduction/rhf/RhfStandardExamp';
 import TeacherPage from '../pages/introduction/routerByUserType/TeacherPage';
 import StudentPage from '../pages/introduction/routerByUserType/StudentPage';
 import GuestPage from '../pages/introduction/routerByUserType/GuestPage';
-//! 001 Finish: Imports that must be deleted to start a project
+//! 001DeletedFinish
 
 // Auth
 import SignUpPage from '../pages/auth/signUp/SignUp';
@@ -63,7 +63,7 @@ import UnauthenticatedLayout from '../layouts/unauthenticatedLayout/Unauthentica
 
 const allRoutes = prepareAllRoutes();
 
-//! 002 Start: Definitions that must be deleted to start a project
+//! 002DeletedStart
 const componentsIntroductionRouter = [
   {
     path: allRoutes.INTRODUCTION_TYPOGRAPHY_PAGE.path,
@@ -351,7 +351,7 @@ const otherIntroductionRouter = [
     ),
   },
 ];
-//! 002 Finish: Definitions that must be deleted to start a project
+//! 002DeletedFinish
 
 const authRouter = [
   {
@@ -439,7 +439,7 @@ const accessErrorRouter = [
   },
 ];
 
-//! 003 Start: Definitions that must be activated to start a project
+//! 003ActivatedStart
 // const otherRouter = [
 //   {
 //     path: '/',
@@ -458,10 +458,10 @@ const accessErrorRouter = [
 //     ),
 //   },
 // ];
-//! 003 Finish: Definitions that must be activated to start a project
+//! 003ActivatedFinish
 
 export const router = createBrowserRouter([
-  //! 004 Start: Rows to be deleted to start a project
+  //! 004DeletedStart
   ...componentsIntroductionRouter,
   ...customComponentsIntroductionRouter,
   ...simpleProjectsIntroductionRouter,
@@ -469,12 +469,12 @@ export const router = createBrowserRouter([
   ...rhfIntroductionRouter,
   ...routerByUserTypeIntroductionRouter,
   ...otherIntroductionRouter,
-  //! 004 Finish: Rows to be deleted to start a project
+  //! 004DeletedFinish
 
   ...authRouter,
   ...accessErrorRouter,
 
-  //! 005 Start: Rows that must be activated to start a project
+  //! 005ActivatedStart
   // ...otherRouter,
-  //! 005 Finish: Rows that must be activated to start a project
+  //! 005ActivatedFinish
 ]);
