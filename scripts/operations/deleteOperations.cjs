@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 const fs = require('fs');
-const { logSuccess, logError, logWarning, logInfo } = require('../utils/logger.cjs');
+const { log, logSuccess, logError, logWarning, logInfo } = require('../utils/logger.cjs');
 const { confirmQuestion } = require('../utils/prompts.cjs');
 const { directoriesToDelete, filesToDelete } = require('../config/paths.cjs');
 
