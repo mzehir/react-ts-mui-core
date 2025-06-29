@@ -37,7 +37,12 @@ const languages = {
     currentProjectName: 'Current project name: ',
     projectNameFormatInfo: 'Project name must be lowercase and hyphenated (e.g. dev-starter).',
     emptyProjectNameWarning: 'Project name cannot be empty!',
-    invalidProjectNameWarning: 'Project name must contain only lowercase letters, numbers, and hyphens!'
+    invalidProjectNameWarning: 'Project name must contain only lowercase letters, numbers, and hyphens!',
+    projectMayBeRunning: '🚦 If your project is running on any port, please stop it first! 😊',
+    deleteNodeModules: '🗑️ Then, delete the node_modules folder in your project root (for a fresh start).',
+    installPackages: '📦 Next, run `npm i` to install all dependencies.',
+    runDevAndTest: '🚀 Finally, run `npm run dev` to start and test your project locally. Enjoy coding! 💻',
+    goodWork: '✨ Good luck & happy coding! ✨',
   },
   tr: {
     title: '🧹 Dev Starter Temizlik İşlemi',
@@ -75,7 +80,12 @@ const languages = {
     currentProjectName: 'Mevcut proje adı: ',
     projectNameFormatInfo: 'Proje adı küçük harf ve tireli olmalı (ör: dev-starter).',
     emptyProjectNameWarning: 'Proje adı boş olamaz!',
-    invalidProjectNameWarning: 'Proje adı sadece küçük harf, rakam ve tire içermelidir!'
+    invalidProjectNameWarning: 'Proje adı sadece küçük harf, rakam ve tire içermelidir!',
+    projectMayBeRunning: '🚦 Projeniz herhangi bir portta çalışıyorsa önce durdurun! 😊',
+    deleteNodeModules: '🗑️ Ardından ana dizindeki node_modules klasörünü silin (tertemiz başlamak için).',
+    installPackages: '📦 Sonra `npm i` komutu ile tüm paketleri yükleyin.',
+    runDevAndTest: '🚀 Son olarak `npm run dev` komutu ile projeyi localde başlatıp test edin. Keyifli kodlamalar! 💻',
+    goodWork: '✨ İyi çalışmalar & bol kodlamalar! ✨',
   },
   de: {
     title: '🧹 Dev Starter Bereinigungsprozess',
@@ -113,7 +123,12 @@ const languages = {
     currentProjectName: 'Aktueller Projektname: ',
     projectNameFormatInfo: 'Projektname muss klein geschrieben und mit Bindestrich versehen sein (z.B. dev-starter).',
     emptyProjectNameWarning: 'Projektname darf nicht leer sein!',
-    invalidProjectNameWarning: 'Projektname darf nur Kleinbuchstaben, Zahlen und Bindestriche enthalten!'
+    invalidProjectNameWarning: 'Projektname darf nur Kleinbuchstaben, Zahlen und Bindestriche enthalten!',
+    projectMayBeRunning: '🚦 Falls dein Projekt auf einem Port läuft, stoppe es bitte zuerst! 😊',
+    deleteNodeModules: '🗑️ Lösche dann den node_modules-Ordner im Projektverzeichnis (für einen frischen Start).',
+    installPackages: '📦 Führe anschließend `npm i` aus, um alle Abhängigkeiten zu installieren.',
+    runDevAndTest: '🚀 Starte und teste dein Projekt lokal mit `npm run dev`. Viel Spaß beim Coden! 💻',
+    goodWork: '✨ Viel Erfolg & happy coding! ✨',
   }
 };
 
