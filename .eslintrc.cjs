@@ -2,7 +2,7 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   parser: '@typescript-eslint/parser', // Instructs ESLint to use @typescript-eslint/parser to analyze TypeScript files, enabling it to understand and lint TypeScript code.
-  plugins: ['simple-import-sort', 'react-refresh'],
+  plugins: ['simple-import-sort', 'react-refresh', 'unused-imports'],
   // simple-import-sort: A plugin used to sort imported and exported modules.
   // react-refresh: A plugin used for Hot Module Replacement (HMR) for React components.
   extends: [
@@ -18,5 +18,11 @@ module.exports = {
     // "simple-import-sort/exports": "error", // Enforces a specific order for exported modules and reports errors if the order is incorrect.
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }], // Allows only React components to be exported, issuing a warning for other exports.
     'prettier/prettier': ['error', { singleQuote: true }], // Throws an error for using double quotes instead of single quotes.
+    // Added rules for automatically removing unused imports
+    'unused-imports/no-unused-imports': 'error',
+    'unused-imports/no-unused-vars': [
+      'warn',
+      { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
+    ],
   },
 };
