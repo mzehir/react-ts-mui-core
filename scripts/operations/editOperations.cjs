@@ -89,7 +89,144 @@ async function editPackageJson(lang, texts) {
   }
 }
 
-// Dosyaları düzenleme fonksiyonu
+// users.json dosyasını sadece admin bırakacak şekilde düzenle
+async function editUsersJson(lang, texts) {
+  try {
+    const filePath = 'src/db/users.json';
+    if (!fs.existsSync(filePath)) {
+      logWarning('users.json dosyası bulunamadı, atlanıyor.');
+      return true;
+    }
+    const content = fs.readFileSync(filePath, 'utf8');
+    let arr = [];
+    try {
+      arr = JSON.parse(content);
+    } catch (e) {
+      logError('users.json dosyası okunamadı veya bozuk!');
+      return false;
+    }
+    const filtered = arr.filter((user) => user.userType === 'admin');
+    fs.writeFileSync(filePath, JSON.stringify(filtered, null, 2));
+    logSuccess('users.json dosyası güncellendi (sadece admin bırakıldı)');
+    return true;
+  } catch (error) {
+    logError(`users.json dosyası düzenlenirken hata: ${error.message}`);
+    return false;
+  }
+}
+
+// Genel amaçlı blok silme ve aktifleştirme fonksiyonları
+function processBlocks(content, blockDefs) {
+  // blockDefs: [{ type: 'delete'|'activate', start: '...', end: '...' }]
+  let lines = content.split('\n');
+  let result = [];
+  let i = 0;
+  while (i < lines.length) {
+    let matched = false;
+    for (const def of blockDefs) {
+      if (lines[i].includes(def.start)) {
+        matched = true;
+        let block = [];
+        let j = i + 1;
+        while (j < lines.length && !lines[j].includes(def.end)) {
+          block.push(lines[j]);
+          j++;
+        }
+        // j şu anda end satırında
+        if (def.type === 'activate') {
+          // Yorumdan çıkar (// veya {/* ... */} gibi)
+          block = block.map((l) => l.replace(/^\s*\/\/ ?/, '').replace(/^\s*\{\/\* ?| ?\*\/\}$/, '').replace(/^\s*\* ?/, ''));
+          result = result.concat(block);
+        }
+        // delete ise hiçbir şey ekleme (blok ve start/end satırları tamamen silinir)
+        i = j + 1;
+        break;
+      }
+    }
+    if (!matched) {
+      result.push(lines[i]);
+      i++;
+    }
+  }
+  return result.join('\n');
+}
+
+// --- Blok Temizleme ve Aktifleştirme İşlemleri ---
+
+const blockEditTasks = [
+  {
+    file: 'src/router/Router.tsx',
+    blocks: [
+      { type: 'delete', start: '//! 001DeletedStart', end: '//! 001DeletedFinish' },
+      { type: 'delete', start: '//! 002DeletedStart', end: '//! 002DeletedFinish' },
+      { type: 'activate', start: '//! 003ActivatedStart', end: '//! 003ActivatedFinish' },
+      { type: 'delete', start: '//! 004DeletedStart', end: '//! 004DeletedFinish' },
+      { type: 'activate', start: '//! 005ActivatedStart', end: '//! 005ActivatedFinish' },
+    ],
+  },
+  {
+    file: 'src/router/routerConstant.ts',
+    blocks: [
+      { type: 'delete', start: '//! 001DeletedStart', end: '//! 001DeletedFinish' },
+      { type: 'activate', start: '//! 002ActivatedStart', end: '//! 002ActivatedFinish' },
+      { type: 'delete', start: '//! 003DeletedStart', end: '//! 003DeletedFinish' },
+      { type: 'activate', start: '//! 004ActivatedStart', end: '//! 004ActivatedFinish' },
+      { type: 'delete', start: '//! 005DeletedStart', end: '//! 005DeletedFinish' },
+      { type: 'activate', start: '//! 006ActivatedStart', end: '//! 006ActivatedFinish' },
+    ],
+  },
+  {
+    file: 'src/redux/store.ts',
+    blocks: [
+      { type: 'delete', start: '//! 001DeletedStart', end: '//! 001DeletedFinish' },
+      { type: 'delete', start: '//! 002DeletedStart', end: '//! 002DeletedFinish' },
+      { type: 'delete', start: '//! 003DeletedStart', end: '//! 003DeletedFinish' },
+      { type: 'activate', start: '//! 004ActivatedStart', end: '//! 004ActivatedFinish' },
+    ],
+  },
+  {
+    file: 'src/pages/auth/signIn/SignIn.tsx',
+    blocks: [
+      { type: 'delete', start: '//! 001DeletedStart', end: '//! 001DeletedFinish' },
+      { type: 'delete', start: '{/* //! 002DeletedStart */}', end: '{/* //! 002DeletedFinish */}' },
+      { type: 'delete', start: '//! 003DeletedStart', end: '//! 003DeletedFinish' },
+    ],
+  },
+  {
+    file: 'src/utils/enums/userTypes.ts',
+    blocks: [
+      { type: 'delete', start: '//! 001DeletedStart', end: '//! 001DeletedFinish' },
+    ],
+  },
+  {
+    file: 'src/i18n/i18n.ts',
+    blocks: [
+      { type: 'delete', start: '//! 001DeletedStart', end: '//! 001DeletedFinish' },
+      { type: 'delete', start: '//! 002DeletedStart', end: '//! 002DeletedFinish' },
+      { type: 'delete', start: '//! 003DeletedStart', end: '//! 003DeletedFinish' },
+      { type: 'delete', start: '//! 004DeletedStart', end: '//! 004DeletedFinish' },
+    ],
+  },
+];
+
+async function editBlocksInFiles(lang, texts) {
+  for (const task of blockEditTasks) {
+    try {
+      if (!fs.existsSync(task.file)) {
+        logWarning(`${task.file} bulunamadı, atlanıyor.`);
+        continue;
+      }
+      const content = fs.readFileSync(task.file, 'utf8');
+      const newContent = processBlocks(content, task.blocks);
+      fs.writeFileSync(task.file, newContent);
+      logSuccess(`${task.file} dosyası bloklara göre güncellendi.`);
+    } catch (error) {
+      logError(`${task.file} dosyası güncellenirken hata: ${error.message}`);
+    }
+  }
+}
+
+// editFiles fonksiyonuna entegre et
 async function editFiles(lang, texts) {
   logInfo(texts.editingFiles);
 
@@ -99,10 +236,11 @@ async function editFiles(lang, texts) {
   // package.json dosyası düzenleme
   await editPackageJson(lang, texts);
 
-  // TODO: Diğer dosya düzenleme işlemleri eklenecek
-  // - users.json için sadece admin kullanıcısını bırakma
-  // - Router dosyaları için yorum bloklarını temizleme
-  // - Diğer dosyalar için gerekli düzenlemeler
+  // users.json dosyası düzenleme
+  await editUsersJson(lang, texts);
+
+  // Blok temizleme işlemleri
+  await editBlocksInFiles(lang, texts);
 
   logInfo('Diğer dosya düzenleme işlemleri henüz implement edilmedi');
 }
@@ -111,4 +249,7 @@ module.exports = {
   editFiles,
   editEnvFile,
   editPackageJson,
+  editUsersJson,
+  processBlocks,
+  editBlocksInFiles,
 };
