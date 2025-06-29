@@ -2,7 +2,6 @@
     a- /node_modules
     b- /src/pages/introduction
     c- /src/router/helper/introductionRouter
-    d- /src/db
     e- /src/i18n/locales/en/introduction
     f- /src/i18n/locales/tr/introduction
     g- /src/redux/slices/introductionSlices
@@ -62,3 +61,9 @@
         - '{/* //! 002 Start: Rows to be deleted to start a project */}' ile '{/* //! 002 Finish: Rows to be deleted to start a project */} yorum satırı arasındaki tüm satırlar silinmelidir.
 
         - '//! 003 Start: Definitions that must be deleted to start a project' ile '//! 003 Finish: Definitions that must be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
+
+    g- /src/db/users.json
+        - Bu dosyadaki array içerisinde yer alan üç objeden son ikisi silinmelidir. Yani "userType": "admin", olan obje silinmemelidir, diğer objeler silinmelidir.
+    
+    h- /src/utils/enums/userTypes.ts
+        - '//! 001 Start: Rows to be deleted to start a project' ile '//! 001 Finish: Rows to be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
