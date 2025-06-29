@@ -29,7 +29,15 @@ const languages = {
     error: 'An error occurred during cleanup:',
     yes: 'Yes',
     no: 'No',
-    cancelled: 'Operation cancelled by user.'
+    cancelled: 'Operation cancelled by user.',
+    keepCurrentAppNameInfo: 'Press ENTER to keep the current app name.',
+    currentAppName: 'Current app name: ',
+    emptyAppNameWarning: 'App name cannot be empty!',
+    keepCurrentProjectNameInfo: 'Press ENTER to keep the current project name.',
+    currentProjectName: 'Current project name: ',
+    projectNameFormatInfo: 'Project name must be lowercase and hyphenated (e.g. dev-starter).',
+    emptyProjectNameWarning: 'Project name cannot be empty!',
+    invalidProjectNameWarning: 'Project name must contain only lowercase letters, numbers, and hyphens!'
   },
   tr: {
     title: '🧹 Dev Starter Temizlik İşlemi',
@@ -59,7 +67,15 @@ const languages = {
     error: 'Temizlik işlemi sırasında hata oluştu:',
     yes: 'Evet',
     no: 'Hayır',
-    cancelled: 'İşlem kullanıcı tarafından iptal edildi.'
+    cancelled: 'İşlem kullanıcı tarafından iptal edildi.',
+    keepCurrentAppNameInfo: 'Mevcut uygulama adını korumak için ENTER basabilirsiniz.',
+    currentAppName: 'Mevcut uygulama adı: ',
+    emptyAppNameWarning: 'Uygulama adı boş olamaz!',
+    keepCurrentProjectNameInfo: 'Mevcut proje adını korumak için ENTER basabilirsiniz.',
+    currentProjectName: 'Mevcut proje adı: ',
+    projectNameFormatInfo: 'Proje adı küçük harf ve tireli olmalı (ör: dev-starter).',
+    emptyProjectNameWarning: 'Proje adı boş olamaz!',
+    invalidProjectNameWarning: 'Proje adı sadece küçük harf, rakam ve tire içermelidir!'
   },
   de: {
     title: '🧹 Dev Starter Bereinigungsprozess',
@@ -89,7 +105,15 @@ const languages = {
     error: 'Während der Bereinigung ist ein Fehler aufgetreten:',
     yes: 'Ja',
     no: 'Nein',
-    cancelled: 'Vorgang vom Benutzer abgebrochen.'
+    cancelled: 'Vorgang vom Benutzer abgebrochen.',
+    keepCurrentAppNameInfo: 'Drücken Sie ENTER, um den aktuellen App-Namen zu behalten.',
+    currentAppName: 'Aktueller App-Name: ',
+    emptyAppNameWarning: 'App-Name darf nicht leer sein!',
+    keepCurrentProjectNameInfo: 'Drücken Sie ENTER, um den aktuellen Projektnamen zu behalten.',
+    currentProjectName: 'Aktueller Projektname: ',
+    projectNameFormatInfo: 'Projektname muss klein geschrieben und mit Bindestrich versehen sein (z.B. dev-starter).',
+    emptyProjectNameWarning: 'Projektname darf nicht leer sein!',
+    invalidProjectNameWarning: 'Projektname darf nur Kleinbuchstaben, Zahlen und Bindestriche enthalten!'
   }
 };
 

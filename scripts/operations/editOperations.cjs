@@ -2,8 +2,9 @@
 
 const fs = require('fs');
 const { logInfo, logSuccess, logError, logWarning } = require('../utils/logger.cjs');
-const { confirmQuestion, getTextInput } = require('../utils/prompts.cjs');
+const { getTextInput } = require('../utils/prompts.cjs');
 const { filesToEdit } = require('../config/paths.cjs');
+const languages = require('../utils/languages.cjs');
 
 // .env dosyasını düzenleme
 async function editEnvFile(lang, texts) {
@@ -13,13 +14,24 @@ async function editEnvFile(lang, texts) {
       return true;
     }
 
-    const appName = await getTextInput(texts.enterAppName);
-    if (!appName.trim()) {
-      logWarning('Uygulama adı boş olamaz, atlanıyor.');
-      return true;
+    let content = fs.readFileSync('.env', 'utf8');
+    const match = content.match(/VITE_APP_NAME\s*=\s*"([^"]*)"/);
+    const currentAppName = match ? match[1] : '';
+
+    let appName = '';
+    while (!appName) {
+      logInfo(`${texts.currentAppName}"${currentAppName}"`);
+      logInfo(texts.keepCurrentAppNameInfo);
+      appName = await getTextInput(texts.enterAppName);
+      if (!appName.trim()) {
+        appName = currentAppName;
+        logInfo(`${texts.currentAppName}"${appName}"`);
+      }
+      if (!appName.trim()) {
+        logWarning(texts.emptyAppNameWarning);
+      }
     }
 
-    let content = fs.readFileSync('.env', 'utf8');
     content = content.replace(
       /VITE_APP_NAME\s*=\s*"[^"]*"/,
       `VITE_APP_NAME = "${appName.trim()}"`
@@ -42,17 +54,32 @@ async function editPackageJson(lang, texts) {
       return false;
     }
 
-    const projectName = await getTextInput(texts.enterProjectName);
-    if (!projectName.trim()) {
-      logWarning('Proje adı boş olamaz, atlanıyor.');
-      return true;
-    }
-
     const content = fs.readFileSync('package.json', 'utf8');
     const packageJson = JSON.parse(content);
-    
-    packageJson.name = projectName.trim().toLowerCase().replace(/\s+/g, '-');
-    
+    const currentProjectName = packageJson.name || '';
+
+    let projectName = '';
+    while (true) {
+      logInfo(`${texts.currentProjectName}"${currentProjectName}"`);
+      logInfo(texts.projectNameFormatInfo);
+      logInfo(texts.keepCurrentProjectNameInfo);
+      projectName = await getTextInput(texts.enterProjectName);
+      if (!projectName.trim()) {
+        projectName = currentProjectName;
+        logInfo(`${texts.currentProjectName}"${projectName}"`);
+      }
+      if (!projectName.trim()) {
+        logWarning(texts.emptyProjectNameWarning);
+        continue;
+      }
+      if (!/^[a-z0-9\-]+$/.test(projectName.trim())) {
+        logWarning(texts.invalidProjectNameWarning);
+        continue;
+      }
+      break;
+    }
+
+    packageJson.name = projectName.trim();
     fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2));
     logSuccess('package.json dosyası güncellendi');
     return true;
