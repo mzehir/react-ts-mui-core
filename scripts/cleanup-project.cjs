@@ -38,7 +38,16 @@ async function cleanupProject() {
 
     logSuccess(texts.success);
     logInfo(texts.restartInfo);
-    
+
+    // --- Kapanış ve öneri mesajları ---
+    log('');
+    log(texts.projectMayBeRunning, 'yellow');
+    log(texts.deleteNodeModules, 'yellow');
+    log(texts.installPackages, 'yellow');
+    log(texts.runDevAndTest, 'yellow');
+    log(texts.goodWork, 'magenta');
+    log('');
+
     closeInterface();
   } catch (error) {
     logError(`Temizlik işlemi sırasında hata oluştu: ${error.message}`);
