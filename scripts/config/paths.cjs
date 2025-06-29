@@ -2,7 +2,7 @@
 
 // Silinecek klasörler
 const directoriesToDelete = [
-  'node_modules',
+  // 'node_modules',
   'src/pages/introduction',
   'src/router/helper/introductionRouter',
   'src/i18n/locales/en/introduction',
