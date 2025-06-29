@@ -42,11 +42,12 @@ async function deleteDirectories(lang, texts) {
   logInfo(texts.checkingDirectories);
 
   const { existing, missing } = checkDirectories();
+  const uniqueExisting = [...new Set(existing)];
 
   // Mevcut ve eksik klasörleri göster
-  if (existing.length > 0) {
+  if (uniqueExisting.length > 0) {
     logInfo(texts.existingDirectories);
-    existing.forEach(dir => log(`  - ${dir}`, 'green'));
+    uniqueExisting.forEach(dir => log(`  - ${dir}`, 'green'));
   }
 
   if (missing.length > 0) {
@@ -62,9 +63,18 @@ async function deleteDirectories(lang, texts) {
   }
 
   // Eğer silinecek klasör yoksa
-  if (existing.length === 0) {
+  if (uniqueExisting.length === 0) {
     logInfo('No directories to delete.');
     return true;
+  }
+
+  // Silinecek klasörleri bir kez göster
+  logInfo(texts.willDelete);
+  uniqueExisting.forEach(dir => log(`  - ${dir}`, 'red'));
+
+  if (missing.length > 0) {
+    logInfo(texts.willSkip);
+    missing.forEach(dir => log(`  - ${dir}`, 'yellow'));
   }
 
   // Son onay
@@ -74,17 +84,8 @@ async function deleteDirectories(lang, texts) {
     return false;
   }
 
-  // Silme işlemi
-  logInfo(texts.willDelete);
-  existing.forEach(dir => log(`  - ${dir}`, 'red'));
-
-  if (missing.length > 0) {
-    logInfo(texts.willSkip);
-    missing.forEach(dir => log(`  - ${dir}`, 'yellow'));
-  }
-
   // Klasörleri sil
-  for (const dir of existing) {
+  for (const dir of uniqueExisting) {
     try {
       fs.rmSync(dir, { recursive: true, force: true });
       logSuccess(`${dir} klasörü silindi`);
@@ -101,11 +102,12 @@ async function deleteFiles(lang, texts) {
   logInfo(texts.checkingFiles);
 
   const { existing, missing } = checkFiles();
+  const uniqueExisting = [...new Set(existing)];
 
   // Mevcut ve eksik dosyaları göster
-  if (existing.length > 0) {
+  if (uniqueExisting.length > 0) {
     logInfo(texts.existingFiles);
-    existing.forEach(file => log(`  - ${file}`, 'green'));
+    uniqueExisting.forEach(file => log(`  - ${file}`, 'green'));
   }
 
   if (missing.length > 0) {
@@ -121,9 +123,18 @@ async function deleteFiles(lang, texts) {
   }
 
   // Eğer silinecek dosya yoksa
-  if (existing.length === 0) {
+  if (uniqueExisting.length === 0) {
     logInfo('No files to delete.');
     return true;
+  }
+
+  // Silinecek dosyaları bir kez göster
+  logInfo(texts.willDelete);
+  uniqueExisting.forEach(file => log(`  - ${file}`, 'red'));
+
+  if (missing.length > 0) {
+    logInfo(texts.willSkip);
+    missing.forEach(file => log(`  - ${file}`, 'yellow'));
   }
 
   // Son onay
@@ -133,17 +144,8 @@ async function deleteFiles(lang, texts) {
     return false;
   }
 
-  // Silme işlemi
-  logInfo(texts.willDelete);
-  existing.forEach(file => log(`  - ${file}`, 'red'));
-
-  if (missing.length > 0) {
-    logInfo(texts.willSkip);
-    missing.forEach(file => log(`  - ${file}`, 'yellow'));
-  }
-
   // Dosyaları sil
-  for (const file of existing) {
+  for (const file of uniqueExisting) {
     try {
       fs.unlinkSync(file);
       logSuccess(`${file} dosyası silindi`);
