@@ -12,15 +12,12 @@
 2- Silinmesi gereken dosyalar
     a- /package-lock.json
 
-3- Düzenlemesi gerek dosyalar
+3- Düzenlemesi gereken dosyalar
     a- /.env
         - VITE_APP_NAME = "Dev Starter" => Bu satırdaki uygulama adı güncellenmelidir.
 
     b- /package.json
-        - "react-slick": "^0.30.2", => Bu satır silinmelidir.
-        - "slick-carousel": "^1.8.1", => Bu satır silinmelidir.
-
-        - "name": "dev-starter", => Bu satır proje adı ile güncellenmelidir.
+        - "name": "dev-starter", => Bu satırdaki proje adı güncellenmelidir.
 
     c- /src/router/Router.tsx
         - '//! 001 Start: Imports that must be deleted to start a project' ile '//! 001 Finish: Imports that must be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
@@ -67,3 +64,12 @@
     
     h- /src/utils/enums/userTypes.ts
         - '//! 001 Start: Rows to be deleted to start a project' ile '//! 001 Finish: Rows to be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
+
+    i- /src/i18n/i18n.ts
+        - '//! 001 Start: Imports that must be deleted to start a project' ile '//! 001 Finish: Imports that must be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
+
+        - '//! 002 Start: Imports that must be deleted to start a project' ile '//! 002 Finish: Imports that must be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
+
+        - '//! 003 Start: Rows to be deleted to start a project' ile '//! 003 Finish: Rows to be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
+
+        - '//! 004 Start: Rows to be deleted to start a project' ile '//! 004 Finish: Rows to be deleted to start a project' yorum satırı arasındaki tüm satırlar silinmelidir.
