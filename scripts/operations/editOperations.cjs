@@ -1,10 +1,14 @@
 /* eslint-disable */
 
 const fs = require('fs');
+const { execSync } = require('child_process');
 const { logInfo, logSuccess, logError, logWarning } = require('../utils/logger.cjs');
 const { getTextInput } = require('../utils/prompts.cjs');
 const { filesToEdit } = require('../config/paths.cjs');
 const languages = require('../utils/languages.cjs');
+
+// Güncellenen dosyaları takip etmek için
+let updatedFiles = [];
 
 // .env dosyasını düzenleme
 async function editEnvFile(lang, texts) {
@@ -108,6 +112,7 @@ async function editUsersJson(lang, texts) {
     const filtered = arr.filter((user) => user.userType === 'admin');
     fs.writeFileSync(filePath, JSON.stringify(filtered, null, 2));
     logSuccess('users.json dosyası güncellendi (sadece admin bırakıldı)');
+    updatedFiles.push(filePath);
     return true;
   } catch (error) {
     logError(`users.json dosyası düzenlenirken hata: ${error.message}`);
@@ -220,14 +225,30 @@ async function editBlocksInFiles(lang, texts) {
       const newContent = processBlocks(content, task.blocks);
       fs.writeFileSync(task.file, newContent);
       logSuccess(`${task.file} dosyası bloklara göre güncellendi.`);
+      updatedFiles.push(task.file);
     } catch (error) {
       logError(`${task.file} dosyası güncellenirken hata: ${error.message}`);
     }
   }
 }
 
+// Otomatik prettier ve eslint düzeltmesi
+function fixWithPrettierAndEslint(files) {
+  const uniqueFiles = [...new Set(files)];
+  for (const file of uniqueFiles) {
+    try {
+      execSync(`npx prettier --write "${file}"`, { stdio: 'inherit' });
+      execSync(`npx eslint "${file}" --fix`, { stdio: 'inherit' });
+      logSuccess(`${file} dosyası prettier ve eslint ile otomatik düzeltildi.`);
+    } catch (error) {
+      logWarning(`${file} dosyası prettier/eslint ile düzeltilirken hata: ${error.message}`);
+    }
+  }
+}
+
 // editFiles fonksiyonuna entegre et
 async function editFiles(lang, texts) {
+  updatedFiles = [];
   logInfo(texts.editingFiles);
 
   // .env dosyası düzenleme
@@ -242,6 +263,9 @@ async function editFiles(lang, texts) {
   // Blok temizleme işlemleri
   await editBlocksInFiles(lang, texts);
 
+  // Otomatik prettier ve eslint düzeltmesi
+  fixWithPrettierAndEslint(updatedFiles);
+
   logInfo('Diğer dosya düzenleme işlemleri henüz implement edilmedi');
 }
 
@@ -252,4 +276,5 @@ module.exports = {
   editUsersJson,
   processBlocks,
   editBlocksInFiles,
+  fixWithPrettierAndEslint,
 };
