@@ -75,3 +75,7 @@ npm run dev
 # PORT: http://localhost:3013/
 ```
 **[Demo page of the repository](https://react-ts-mui-core.vercel.app/)**
+
+## Bonus
+
+**Dev Starter** kılavuzunu gerçek bir projeye dönüştürmek için `./dev-starter-cleanup-guide.md` dosyasındaki talimatlar uygulanmalıdır.
