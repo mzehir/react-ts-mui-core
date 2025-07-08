@@ -4,6 +4,9 @@ import { ColumnType } from '../../helper/column/columnType';
 import { ColumnFilterType, FilterType } from '../../helper/column/columnFilter/columnFilterType';
 import RadioCustomFilterComp from '../../helper/column/columnFilter/components/radioCustomFilter/RadioCustomFilter';
 import RadioCustomFloatingFilterComp from '../../helper/column/columnFilter/components/radioCustomFloatingFilter/RadioCustomFloatingFilter';
+import SelectCustomFilterComp from '../../helper/column/columnFilter/components/selectCustomFilter/SelectCustomFilter';
+import SelectCustomFloatingFilterComp from '../../helper/column/columnFilter/components/selectCustomFloatingFilter/SelectCustomFloatingFilter';
+
 import { formatPhoneNumber } from '../../../../../utils/locale/phoneFormats';
 import { formatCurrency, formatNumber } from '../../../../../utils/methods/format';
 import { configuredDayjs, getDateFormat } from '../../../../../utils/locale/dateFormats';
@@ -23,6 +26,9 @@ export const agListGridPrepareColumn = (column: ColumnType, translate: (value: s
     } else if (_customFilter.componentType === 'radioCustomFilter') {
       _filter = RadioCustomFilterComp;
       _floatingFilter = RadioCustomFloatingFilterComp;
+    } else if (_customFilter.componentType === 'selectCustomFilter') {
+      _filter = SelectCustomFilterComp;
+      _floatingFilter = SelectCustomFloatingFilterComp;
     }
   }
 

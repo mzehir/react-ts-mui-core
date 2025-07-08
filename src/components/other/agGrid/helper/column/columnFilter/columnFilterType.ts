@@ -2,6 +2,7 @@ import { TextColumnFilterParams } from './columnFilterTypeSections/textColumnFil
 import { NumberColumnFilterParams } from './columnFilterTypeSections/numberColumnFilterType';
 import { DateColumnFilterParams } from './columnFilterTypeSections/dateColumnFilterType';
 import { RadioCustomFilterParams } from './columnFilterTypeSections/radioCustomFilterType';
+import { SelectCustomFilterParams } from './columnFilterTypeSections/selectCustomFilterType';
 import { CustomFilterProps } from 'ag-grid-react';
 
 export type FilterType =
@@ -31,4 +32,9 @@ export type ColumnFilterType =
       name: string;
       componentType: 'radioCustomFilter';
       componentProps: RadioCustomFilterParams;
+    }
+  | {
+      name: string;
+      componentType: 'selectCustomFilter';
+      componentProps: SelectCustomFilterParams;
     };

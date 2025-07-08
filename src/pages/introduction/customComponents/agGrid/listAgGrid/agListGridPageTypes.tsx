@@ -1,5 +1,6 @@
 import { CustomCellRendererProps } from 'ag-grid-react';
 import { ColumnType } from '../../../../../components/other/agGrid/helper/column/columnType';
+import { ColumnFilterType } from '../../../../../components/other/agGrid/helper/column/columnFilter/columnFilterType';
 import { Gender } from '../../../../../utils/enums/introduction/gender';
 import { Department } from '../../../../../utils/enums/introduction/department';
 import { Position } from '../../../../../utils/enums/introduction/position';
@@ -11,7 +12,6 @@ import TypographyComp from '../../../../../components/base/typography/Typography
 import ChipComp from '../../../../../components/base/chip/Chip';
 import { ChipCompColor } from '../../../../../components/base/chip/chipHelper';
 import StarIcon from '@mui/icons-material/Star';
-import { ColumnFilterType } from '../../../../../components/other/agGrid/helper/column/columnFilter/columnFilterType';
 
 export const employeeColumns: ColumnType[] = [
   {
@@ -212,6 +212,23 @@ export const employeeColumns: ColumnType[] = [
     cellDataType: 'text',
     headerName: 'introduction.status',
     width: 150,
+    customFilter: {
+      name: 'status',
+      componentType: 'selectCustomFilter',
+      componentProps: {
+        // initialFilterFields: {
+        //   filter: [],
+        // },
+        label: 'Bir statü seç',
+        items: [
+          { label: 'introductionAgGrid.active', value: 'ACTIVE' },
+          { label: 'introductionAgGrid.onLeave', value: 'ON_LEAVE' },
+          { label: 'introductionAgGrid.resigned', value: 'RESIGNED' },
+          { label: 'introductionAgGrid.terminated', value: 'TERMINATED' },
+        ],
+        buttons: ['apply', 'clear'],
+      },
+    },
     cellRenderer: (params: CustomCellRendererProps) => {
       const status: `${Status}` = params.value;
       let statusLabel: string = '';
