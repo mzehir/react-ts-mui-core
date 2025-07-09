@@ -4,27 +4,29 @@ import { EventBusAgGridOnFilterOpenedProps } from '../../../../../../../../utils
 
 import type { CustomFilterProps } from 'ag-grid-react';
 import SelectCustomFilterActionButtonComp from './SelectCustomFilterActionButton';
-import {
-  SelectCustomFilterItemParams,
-  SelectCustomFilterParams,
-} from '../../columnFilterTypeSections/selectCustomFilterType';
+import { SelectCustomFilterParams } from '../../columnFilterTypeSections/selectCustomFilterType';
 
 import BoxComp from '../../../../../../../base/box/Box';
 import FormControlComp from '../../../../../../../base/formControl/FormControl';
-import RadioGroupComp from '../../../../../../../base/radioGroup/RadioGroup';
-import FormControlLabelComp from '../../../../../../../base/formControlLabel/FormControlLabel';
-import RadioComp from '../../../../../../../base/radio/Radio';
-import TypographyComp from '../../../../../../../base/typography/Typography';
-import { Stack } from '@mui/material';
+import InputLabelComp from '../../../../../../../base/inputLabel/InputLabel';
+import AsyncSelectComp from '../../../../../../../custom/selects/AsyncSelect';
+import { Item } from '../../../../../../../custom/selects/asyncSelectHelper';
+import { SelectChangeEvent, Stack } from '@mui/material';
 
 const SelectCustomFilterComp: React.FC<CustomFilterProps> = (props) => {
-  const [selectedValue, setSelectedValue] = React.useState<string>('');
-  const [initialValue, setInitialValue] = React.useState<string>('');
+  const [multipleValue, setMultipleValue] = React.useState<(string | number)[]>([]);
+  const [initialMultipleValue, setInitialMultipleValue] = React.useState<(string | number)[]>([]);
+  const multipleValueRef = React.useRef(multipleValue);
+  const initialMultipleValueRef = React.useRef(initialMultipleValue);
 
-  const selectedValueRef = React.useRef(selectedValue);
-  const initialValueRef = React.useRef(initialValue);
-
-  const isEmpty = (val: unknown) => val === undefined || val === null || val === '';
+  const isEmpty = (val: unknown): boolean => {
+    return (
+      val === undefined ||
+      val === null ||
+      (typeof val === 'string' && val.trim() === '') ||
+      (Array.isArray(val) && val.length === 0)
+    );
+  };
 
   const closePopupIfNeeded = () => {
     if (props.colDef?.filterParams?.closeOnApply) props.api.hidePopupMenu();
@@ -36,19 +38,23 @@ const SelectCustomFilterComp: React.FC<CustomFilterProps> = (props) => {
     const currentFilter = filterModel[field]?.filter;
 
     // If both the current filter and selected value are empty, do nothing
-    if (isEmpty(currentFilter) && isEmpty(selectedValue)) {
+    if (isEmpty(currentFilter) && isEmpty(multipleValue)) {
       closePopupIfNeeded();
       return;
     }
 
     // If the current filter and selected value are the same, do nothing
-    if (currentFilter === selectedValue) {
-      closePopupIfNeeded();
-      return;
+    if (Array.isArray(currentFilter) && Array.isArray(multipleValue)) {
+      const same =
+        currentFilter.length === multipleValue.length && currentFilter.every((val) => multipleValue.includes(val));
+      if (same) {
+        closePopupIfNeeded();
+        return;
+      }
     }
 
     // If the selected value is empty, clear the filter
-    if (isEmpty(selectedValue)) {
+    if (isEmpty(multipleValue)) {
       props.onModelChange(null);
       closePopupIfNeeded();
       return;
@@ -56,25 +62,25 @@ const SelectCustomFilterComp: React.FC<CustomFilterProps> = (props) => {
 
     // Otherwise, apply the new filter
     props.onModelChange({
-      type: 'equals',
-      filter: selectedValue,
-      filterType: 'radio',
+      type: 'in',
+      filter: multipleValue,
+      filterType: 'select',
     });
     closePopupIfNeeded();
   };
 
   React.useEffect(() => {
-    selectedValueRef.current = selectedValue;
-  }, [selectedValue]);
+    multipleValueRef.current = multipleValue;
+  }, [multipleValue]);
 
   React.useEffect(() => {
-    initialValueRef.current = initialValue;
-  }, [initialValue]);
+    initialMultipleValueRef.current = initialMultipleValue;
+  }, [initialMultipleValue]);
 
   React.useEffect(() => {
     if (props.colDef?.filterParams?.initialFilterFields?.filter) {
-      setInitialValue(props.colDef?.filterParams?.initialFilterFields?.filter);
-      setSelectedValue(props.colDef?.filterParams?.initialFilterFields?.filter);
+      setMultipleValue(props.colDef?.filterParams?.initialFilterFields?.filter);
+      setInitialMultipleValue(props.colDef?.filterParams?.initialFilterFields?.filter);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -89,12 +95,12 @@ const SelectCustomFilterComp: React.FC<CustomFilterProps> = (props) => {
       const currentFilter = filterModel?.[_props.field]?.filter;
 
       // If there is a filter value in the model and it's different from the current state, update state
-      if (currentFilter !== undefined && currentFilter !== selectedValueRef.current) {
-        setSelectedValue(currentFilter);
+      if (currentFilter !== undefined && currentFilter !== multipleValueRef.current) {
+        setMultipleValue(currentFilter);
       }
       // If there is no filter value in the model and the state is not empty, reset state
-      else if ((currentFilter === undefined || currentFilter === '') && selectedValueRef.current !== '') {
-        setSelectedValue('');
+      else if ((currentFilter === undefined || currentFilter === '') && multipleValueRef.current.length > 0) {
+        setMultipleValue([]);
       }
     };
 
@@ -109,36 +115,45 @@ const SelectCustomFilterComp: React.FC<CustomFilterProps> = (props) => {
   }, []);
 
   return (
-    <BoxComp padding={3}>
-      {props.colDef?.filterParams?.label && (
-        <TypographyComp variant="button" isTranslation={props.colDef?.filterParams?.isLabelTranslation ?? true}>
-          {props.colDef?.filterParams?.label}
-        </TypographyComp>
-      )}
-
-      {props.colDef?.filterParams?.label && <br />}
-
-      <FormControlComp disabled={props.colDef?.filterParams?.disabled ?? false}>
-        <RadioGroupComp
-          row
-          value={selectedValue}
-          onChange={(event) => {
-            const value = event.target.value;
-            setSelectedValue(value);
+    <BoxComp id="select-custom-filter-wrapper" padding={3}>
+      <FormControlComp disabled={props.colDef?.filterParams?.disabled ?? false} fullWidth={true}>
+        <InputLabelComp>{props.colDef?.filterParams?.label}</InputLabelComp>
+        <AsyncSelectComp
+          variant="outlined"
+          size="small"
+          label={props.colDef?.filterParams?.label}
+          shouldFetchOnEveryOpenMenu={false}
+          isSearhAndFilter={false}
+          isItemTranslation={props.colDef?.filterParams?.isItemTextTranslation ?? false}
+          fetchItemsData={() => {
+            const items = props.colDef?.filterParams?.items ?? [];
+            return items;
           }}
-          sx={{ alignItems: 'center' }}
-        >
-          {props.colDef?.filterParams?.items.map((item: SelectCustomFilterItemParams) => (
-            <FormControlLabelComp
-              isTranslation={props.colDef?.filterParams?.isItemTextTranslation ?? true}
-              key={item.value}
-              label={item.label}
-              value={item.value}
-              disabled={item.disabled}
-              control={<RadioComp />}
-            />
-          ))}
-        </RadioGroupComp>
+          multiple={true}
+          value={multipleValue}
+          fetchValueItemsData={async (value) => {
+            const resultItems: Item[] = [];
+
+            if (value && Array.isArray(value)) {
+              const items: Item[] = props.colDef?.filterParams?.items ?? [];
+              value.map((val) => {
+                const matchingItem = items.find((item) => item.value === val);
+                if (matchingItem) {
+                  resultItems.push(matchingItem);
+                }
+              });
+            }
+
+            return resultItems;
+          }}
+          onChange={(event: SelectChangeEvent<unknown>) => {
+            if (Array.isArray(event.target.value)) {
+              setMultipleValue([...event.target.value]);
+            }
+          }}
+          inputProps={{ readOnly: false }}
+          menuContainerSelector="#select-custom-filter-wrapper"
+        />
       </FormControlComp>
 
       <Stack direction="row" spacing={1} mt={2}>
@@ -150,7 +165,7 @@ const SelectCustomFilterComp: React.FC<CustomFilterProps> = (props) => {
           <SelectCustomFilterActionButtonComp
             label="button.clear"
             onClick={() => {
-              setSelectedValue('');
+              setMultipleValue([]);
             }}
           />
         )}

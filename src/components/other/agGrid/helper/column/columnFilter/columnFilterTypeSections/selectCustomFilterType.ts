@@ -36,13 +36,13 @@ type CloseOnApply = boolean;
  * Filtre popup'ı açıldığında varsayılan olarak seçili olan filtre tipi.
  * Örn: 'contains', 'startsWith', vs.
  */
-//! type DefaultOption = 'equals';
+type DefaultOption = 'in';
 
 /**
  * Kullanıcının seçim yapabileceği filtre türlerinin listesi.
  * Örn: sadece 'contains' ve 'startsWith' sunmak istiyorsan burada belirtirsin.
  */
-//! export type FilterOptions = 'equals';
+export type FilterOptions = 'in';
 
 /**
  * true verilirse filtre readonly olur, kullanıcı düzenleme yapamaz.
@@ -67,8 +67,8 @@ export interface SelectCustomFilterParams {
   buttons?: Buttons[];
   caseSensitiveFiltering?: CaseSensitiveFiltering;
   closeOnApply?: CloseOnApply;
-  //!   defaultOption: DefaultOption;
-  //!   filterOptions?: FilterOptions[];
+  defaultOption: DefaultOption;
+  filterOptions?: FilterOptions[];
   readOnly?: ReadOnly;
   // extra props
   initialFilterFields?: InitialFilterFieldsType;

@@ -48,6 +48,13 @@ export const apiSliceGetListMethodRequestFilterPrepare = (
           type: filterType,
         }),
       )}`;
+    } else if (filterType === 'in') {
+      url += `&${filterKey}=${encodeURIComponent(
+        JSON.stringify({
+          type: filterType,
+          value: filterValue,
+        }),
+      )}`;
     }
   }
 

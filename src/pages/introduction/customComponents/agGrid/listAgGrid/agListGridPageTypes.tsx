@@ -216,10 +216,13 @@ export const employeeColumns: ColumnType[] = [
       name: 'status',
       componentType: 'selectCustomFilter',
       componentProps: {
-        // initialFilterFields: {
-        //   filter: [],
-        // },
+        initialFilterFields: {
+          filter: ['RESIGNED'],
+        },
+        defaultOption: 'in',
+        filterOptions: ['in'],
         label: 'Bir statü seç',
+        isItemTextTranslation: true,
         items: [
           { label: 'introductionAgGrid.active', value: 'ACTIVE' },
           { label: 'introductionAgGrid.onLeave', value: 'ON_LEAVE' },

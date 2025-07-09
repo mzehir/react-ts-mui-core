@@ -2,6 +2,7 @@ import { FilterOptions as TextFilterOptions } from './columnFilterTypeSections/t
 import { FilterOptions as NumberFilterOptions } from './columnFilterTypeSections/numberColumnFilterType';
 import { FilterOptions as DateFilterOptions } from './columnFilterTypeSections/dateColumnFilterType';
 import { FilterOptions as RadioFilterOptions } from './columnFilterTypeSections/radioCustomFilterType';
+import { FilterOptions as SelectFilterOptions } from './columnFilterTypeSections/selectCustomFilterType';
 
 interface TextColumnFilter {
   type: TextFilterOptions;
@@ -29,6 +30,12 @@ interface RadioColumnFilter {
   filter: string | boolean | null | undefined;
 }
 
-type ColumnFilter = TextColumnFilter | NumberColumnFilter | DateColumnFilter | RadioColumnFilter;
+interface SelectColumnFilter {
+  type: SelectFilterOptions;
+  filterType: 'select';
+  filter: string[] | number[] | null | undefined;
+}
+
+type ColumnFilter = TextColumnFilter | NumberColumnFilter | DateColumnFilter | RadioColumnFilter | SelectColumnFilter;
 
 export type ColumnFilterModel = Record<string, ColumnFilter>;

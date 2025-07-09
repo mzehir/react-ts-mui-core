@@ -27,6 +27,12 @@ export type ApiSliceGetListMethodRequestFilterParams =
       filterType: 'blank' | 'notBlank';
       filterKey: string;
       filterValue?: null;
+    }
+  // 📋 Multi-value equality (Select Filter)
+  | {
+      filterType: 'in';
+      filterKey: string;
+      filterValue: (string | number)[];
     };
 
 /**

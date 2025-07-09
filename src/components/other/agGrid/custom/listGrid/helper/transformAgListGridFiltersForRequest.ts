@@ -106,6 +106,14 @@ export const transformAgListGridFiltersForRequest = (
           filterValue: filterItem.filter as string,
         });
         break;
+
+      case 'select':
+        requestDtoFilters.push({
+          filterType: 'in',
+          filterKey: key,
+          filterValue: filterItem.filter as (string | number)[],
+        });
+        break;
     }
   }
 

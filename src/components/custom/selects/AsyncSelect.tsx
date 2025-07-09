@@ -14,12 +14,14 @@ const containsText = (text: string, searchText: string) => text.toLowerCase().in
 const AsyncSelectComp: React.FC<AsyncSelectCompProps> = (props) => {
   const {
     isLabelTranslation,
+    isItemTranslation,
     label,
     multiple,
     shouldFetchOnEveryOpenMenu,
     fetchItemsData,
     fetchValueItemsData,
     isSearhAndFilter,
+    menuContainerSelector,
     ...selectProps
   } = {
     ...asyncSelectCompDefaultProps,
@@ -89,7 +91,14 @@ const AsyncSelectComp: React.FC<AsyncSelectCompProps> = (props) => {
   }, [props.value]);
 
   const customMenuProps: Partial<MenuProps> = {
+    ...(menuContainerSelector
+      ? {
+          container: () => document.querySelector(menuContainerSelector!) || null,
+        }
+      : {}),
+
     ...(isSearhAndFilter ? { autoFocus: false } : {}),
+
     PaperProps: {
       sx: {
         borderRight: (theme) => `2px solid ${theme.palette.primary.main}`,
@@ -113,13 +122,15 @@ const AsyncSelectComp: React.FC<AsyncSelectCompProps> = (props) => {
           const selectedItemsDisplayValue = selected
             .map((value: string | number) => {
               const matchingItem = items.find((item) => item.value === value);
-              return matchingItem ? matchingItem.label : value;
+              // return matchingItem ? matchingItem.label : value;
+              return matchingItem ? (isItemTranslation ? translate(matchingItem.label) : matchingItem.label) : value;
             })
             .join(', ');
           return selectedItemsDisplayValue;
         } else {
           const selectedItem = items.find((item) => item.value === selected);
-          return selectedItem?.label;
+          // return selectedItem?.label;
+          return isItemTranslation && selectedItem ? translate(selectedItem?.label) : selectedItem?.label;
         }
       }}
       {...selectProps}
@@ -156,7 +167,7 @@ const AsyncSelectComp: React.FC<AsyncSelectCompProps> = (props) => {
             </MenuItemComp>
           ))
         : filteredItems.map((item, index) => (
-            <MenuItemComp key={index.toString()} value={item.value}>
+            <MenuItemComp key={index.toString()} value={item.value} isTranslation={!!isItemTranslation}>
               {isRenderCheckboxElement(selectProps.value) && (
                 <CheckboxComp checked={prepareCheckboxCompChecked(selectProps.value, item.value)} />
               )}

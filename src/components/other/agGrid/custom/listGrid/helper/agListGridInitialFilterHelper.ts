@@ -14,7 +14,7 @@ interface IDefaultFilter {
 interface FilterModelItem2 {
   type: string;
   filter: IDefaultFilter | IDateRangeFilter;
-  filterType: 'text' | 'number' | 'date' | 'radio';
+  filterType: 'text' | 'number' | 'date' | 'radio' | 'select';
 }
 
 const prepareListGridInitialFilterModel = (columns: ColumnType[]): Record<string, FilterModelItem2> => {
@@ -47,6 +47,7 @@ const prepareListGridInitialFilterModel = (columns: ColumnType[]): Record<string
       numberColumnFilter: 'number',
       dateColumnFilter: 'date',
       radioCustomFilter: 'radio',
+      selectCustomFilter: 'select',
     };
 
     filterModel[fieldName] = {

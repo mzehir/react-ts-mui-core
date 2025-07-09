@@ -7,24 +7,27 @@ import BoxComp from '../../../../../../../base/box/Box';
 const SelectCustomFloatingFilterComp: React.FC<CustomFloatingFilterProps> = (props) => {
   const { translate } = useLanguageContext();
 
-  const prepareValue = (propsParams: CustomFloatingFilterProps) => {
-    const value = propsParams?.model?.filter;
+  const prepareValue = (propsParams: CustomFloatingFilterProps): string => {
+    const values: (string | number)[] = propsParams?.model?.filter ?? [];
     const items = (propsParams?.filterParams?.colDef?.filterParams?.items as SelectCustomFilterItemParams[]) ?? [];
 
-    let inputValue: string | number = '';
+    if (values && values.length > 0) {
+      const matchedItems = items.filter((item) => values.some((value) => value === item.value));
 
-    if (value) {
-      const findItem = items.find((item) => item.value === value);
-      if (findItem) {
-        inputValue =
-          propsParams?.filterParams?.colDef?.filterParams.isItemTextTranslation !== false
-            ? translate(findItem.label)
-            : findItem.label;
-        return inputValue;
+      if (matchedItems.length > 0) {
+        const labelList = matchedItems.map((item) => {
+          if (propsParams?.filterParams?.colDef?.filterParams.isItemTextTranslation !== false) {
+            return translate(item.label);
+          } else {
+            return item.label;
+          }
+        });
+
+        return labelList.join(', ');
       }
-    } else {
-      return '';
     }
+
+    return '';
   };
 
   return (
@@ -35,6 +38,7 @@ const SelectCustomFloatingFilterComp: React.FC<CustomFloatingFilterProps> = (pro
         readOnly
         disabled
         value={prepareValue(props)}
+        title={prepareValue(props)}
       />
     </BoxComp>
   );
