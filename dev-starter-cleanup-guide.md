@@ -54,22 +54,22 @@ Aşağıdaki klasörler **tamamıyla silinmelidir** (içerikleri dahil):
 
 ### C- `src/db/users.json`
 
-- İçerisindeki 3 objeden yalnızca `userType: "admin"` olan kalmalı.
-- Diğer iki obje silinmeli.
+- İçerisindeki 3 objeden(elemandan) yalnızca `userType: "admin"` olan kalmalı.
+- Diğer iki obje(eleman) silinmeli.
 
 ---
 
 ### D- `src/router/Router.tsx`
 
-`//! 001DeletedStart` - `//! 001DeletedFinish` => yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+`//! 001DeletedStart` - `//! 001DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
 
-`//! 002DeletedStart` - `//! 002DeletedFinish` => yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+`//! 002DeletedStart` - `//! 002DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
 
-`//! 003ActivatedStart` - `//! 003ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve bu satırlar silinmelidir.
+`//! 003ActivatedStart` - `//! 003ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve ilgili yorum satırları silinmelidir.
 
-`//! 004DeletedStart` - `//! 004DeletedFinish` => yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+`//! 004DeletedStart` - `//! 004DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
 
-`//! 005ActivatedStart` - `//! 005ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve bu satırlar silinmelidir.
+`//! 005ActivatedStart` - `//! 005ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve ilgili yorum satırları silinmelidir.
 
 `npx prettier --write src/router/Router.tsx` => yukarıdaki maddelerden sonra bu komut terminal ile çalıştırılmalıdır.
 
@@ -79,17 +79,17 @@ Aşağıdaki klasörler **tamamıyla silinmelidir** (içerikleri dahil):
 
 ### E- `src/router/routerConstant.ts`
 
-`//! 001DeletedStart` - `//! 001DeletedFinish` => yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+`//! 001DeletedStart` - `//! 001DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
 
-`//! 002ActivatedStart` - `//! 002ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve bu satırlar silinmelidir.
+`//! 002ActivatedStart` - `//! 002ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve ilgili yorum satırları silinmelidir.
 
-`//! 003DeletedStart` - `//! 003DeletedFinish` => yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+`//! 003DeletedStart` - `//! 003DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
 
-`//! 004ActivatedStart` - `//! 004ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve bu satırlar silinmelidir.
+`//! 004ActivatedStart` - `//! 004ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve ilgili yorum satırları silinmelidir.
 
-`//! 005DeletedStart` - `//! 005DeletedFinish` => yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+`//! 005DeletedStart` - `//! 005DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
 
-`//! 006ActivatedStart` - `//! 006ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve bu satırlar silinmelidir.
+`//! 006ActivatedStart` - `//! 006ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve ilgili yorum satırları silinmelidir.
 
 `npx prettier --write src/router/routerConstant.ts` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
 
@@ -97,15 +97,35 @@ Aşağıdaki klasörler **tamamıyla silinmelidir** (içerikleri dahil):
 
 ---
 
-### F- `src/redux/store.ts`
+### F- `src/router/helper/accessErrorsRouter.ts`
 
-`//! 001DeletedStart` - `//! 001DeletedFinish` => yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+`//! 001DeletedStart` - `//! 001DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
 
-`//! 002DeletedStart` - `//! 002DeletedFinish` => yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+`//! 002ActivatedStart` - `//! 002ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve ilgili yorum satırları silinmelidir.
 
-`//! 003DeletedStart` - `//! 003DeletedFinish` => yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+`//! 003DeletedStart` - `//! 003DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
 
-`//! 004ActivatedStart` - `//! 004ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve bu satırlar silinmelidir.
+`//! 004ActivatedStart` - `//! 004ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve ilgili yorum satırları silinmelidir.
+
+`//! 005DeletedStart` - `//! 005DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
+
+`//! 006ActivatedStart` - `//! 006ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve ilgili yorum satırları silinmelidir.
+
+`npx prettier --write src/router/helper/accessErrorsRouter.ts` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
+
+`npx eslint src/router/helper/accessErrorsRouter.ts --fix` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
+
+---
+
+### G- `src/redux/store.ts`
+
+`//! 001DeletedStart` - `//! 001DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
+
+`//! 002DeletedStart` - `//! 002DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
+
+`//! 003DeletedStart` - `//! 003DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
+
+`//! 004ActivatedStart` - `//! 004ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve ilgili yorum satırları silinmelidir.
 
 `npx prettier --write src/redux/store.ts` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
 
@@ -113,13 +133,13 @@ Aşağıdaki klasörler **tamamıyla silinmelidir** (içerikleri dahil):
 
 ---
 
-### G- `src/pages/auth/signIn/SignIn.tsx`
+### H- `src/pages/auth/signIn/SignIn.tsx`
 
-`//! 001DeletedStart` - `//! 001DeletedFinish` => yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+`//! 001DeletedStart` - `//! 001DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
 
-`{/* //! 002DeletedStart */}` - `{/* //! 002DeletedFinish */}` => yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+`{/* //! 002DeletedStart */}` - `{/* //! 002DeletedFinish */}` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
 
-`//! 003DeletedStart` - `//! 003DeletedFinish` => yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+`//! 003DeletedStart` - `//! 003DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
 
 `npx prettier --write src/pages/auth/signIn/SignIn.tsx` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
 
@@ -127,9 +147,9 @@ Aşağıdaki klasörler **tamamıyla silinmelidir** (içerikleri dahil):
 
 ---
 
-### H- `src/utils/enums/userTypes.ts`
+### I- `src/utils/enums/userTypes.ts`
 
-`//! 001DeletedStart` - `//! 001DeletedFinish` => yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+`//! 001DeletedStart` - `//! 001DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
 
 `npx prettier --write src/utils/enums/userTypes.ts` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
 
@@ -137,15 +157,15 @@ Aşağıdaki klasörler **tamamıyla silinmelidir** (içerikleri dahil):
 
 ---
 
-### I- `src/i18n/i18n.ts`
+### J- `src/i18n/i18n.ts`
 
-`//! 001DeletedStart` - `//! 001DeletedFinish` => yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+`//! 001DeletedStart` - `//! 001DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
 
-`//! 002DeletedStart` - `//! 002DeletedFinish` => yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+`//! 002DeletedStart` - `//! 002DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
 
-`//! 003DeletedStart` - `//! 003DeletedFinish` => yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+`//! 003DeletedStart` - `//! 003DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
 
-`//! 004DeletedStart` - `//! 004DeletedFinish` => yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
+`//! 004DeletedStart` - `//! 004DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
 
 `npx prettier --write src/i18n/i18n.ts` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
 

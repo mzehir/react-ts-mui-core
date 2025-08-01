@@ -20,7 +20,12 @@ const ACCESS_ERRORS_WRAPPER: Omit<RouterWrapper, 'children'> = {
 
 export const ACCESS_ERRORS_ROUTER_ITEMS: AuthRouterItems = {
   NOT_FOUND: {
+    //! 001DeletedStart
     whoCanSeeForPage: ['admin', 'teacher', 'student', 'guest'],
+    //! 001DeletedFinish
+    //! 002ActivatedStart
+    // whoCanSeeForPage: ['admin', 'guest'],
+    //! 002ActivatedFinish
     parentKey: 'ACCESS_ERRORS_WRAPPER',
     key: 'NOT_FOUND',
     label: 'introductionRoutes.notFoundPage',
@@ -29,7 +34,12 @@ export const ACCESS_ERRORS_ROUTER_ITEMS: AuthRouterItems = {
   },
 
   SERVER_ERROR: {
+    //! 003DeletedStart
     whoCanSeeForPage: ['admin', 'teacher', 'student', 'guest'],
+    //! 003DeletedFinish
+    //! 004ActivatedStart
+    // whoCanSeeForPage: ['admin', 'guest'],
+    //! 004ActivatedFinish
     parentKey: 'ACCESS_ERRORS_WRAPPER',
     key: 'SERVER_ERROR',
     label: 'introductionRoutes.serverErrorPage',
@@ -38,7 +48,12 @@ export const ACCESS_ERRORS_ROUTER_ITEMS: AuthRouterItems = {
   },
 
   FORBIDDEN: {
+    //! 005DeletedStart
     whoCanSeeForPage: ['admin', 'teacher', 'student', 'guest'],
+    //! 005DeletedFinish
+    //! 006ActivatedStart
+    // whoCanSeeForPage: ['admin', 'guest'],
+    //! 006ActivatedFinish
     parentKey: 'ACCESS_ERRORS_WRAPPER',
     key: 'FORBIDDEN',
     label: 'introductionRoutes.forbiddenPage',
