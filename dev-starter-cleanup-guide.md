@@ -8,10 +8,10 @@ Bu kılavuz, **Dev Starter** projesini sadeleştirerek gerçek bir projeye dön�
 
 Yeni bir projeye sağlam ve sorunsuz bir başlangıç yapmak için aşağıdaki adımları takip etmeni öneririz:
 
-- [ ] Proje dizininde terminali açarak, gerekli bağımlılıkların yüklenmesi için `npm i` komutunu çalıştır.
+- [ ] Projenin kök dizininde terminali açarak, gerekli bağımlılıkların yüklenmesi için `npm i` komutunu çalıştır.
 - [ ] Ardından `npm run dev` komutuyla projeyi yerel ortamda başlat ve düzgün şekilde çalıştığından emin ol.
 - [ ] Eğer eksik bağımlılık uyarısı alırsan, eksik paketleri terminal üzerinden tek tek yükle (örneğin `npm install <paket-adı>`).
-- [ ] Uygulama sorunsuz bir şekilde başlatıldıktan sonra `Ctrl + C` ile sunucuyu durdur.
+- [ ] Uygulama sorunsuz bir şekilde başlatıldıktan sonra terminalden `Ctrl + C` komutu ile sunucuyu durdur.
 - [ ] Artık projeyi sadeleştirme ve yapılandırma adımlarına geçebilirsin.
 
 ---
@@ -71,9 +71,9 @@ Aşağıdaki klasörler **tamamıyla silinmelidir** (içerikleri dahil):
 
 `//! 005ActivatedStart` - `//! 005ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve bu satırlar silinmelidir.
 
-`npx prettier --write src/router/Router.tsx` => yukarıdaki maddelerden sonra bu script console ile çalıştırılmalıdır.
+`npx prettier --write src/router/Router.tsx` => yukarıdaki maddelerden sonra bu komut terminal ile çalıştırılmalıdır.
 
-`npx eslint src/router/Router.tsx --fix` => yukarıdaki maddelerden sonra bu script console ile çalıştırılmalıdır.
+`npx eslint src/router/Router.tsx --fix` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
 
 ---
 
@@ -91,9 +91,9 @@ Aşağıdaki klasörler **tamamıyla silinmelidir** (içerikleri dahil):
 
 `//! 006ActivatedStart` - `//! 006ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve bu satırlar silinmelidir.
 
-`npx prettier --write src/router/routerConstant.ts` => yukarıdaki maddelerden sonra bu script console ile çalıştırılmalıdır.
+`npx prettier --write src/router/routerConstant.ts` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
 
-`npx eslint src/router/routerConstant.ts --fix` => yukarıdaki maddelerden sonra bu script console ile çalıştırılmalıdır.
+`npx eslint src/router/routerConstant.ts --fix` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
 
 ---
 
@@ -107,9 +107,9 @@ Aşağıdaki klasörler **tamamıyla silinmelidir** (içerikleri dahil):
 
 `//! 004ActivatedStart` - `//! 004ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve bu satırlar silinmelidir.
 
-`npx prettier --write src/redux/store.ts` => yukarıdaki maddelerden sonra bu script console ile çalıştırılmalıdır.
+`npx prettier --write src/redux/store.ts` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
 
-`npx eslint src/redux/store.ts --fix` => yukarıdaki maddelerden sonra bu script console ile çalıştırılmalıdır.
+`npx eslint src/redux/store.ts --fix` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
 
 ---
 
@@ -121,9 +121,9 @@ Aşağıdaki klasörler **tamamıyla silinmelidir** (içerikleri dahil):
 
 `//! 003DeletedStart` - `//! 003DeletedFinish` => yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
 
-`npx prettier --write src/pages/auth/signIn/SignIn.tsx` => yukarıdaki maddelerden sonra bu script console ile çalıştırılmalıdır.
+`npx prettier --write src/pages/auth/signIn/SignIn.tsx` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
 
-`npx eslint src/pages/auth/signIn/SignIn.tsx --fix` => yukarıdaki maddelerden sonra bu script console ile çalıştırılmalıdır.
+`npx eslint src/pages/auth/signIn/SignIn.tsx --fix` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
 
 ---
 
@@ -131,9 +131,9 @@ Aşağıdaki klasörler **tamamıyla silinmelidir** (içerikleri dahil):
 
 `//! 001DeletedStart` - `//! 001DeletedFinish` => yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
 
-`npx prettier --write src/utils/enums/userTypes.ts` => yukarıdaki maddelerden sonra bu script console ile çalıştırılmalıdır.
+`npx prettier --write src/utils/enums/userTypes.ts` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
 
-`npx eslint src/utils/enums/userTypes.ts --fix` => yukarıdaki maddelerden sonra bu script console ile çalıştırılmalıdır.
+`npx eslint src/utils/enums/userTypes.ts --fix` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
 
 ---
 
@@ -147,9 +147,9 @@ Aşağıdaki klasörler **tamamıyla silinmelidir** (içerikleri dahil):
 
 `//! 004DeletedStart` - `//! 004DeletedFinish` => yorum satırları arasındaki tüm satırlar ve bu satırlar silinmelidir.
 
-`npx prettier --write src/i18n/i18n.ts` => yukarıdaki maddelerden sonra bu script console ile çalıştırılmalıdır.
+`npx prettier --write src/i18n/i18n.ts` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
 
-`npx eslint src/i18n/i18n.ts --fix` => yukarıdaki maddelerden sonra bu script console ile çalıştırılmalıdır.
+`npx eslint src/i18n/i18n.ts --fix` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
 
 ---
 
