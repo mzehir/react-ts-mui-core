@@ -21,7 +21,6 @@ Yeni bir projeye sağlam ve sorunsuz bir başlangıç yapmak için aşağıdaki 
 Aşağıdaki klasörler **tamamıyla silinmelidir** (içerikleri dahil):
 
 ```txt
-/node_modules
 /src/pages/introduction
 /src/router/helper/introductionRouter
 /src/i18n/locales/en/introduction
