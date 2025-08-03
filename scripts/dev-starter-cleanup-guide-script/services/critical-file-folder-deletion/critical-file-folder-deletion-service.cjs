@@ -15,7 +15,7 @@ async function criticalFileFolderDeletingMethod(texts, item) {
       return false;
     }
 
-    // fs.rmSync(item.path, { recursive: true, force: true });
+    fs.rmSync(item.path, { recursive: true, force: true });
     logSuccess(texts[item.deletingSuccess]);
     return true;
   } catch (error) {

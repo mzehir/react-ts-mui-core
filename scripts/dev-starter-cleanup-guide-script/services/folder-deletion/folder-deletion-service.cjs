@@ -42,7 +42,7 @@ async function folderDeletionMethod(texts) {
 
   for (const dir of existingFolders) {
     try {
-      // fs.rmSync(dir, { recursive: true, force: true });
+      fs.rmSync(dir, { recursive: true, force: true });
       logSuccess(`${dir}`);
       logSuccess(texts.deletionFolderSuccess);
     } catch (error) {
