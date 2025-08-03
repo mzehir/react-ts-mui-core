@@ -9,8 +9,6 @@ const folderDeletedList = [
   'src/redux/slices/services/introduction',
   'src/utils/enums/introduction',
   'src/assets/other',
-
-  'src/assets/lores',
 ];
 
 module.exports = {
