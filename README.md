@@ -76,6 +76,13 @@ npm run dev
 ```
 **[Demo page of the repository](https://react-ts-mui-core.vercel.app/)**
 
-## Bonus
+## Bonus Feature  🚀 Transform Dev Starter into a Production-Ready Project
 
-**Dev Starter** kılavuzunu gerçek bir projeye dönüştürmek için `./dev-starter-cleanup-guide.md` dosyasındaki talimatlar uygulanmalıdır.
+To convert **Dev Starter** into a clean and production-ready project, please follow the steps described in the `./dev-starter-cleanup-guide.md` file carefully.
+
+If following these steps one by one feels time-consuming, you can automate the process by running the following command in the project's root directory:
+
+```bash
+node scripts/dev-starter-cleanup-guide-script/dev-starter-cleanup-guide-script.cjs
+
+# This command quickly performs the cleanup and customization steps on your behalf.
