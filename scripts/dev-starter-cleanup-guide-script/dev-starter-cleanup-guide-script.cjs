@@ -17,6 +17,34 @@ const languages = require('./language/languages.cjs');
 
 async function devStarterCleanupGuideMethod() {
   try {
+    if (!fs.existsSync('node_modules')) {
+      logWarning(
+        "This script requires the 'node_modules' directory to run properly. Please run the npm i command first to install the necessary dependencies.",
+      );
+      logWarning(
+        "Bu betik, çalışabilmesi için 'node_modules' klasörüne ihtiyaç duyar. Lütfen öncelikle npm i komutunu çalıştırarak gerekli bağımlılıkları yükleyin.",
+      );
+      logWarning(
+        "Dieses Skript benötigt den Ordner 'node_modules', um ordnungsgemäß ausgeführt zu werden. Bitte führen Sie zunächst den Befehl npm i aus, um die erforderlichen Abhängigkeiten zu installieren.",
+      );
+      logBlankLine();
+      return;
+    }
+
+    if (!fs.existsSync('package-lock.json')) {
+      logWarning(
+        "This script requires the 'package-lock.json' file to run properly. Please run the npm i command first to install the necessary dependencies.",
+      );
+      logWarning(
+        "Bu betik, çalışabilmesi için 'package-lock.json' dosyasına ihtiyaç duyar. Lütfen öncelikle npm i komutunu çalıştırarak gerekli bağımlılıkları yükleyin.",
+      );
+      logWarning(
+        "Dieses Skript benötigt die Datei 'package-lock.json', um ordnungsgemäß ausgeführt zu werden. Bitte führen Sie zunächst den Befehl npm i aus, um die erforderlichen Abhängigkeiten zu installieren.",
+      );
+      logBlankLine();
+      return;
+    }
+
     // TODO SECTION 1
     const selectedLang = await selectLanguage();
     const texts = languages[selectedLang];
