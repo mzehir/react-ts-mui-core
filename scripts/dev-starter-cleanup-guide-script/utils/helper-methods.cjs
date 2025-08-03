@@ -2,11 +2,6 @@
 
 const { logBlankLine } = require('./logger-methods.cjs');
 
-/**
- * Asks the user to confirm directory deletion.
- * Kullanıcıya silme işlemini onaylamak için evet/hayır sorusu sorar.
- * Fragt den Benutzer, ob die Verzeichnisse gelöscht werden sollen.
- */
 async function confirmQuestion(questionText, texts) {
   logBlankLine();
 
