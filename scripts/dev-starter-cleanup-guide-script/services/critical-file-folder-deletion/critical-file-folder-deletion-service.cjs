@@ -9,7 +9,7 @@ async function criticalFileFolderDeletingMethod(texts, item) {
   try {
     logInfo(texts[item.deletingTitle]);
 
-    const confirmQuestionResult = await confirmQuestion(item.deletingConfirm, texts);
+    const confirmQuestionResult = await confirmQuestion(texts[item.deletingConfirm], texts);
     if (confirmQuestionResult === 'no') {
       logWarning(texts.cancelled);
       return false;
