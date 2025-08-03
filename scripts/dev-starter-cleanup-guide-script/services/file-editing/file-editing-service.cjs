@@ -68,6 +68,8 @@ async function fileEditingMethod(texts) {
     logBlankLine();
     await fixWithPrettierAndEslint(texts, item);
   }
+
+  return true;
 }
 
 module.exports = {
