@@ -69,14 +69,14 @@ async function devStarterCleanupGuideMethod() {
     }
 
     // TODO SECTION 4
-    const _getCriticalFileFolderDeletingList = getCriticalFileFolderDeletingList();
-    for (const item of _getCriticalFileFolderDeletingList) {
-      if (fs.existsSync(item.path)) {
-        logBlankLine();
-        await criticalFileFolderDeletingMethod(texts, item);
-      } else {
-      }
-    }
+    // const _getCriticalFileFolderDeletingList = getCriticalFileFolderDeletingList();
+    // for (const item of _getCriticalFileFolderDeletingList) {
+    //   if (fs.existsSync(item.path)) {
+    //     logBlankLine();
+    //     await criticalFileFolderDeletingMethod(texts, item);
+    //   } else {
+    //   }
+    // }
 
     // TODO SECTION 5
     logBlankLine();
