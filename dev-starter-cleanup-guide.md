@@ -1,24 +1,24 @@
-# 🧹 Dev Starter Temizliği ve Yeni Proje Başlatmaya Hazırlık Kılavuzu
+# 🧹 Dev Starter Cleanup and New Project Preparation Guide
 
-Bu kılavuz, **Dev Starter** projesini sadeleştirerek gerçek bir projeye dönüştürmek için yapılması gereken işlemleri içerir.
-
----
-
-## ✅ Ön Hazırlık
-
-Yeni bir projeye sağlam ve sorunsuz bir başlangıç yapmak için aşağıdaki adımları takip etmeni öneririz:
-
-- [ ] Projenin kök dizininde terminali açarak, gerekli bağımlılıkların yüklenmesi için `npm i` komutunu çalıştır.
-- [ ] Ardından `npm run dev` komutuyla projeyi yerel ortamda başlat ve düzgün şekilde çalıştığından emin ol.
-- [ ] Eğer eksik bağımlılık uyarısı alırsan, eksik paketleri terminal üzerinden tek tek yükle (örneğin `npm install <paket-adı>`).
-- [ ] Uygulama sorunsuz bir şekilde başlatıldıktan sonra terminalden `Ctrl + C` komutu ile sunucuyu durdur.
-- [ ] Artık projeyi sadeleştirme ve yapılandırma adımlarına geçebilirsin.
+This guide contains the necessary steps to transform the **Dev Starter** project into a real project by simplifying it.
 
 ---
 
-## 📁 1. Silinmesi Gereken Klasörler
+## ✅ Preliminary Preparation
 
-Aşağıdaki klasörler **tamamıyla silinmelidir** (içerikleri dahil):
+We recommend following these steps to make a solid and smooth start to a new project:
+
+- [ ] Open the terminal in the project's root directory and run the `npm i` command to install the required dependencies.
+- [ ] Then start the project in the local environment with the `npm run dev` command and make sure it runs properly.
+- [ ] If you receive missing dependency warnings, install the missing packages one by one via terminal (e.g., `npm install <package-name>`).
+- [ ] After the application starts without any issues, stop the server with the `Ctrl + C` command from the terminal.
+- [ ] Now you can proceed with the project simplification and configuration steps.
+
+---
+
+## 📁 1. Folders to Delete
+
+The following folders should be **completely deleted** (including their contents):
 
 ```txt
 /src/pages/introduction
@@ -31,159 +31,159 @@ Aşağıdaki klasörler **tamamıyla silinmelidir** (içerikleri dahil):
 /src/assets/other
 ```
 
-## 🗑️ 2. Silinmesi Gereken Dosyalar
+## 🗑️ 2. Files to Delete
 
 ```txt
 
 ```
 
-## ✏️ 3. Düzenlenmesi Gereken Dosyalar
+## ✏️ 3. Files to Edit
 
 ### A- `.env`
 
-`VITE_APP_NAME = "Dev Starter"` => Uygulama adı güncellenmeli
+`VITE_APP_NAME = "Dev Starter"` => Application name should be updated
 
 ---
 
 ### B- `package.json`
 
-`"name": "dev-starter"` => Proje adı güncellenmeli
+`"name": "dev-starter"` => Project name should be updated
 
 ---
 
 ### C- `src/db/users.json`
 
-- İçerisindeki 3 objeden(elemandan) yalnızca `userType: "admin"` olan kalmalı.
-- Diğer iki obje(eleman) silinmeli.
+- Only the object (element) with `userType: "admin"` should remain from the 3 objects.
+- The other two objects (elements) should be deleted.
 
 ---
 
 ### D- `src/router/Router.tsx`
 
-`//! 001DeletedStart` - `//! 001DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
+`//! 001DeletedStart` - `//! 001DeletedFinish` => all lines between these comment lines and the related comment lines should be deleted.
 
-`//! 002DeletedStart` - `//! 002DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
+`//! 002DeletedStart` - `//! 002DeletedFinish` => all lines between these comment lines and the related comment lines should be deleted.
 
-`//! 003ActivatedStart` - `//! 003ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve ilgili yorum satırları silinmelidir.
+`//! 003ActivatedStart` - `//! 003ActivatedFinish` => all lines between these comment lines should be activated and the related comment lines should be deleted.
 
-`//! 004DeletedStart` - `//! 004DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
+`//! 004DeletedStart` - `//! 004DeletedFinish` => all lines between these comment lines and the related comment lines should be deleted.
 
-`//! 005ActivatedStart` - `//! 005ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve ilgili yorum satırları silinmelidir.
+`//! 005ActivatedStart` - `//! 005ActivatedFinish` => all lines between these comment lines should be activated and the related comment lines should be deleted.
 
-`npx prettier --write src/router/Router.tsx` => yukarıdaki maddelerden sonra bu komut terminal ile çalıştırılmalıdır.
+`npx prettier --write src/router/Router.tsx` => this command should be run in terminal after the above steps.
 
-`npx eslint src/router/Router.tsx --fix` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
+`npx eslint src/router/Router.tsx --fix` => this script should be run in terminal after the above steps.
 
 ---
 
 ### E- `src/router/routerConstant.ts`
 
-`//! 001DeletedStart` - `//! 001DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
+`//! 001DeletedStart` - `//! 001DeletedFinish` => all lines between these comment lines and the related comment lines should be deleted.
 
-`//! 002ActivatedStart` - `//! 002ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve ilgili yorum satırları silinmelidir.
+`//! 002ActivatedStart` - `//! 002ActivatedFinish` => all lines between these comment lines should be activated and the related comment lines should be deleted.
 
-`//! 003DeletedStart` - `//! 003DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
+`//! 003DeletedStart` - `//! 003DeletedFinish` => all lines between these comment lines and the related comment lines should be deleted.
 
-`//! 004ActivatedStart` - `//! 004ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve ilgili yorum satırları silinmelidir.
+`//! 004ActivatedStart` - `//! 004ActivatedFinish` => all lines between these comment lines should be activated and the related comment lines should be deleted.
 
-`//! 005DeletedStart` - `//! 005DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
+`//! 005DeletedStart` - `//! 005DeletedFinish` => all lines between these comment lines and the related comment lines should be deleted.
 
-`//! 006ActivatedStart` - `//! 006ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve ilgili yorum satırları silinmelidir.
+`//! 006ActivatedStart` - `//! 006ActivatedFinish` => all lines between these comment lines should be activated and the related comment lines should be deleted.
 
-`npx prettier --write src/router/routerConstant.ts` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
+`npx prettier --write src/router/routerConstant.ts` => this script should be run in terminal after the above steps.
 
-`npx eslint src/router/routerConstant.ts --fix` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
+`npx eslint src/router/routerConstant.ts --fix` => this script should be run in terminal after the above steps.
 
 ---
 
 ### F- `src/router/helper/accessErrorsRouter.ts`
 
-`//! 001DeletedStart` - `//! 001DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
+`//! 001DeletedStart` - `//! 001DeletedFinish` => all lines between these comment lines and the related comment lines should be deleted.
 
-`//! 002ActivatedStart` - `//! 002ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve ilgili yorum satırları silinmelidir.
+`//! 002ActivatedStart` - `//! 002ActivatedFinish` => all lines between these comment lines should be activated and the related comment lines should be deleted.
 
-`//! 003DeletedStart` - `//! 003DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
+`//! 003DeletedStart` - `//! 003DeletedFinish` => all lines between these comment lines and the related comment lines should be deleted.
 
-`//! 004ActivatedStart` - `//! 004ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve ilgili yorum satırları silinmelidir.
+`//! 004ActivatedStart` - `//! 004ActivatedFinish` => all lines between these comment lines should be activated and the related comment lines should be deleted.
 
-`//! 005DeletedStart` - `//! 005DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
+`//! 005DeletedStart` - `//! 005DeletedFinish` => all lines between these comment lines and the related comment lines should be deleted.
 
-`//! 006ActivatedStart` - `//! 006ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve ilgili yorum satırları silinmelidir.
+`//! 006ActivatedStart` - `//! 006ActivatedFinish` => all lines between these comment lines should be activated and the related comment lines should be deleted.
 
-`npx prettier --write src/router/helper/accessErrorsRouter.ts` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
+`npx prettier --write src/router/helper/accessErrorsRouter.ts` => this script should be run in terminal after the above steps.
 
-`npx eslint src/router/helper/accessErrorsRouter.ts --fix` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
+`npx eslint src/router/helper/accessErrorsRouter.ts --fix` => this script should be run in terminal after the above steps.
 
 ---
 
 ### G- `src/redux/store.ts`
 
-`//! 001DeletedStart` - `//! 001DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
+`//! 001DeletedStart` - `//! 001DeletedFinish` => all lines between these comment lines and the related comment lines should be deleted.
 
-`//! 002DeletedStart` - `//! 002DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
+`//! 002DeletedStart` - `//! 002DeletedFinish` => all lines between these comment lines and the related comment lines should be deleted.
 
-`//! 003DeletedStart` - `//! 003DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
+`//! 003DeletedStart` - `//! 003DeletedFinish` => all lines between these comment lines and the related comment lines should be deleted.
 
-`//! 004ActivatedStart` - `//! 004ActivatedFinish` => yorum satırları arasındaki tüm satırlar aktif edilmelidir ve ilgili yorum satırları silinmelidir.
+`//! 004ActivatedStart` - `//! 004ActivatedFinish` => all lines between these comment lines should be activated and the related comment lines should be deleted.
 
-`npx prettier --write src/redux/store.ts` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
+`npx prettier --write src/redux/store.ts` => this script should be run in terminal after the above steps.
 
-`npx eslint src/redux/store.ts --fix` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
+`npx eslint src/redux/store.ts --fix` => this script should be run in terminal after the above steps.
 
 ---
 
 ### H- `src/pages/auth/signIn/SignIn.tsx`
 
-`//! 001DeletedStart` - `//! 001DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
+`//! 001DeletedStart` - `//! 001DeletedFinish` => all lines between these comment lines and the related comment lines should be deleted.
 
-`{/* //! 002DeletedStart */}` - `{/* //! 002DeletedFinish */}` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
+`{/* //! 002DeletedStart */}` - `{/* //! 002DeletedFinish */}` => all lines between these comment lines and the related comment lines should be deleted.
 
-`//! 003DeletedStart` - `//! 003DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
+`//! 003DeletedStart` - `//! 003DeletedFinish` => all lines between these comment lines and the related comment lines should be deleted.
 
-`npx prettier --write src/pages/auth/signIn/SignIn.tsx` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
+`npx prettier --write src/pages/auth/signIn/SignIn.tsx` => this script should be run in terminal after the above steps.
 
-`npx eslint src/pages/auth/signIn/SignIn.tsx --fix` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
+`npx eslint src/pages/auth/signIn/SignIn.tsx --fix` => this script should be run in terminal after the above steps.
 
 ---
 
 ### I- `src/utils/enums/userTypes.ts`
 
-`//! 001DeletedStart` - `//! 001DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
+`//! 001DeletedStart` - `//! 001DeletedFinish` => all lines between these comment lines and the related comment lines should be deleted.
 
-`npx prettier --write src/utils/enums/userTypes.ts` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
+`npx prettier --write src/utils/enums/userTypes.ts` => this script should be run in terminal after the above steps.
 
-`npx eslint src/utils/enums/userTypes.ts --fix` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
+`npx eslint src/utils/enums/userTypes.ts --fix` => this script should be run in terminal after the above steps.
 
 ---
 
 ### J- `src/i18n/i18n.ts`
 
-`//! 001DeletedStart` - `//! 001DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
+`//! 001DeletedStart` - `//! 001DeletedFinish` => all lines between these comment lines and the related comment lines should be deleted.
 
-`//! 002DeletedStart` - `//! 002DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
+`//! 002DeletedStart` - `//! 002DeletedFinish` => all lines between these comment lines and the related comment lines should be deleted.
 
-`//! 003DeletedStart` - `//! 003DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
+`//! 003DeletedStart` - `//! 003DeletedFinish` => all lines between these comment lines and the related comment lines should be deleted.
 
-`//! 004DeletedStart` - `//! 004DeletedFinish` => yorum satırları arasındaki tüm satırlar ve ilgili yorum satırları silinmelidir.
+`//! 004DeletedStart` - `//! 004DeletedFinish` => all lines between these comment lines and the related comment lines should be deleted.
 
-`npx prettier --write src/i18n/i18n.ts` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
+`npx prettier --write src/i18n/i18n.ts` => this script should be run in terminal after the above steps.
 
-`npx eslint src/i18n/i18n.ts --fix` => yukarıdaki maddelerden sonra bu script terminal ile çalıştırılmalıdır.
-
----
-
-> 💡 **Not:** Bu işlemlerden sonra proje daha sade, üretim odaklı ve sürdürülebilir hale gelecektir.
+`npx eslint src/i18n/i18n.ts --fix` => this script should be run in terminal after the above steps.
 
 ---
 
-## ✅ Sonraki Adımlar
-- [ ] `node_modules` klasörünü silerek mevcut bağımlılıkları temizle.
-- [ ] Ardından `package-lock.json` dosyasını da sil (bu adım, bağımlılıkların yeniden düzgün oluşturulmasını sağlar).
-- [ ] Terminal üzerinden `npm i` komutunu tekrar çalıştırarak, proje için gerekli olan tüm bağımlılıkları sıfırdan yükle.
-- [ ] `npm run dev` komutuyla projeyi bir kez daha başlatarak, her şeyin sorunsuz çalıştığını doğrula.
-- [ ] Eğer hâlâ eksik bağımlılık uyarısı alırsan, eksik paketleri manuel olarak yüklemeyi unutma.
-- [ ] Son olarak, projeyi yeniden çalıştır (`npm run dev`) ve artık temiz bir başlangıçla geliştirmeye hazırsın!
+> 💡 **Note:** After these operations, the project will become more streamlined, production-focused, and sustainable.
 
 ---
 
-🎉 Tebrikler! Tüm bu adımları tamamladıysan, artık daha sade, bakımı kolay ve gerçek bir projeye dönüşmeye hazır bir altyapıya sahipsin. Başarılar ve keyifli kodlamalar! 👨‍💻👩‍💻✨
+## ✅ Next Steps
+- [ ] Clean up existing dependencies by deleting the `node_modules` folder.
+- [ ] Then delete the `package-lock.json` file (this step ensures proper recreation of dependencies).
+- [ ] Run the `npm i` command again via terminal to reinstall all necessary dependencies for the project from scratch.
+- [ ] Start the project once more with `npm run dev` to verify that everything works properly.
+- [ ] If you still receive missing dependency warnings, don't forget to manually install the missing packages.
+- [ ] Finally, restart the project (`npm run dev`) and you're ready to develop with a clean start!
+
+---
+
+🎉 Congratulations! If you've completed all these steps, you now have an infrastructure that's more streamlined, easier to maintain, and ready to transform into a real project. Good luck and happy coding! 👨‍💻👩‍💻✨
