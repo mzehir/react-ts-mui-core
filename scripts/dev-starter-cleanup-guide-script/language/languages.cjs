@@ -9,6 +9,8 @@ const languages = {
     yes: 'Evet',
     no: 'Hayır',
 
+    dependencyAlertMissingNodeModulesOrLockFile:
+      'Projenizde "node_modules" klasörü ve "package-lock.json" dosyasının mevcut olduğundan emin olun. Eğer bu klasör veya dosya eksikse, scripti çalıştırmadan önce "npm i" komutunu kullanarak gerekli bağımlılıkları yükleyin. Ayrıca, proje yerel sunucuda (örneğin bir port üzerinde) çalışıyorsa işlemlere başlamadan önce durdurmanız önerilir.',
     title:
       '🧹 Dev Starter Temizlik İşlemi Başlıyor. Bu işlem, projeyi gerçek kullanım için sadeleştirir ve kullanıma hazır hale getirir.',
     checkingFoldersToDelete: 'Silinecek klasörlerin proje içerisindeki varlığı kontrol ediliyor...',
@@ -142,29 +144,12 @@ const languages = {
     packageLockDeleteSuccess: '"package-lock.json" dosyası başarılı bir şekilde silindi.',
     packageLockDeleteError: '"package-lock.json" dosyası silinirken bir hata ile karşılaşıldı!',
 
-    xxxxxxxxxxxxxxx: 'xxxxxxxxxxxxxxxxxx',
-    xxxxxxxxxxxxxxx: 'xxxxxxxxxxxxxxxxxx',
-    xxxxxxxxxxxxxxx: 'xxxxxxxxxxxxxxxxxx',
-    xxxxxxxxxxxxxxx: 'xxxxxxxxxxxxxxxxxx',
-    xxxxxxxxxxxxxxx: 'xxxxxxxxxxxxxxxxxx',
-
-    checkingDirectories: 'Klasörler kontrol ediliyor...',
-    existingDirectories: 'Mevcut klasörler:',
-    confirmDelete: 'Mevcut klasörleri silmek istediğinizden emin misiniz?',
-    willDelete: 'Silinecek olanlar:',
-    willSkip: 'Atlanacak olanlar (bulunamadı):',
-    confirmDeleteFiles: 'Dosyaları silme işlemini başlatmak istiyor musunuz?',
-    checkingFiles: 'Dosyalar kontrol ediliyor...',
-    existingFiles: 'Mevcut dosyalar:',
-    missingFiles: 'Bulunamayan dosyalar:',
-    confirmEditFiles: 'Dosyaları düzenleme işlemini başlatmak istiyor musunuz?',
-    editingFiles: 'Dosyalar düzenleniyor...',
-    restartInfo: 'Projenizi yeniden başlatmak için: npm run dev',
-    projectMayBeRunning: '🚦 Projeniz herhangi bir portta çalışıyorsa önce durdurun! 😊',
-    deleteNodeModules: '🗑️ Ardından ana dizindeki node_modules klasörünü silin (tertemiz başlamak için).',
-    installPackages: '📦 Sonra `npm i` komutu ile tüm paketleri yükleyin.',
-    runDevAndTest: '🚀 Son olarak `npm run dev` komutu ile projeyi localde başlatıp test edin. Keyifli kodlamalar! 💻',
-    goodWork: '✨ İyi çalışmalar & bol kodlamalar! ✨',
+    cleanupCompleted: '🧹 Dev Starter temizliği başarıyla tamamlandı. Proje en sade ve temiz hale getirildi.',
+    recommendFreshInstall:
+      '🗑️ Temiz bir başlangıç için "node_modules" klasörü ve "package-lock.json" dosyasını tekrardan silip `npm i` komutunu kullanarak yüklemeniz tavsiye edilir.',
+    runDevAndTest:
+      '🚀 Son adım olarak `npm run dev` komutu ile projeyi yerel ortamda başlatın ve her şeyin doğru çalıştığından emin olun.',
+    goodWorkWish: '✨ Başarılı bir kurulum! İyi çalışmalar ve keyifli kodlamalar! 💻',
   },
   de: {},
 };

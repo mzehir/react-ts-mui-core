@@ -2,7 +2,7 @@
 /* eslint-disable */
 
 const fs = require('fs');
-const { log, logBlankLine } = require('./utils/logger-methods.cjs');
+const { log, logBlankLine, logWarning, logSuccess } = require('./utils/logger-methods.cjs');
 const { selectLanguage } = require('./language/language-helper.cjs');
 const { folderDeletionMethod } = require('./services/folder-deletion/folder-deletion-service.cjs');
 const { fileEditingMethod } = require('./services/file-editing/file-editing-service.cjs');
@@ -21,6 +21,7 @@ async function devStarterCleanupGuideMethod() {
     const selectedLang = await selectLanguage();
     const texts = languages[selectedLang];
 
+    logWarning(texts.dependencyAlertMissingNodeModulesOrLockFile);
     log(texts.title, 'cyan');
 
     // TODO SECTION 2
@@ -45,10 +46,21 @@ async function devStarterCleanupGuideMethod() {
       if (fs.existsSync(item.path)) {
         logBlankLine();
         await criticalFileFolderDeletingMethod(texts, item);
-      } else {}
+      } else {
+      }
     }
+
+    // TODO SECTION 5
+    logBlankLine();
+    logBlankLine();
+    logBlankLine();
+    logSuccess(texts.cleanupCompleted);
+    logWarning(texts.recommendFreshInstall);
+    logWarning(texts.runDevAndTest);
+    logSuccess(texts.goodWorkWish);
   } catch (error) {
-    //
+    logError(error.message);
+    process.exit(1);
   }
 }
 
