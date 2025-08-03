@@ -1,32 +1,59 @@
-# Açıklama:
-# Projenin kök dizininden başlayarak tüm .ts ve .tsx uzantılı dosyaları ESLint ile tarar.
-# --ext ts,tsx → Yalnızca TypeScript (.ts) ve TypeScript React (.tsx) dosyaları denetlenir.
-# --max-warnings 0 → Uyarı (warning) sayısı 0'dan fazla olursa işlem hata olarak kabul edilir ve başarısız olur.
-# Bu komut CI/CD süreçlerinde kod kalitesini garanti altına almak için kullanılır.
+# 🛠️ ESLint & Prettier Command Reference Guide
+
+## ESLint Commands
+
+### 🔍 Strict Code Quality Check
+```bash
 npx eslint . --ext ts,tsx --max-warnings 0
+```
+**Purpose:** Performs a thorough TypeScript/React code quality scan from the project root.
+- `--ext ts,tsx`: Targets TypeScript (.ts) and TypeScript React (.tsx) files
+- `--max-warnings 0`: Fails if any warnings are detected
+- **Use Case:** Essential for CI/CD pipelines to ensure code quality standards
 
-
-# Açıklama:
-# Projenin kök dizininden başlayarak tüm .ts ve .tsx uzantılı dosyaları ESLint ile denetler.
-# --ext ts,tsx → Sadece TypeScript (.ts) ve TypeScript React (.tsx) dosyalarını kontrol eder.
-# --fix → ESLint'in otomatik düzeltebildiği tüm hataları ve stil problemlerini otomatik olarak düzeltir.
-# Bu komut, kod stilini düzeltmek ve küçük hataları elle uğraşmadan gidermek için kullanılır.
+### 🔧 Auto-Fix Code Issues
+```bash
 npx eslint . --ext ts,tsx --fix
+```
+**Purpose:** Scans and automatically fixes fixable code issues.
+- `--ext ts,tsx`: Focuses on TypeScript and React files
+- `--fix`: Automatically resolves fixable issues
+- **Use Case:** Quick code cleanup and standardization
 
+## Prettier Commands
 
-# Açıklama:
-# Projenin kök dizininden itibaren tüm dosyaları tarar.
-# Prettier kurallarına uymayan dosyaları listeler.
-# Otomatik düzeltme yapmaz, sadece hangi dosyaların bozuk olduğunu gösterir.
+### ⚡ Quick Format Check
+```bash
 npx prettier . --check
+```
+**Purpose:** Rapid identification of files that need formatting.
+- Scans all files from project root
+- Reports files that don't meet Prettier standards
+- **Use Case:** Pre-commit validation and code review preparation
 
-
-# Açıklama:
-# Prettier kurallarına uymayan dosyaları otomatik olarak düzeltir.
-# Genellikle CI öncesi veya commit öncesi kullanılır.
+### ✨ Format All Files
+```bash
 npx prettier . --write
+```
+**Purpose:** Comprehensive codebase formatting.
+- Automatically formats all supported files
+- Ensures consistent code style
+- **Use Case:** Bulk formatting before commits or releases
 
-
-# Açıklama:
-# npx prettier . --write komutu tüm dosyaları tarar ve düzeltir. Tel bir dosya düzeltilmek istenirse aşağıdaki komut çalıştırılmalıdır.
+### 🎯 Format Specific Files
+```bash
 npx prettier "src/**/*.{ts,tsx,js,jsx,json,css,md}" --check
+```
+**Purpose:** Targeted formatting for specific file types.
+- Customizable file pattern matching
+- Supports multiple file extensions
+- **Use Case:** Focused formatting during development
+
+## 📝 Best Practices
+1. Run ESLint checks before committing code
+2. Use Prettier formatting as part of your pre-commit hooks
+3. Combine both tools for optimal code quality
+4. Regular formatting maintains consistent codebase style
+
+---
+> **Pro Tip:** Consider integrating these commands into your IDE for real-time feedback and automatic formatting on save.
