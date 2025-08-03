@@ -3,6 +3,7 @@
 const fs = require('fs');
 const { logWarning, logInfo, logSuccess, logError } = require('../../utils/logger-methods.cjs');
 const { textInput } = require('../../utils/helper-methods.cjs');
+const { execSync } = require('child_process');
 
 async function editingEnvFileMethod(texts, envFilePath) {
   try {
@@ -151,7 +152,7 @@ function processBlocks(content, blockDefs) {
       i++;
     }
   }
-  
+
   return result.join('\n');
 }
 
@@ -172,9 +173,22 @@ async function editingBlockActivateAndDelete(texts, item) {
   }
 }
 
+async function fixWithPrettierAndEslint(texts, item) {
+  try {
+    logInfo(texts[item.fileFormattedTitle]);
+    execSync(`npx prettier --write "${item.path}"`, { stdio: 'inherit' });
+    execSync(`npx eslint "${item.path}" --fix`, { stdio: 'inherit' });
+    logSuccess(texts[item.fileFormattedSuccess]);
+  } catch (error) {
+    logWarning(texts[item.fileFormattedError]);
+    logError(error?.message);
+  }
+}
+
 module.exports = {
   editingEnvFileMethod,
   editingPackageJsonFileMethod,
   editingUsersJsonFileMethod,
   editingBlockActivateAndDelete,
+  fixWithPrettierAndEslint,
 };

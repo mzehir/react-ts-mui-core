@@ -8,6 +8,7 @@ const {
   editingPackageJsonFileMethod,
   editingUsersJsonFileMethod,
   editingBlockActivateAndDelete,
+  fixWithPrettierAndEslint,
 } = require('./file-editing-helper-services.cjs');
 
 function checkFilesToEditing(fileEditingList) {
@@ -60,6 +61,12 @@ async function fileEditingMethod(texts) {
   for (const item of itemsToBeBlocked) {
     logBlankLine();
     await editingBlockActivateAndDelete(texts, item);
+  }
+
+  const itemsToBeFormatted = existingFiles.filter((file) => file.isFormatted);
+  for (const item of itemsToBeFormatted) {
+    logBlankLine();
+    await fixWithPrettierAndEslint(texts, item);
   }
 }
 
