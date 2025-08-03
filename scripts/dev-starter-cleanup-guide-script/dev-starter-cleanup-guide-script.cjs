@@ -2,7 +2,7 @@
 /* eslint-disable */
 
 const fs = require('fs');
-const { log, logBlankLine, logWarning, logSuccess } = require('./utils/logger-methods.cjs');
+const { log, logBlankLine, logWarning, logSuccess, logError } = require('./utils/logger-methods.cjs');
 const { selectLanguage } = require('./language/language-helper.cjs');
 const { folderDeletionMethod } = require('./services/folder-deletion/folder-deletion-service.cjs');
 const { fileEditingMethod } = require('./services/file-editing/file-editing-service.cjs');
