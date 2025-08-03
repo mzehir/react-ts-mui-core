@@ -112,24 +112,26 @@ async function editingUsersJsonFileMethod(texts, usersJsonFilePath) {
 }
 
 function processBlocks(content, blockDefs) {
-  // blockDefs: [{ type: 'delete'|'activate', start: '...', end: '...' }]
   let lines = content.split('\n');
   let result = [];
   let i = 0;
+
   while (i < lines.length) {
     let matched = false;
+
     for (const def of blockDefs) {
       if (lines[i].includes(def.start)) {
         matched = true;
+
         let block = [];
         let j = i + 1;
+
         while (j < lines.length && !lines[j].includes(def.end)) {
           block.push(lines[j]);
           j++;
         }
-        // j şu anda end satırında
+
         if (def.type === 'activate') {
-          // Yorumdan çıkar (// veya {/* ... */} gibi)
           block = block.map((l) =>
             l
               .replace(/^\s*\/\/ ?/, '')
@@ -138,16 +140,18 @@ function processBlocks(content, blockDefs) {
           );
           result = result.concat(block);
         }
-        // delete ise hiçbir şey ekleme (blok ve start/end satırları tamamen silinir)
+
         i = j + 1;
         break;
       }
     }
+
     if (!matched) {
       result.push(lines[i]);
       i++;
     }
   }
+  
   return result.join('\n');
 }
 
