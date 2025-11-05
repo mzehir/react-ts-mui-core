@@ -1,4 +1,4 @@
-# Hello, welcome to Dev Starter!
+# Hello, welcome to Dev Starter! 
 
 Dev Starter: A Starter Project Offering Speed, Flexibility, and Power to Developers
 
