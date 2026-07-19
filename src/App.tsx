@@ -24,7 +24,7 @@ import '@fontsource/roboto/700.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-// Register AG Grid modules
+// Register AG Grid modules - lorem ipsum
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 function App() {
